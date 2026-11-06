@@ -1,0 +1,211 @@
+..............................................                           [100%]
+=================================== PASSES ====================================
+_____________________ test_reconciliation_graine_typique ______________________
+---------------------------- Captured stdout call -----------------------------
+53 périodes ; résultat de placement = parts × ΔVL, pire écart à 30% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 53} ; TWR et MWR de signes opposés : 6
+___________________________ test_mwr_graine_typique ___________________________
+---------------------------- Captured stdout call -----------------------------
+motifs {'ok': 53}, pire écart à la bissection 5.0e-11, signes opposés 6
+____________________________ test_mwr_cas_limites _____________________________
+---------------------------- Captured stdout call -----------------------------
+simple : moteur (0.09999999999999994, 'ok'), bissection (0.09999999999999998, 'ok')
+sans signe : moteur (None, 'aucun changement de signe'), bissection (None, 'aucun changement de signe')
+deux racines : moteur (None, 'plusieurs racines'), bissection (None, 'plusieurs racines')
+____________________ test_reconciliation_graine[20261103] _____________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 53 périodes ; résultat de placement = parts × ΔVL, pire écart à 30% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 53} ; TWR et MWR de signes opposés : 6
+________________________ test_reconciliation_graine[1] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 1 : 66 périodes ; résultat de placement = parts × ΔVL, pire écart à 50% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 59, 'aucun changement de signe': 7} ; TWR et MWR de signes opposés : 1
+________________________ test_reconciliation_graine[2] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 2 : 58 périodes ; résultat de placement = parts × ΔVL, pire écart à 63% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'ok': 51, 'aucun changement de signe': 7} ; TWR et MWR de signes opposés : 4
+________________________ test_reconciliation_graine[3] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 3 : 68 périodes ; résultat de placement = parts × ΔVL, pire écart à 55% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'ok': 59, 'aucun changement de signe': 9} ; TWR et MWR de signes opposés : 2
+________________________ test_reconciliation_graine[4] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 4 : 66 périodes ; résultat de placement = parts × ΔVL, pire écart à 60% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 60, 'aucun changement de signe': 6} ; TWR et MWR de signes opposés : 3
+________________________ test_reconciliation_graine[5] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 5 : 64 périodes ; résultat de placement = parts × ΔVL, pire écart à 62% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 55, 'aucun changement de signe': 9} ; TWR et MWR de signes opposés : 3
+________________________ test_reconciliation_graine[6] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 6 : 65 périodes ; résultat de placement = parts × ΔVL, pire écart à 53% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'ok': 65} ; TWR et MWR de signes opposés : 0
+________________________ test_reconciliation_graine[7] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 7 : 64 périodes ; résultat de placement = parts × ΔVL, pire écart à 45% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'aucun changement de signe': 4, 'ok': 60} ; TWR et MWR de signes opposés : 0
+________________________ test_reconciliation_graine[8] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 8 : 67 périodes ; résultat de placement = parts × ΔVL, pire écart à 50% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'ok': 63, 'aucun changement de signe': 4} ; TWR et MWR de signes opposés : 0
+________________________ test_reconciliation_graine[9] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 9 : 72 périodes ; résultat de placement = parts × ΔVL, pire écart à 38% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 72} ; TWR et MWR de signes opposés : 4
+_______________________ test_reconciliation_graine[10] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 10 : 68 périodes ; résultat de placement = parts × ΔVL, pire écart à 79% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 61, 'aucun changement de signe': 7} ; TWR et MWR de signes opposés : 0
+_______________________ test_reconciliation_graine[11] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 11 : 62 périodes ; résultat de placement = parts × ΔVL, pire écart à 69% de sa borne ; MWR par bissection, pire écart 4.7e-11 ; motifs {'ok': 62} ; TWR et MWR de signes opposés : 4
+_______________________ test_reconciliation_graine[12] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 12 : 67 périodes ; résultat de placement = parts × ΔVL, pire écart à 29% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'aucun changement de signe': 3, 'ok': 64} ; TWR et MWR de signes opposés : 10
+_______________________ test_reconciliation_graine[13] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 13 : 58 périodes ; résultat de placement = parts × ΔVL, pire écart à 98% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 57, 'aucun changement de signe': 1} ; TWR et MWR de signes opposés : 0
+_______________________ test_reconciliation_graine[14] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 14 : 67 périodes ; résultat de placement = parts × ΔVL, pire écart à 63% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 66, 'aucun changement de signe': 1} ; TWR et MWR de signes opposés : 4
+_______________________ test_reconciliation_graine[15] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 15 : 68 périodes ; résultat de placement = parts × ΔVL, pire écart à 46% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 61, 'aucun changement de signe': 7} ; TWR et MWR de signes opposés : 3
+_______________________ test_reconciliation_graine[16] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 16 : 66 périodes ; résultat de placement = parts × ΔVL, pire écart à 34% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'ok': 59, 'aucun changement de signe': 7} ; TWR et MWR de signes opposés : 5
+_______________________ test_reconciliation_graine[17] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 17 : 67 périodes ; résultat de placement = parts × ΔVL, pire écart à 65% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 45, 'aucun changement de signe': 22} ; TWR et MWR de signes opposés : 2
+_______________________ test_reconciliation_graine[18] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 18 : 60 périodes ; résultat de placement = parts × ΔVL, pire écart à 41% de sa borne ; MWR par bissection, pire écart 5.0e-11 ; motifs {'ok': 58, 'aucun changement de signe': 2} ; TWR et MWR de signes opposés : 5
+_______________________ test_reconciliation_graine[19] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 19 : 68 périodes ; résultat de placement = parts × ΔVL, pire écart à 68% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'ok': 63, 'aucun changement de signe': 5} ; TWR et MWR de signes opposés : 6
+_______________________ test_reconciliation_graine[20] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20 : 74 périodes ; résultat de placement = parts × ΔVL, pire écart à 92% de sa borne ; MWR par bissection, pire écart 4.9e-11 ; motifs {'ok': 72, 'aucun changement de signe': 2} ; TWR et MWR de signes opposés : 4
+__________________________ test_mwr_graine[20261103] __________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : motifs {'ok': 53}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[1] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 1 : motifs {'ok': 59, 'aucun changement de signe': 7}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[2] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 2 : motifs {'ok': 51, 'aucun changement de signe': 7}, pire écart à la bissection 4.9e-11
+_____________________________ test_mwr_graine[3] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 3 : motifs {'ok': 59, 'aucun changement de signe': 9}, pire écart à la bissection 4.9e-11
+_____________________________ test_mwr_graine[4] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 4 : motifs {'ok': 60, 'aucun changement de signe': 6}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[5] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 5 : motifs {'ok': 55, 'aucun changement de signe': 9}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[6] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 6 : motifs {'ok': 65}, pire écart à la bissection 4.9e-11
+_____________________________ test_mwr_graine[7] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 7 : motifs {'aucun changement de signe': 4, 'ok': 60}, pire écart à la bissection 4.9e-11
+_____________________________ test_mwr_graine[8] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 8 : motifs {'ok': 63, 'aucun changement de signe': 4}, pire écart à la bissection 4.9e-11
+_____________________________ test_mwr_graine[9] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 9 : motifs {'ok': 72}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[10] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 10 : motifs {'ok': 61, 'aucun changement de signe': 7}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[11] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 11 : motifs {'ok': 62}, pire écart à la bissection 4.7e-11
+_____________________________ test_mwr_graine[12] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 12 : motifs {'aucun changement de signe': 3, 'ok': 64}, pire écart à la bissection 4.9e-11
+_____________________________ test_mwr_graine[13] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 13 : motifs {'ok': 57, 'aucun changement de signe': 1}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[14] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 14 : motifs {'ok': 66, 'aucun changement de signe': 1}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[15] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 15 : motifs {'ok': 61, 'aucun changement de signe': 7}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[16] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 16 : motifs {'ok': 59, 'aucun changement de signe': 7}, pire écart à la bissection 4.9e-11
+_____________________________ test_mwr_graine[17] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 17 : motifs {'ok': 45, 'aucun changement de signe': 22}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[18] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 18 : motifs {'ok': 58, 'aucun changement de signe': 2}, pire écart à la bissection 5.0e-11
+_____________________________ test_mwr_graine[19] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 19 : motifs {'ok': 63, 'aucun changement de signe': 5}, pire écart à la bissection 4.9e-11
+_____________________________ test_mwr_graine[20] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20 : motifs {'ok': 72, 'aucun changement de signe': 2}, pire écart à la bissection 4.9e-11
+___________________________ test_mwr_bilan_graines ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 53 périodes, motifs {'ok': 53}, TWR et MWR de signes opposés 6
+graine 1 : 66 périodes, motifs {'ok': 59, 'aucun changement de signe': 7}, TWR et MWR de signes opposés 1
+graine 2 : 58 périodes, motifs {'ok': 51, 'aucun changement de signe': 7}, TWR et MWR de signes opposés 4
+graine 3 : 68 périodes, motifs {'ok': 59, 'aucun changement de signe': 9}, TWR et MWR de signes opposés 2
+graine 4 : 66 périodes, motifs {'ok': 60, 'aucun changement de signe': 6}, TWR et MWR de signes opposés 3
+graine 5 : 64 périodes, motifs {'ok': 55, 'aucun changement de signe': 9}, TWR et MWR de signes opposés 3
+graine 6 : 65 périodes, motifs {'ok': 65}, TWR et MWR de signes opposés 0
+graine 7 : 64 périodes, motifs {'aucun changement de signe': 4, 'ok': 60}, TWR et MWR de signes opposés 0
+graine 8 : 67 périodes, motifs {'ok': 63, 'aucun changement de signe': 4}, TWR et MWR de signes opposés 0
+graine 9 : 72 périodes, motifs {'ok': 72}, TWR et MWR de signes opposés 4
+graine 10 : 68 périodes, motifs {'ok': 61, 'aucun changement de signe': 7}, TWR et MWR de signes opposés 0
+graine 11 : 62 périodes, motifs {'ok': 62}, TWR et MWR de signes opposés 4
+graine 12 : 67 périodes, motifs {'aucun changement de signe': 3, 'ok': 64}, TWR et MWR de signes opposés 10
+graine 13 : 58 périodes, motifs {'ok': 57, 'aucun changement de signe': 1}, TWR et MWR de signes opposés 0
+graine 14 : 67 périodes, motifs {'ok': 66, 'aucun changement de signe': 1}, TWR et MWR de signes opposés 4
+graine 15 : 68 périodes, motifs {'ok': 61, 'aucun changement de signe': 7}, TWR et MWR de signes opposés 3
+graine 16 : 66 périodes, motifs {'ok': 59, 'aucun changement de signe': 7}, TWR et MWR de signes opposés 5
+graine 17 : 67 périodes, motifs {'ok': 45, 'aucun changement de signe': 22}, TWR et MWR de signes opposés 2
+graine 18 : 60 périodes, motifs {'ok': 58, 'aucun changement de signe': 2}, TWR et MWR de signes opposés 5
+graine 19 : 68 périodes, motifs {'ok': 63, 'aucun changement de signe': 5}, TWR et MWR de signes opposés 6
+graine 20 : 74 périodes, motifs {'ok': 72, 'aucun changement de signe': 2}, TWR et MWR de signes opposés 4
+21 graines : 1368 périodes ; MWR par motif {'ok': 1265, 'aucun changement de signe': 103} ; signes opposés 66
+=========================== short test summary info ===========================
+PASSED tests/test_performance.py::test_reconciliation_graine_typique
+PASSED tests/test_performance.py::test_mwr_graine_typique
+PASSED tests/test_performance.py::test_mwr_cas_limites
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[20261103]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[1]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[2]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[3]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[4]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[5]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[6]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[7]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[8]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[9]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[10]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[11]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[12]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[13]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[14]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[15]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[16]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[17]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[18]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[19]
+PASSED tests/test_performance_seeds.py::test_reconciliation_graine[20]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[20261103]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[1]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[2]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[3]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[4]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[5]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[6]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[7]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[8]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[9]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[10]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[11]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[12]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[13]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[14]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[15]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[16]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[17]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[18]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[19]
+PASSED tests/test_performance_seeds.py::test_mwr_graine[20]
+PASSED tests/test_performance_seeds.py::test_mwr_bilan_graines
+46 passed, 52 deselected in 90.44s (0:01:30)

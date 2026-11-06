@@ -1,0 +1,4 @@
+institution_id,name,strategy_profile,opened_at,choice_reason,risk_appetite,fee_level,savings_weight_prior
+I1,Société 1,balanced,2023-11-28,portefeuilles clés en main,0.6058,0.9953,0.2276
+I2,Société 2,prudent,2024-01-19,frais bas,0.3567,0.8449,0.4706
+I3,Société 3,growth,2021-11-19,héritage de produits,0.8183,1.1527,0.3018

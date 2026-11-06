@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "navGroupe3",
+  "position": {
+    "x": 2.4,
+    "y": 185.6,
+    "z": 3000,
+    "height": 60,
+    "width": 85.6,
+    "tabOrder": 2000
+  },
+  "visualGroup": {
+    "displayName": "Menu-P3",
+    "groupMode": "ScaleMode"
+  }
+}

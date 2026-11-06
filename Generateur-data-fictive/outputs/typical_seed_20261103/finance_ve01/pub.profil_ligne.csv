@@ -1,0 +1,157 @@
+code_fa,date_donnees,section,ordre,libelle,poids,parent
+F101,2021-11-01,actuelle,1,Actions,34.49,
+F101,2021-11-01,actuelle,2,Actions de marché large (fictif),9.90,Actions
+F101,2021-11-01,actuelle,3,Actions à dividendes (fictif),16.72,Actions
+F101,2021-11-01,actuelle,4,Actions de qualité (fictif),1.87,Actions
+F101,2021-11-01,actuelle,5,Actions de valeur (fictif),6.00,Actions
+F101,2021-11-01,actuelle,6,Titres à revenu fixe,56.91,
+F101,2021-11-01,actuelle,7,Obligations (fictif),56.91,Titres à revenu fixe
+F101,2021-11-01,actuelle,8,Alternatifs,3.69,
+F101,2021-11-01,actuelle,9,Actifs réels (fictif),3.69,Alternatifs
+F101,2021-11-01,actuelle,10,Trésorerie et équivalents,4.93,
+F101,2021-11-01,actuelle,11,Trésorerie (fictif),4.93,Trésorerie et équivalents
+F101,2021-11-01,cible,12,Actions,35.00,
+F101,2021-11-01,cible,13,Titres à revenu fixe,55.00,
+F101,2021-11-01,cible,14,Alternatifs,5.00,
+F101,2021-11-01,cible,15,Trésorerie et équivalents,5.00,
+F101,2021-11-01,pays,16,Canada,68.96,
+F101,2021-11-01,pays,17,États-Unis,19.64,
+F101,2021-11-01,pays,18,Europe,6.77,
+F101,2021-11-01,pays,19,Bassin du Pacifique,1.98,
+F101,2021-11-01,pays,20,Marchés émergents,1.65,
+F101,2021-11-01,pays,21,Autres,1.00,
+F102,2021-11-01,actuelle,1,Actions,55.48,
+F102,2021-11-01,actuelle,2,Actions de marché large (fictif),27.11,Actions
+F102,2021-11-01,actuelle,3,Actions à dividendes (fictif),9.29,Actions
+F102,2021-11-01,actuelle,4,Actions de croissance (fictif),7.19,Actions
+F102,2021-11-01,actuelle,5,Actions de valeur (fictif),11.89,Actions
+F102,2021-11-01,actuelle,6,Titres à revenu fixe,38.89,
+F102,2021-11-01,actuelle,7,Obligations (fictif),38.89,Titres à revenu fixe
+F102,2021-11-01,actuelle,8,Alternatifs,3.03,
+F102,2021-11-01,actuelle,9,Actifs réels (fictif),3.03,Alternatifs
+F102,2021-11-01,actuelle,10,Trésorerie et équivalents,2.61,
+F102,2021-11-01,actuelle,11,Trésorerie (fictif),2.61,Trésorerie et équivalents
+F102,2021-11-01,cible,12,Actions,60.00,
+F102,2021-11-01,cible,13,Titres à revenu fixe,35.00,
+F102,2021-11-01,cible,14,Alternatifs,3.00,
+F102,2021-11-01,cible,15,Trésorerie et équivalents,2.00,
+F102,2021-11-01,pays,16,Canada,52.72,
+F102,2021-11-01,pays,17,États-Unis,30.14,
+F102,2021-11-01,pays,18,Europe,8.20,
+F102,2021-11-01,pays,19,Marchés émergents,4.14,
+F102,2021-11-01,pays,20,Bassin du Pacifique,3.63,
+F102,2021-11-01,pays,21,Autres,1.17,
+F103,2021-11-01,actuelle,1,Actions,84.80,
+F103,2021-11-01,actuelle,2,Actions de marché large (fictif),35.88,Actions
+F103,2021-11-01,actuelle,3,Actions à dividendes (fictif),11.00,Actions
+F103,2021-11-01,actuelle,4,Actions de croissance (fictif),25.30,Actions
+F103,2021-11-01,actuelle,5,Actions de valeur (fictif),12.62,Actions
+F103,2021-11-01,actuelle,6,Titres à revenu fixe,11.01,
+F103,2021-11-01,actuelle,7,Obligations (fictif),11.01,Titres à revenu fixe
+F103,2021-11-01,actuelle,8,Alternatifs,1.90,
+F103,2021-11-01,actuelle,9,Actifs réels (fictif),1.90,Alternatifs
+F103,2021-11-01,actuelle,10,Trésorerie et équivalents,2.29,
+F103,2021-11-01,actuelle,11,Trésorerie (fictif),2.29,Trésorerie et équivalents
+F103,2021-11-01,cible,12,Actions,85.00,
+F103,2021-11-01,cible,13,Titres à revenu fixe,10.00,
+F103,2021-11-01,cible,14,Alternatifs,3.00,
+F103,2021-11-01,cible,15,Trésorerie et équivalents,2.00,
+F103,2021-11-01,pays,16,États-Unis,39.39,
+F103,2021-11-01,pays,17,Canada,34.18,
+F103,2021-11-01,pays,18,Europe,17.44,
+F103,2021-11-01,pays,19,Marchés émergents,5.30,
+F103,2021-11-01,pays,20,Bassin du Pacifique,3.53,
+F103,2021-11-01,pays,21,Autres,0.16,
+F104,2021-11-01,actif,1,Actions,97.35,
+F104,2021-11-01,actif,2,Trésorerie et équivalents,2.65,
+F104,2021-11-01,pays,3,Canada,93.24,
+F104,2021-11-01,pays,4,États-Unis,6.76,
+F105,2021-11-01,actif,1,Actions,96.57,
+F105,2021-11-01,actif,2,Trésorerie et équivalents,3.43,
+F105,2021-11-01,pays,3,États-Unis,62.59,
+F105,2021-11-01,pays,4,Europe,20.07,
+F105,2021-11-01,pays,5,Bassin du Pacifique,9.02,
+F105,2021-11-01,pays,6,Canada,4.54,
+F105,2021-11-01,pays,7,Marchés émergents,3.78,
+F106,2021-11-01,actif,1,Actions,97.73,
+F106,2021-11-01,actif,2,Trésorerie et équivalents,2.27,
+F106,2021-11-01,pays,3,Canada,90.72,
+F106,2021-11-01,pays,4,États-Unis,9.28,
+F201,2021-11-01,actuelle,1,Titres à revenu fixe,92.90,
+F201,2021-11-01,actuelle,2,Obligations (fictif),92.90,Titres à revenu fixe
+F201,2021-11-01,actuelle,3,Trésorerie et équivalents,7.10,
+F201,2021-11-01,actuelle,4,Trésorerie (fictif),7.10,Trésorerie et équivalents
+F201,2021-11-01,cible,5,Titres à revenu fixe,100.00,
+F201,2021-11-01,pays,6,Canada,88.50,
+F201,2021-11-01,pays,7,États-Unis,6.48,
+F201,2021-11-01,pays,8,Europe,4.33,
+F201,2021-11-01,pays,9,Autres,0.70,
+F202,2021-11-01,actuelle,1,Actions,13.96,
+F202,2021-11-01,actuelle,2,Actions à dividendes (fictif),9.24,Actions
+F202,2021-11-01,actuelle,3,Actions de valeur (fictif),4.72,Actions
+F202,2021-11-01,actuelle,4,Alternatifs,82.12,
+F202,2021-11-01,actuelle,5,Actifs réels (fictif),82.12,Alternatifs
+F202,2021-11-01,actuelle,6,Trésorerie et équivalents,3.92,
+F202,2021-11-01,actuelle,7,Trésorerie (fictif),3.92,Trésorerie et équivalents
+F202,2021-11-01,cible,8,Actions,15.00,
+F202,2021-11-01,cible,9,Alternatifs,80.00,
+F202,2021-11-01,cible,10,Trésorerie et équivalents,5.00,
+F202,2021-11-01,pays,11,États-Unis,37.97,
+F202,2021-11-01,pays,12,Canada,32.17,
+F202,2021-11-01,pays,13,Europe,17.39,
+F202,2021-11-01,pays,14,Bassin du Pacifique,12.48,
+F203,2021-11-01,actuelle,1,Actions,30.52,
+F203,2021-11-01,actuelle,2,Actions de marché large (fictif),9.33,Actions
+F203,2021-11-01,actuelle,3,Actions à dividendes (fictif),10.49,Actions
+F203,2021-11-01,actuelle,4,Actions de qualité (fictif),2.82,Actions
+F203,2021-11-01,actuelle,5,Actions de valeur (fictif),7.88,Actions
+F203,2021-11-01,actuelle,6,Titres à revenu fixe,57.14,
+F203,2021-11-01,actuelle,7,Obligations (fictif),57.14,Titres à revenu fixe
+F203,2021-11-01,actuelle,8,Alternatifs,6.79,
+F203,2021-11-01,actuelle,9,Actifs réels (fictif),6.79,Alternatifs
+F203,2021-11-01,actuelle,10,Trésorerie et équivalents,5.54,
+F203,2021-11-01,actuelle,11,Trésorerie (fictif),5.54,Trésorerie et équivalents
+F203,2021-11-01,cible,12,Actions,35.00,
+F203,2021-11-01,cible,13,Titres à revenu fixe,55.00,
+F203,2021-11-01,cible,14,Alternatifs,5.00,
+F203,2021-11-01,cible,15,Trésorerie et équivalents,5.00,
+F203,2021-11-01,pays,16,Canada,64.65,
+F203,2021-11-01,pays,17,États-Unis,20.04,
+F203,2021-11-01,pays,18,Europe,9.31,
+F203,2021-11-01,pays,19,Bassin du Pacifique,4.93,
+F203,2021-11-01,pays,20,Autres,0.57,
+F203,2021-11-01,pays,21,Marchés émergents,0.50,
+F204,2021-11-01,actuelle,1,Actions,56.48,
+F204,2021-11-01,actuelle,2,Actions de marché large (fictif),21.59,Actions
+F204,2021-11-01,actuelle,3,Actions à dividendes (fictif),14.58,Actions
+F204,2021-11-01,actuelle,4,Actions de croissance (fictif),9.64,Actions
+F204,2021-11-01,actuelle,5,Actions de valeur (fictif),10.67,Actions
+F204,2021-11-01,actuelle,6,Titres à revenu fixe,38.61,
+F204,2021-11-01,actuelle,7,Obligations (fictif),38.61,Titres à revenu fixe
+F204,2021-11-01,actuelle,8,Alternatifs,2.05,
+F204,2021-11-01,actuelle,9,Actifs réels (fictif),2.05,Alternatifs
+F204,2021-11-01,actuelle,10,Trésorerie et équivalents,2.85,
+F204,2021-11-01,actuelle,11,Trésorerie (fictif),2.85,Trésorerie et équivalents
+F204,2021-11-01,cible,12,Actions,60.00,
+F204,2021-11-01,cible,13,Titres à revenu fixe,35.00,
+F204,2021-11-01,cible,14,Alternatifs,3.00,
+F204,2021-11-01,cible,15,Trésorerie et équivalents,2.00,
+F204,2021-11-01,pays,16,Canada,53.07,
+F204,2021-11-01,pays,17,États-Unis,28.50,
+F204,2021-11-01,pays,18,Europe,10.93,
+F204,2021-11-01,pays,19,Marchés émergents,3.47,
+F204,2021-11-01,pays,20,Bassin du Pacifique,3.43,
+F204,2021-11-01,pays,21,Autres,0.60,
+F301,2021-11-01,secteur,1,Trésorerie et équivalents,100.00,
+F302,2021-11-01,actif,1,Actions,97.33,
+F302,2021-11-01,actif,2,Trésorerie et équivalents,2.67,
+F302,2021-11-01,pays,3,États-Unis,99.00,
+F302,2021-11-01,pays,4,Canada,1.00,
+F303,2021-11-01,actif,1,Actions,98.00,
+F303,2021-11-01,actif,2,Trésorerie et équivalents,2.00,
+F303,2021-11-01,pays,3,Canada,94.27,
+F303,2021-11-01,pays,4,États-Unis,5.73,
+F304,2021-11-01,actif,1,Actions,97.01,
+F304,2021-11-01,actif,2,Trésorerie et équivalents,2.99,
+F304,2021-11-01,pays,3,États-Unis,64.67,
+F304,2021-11-01,pays,4,Canada,35.33,

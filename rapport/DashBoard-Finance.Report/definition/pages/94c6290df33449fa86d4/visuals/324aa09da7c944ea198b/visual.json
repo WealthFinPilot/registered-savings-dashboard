@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "324aa09da7c944ea198b",
+  "position": {
+    "x": 940,
+    "y": 96,
+    "z": 20000,
+    "height": 120,
+    "width": 196,
+    "tabOrder": 12000
+  },
+  "visualGroup": {
+    "displayName": "Carte-REER-60-jours",
+    "groupMode": "ScaleMode"
+  }
+}

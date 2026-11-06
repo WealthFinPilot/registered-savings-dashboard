@@ -1,0 +1,1245 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Par régime",
+  "name": "416eb3e38a4b53779260",
+  "options": {
+    "targetVisualNames": [],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "3d5f7a9c1e2b4d6f8a10",
+    "sections": {
+      "3d5f7a9c1e2b4d6f8a10": {
+        "visualContainers": {
+          "3a1b2c3d4e5f6a7b8c01": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "54402a70813d3a60e9b5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Date des profils"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "3a1b2c3d4e5f6a7b8c02": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "40de025b0b01b091c48d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "RFG pondéré"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "08136e57892583ea016c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Frais de gestion de l'année"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fe3b52e01c0753210400",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Coût total"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "268fbde676310e2d0554",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Tranche de frais de gestion"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b4ffd8549e21070e4952",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Distance au seuil"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "3a1b2c3d4e5f6a7b8c06": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "774c36808b2d62cdb60e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fonds"
+                        }
+                      },
+                      "Property": "Fonds"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fonds"
+                        }
+                      },
+                      "Property": "Fonds"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4b1c2d3e4f5a6b7c8d06": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "71af523cd210813d9740",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Compte"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0814f9300d639608c104",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "RFG pondéré"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "81f90266870b75d20736",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Frais de gestion de l'année"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bc24f598b28e03b5dd09",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Coût total"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Coût total"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "528b4b5d31c18e53d414": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "a1c3e5f7092b4d6f8a01": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f1c3e5f7092b4d6f8a010",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "e",
+                        "Entity": "Exposition",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "e"
+                                    }
+                                  },
+                                  "Property": "Axe"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Classe d''actif'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Axe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "53b1426b036b5d46498e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3d646443776e75cc758d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "a1c3e5f7092b4d6f8a02": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f1c3e5f7092b4d6f8a020",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "e",
+                        "Entity": "Exposition",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "e"
+                                    }
+                                  },
+                                  "Property": "Axe"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Style'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Axe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "858818a59ee00253a052",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fdd0219192e195a1aac7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "a1c3e5f7092b4d6f8a03": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f1c3e5f7092b4d6f8a030",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "e",
+                        "Entity": "Exposition",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "e"
+                                    }
+                                  },
+                                  "Property": "Axe"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Géographie'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Axe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "cdf11f55bd0e663020e8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e869a02308b6c88283c0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "bc6d3e42200d9047eb04": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4f1a2b3c4d5e6f7a8b15",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "e",
+                        "Entity": "Exposition",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "e"
+                                    }
+                                  },
+                                  "Property": "Axe"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Géographie'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Axe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "5e4bcf616ad1308ba17b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3d032de54e7097d46987",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bfa75bf56b0a2950078a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition par régime"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "hundredPercentStackedBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "calque_4b1c2d3e4f5a6b7c8": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "calque_bc6d3e42200d9047e": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "calque_efa451766cb40bbc4": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "calque_f9edc316555e903e6": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "efa451766cb40bbc4033": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4f1a2b3c4d5e6f7a8b14",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "e",
+                        "Entity": "Exposition",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "e"
+                                    }
+                                  },
+                                  "Property": "Axe"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Style'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Axe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "8b84da7bac018a631300",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7a228184104635146c80",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "01fe2fea4d0550612ec7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition par régime"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "hundredPercentStackedBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f9edc316555e903e6092": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4f1a2b3c4d5e6f7a8b13",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "e",
+                        "Entity": "Exposition",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "e"
+                                    }
+                                  },
+                                  "Property": "Axe"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Classe d''actif'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Axe"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "401c05cf2be2a1921756",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b7fce05a0d4c8064072b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Exposition"
+                        }
+                      },
+                      "Property": "Catégorie"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2a46dbe433a4697cd024",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Part de l'exposition par régime"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "hundredPercentStackedBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Axe régime"
+                        }
+                      },
+                      "Property": "Régime"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "navActif": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "navBouton1": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "navBouton2": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "navBouton3": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "navBouton4": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "navBouton5": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "navIcone1": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "navIcone2": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "navIcone3": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "navIcone4": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "navIcone5": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "navRail": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "vueActif_regimes": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "vueActif_ensemble": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "vuePiste": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "vueRepos_ensemble": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "vueRepos_regimes": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "vueBouton_ensemble": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "vueBouton_regimes": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

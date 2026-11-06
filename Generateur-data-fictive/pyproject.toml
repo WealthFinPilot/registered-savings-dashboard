@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthetic-finance"
+version = "0.1.0"
+description = "Générateur de patrimoine financier entièrement synthétique (données non réelles)"
+requires-python = ">=3.14"
+dependencies = ["numpy>=2.3"]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "hypothesis>=6.100"]
+finance = ["psycopg[binary]>=3.2"]   # chargeur de la racine (scripts/charger_synthetique.py), hors du paquet
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

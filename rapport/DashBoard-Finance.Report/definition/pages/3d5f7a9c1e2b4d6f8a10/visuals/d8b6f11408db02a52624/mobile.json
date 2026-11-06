@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.9.0/schema.json",
+  "position": {
+    "x": 8,
+    "y": 8,
+    "z": 29000,
+    "height": 48,
+    "width": 308,
+    "tabOrder": 0
+  },
+  "objects": {
+    "layout": [
+      {
+        "properties": {
+          "autoGrid": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "rowCount": {
+            "expr": {
+              "Literal": {
+                "Value": "1L"
+              }
+            }
+          },
+          "columnCount": {
+            "expr": {
+              "Literal": {
+                "Value": "3L"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "selection": [],
+    "data": [],
+    "general": [],
+    "actionState": [],
+    "background": [],
+    "value": [],
+    "outline": [],
+    "fillCustom": []
+  }
+}

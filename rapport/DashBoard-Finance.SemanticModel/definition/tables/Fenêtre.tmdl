@@ -1,0 +1,27 @@
+/// Sélecteur de la fenêtre des mesures de risque mesuré (P13 à P15) : 12 mois glissants jusqu'à la dernière date de rendement de la base, ou depuis le début. Table sans relation.
+table Fenêtre
+	lineageTag: d0f748cf-2e14-4c9d-a2df-11af1737b1a2
+
+	column Fenêtre
+		dataType: string
+		lineageTag: 198ef340-fd97-4d54-a12e-79c8d9301e21
+		summarizeBy: none
+		sourceColumn: Fenêtre
+		sortByColumn: ordre
+
+	column ordre
+		dataType: int64
+		isHidden
+		lineageTag: a023eef6-00b9-4031-b479-f27cc3f0e0d2
+		summarizeBy: none
+		sourceColumn: ordre
+
+	partition Fenêtre = m
+		mode: import
+		source =
+				let
+				    // Deux fenêtres, saisies ici : elles ne dépendent d'aucune donnée
+				    Source = #table(type table [Fenêtre = text, ordre = Int64.Type], {{"12 mois", 1}, {"depuis le début", 2}})
+				in
+				    Source
+

@@ -1,0 +1,15 @@
+fund_id,institution_id,archetype,fund_name,currency,inception_date,risk_profile_hint,fee_policy,mer_pct,account_fee_low_pct,account_fee_high_pct,distribution_frequency,equity_fx_hedged,fx_exposure_pct,duration_years,rate_sensitivity,top10_weight_pct,trading_cost_pct,turnover_pct,eligible_regimes
+F101,I1,conservateur,Portefeuille prudence — Société 1 (fictif),CAD,2010-11-23,Faible-Moyen,mer_in_nav+account_fee_tiered,0.31,0.95,0.80,monthly,false,22.96,4.8,2.73,25.8,0.08,11.3,CELI|CELIAPP|REER|COMP
+F102,I1,equilibre,Portefeuille pondéré — Société 1 (fictif),CAD,2015-03-17,Faible-Moyen,mer_in_nav+account_fee_tiered,0.30,0.99,0.85,annual,false,40.67,6.8,2.64,28.7,0.07,39.5,CELI|CELIAPP|REER|COMP
+F103,I1,croissance,Portefeuille dynamique — Société 1 (fictif),CAD,2019-08-19,Moyen,mer_in_nav+account_fee_tiered,0.35,1.07,0.91,annual,false,62.68,6.6,0.73,23.3,0.01,42.5,CELI|CELIAPP|REER|COMP
+F104,I1,actions_canadiennes,Actions du Canada — Société 1 (fictif),CAD,2014-03-13,Moyen,mer_in_nav+account_fee_tiered,0.31,1.04,0.90,annual,false,6.58,,,24.5,0.02,11.0,CELI|CELIAPP|REER|COMP
+F105,I1,actions_mondiales,Actions planétaires — Société 1 (fictif),CAD,2022-02-09,Moyen,mer_in_nav+account_fee_tiered,0.35,1.22,1.04,annual,false,92.18,,,18.5,0.06,52.6,CELI|CELIAPP|REER|COMP
+F106,I1,dividendes_canadiens,Rendement de dividendes Canada — Société 1 (fictif),CAD,2011-08-10,Moyen,mer_in_nav+account_fee_tiered,0.38,1.10,0.99,monthly,false,9.07,,,21.2,0.06,42.3,CELI|CELIAPP|REER|COMP
+F201,I2,obligations_canadiennes,Revenu fixe canadien — Société 2 (fictif),CAD,2017-04-18,Faible,mer_in_nav+account_fee_tiered,0.21,0.63,0.47,monthly,false,0.00,6.5,6.04,15.2,0.06,51.3,CELI|CELIAPP|REER|COMP
+F202,I2,actifs_reels,Actifs réels et infrastructures — Société 2 (fictif),CAD,2005-05-02,Moyen,mer_in_nav+account_fee_tiered,0.35,0.98,0.80,monthly,false,65.17,,,15.0,0.01,25.7,CELI|CELIAPP|REER|COMP
+F203,I2,conservateur,Portefeuille prudence — Société 2 (fictif),CAD,2006-01-13,Faible-Moyen,mer_in_nav+account_fee_tiered,0.27,0.70,0.56,monthly,false,23.98,5.2,2.97,14.3,0.04,32.3,CELI|CELIAPP|REER|COMP
+F204,I2,equilibre,Portefeuille pondéré — Société 2 (fictif),CAD,2012-06-12,Faible-Moyen,mer_in_nav+account_fee_tiered,0.27,0.83,0.72,annual,true,1.54,5.2,2.01,22.8,0.06,15.6,CELI|CELIAPP|REER|COMP
+F301,I3,monetaire,Marché monétaire — Société 3 (fictif),CAD,2022-12-16,Faible,mer_in_nav+account_fee_tiered,0.17,0.43,0.30,monthly,false,0.00,0.4,0.01,17.5,0.00,0.0,CELI|CELIAPP|REER|COMP
+F302,I3,actions_americaines,Actions des États-Unis — Société 3 (fictif),CAD,2007-07-11,Moyen,mer_in_nav+account_fee_tiered,0.45,1.35,1.24,annual,false,96.36,,,20.7,0.03,56.6,CELI|CELIAPP|REER|COMP
+F303,I3,actions_canadiennes,Actions du Canada — Société 3 (fictif),CAD,2008-03-17,Moyen,mer_in_nav+account_fee_tiered,0.44,1.29,1.10,annual,false,5.62,,,27.2,0.03,32.6,CELI|CELIAPP|REER|COMP
+F304,I3,petites_cap_nord_americaines,Petites sociétés nord-américaines — Société 3 (fictif),CAD,2013-01-10,Moyen,mer_in_nav+account_fee_tiered,0.54,1.39,1.22,annual,false,62.74,,,8.8,0.07,44.5,CELI|CELIAPP|REER|COMP

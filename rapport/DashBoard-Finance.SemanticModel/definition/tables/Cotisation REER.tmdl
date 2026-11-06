@@ -1,0 +1,61 @@
+/// Une cotisation REER par ligne, avec son année de déduction (vue rapport.mouvement) : exports et saisies hors export, y compris celles sans compte (autre institution). Table sans relation : seule la mesure REER cotisé cumulé la lit.
+table 'Cotisation REER'
+	isHidden
+	lineageTag: e4afddd1-7c47-457d-ae0b-fad66cc81c3c
+
+	/// Date de la cotisation
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: b503f337-fd54-4a56-8806-d7564b6302f6
+		summarizeBy: none
+		sourceColumn: date_mouvement
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Année de déduction : les 60 premiers jours comptent pour l'année précédente
+	column annee_droits
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c2ee4047-26da-4e06-abc6-2e9b3d696d7c
+		summarizeBy: none
+		sourceColumn: annee_droits
+
+	column montant
+		dataType: decimal
+		isHidden
+		formatString: #,##0 $
+		lineageTag: 439d0c47-ebed-4146-9848-40d73f1d2fcf
+		summarizeBy: none
+		sourceColumn: montant
+
+	partition 'Cotisation REER' = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.mouvement : cotisations et retraits, exports et saisies hors export, avec l'année de droits (REER : année de déduction, borne R6)
+				    #"Vue mouvement lue" =
+				        // Figée : vue rapport.mouvement de finance_ve01, données fictives, 593 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "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" &
+				                "ahRkhNUKmWC1fRWc7jH+dDXwmbz5TSkFeXNF5J7k98/w+DGJZ7Kiak+yKdW+f9jIlekEyN4mIV5O1CM4fRcrbDGpyLHrxbKV9kT2L8e3+WudqXExKS/J6cJQfvsqwyM5HRpoG5WO/v4/",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"regime", "compte_alias", "date_mouvement", "rang", "sens", "montant", "annee_droits"}),
+				            Dates = Table.TransformColumns(Brute, {{"date_mouvement", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}}),
+				            Typée = Table.TransformColumnTypes(Dates, {{"regime", type text}, {"compte_alias", type text}, {"rang", Int64.Type}, {"sens", type text}, {"montant", type number}, {"annee_droits", Int64.Type}})
+				        in
+				            Typée,
+				    // Cotisations REER seulement : le filtre est replié en WHERE dans PostgreSQL
+				    #"Cotisations REER" = Table.SelectRows(#"Vue mouvement lue", each [regime] = "REER" and [sens] = "cotisation"),
+				    // Colonnes utiles à la mesure seulement
+				    #"Colonnes retenues" = Table.SelectColumns(#"Cotisations REER", {"date_mouvement", "annee_droits", "montant"}),
+				    // Montant en décimal fixe (Currency.Type, jamais un flottant), date et année typées
+				    #"Types fixés" = Table.TransformColumnTypes(#"Colonnes retenues", {{"date_mouvement", type date}, {"annee_droits", Int64.Type}, {"montant", Currency.Type}})
+				in
+				    #"Types fixés"
+
+	annotation PBI_ResultType = Table
+

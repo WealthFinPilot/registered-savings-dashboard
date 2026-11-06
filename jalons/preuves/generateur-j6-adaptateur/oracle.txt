@@ -1,0 +1,48 @@
+$ python scripts/recette_synthetique.py --controle oracle
+niveau   entité      année     Dietz       TWR  écart (pt)
+global   Global       2021    -0.72%    -0.44%      -0.284
+global   Global       2022   -12.84%   -12.20%      -0.645
+global   Global       2023     7.17%     7.13%      +0.039
+global   Global       2024    -8.82%    -8.75%      -0.073
+global   Global       2025     7.99%     7.97%      +0.020
+global   Global       2026    -2.56%    -2.55%      -0.011
+société  Société 1    2023     0.30%     1.76%      -1.457
+société  Société 1    2024    -5.70%    -5.39%      -0.316
+société  Société 1    2025     5.21%     5.19%      +0.027
+société  Société 1    2026    -0.82%    -0.77%      -0.053
+société  Société 2    2024    -3.44%    -3.40%      -0.038
+société  Société 2    2025     2.17%     2.15%      +0.017
+société  Société 2    2026     3.89%     4.00%      -0.110
+société  Société 3    2021    -0.72%    -0.44%      -0.284
+société  Société 3    2022   -12.84%   -12.20%      -0.645
+société  Société 3    2023     7.19%     7.14%      +0.050
+société  Société 3    2024    -9.27%    -9.27%      +0.000
+société  Société 3    2025    10.22%    10.22%      +0.002
+société  Société 3    2026    -5.06%    -5.07%      +0.005
+compte   CELI-1       2022    -3.46%    -2.10%      -1.362
+compte   CELI-1       2023     4.81%     4.53%      +0.281
+compte   CELI-1       2024    -8.61%    -8.61%      -0.002
+compte   CELI-1       2025     9.80%     9.81%      -0.007
+compte   CELI-1       2026    -4.88%    -4.89%      +0.010
+compte   CELI-2       2023     1.90%     1.77%      +0.135
+compte   CELI-2       2024    -5.77%    -5.56%      -0.205
+compte   CELI-2       2025     4.47%     4.47%      -0.008
+compte   CELI-2       2026    -0.39%    -0.36%      -0.023
+compte   CELIAPP-1    2023    -0.45%    -0.36%      -0.083
+compte   CELIAPP-1    2024    -6.44%    -6.51%      +0.075
+compte   CELIAPP-1    2025     6.10%     6.08%      +0.027
+compte   CELIAPP-1    2026    -1.27%    -1.16%      -0.117
+compte   COMP-1       2024    -3.44%    -3.40%      -0.038
+compte   COMP-1       2025     2.17%     2.11%      +0.064
+compte   COMP-1       2026     3.95%     4.02%      -0.074
+compte   REER-1       2021    -0.72%    -0.44%      -0.284
+compte   REER-1       2022   -11.61%   -11.41%      -0.203
+compte   REER-1       2023     9.65%     9.74%      -0.096
+compte   REER-1       2024    -9.86%    -9.86%      -0.001
+compte   REER-1       2025    10.69%    10.68%      +0.014
+compte   REER-1       2026    -5.26%    -5.25%      -0.007
+compte   REER-2       2025    -0.33%    -0.36%      +0.024
+compte   REER-2       2026     2.90%     3.38%      -0.481
+[DIAG] 43 couples entité × année ; plus grand écart absolu 1.457 point (société Société 1 2023) ; écart moyen absolu 0.179 point ; sans contrepartie : aucun
+Résultat : tous les contrôles bloquants passent
+code de sortie : 0

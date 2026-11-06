@@ -1,0 +1,41 @@
+/// Niveaux de risque publiés, de Faible (1) à Élevé (5), plus « Non coté » (vue rapport.niveau_risque, règle S8) : axe des répartitions par niveau.
+table 'Niveau de risque'
+	lineageTag: cc73da2f-4550-423f-805a-bd4e238a67b5
+
+	/// Niveau de risque publié par la Société 1 (méthode des ACVM), ou « Non coté » pour un fonds sans profil
+	column 'Niveau de risque'
+		dataType: string
+		isKey
+		lineageTag: c72b5d91-bbaa-4966-952e-336cf774f6c5
+		summarizeBy: none
+		sourceColumn: risque
+		sortByColumn: ordre
+
+	/// Rang du niveau (1 à 5), 9 pour « Non coté »
+	column ordre
+		dataType: int64
+		isHidden
+		lineageTag: 9826bc1d-6fc3-4ff3-84f0-09cedfad26fe
+		summarizeBy: none
+		sourceColumn: ordre
+
+	partition 'Niveau de risque' = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.niveau_risque : les cinq niveaux de risque.csv et « Non coté »
+				    #"Vue niveaux lue" =
+				        // Figée : vue rapport.niveau_risque de finance_ve01, données fictives, 6 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "i45WckvMTMpJVdIxjNWBcXR98ytT85R0jEBCULYxnK17uDMntezwSiUdE5CYX36eQnJ+CYhvCeLDZU1jYwE=",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"risque", "ordre"}),
+				            Typée = Table.TransformColumnTypes(Brute, {{"risque", type text}, {"ordre", Int64.Type}})
+				        in
+				            Typée,
+				    // Types explicites : aucune détection automatique
+				    #"Types fixés" = Table.TransformColumnTypes(#"Vue niveaux lue", {{"risque", type text}, {"ordre", Int64.Type}})
+				in
+				    #"Types fixés"
+

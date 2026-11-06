@@ -1,0 +1,169 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "nature_des_distributions",
+  "position": {
+    "x": 724,
+    "y": 200,
+    "z": 20000,
+    "height": 300,
+    "width": 616,
+    "tabOrder": 16000
+  },
+  "visual": {
+    "visualType": "hundredPercentStackedBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fonds"
+                    }
+                  },
+                  "Property": "Fonds"
+                }
+              },
+              "queryRef": "Fonds.Fonds",
+              "nativeQueryRef": "Fonds",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Part revenus"
+                }
+              },
+              "queryRef": "Mesures.Part revenus",
+              "nativeQueryRef": "Part revenus",
+              "displayName": "Revenus"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Part dividendes"
+                }
+              },
+              "queryRef": "Mesures.Part dividendes",
+              "nativeQueryRef": "Part dividendes",
+              "displayName": "Dividendes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Part gains en capital"
+                }
+              },
+              "queryRef": "Mesures.Part gains en capital",
+              "nativeQueryRef": "Part gains en capital",
+              "displayName": "Gains en capital"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Part remboursement de capital"
+                }
+              },
+              "queryRef": "Mesures.Part remboursement de capital",
+              "nativeQueryRef": "Part remboursement de capital",
+              "displayName": "Remboursement de capital"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Fonds"
+                  }
+                },
+                "Property": "Fonds"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Nature des distributions du dernier exercice (RDRF), par fonds'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Nature des distributions du dernier exercice (RDRF), par fonds'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

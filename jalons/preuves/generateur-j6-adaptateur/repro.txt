@@ -1,0 +1,160 @@
+$ pytest -q tests/test_reproducibility.py -rA
+..................                                                       [100%]
+=================================== PASSES ====================================
+_______________________ test_meme_graine_deux_processus _______________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   d1813f24037a3cabc545fe0191bbd8b31530fa6ac848ccfd7c2214c515c9ec17
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+___________________ test_marche_meme_graine_deux_processus ____________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   d1813f24037a3cabc545fe0191bbd8b31530fa6ac848ccfd7c2214c515c9ec17
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+_____________________ test_marche_autre_graine_autres_vl ______________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers de marché différents ['benchmarks.csv', 'benchmarks_daily.csv', 'fund_prices_daily.csv', 'market_regimes_daily.csv']
+______________________ test_vl_independantes_des_comptes ______________________
+---------------------------- Captured stdout call -----------------------------
+fichiers modifiés par la variante : ['accounts.csv', 'allocation_targets_history.csv']
+__________________ test_univers_inchange_par_l_etape_marches __________________
+---------------------------- Captured stdout call -----------------------------
+7 CSV de l'univers identiques entre --stage universe et --stage markets
+________________ test_comportement_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+events.csv                       b4511d7110bf7e7dbfa2bea98271378a4dd0ca26832881085e36670d31d7147d
+external_movements.csv           f40c169d705f7d3d1647cf0f5ace6c4dee7ea3313fd9d8976b771edde8969795
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+______________ test_comportement_autre_graine_autres_mouvements _______________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers de comportement différents ['contribution_room.csv', 'events.csv', 'external_movements.csv', 'persona.csv']
+_________ test_univers_et_marches_inchanges_par_l_etape_comportement __________
+---------------------------- Captured stdout call -----------------------------
+10 CSV identiques ; allocation_targets_history : 33 lignes du J1 en tête, 22 lignes de révision ajoutées
+_________________ test_grand_livre_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+account_values_daily.csv         c631c75c25f83fad35f61133d6f90b4babe7e3728c3039a0f2a5d83bbd1ae678
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+events.csv                       4e411391856bb9c8a98ad504db3e8062bf912a1c5e1712eb65fd198e0a882076
+external_movements.csv           0b839b2359a48d74aec3afa8abea2518e58ccea186d52f97357bccfc58005ac8
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+internal_trades.csv              5ea4695f603078773ea9f3fe5038b0796d89d56de01e87034f3e3688088e4a31
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+positions_daily.csv              3a4a912fd6c3ad1dd6d621b56fd9f06acb7c2631c30e333a187483845657639b
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+_________________ test_grand_livre_autre_graine_autres_ordres _________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers du grand livre différents ['account_values_daily.csv', 'internal_trades.csv', 'positions_daily.csv']
+_______________ test_j1_a_j3_inchanges_par_l_etape_grand_livre ________________
+---------------------------- Captured stdout call -----------------------------
+14 CSV identiques ; 39 événements et 210 mouvements du J3 identiques hors identifiants ; ajoutés : {'reequilibrage': 7}, 236 FRAIS
+_________________ test_performance_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+account_values_daily.csv         c631c75c25f83fad35f61133d6f90b4babe7e3728c3039a0f2a5d83bbd1ae678
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+counterfactual_daily.csv         3ac30984441148b420ea35408913c03b0377208c0353049c8d8ae35c4d1810fd
+events.csv                       4e411391856bb9c8a98ad504db3e8062bf912a1c5e1712eb65fd198e0a882076
+external_movements.csv           0b839b2359a48d74aec3afa8abea2518e58ccea186d52f97357bccfc58005ac8
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+internal_trades.csv              5ea4695f603078773ea9f3fe5038b0796d89d56de01e87034f3e3688088e4a31
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+performance_daily.csv            b1910297517781a4f7d315ccc5fa0e4283189bb39c2f52328062bfc0c3d58c92
+performance_periods.csv          846f784a00b00557c711c58b6a5fa19c328ae5ee02d4a684491308737df8c9f2
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+positions_daily.csv              3a4a912fd6c3ad1dd6d621b56fd9f06acb7c2631c30e333a187483845657639b
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+_______________ test_j1_a_j4_inchanges_par_l_etape_performance ________________
+---------------------------- Captured stdout call -----------------------------
+19 CSV identiques entre --stage ledger et --stage performance ; contre c6288c3 : tous identiques ; ajoutés : counterfactual_daily.csv, performance_daily.csv, performance_periods.csv
+_________________ test_adaptateur_meme_graine_deux_processus __________________
+---------------------------- Captured stdout call -----------------------------
+distributions.csv                dc389ea2cbcd5e770c2c9657e8719cfa7ecec6b7d1ad4d0684908a93b18a090d
+fait.historique.csv              16d0c38e39c9c492451a04ffdb4fdf9b9e167c7ba678250fa1ee61136f73e4dc
+fait.sommaire.csv                ba565773c9e5df7f3f1ae7f6bf20e4d0bba8fd74c024daf4f46e7ea72c68a357
+fait.transaction.csv             3e1e881812cff9b39239f2571dc3da944348c92ede6ca7bd8fdb229a6c2c9167
+pub.cours.csv                    01a161758e8228e721e30249a22e3508aeece83cf3929aa64edcf757f881ce13
+pub.profil.csv                   a760995ef0e79ac4dcfe8842e271d71bdf9abb8b3f0086dc19f9af0de82f0f1e
+pub.profil_code.csv              7482a71a1416e5ccc652ff535c222fb2d164397e385da47d97cb95dd1ba716d0
+pub.profil_ligne.csv             55399354b04dab778f6586697b8959724b654250794a70046e2383e8dd4588c1
+pub.rapport_annuel.csv           c5f33df274f22d79fae91e44e1d457b00adc7e0fa944a82c1e15e4ca7273ea2e
+ref.compte.csv                   93b4b2594de1cedba567dea338c155cc27186ad44b3f4ee33115352226c660a9
+ref.fonds.csv                    c03d2e38aa4bcef90bbff09e65824cfde8efc845a80bd95cca13ffcf2bdebb9c
+ref.geographie.csv               9651af766b59165801125b39b9768f931d2a79138b6c9abea148f14ab285e605
+ref.nature.csv                   5803e7e36e3aae7d199285b92b2568eb68d21dc6761d34a3ac691abf33cd9a49
+ref.parametre.csv                274fa4e16e6e1802d8837a0b9396b2215df240c2f6dd8abb3a229c0b908ee953
+ref.reer_avis.csv                93f4dc8b30fa009fb78a7d9e9945fedd999b6bc8ebc4116aab35b3b1d8a1f3cc
+ref.repere.csv                   a0cfad0a55b9ecdd1747085292681058bf460ac9d420037128abef83d12ac6c8
+ref.risque.csv                   215c32668e0b99980740aa54143ecee599d437408e8780671b8856eb3120e1df
+ref.style.csv                    592e1284c5f5d934bebcce521f1ed7ac0d82165b928dd2053f92f735f2849a5f
+ref.symbole.csv                  e3a2dcf49c663e1991c9ad868a3980b5528407b69f209c5887526c7e6258413d
+______________ test_adaptateur_autre_graine_autres_distributions ______________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers différents ['distributions.csv', 'fait.historique.csv', 'fait.sommaire.csv', 'fait.transaction.csv', 'pub.cours.csv', 'pub.profil.csv', 'pub.profil_code.csv', 'pub.profil_ligne.csv', 'pub.rapport_annuel.csv', 'ref.compte.csv', 'ref.fonds.csv', 'ref.parametre.csv', 'ref.reer_avis.csv', 'ref.repere.csv', 'ref.style.csv', 'ref.symbole.csv']
+________________ test_j1_a_j5_inchanges_par_l_etape_adaptateur ________________
+---------------------------- Captured stdout call -----------------------------
+22 CSV identiques entre --stage performance et --stage adapter ; contre d6972b9 : tous identiques
+=========================== short test summary info ===========================
+PASSED tests/test_reproducibility.py::test_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_meme_graine_en_memoire
+PASSED tests/test_reproducibility.py::test_autre_graine_autre_univers
+PASSED tests/test_reproducibility.py::test_marche_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_marche_autre_graine_autres_vl
+PASSED tests/test_reproducibility.py::test_vl_independantes_des_comptes
+PASSED tests/test_reproducibility.py::test_univers_inchange_par_l_etape_marches
+PASSED tests/test_reproducibility.py::test_comportement_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_comportement_autre_graine_autres_mouvements
+PASSED tests/test_reproducibility.py::test_univers_et_marches_inchanges_par_l_etape_comportement
+PASSED tests/test_reproducibility.py::test_grand_livre_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_grand_livre_autre_graine_autres_ordres
+PASSED tests/test_reproducibility.py::test_j1_a_j3_inchanges_par_l_etape_grand_livre
+PASSED tests/test_reproducibility.py::test_performance_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_j1_a_j4_inchanges_par_l_etape_performance
+PASSED tests/test_reproducibility.py::test_adaptateur_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_adaptateur_autre_graine_autres_distributions
+PASSED tests/test_reproducibility.py::test_j1_a_j5_inchanges_par_l_etape_adaptateur
+18 passed in 31.23s
+code de sortie : 0

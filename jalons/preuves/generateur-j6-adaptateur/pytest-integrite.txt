@@ -1,0 +1,14 @@
+$ pytest -q tests/test_adapter.py -rA -k "refus or integrite"
+..                                                                       [100%]
+=================================== PASSES ====================================
+____________________________ test_refus_autre_base ____________________________
+---------------------------- Captured stdout call -----------------------------
+code 2 ; « Base refusée : postgres. Ce script n'écrit que dans finance_ve01 ; rien n'a été écrit. » ; appels psql ou COPY : 0 ; finance_ve01 avant (1884, '2026-11-04 12:34:38.308025+00'), après (1884, '2026-11-04 12:34:38.308025+00')
+_______________________________ test_integrite ________________________________
+---------------------------- Captured stdout call -----------------------------
+1884 transactions = 1507 ordres + 377 réinvestissements ; 21 lignes de sommaire ; chaîne des parts intacte
+=========================== short test summary info ===========================
+PASSED tests/test_adapter.py::test_refus_autre_base
+PASSED tests/test_adapter.py::test_integrite
+2 passed, 3 deselected in 1.62s
+code de sortie : 0

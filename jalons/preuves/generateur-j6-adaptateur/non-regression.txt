@@ -1,0 +1,2 @@
+$ git diff --stat d6972b9 -- Generateur-data-fictive/outputs/typical_seed_20261103/data/ sql/ rapport/ generateur/
+(fin de la sortie ; vide = aucun fichier modifié)

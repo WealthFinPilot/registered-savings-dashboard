@@ -1,0 +1,39 @@
+$ python scripts/recette_synthetique.py --controle distributions --path Generateur-data-fictive/outputs/vitrine_seed_20261103
+[PASS] rendement total du rapport = rendement de la VL totale : 10496 jours fonds vérifiés (dont 232 jours de distribution), pire écart 2.25e-04, pire écart ÷ borne 0.992 ; 0 versements sous le cent pour tous les détenteurs ; 4786 jours sans détenteur la veille, non lus par rapport.rendement_quotidien
+[DIAG] borne écrite à l'ouverture du contrat (0,00005 sur chaque prix et sur la distribution par part, sans l'arrondi au cent des réinvestissements) : pire écart ÷ borne 18.007, 18 jours fonds au-delà sur 10496 ; jours sans détenteur la veille, non contrôlés : 4786
+[PASS] calendrier : 386 versements lus dans pub.cours (sur 386 du journal, dont 386 au-dessus de 3 fois l'arrondi du prix), mensuels en fin de mois, annuels du 20 au 31 décembre, au plus un par décembre ; hors calendrier 0, doublons 0, absents du journal 0 ; taux lu ÷ taux du journal à 0.91 fois l'arrondi au plus
+[PASS] signe : 0 hausse de VL ex ÷ VL totale, 0 distribution négative ; VL ex minimale 8.3171 $
+[PASS] valeur conservée : 17103 positions jour × compte × fonds, pire écart ÷ borne 0.991 (borne : 0,0005 part × VL ex + parts × 0,00005 + 0,005 $)
+Résultat : tous les contrôles bloquants passent
+code de sortie : 0
+$ python scripts/recette_synthetique.py --controle grand-livre --path Generateur-data-fictive/outputs/vitrine_seed_20261103
+    CELI-1 2022-06-30 : rapport 2138.77, grand livre 2138.80, écart 0.0300
+    CELI-2 2024-03-29 : rapport 305.52, grand livre 305.55, écart 0.0300
+    CELIAPP-1 2023-12-29 : rapport 303.70, grand livre 303.68, écart 0.0200
+    CELIAPP-1 2025-10-31 : rapport 5057.54, grand livre 5057.50, écart 0.0400
+    REER-1 2022-01-31 : rapport 2391.70, grand livre 2391.73, écart 0.0300
+    REER-2 2025-10-31 : rapport 304.77, grand livre 304.79, écart 0.0200
+    REER-2 2026-08-31 : rapport 714.05, grand livre 714.07, écart 0.0200
+[PASS] arrêté : rapport.arrete 2026-10-30, fin du grand livre 2026-10-30 ; VM 115,010.03 $ contre 115,010.03 $ (écart 0.0000, borne 0.4350)
+[PASS] flux par compte × année (versements PAC et ponctuels, retraits, frais) : 24 couples, 0 écart(s) au cent
+[PASS] droits par régime × année (cotisations, droits restants) : 15 lignes du rapport, 0 écart(s) au cent ; années du générateur sans cotisation ni ligne au rapport (la vue commence à la première cotisation) : ('CELI', 2021) : absent du rapport, cotisations 0.00
+[PASS] plafonds : 32 plafonds du générateur, 0 absent(s) de ref.plafond ou différent(s) ; droits de rapport.droits_* tous calculés depuis ref.plafond et ref.reer_avis (aucune ligne vide ci-dessus) ; niveaux de rapport.alerte : {'alerte': 1, 'aucune': 14}
+Résultat : tous les contrôles bloquants passent
+code de sortie : 0
+$ python scripts/recette_synthetique.py --controle oracle --path Generateur-data-fictive/outputs/vitrine_seed_20261103
+compte   COMP-1       2025     3.02%     2.96%      +0.060
+compte   COMP-1       2026    -0.34%    -0.25%      -0.087
+compte   REER-1       2021     0.51%     1.75%      -1.235
+compte   REER-1       2022    16.48%    16.53%      -0.045
+compte   REER-1       2023    17.36%    17.16%      +0.199
+compte   REER-1       2024    -2.72%    -2.73%      +0.005
+compte   REER-1       2025    -1.27%    -1.25%      -0.022
+compte   REER-1       2026    10.36%    10.38%      -0.019
+compte   REER-2       2025     4.65%     4.55%      +0.092
+compte   REER-2       2026    -1.52%    -1.45%      -0.070
+[DIAG] 43 couples entité × année ; plus grand écart absolu 1.235 point (global Global 2021) ; écart moyen absolu 0.265 point ; sans contrepartie : aucun
+Résultat : tous les contrôles bloquants passent
+code de sortie : 0
+$ python scripts/recette_synthetique.py --controle rapport --path Generateur-data-fictive/outputs/vitrine_seed_20261103
+Rapport : Generateur-data-fictive\outputs\vitrine_seed_20261103\adapter_report.md
+code de sortie : 0

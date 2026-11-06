@@ -1,0 +1,104 @@
+$ python scripts/comparer_sorties.py <copie d'avant le jalon>/typical_seed_20261103 outputs/typical_seed_20261103 --permis fait.transaction.libelle fait.historique.libelle ref.nature.motif
+  [PASS] adapter_report.md : identique
+  [PASS] behaviour_report.md : identique
+  [PASS] data/account_values_daily.csv : identique
+  [PASS] data/accounts.csv : identique
+  [PASS] data/allocation_targets_history.csv : identique
+  [PASS] data/benchmarks.csv : identique
+  [PASS] data/benchmarks_daily.csv : identique
+  [PASS] data/contribution_room.csv : identique
+  [PASS] data/counterfactual_daily.csv : identique
+  [PASS] data/events.csv : identique
+  [PASS] data/external_movements.csv : identique
+  [PASS] data/fund_exposures.csv : identique
+  [PASS] data/fund_exposures_by_axis.csv : identique
+  [PASS] data/fund_prices_daily.csv : identique
+  [PASS] data/fund_strategic_targets.csv : identique
+  [PASS] data/funds.csv : identique
+  [PASS] data/institutions.csv : identique
+  [PASS] data/internal_trades.csv : identique
+  [PASS] data/market_regimes_daily.csv : identique
+  [PASS] data/performance_daily.csv : identique
+  [PASS] data/performance_periods.csv : identique
+  [PASS] data/persona.csv : identique
+  [PASS] data/positions_daily.csv : identique
+  [PASS] data/tax_limits.csv : identique
+  [PASS] finance_ve01/distributions.csv : identique
+  [PASS] finance_ve01/fait.historique.csv : identique
+  [PASS] finance_ve01/fait.sommaire.csv : identique
+  [PASS] finance_ve01/fait.transaction.csv : 1884 lignes ; différences dans libelle : 1088 ligne(s) (colonnes permises)
+  [PASS] finance_ve01/pub.cours.csv : identique
+  [PASS] finance_ve01/pub.profil.csv : identique
+  [PASS] finance_ve01/pub.profil_code.csv : identique
+  [PASS] finance_ve01/pub.profil_ligne.csv : identique
+  [PASS] finance_ve01/pub.rapport_annuel.csv : identique
+  [PASS] finance_ve01/ref.compte.csv : identique
+  [PASS] finance_ve01/ref.fonds.csv : identique
+  [PASS] finance_ve01/ref.geographie.csv : identique
+  [PASS] finance_ve01/ref.nature.csv : 7 lignes ; différences dans motif : 6 ligne(s) (colonnes permises)
+  [PASS] finance_ve01/ref.parametre.csv : identique
+  [PASS] finance_ve01/ref.reer_avis.csv : identique
+  [PASS] finance_ve01/ref.repere.csv : identique
+  [PASS] finance_ve01/ref.risque.csv : identique
+  [PASS] finance_ve01/ref.style.csv : identique
+  [PASS] finance_ve01/ref.symbole.csv : identique
+  [PASS] ledger_report.md : identique
+  [info] manifest.json : différent (hors CSV, hors verdict)
+  [PASS] market_report.md : identique
+  [PASS] performance_report.md : identique
+  [PASS] universe_report.md : identique
+  [info] validation.json : différent (hors CSV, hors verdict)
+Résultat : AUCUNE DIFFÉRENCE HORS COLONNES PERMISES
+code de sortie : 0
+$ python scripts/comparer_sorties.py <copie d'avant le jalon>/vitrine_seed_20261103 outputs/vitrine_seed_20261103 --permis fait.transaction.libelle fait.historique.libelle ref.nature.motif
+  [PASS] adapter_report.md : identique
+  [PASS] behaviour_report.md : identique
+  [PASS] data/account_values_daily.csv : identique
+  [PASS] data/accounts.csv : identique
+  [PASS] data/allocation_targets_history.csv : identique
+  [PASS] data/benchmarks.csv : identique
+  [PASS] data/benchmarks_daily.csv : identique
+  [PASS] data/contribution_room.csv : identique
+  [PASS] data/counterfactual_daily.csv : identique
+  [PASS] data/events.csv : identique
+  [PASS] data/external_movements.csv : identique
+  [PASS] data/fund_exposures.csv : identique
+  [PASS] data/fund_exposures_by_axis.csv : identique
+  [PASS] data/fund_prices_daily.csv : identique
+  [PASS] data/fund_strategic_targets.csv : identique
+  [PASS] data/funds.csv : identique
+  [PASS] data/institutions.csv : identique
+  [PASS] data/internal_trades.csv : identique
+  [PASS] data/market_regimes_daily.csv : identique
+  [PASS] data/performance_daily.csv : identique
+  [PASS] data/performance_periods.csv : identique
+  [PASS] data/persona.csv : identique
+  [PASS] data/positions_daily.csv : identique
+  [PASS] data/tax_limits.csv : identique
+  [PASS] finance_ve01/distributions.csv : identique
+  [PASS] finance_ve01/fait.historique.csv : identique
+  [PASS] finance_ve01/fait.sommaire.csv : identique
+  [PASS] finance_ve01/fait.transaction.csv : 1935 lignes ; différences dans libelle : 1141 ligne(s) (colonnes permises)
+  [PASS] finance_ve01/pub.cours.csv : identique
+  [PASS] finance_ve01/pub.profil.csv : identique
+  [PASS] finance_ve01/pub.profil_code.csv : identique
+  [PASS] finance_ve01/pub.profil_ligne.csv : identique
+  [PASS] finance_ve01/pub.rapport_annuel.csv : identique
+  [PASS] finance_ve01/ref.compte.csv : identique
+  [PASS] finance_ve01/ref.fonds.csv : identique
+  [PASS] finance_ve01/ref.geographie.csv : identique
+  [PASS] finance_ve01/ref.nature.csv : 7 lignes ; différences dans motif : 6 ligne(s) (colonnes permises)
+  [PASS] finance_ve01/ref.parametre.csv : identique
+  [PASS] finance_ve01/ref.reer_avis.csv : identique
+  [PASS] finance_ve01/ref.repere.csv : identique
+  [PASS] finance_ve01/ref.risque.csv : identique
+  [PASS] finance_ve01/ref.style.csv : identique
+  [PASS] finance_ve01/ref.symbole.csv : identique
+  [PASS] ledger_report.md : identique
+  [info] manifest.json : différent (hors CSV, hors verdict)
+  [PASS] market_report.md : identique
+  [PASS] performance_report.md : identique
+  [PASS] universe_report.md : identique
+  [info] validation.json : différent (hors CSV, hors verdict)
+Résultat : AUCUNE DIFFÉRENCE HORS COLONNES PERMISES
+code de sortie : 0

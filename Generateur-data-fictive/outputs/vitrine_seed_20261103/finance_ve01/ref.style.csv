@@ -1,0 +1,16 @@
+cle,type,style,note
+F104,fonds,Mixte,fictif
+F105,fonds,Mixte,fictif
+F106,fonds,Dividendes,fictif
+F301,fonds,Trésorerie,fictif
+F302,fonds,Mixte,fictif
+F303,fonds,Mixte,fictif
+F304,fonds,Mixte,fictif
+Actifs réels (fictif),sous-jacent,Alternatifs,fictif
+Actions de croissance (fictif),sous-jacent,Croissance,fictif
+Actions de marché large (fictif),sous-jacent,Mixte,fictif
+Actions de qualité (fictif),sous-jacent,Mixte,fictif
+Actions de valeur (fictif),sous-jacent,Mixte,fictif
+Actions à dividendes (fictif),sous-jacent,Dividendes,fictif
+Obligations (fictif),sous-jacent,Revenu fixe,fictif
+Trésorerie (fictif),sous-jacent,Trésorerie,fictif

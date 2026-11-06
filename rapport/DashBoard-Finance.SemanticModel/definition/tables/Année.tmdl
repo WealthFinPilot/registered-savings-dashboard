@@ -1,0 +1,43 @@
+/// Années présentes dans les droits ou les versements, plus celle de la date d'arrêté (vue rapport.annee, R15). Filtre commun : année civile pour les versements, année de droits pour les droits (année de déduction pour le REER). Segment sur Période, enregistré sur « En cours ».
+table Année
+	lineageTag: 3689a18c-1315-4f19-a641-90e6a959c16e
+
+	/// Année civile, ou année de déduction pour les droits REER
+	column Année
+		dataType: int64
+		isKey
+		formatString: 0
+		lineageTag: 998b6e7f-cad9-4d00-a6e3-8c70f7e444f4
+		summarizeBy: none
+		sourceColumn: annee
+
+	/// Libellé du segment Année : « En cours » pour l'année de la date d'arrêté (R15), l'année sinon ; la sélection enregistrée passe seule à l'année suivante
+	column Période
+		dataType: string
+		lineageTag: 5db13fa5-6625-4340-9e51-b7e375e67a4c
+		summarizeBy: none
+		sourceColumn: periode
+		sortByColumn: Année
+
+	partition Année = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.annee : une ligne par année, avec son libellé de segment (R15)
+				    #"Vue annee lue" =
+				        // Figée : vue rapport.annee de finance_ve01, données fictives, 6 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "i442MjAy1FECkUqxOiCeEZhnBOUZg3nGUJ4JmGcC5ZmCeaZQnpmOkmueQnJ+aVGxUmwsAA==",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"annee", "periode"}),
+				            Typée = Table.TransformColumnTypes(Brute, {{"annee", Int64.Type}, {"periode", type text}})
+				        in
+				            Typée,
+				    // Année en entier, pour la relation avec Versement et Droits ; libellé en texte
+				    #"Types fixés" = Table.TransformColumnTypes(#"Vue annee lue", {{"annee", Int64.Type}, {"periode", type text}})
+				in
+				    #"Types fixés"
+
+	annotation PBI_ResultType = Table
+

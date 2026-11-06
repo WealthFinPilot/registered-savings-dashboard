@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "94c6290df33449fa86d4",
+  "displayName": "Droits et versements",
+  "displayOption": "FitToPage",
+  "height": 820,
+  "width": 1360,
+  "pageBinding": {
+    "name": "a755c0dabb43b9129c46",
+    "type": "Drillthrough",
+    "parameters": []
+  },
+  "objects": {
+    "filterCard": [
+      {
+        "properties": {
+          "border": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0L"
+              }
+            }
+          }
+        },
+        "selector": {
+          "id": "Available"
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#1B2630'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "foregroundColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#1B2630'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

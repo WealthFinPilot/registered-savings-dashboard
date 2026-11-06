@@ -1,0 +1,17 @@
+# Cache de données et réglages locaux de Desktop : les données sont embarquées dans le modèle
+**/.pbi/cache.abf
+**/.pbi/localSettings.json
+*.pbix
+# Réponses brutes de Yahoo (cours des FNB repères) : à retélécharger, non redistribuées
+donnees_publiques/
+__pycache__/
+# Notes de session et règles locales de l'agent : hors dépôt public
+HANDOFF.md
+CLAUDE.md
+# Générateur synthétique : environnement local et caches de test
+Generateur-data-fictive/.venv/
+.pytest_cache/
+.hypothesis/
+*.egg-info/
+# Motifs privés supplémentaires du balayage de fuite : jamais publiés
+motifs-prives.txt

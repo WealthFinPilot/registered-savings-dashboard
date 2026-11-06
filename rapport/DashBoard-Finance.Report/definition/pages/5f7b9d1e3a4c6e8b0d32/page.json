@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "5f7b9d1e3a4c6e8b0d32",
+  "displayName": "Fonds et risque",
+  "displayOption": "FitToPage",
+  "height": 820,
+  "width": 1360
+}

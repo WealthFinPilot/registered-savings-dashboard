@@ -1,0 +1,40 @@
+/// Épargne enregistrée : droits CELI, CELIAPP et REER, versements par compte, valorisation et performance. Version d'exposition vE01 : données entièrement fictives, figées dans le modèle (vues du schéma rapport de finance_ve01) ; règles de droits et de performance calculées en SQL (sql/vues.sql), DAX réduit à des sommes, des parts et au chaînage mensuel du TWR.
+model Model
+	culture: fr-CA
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: fr-CA
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["Compte","Année","Versement","Droits","Calendrier","Performance","Cascade","Exposition","Coût","Fonds","Niveau de risque","Détention","Écart tactique","Rendement quotidien","Repère mensuel","Fenêtre","Détention RDRF","Cotisation REER","Arrêté"]
+
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+
+ref table Mesures
+ref table Compte
+ref table Année
+ref table Versement
+ref table Droits
+ref table Calendrier
+ref table Performance
+ref table Cascade
+ref table Exposition
+ref table Coût
+ref table Fonds
+ref table 'Niveau de risque'
+ref table Détention
+ref table 'Écart tactique'
+ref table 'Rendement quotidien'
+ref table 'Repère mensuel'
+ref table Fenêtre
+ref table 'Détention RDRF'
+ref table 'Cotisation REER'
+ref table Arrêté
+ref table 'Axe régime'
+
+ref cultureInfo fr-CA
+

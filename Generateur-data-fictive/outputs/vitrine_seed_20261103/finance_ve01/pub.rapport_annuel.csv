@@ -1,0 +1,71 @@
+code_fa,exercice,nom,revenus,dividendes,gains_capital,remb_capital,total,rfg,rfg_avant,rfo,rotation,fichier
+F101,2022-09-30,Portefeuille prudence — Société 1 (fictif),0.54,0.28,0.00,0.00,0.82,0.31,0.31,0.08,11.30,fictif/2022-09-30/F101.pdf
+F101,2023-09-30,Portefeuille prudence — Société 1 (fictif),0.57,0.30,0.24,0.00,1.11,0.31,0.31,0.08,11.30,fictif/2023-09-30/F101.pdf
+F101,2024-09-30,Portefeuille prudence — Société 1 (fictif),0.57,0.30,0.35,0.00,1.22,0.31,0.31,0.08,11.30,fictif/2024-09-30/F101.pdf
+F101,2025-09-30,Portefeuille prudence — Société 1 (fictif),0.61,0.32,0.00,0.00,0.93,0.31,0.31,0.08,11.30,fictif/2025-09-30/F101.pdf
+F101,2026-09-30,Portefeuille prudence — Société 1 (fictif),0.59,0.31,0.00,0.00,0.90,0.31,0.31,0.08,11.30,fictif/2026-09-30/F101.pdf
+F102,2022-09-30,Portefeuille pondéré — Société 1 (fictif),0.14,0.17,0.00,0.00,0.31,0.30,0.30,0.07,39.50,fictif/2022-09-30/F102.pdf
+F102,2023-09-30,Portefeuille pondéré — Société 1 (fictif),0.17,0.21,0.32,0.00,0.70,0.30,0.30,0.07,39.50,fictif/2023-09-30/F102.pdf
+F102,2024-09-30,Portefeuille pondéré — Société 1 (fictif),0.19,0.24,0.17,0.00,0.60,0.30,0.30,0.07,39.50,fictif/2024-09-30/F102.pdf
+F102,2025-09-30,Portefeuille pondéré — Société 1 (fictif),0.26,0.33,0.15,0.00,0.74,0.30,0.30,0.07,39.50,fictif/2025-09-30/F102.pdf
+F102,2026-09-30,Portefeuille pondéré — Société 1 (fictif),0.15,0.19,0.00,0.00,0.34,0.30,0.30,0.07,39.50,fictif/2026-09-30/F102.pdf
+F103,2022-09-30,Portefeuille dynamique — Société 1 (fictif),0.04,0.21,0.01,0.00,0.26,0.35,0.35,0.01,42.50,fictif/2022-09-30/F103.pdf
+F103,2023-09-30,Portefeuille dynamique — Société 1 (fictif),0.03,0.14,0.06,0.00,0.23,0.35,0.35,0.01,42.50,fictif/2023-09-30/F103.pdf
+F103,2024-09-30,Portefeuille dynamique — Société 1 (fictif),0.05,0.30,0.06,0.00,0.41,0.35,0.35,0.01,42.50,fictif/2024-09-30/F103.pdf
+F103,2025-09-30,Portefeuille dynamique — Société 1 (fictif),0.03,0.15,0.00,0.00,0.18,0.35,0.35,0.01,42.50,fictif/2025-09-30/F103.pdf
+F103,2026-09-30,Portefeuille dynamique — Société 1 (fictif),0.04,0.24,0.00,0.00,0.28,0.35,0.35,0.01,42.50,fictif/2026-09-30/F103.pdf
+F104,2022-09-30,Actions du Canada — Société 1 (fictif),0.01,0.26,0.09,0.00,0.36,0.31,0.31,0.02,11.00,fictif/2022-09-30/F104.pdf
+F104,2023-09-30,Actions du Canada — Société 1 (fictif),0.01,0.24,0.17,0.00,0.42,0.31,0.31,0.02,11.00,fictif/2023-09-30/F104.pdf
+F104,2024-09-30,Actions du Canada — Société 1 (fictif),0.01,0.35,0.46,0.00,0.82,0.31,0.31,0.02,11.00,fictif/2024-09-30/F104.pdf
+F104,2025-09-30,Actions du Canada — Société 1 (fictif),0.01,0.38,0.00,0.00,0.39,0.31,0.31,0.02,11.00,fictif/2025-09-30/F104.pdf
+F104,2026-09-30,Actions du Canada — Société 1 (fictif),0.01,0.30,0.01,0.00,0.32,0.31,0.31,0.02,11.00,fictif/2026-09-30/F104.pdf
+F105,2022-09-30,Actions planétaires — Société 1 (fictif),0.00,0.00,0.00,0.00,0.00,0.35,0.35,0.06,52.60,fictif/2022-09-30/F105.pdf
+F105,2023-09-30,Actions planétaires — Société 1 (fictif),0.00,0.13,0.13,0.00,0.26,0.35,0.35,0.06,52.60,fictif/2023-09-30/F105.pdf
+F105,2024-09-30,Actions planétaires — Société 1 (fictif),0.00,0.11,0.34,0.00,0.45,0.35,0.35,0.06,52.60,fictif/2024-09-30/F105.pdf
+F105,2025-09-30,Actions planétaires — Société 1 (fictif),0.01,0.14,0.03,0.00,0.18,0.35,0.35,0.06,52.60,fictif/2025-09-30/F105.pdf
+F105,2026-09-30,Actions planétaires — Société 1 (fictif),0.01,0.15,0.21,0.00,0.37,0.35,0.35,0.06,52.60,fictif/2026-09-30/F105.pdf
+F106,2022-09-30,Rendement de dividendes Canada — Société 1 (fictif),0.01,0.57,0.11,0.00,0.69,0.38,0.38,0.06,42.30,fictif/2022-09-30/F106.pdf
+F106,2023-09-30,Rendement de dividendes Canada — Société 1 (fictif),0.02,0.66,0.38,0.00,1.06,0.38,0.38,0.06,42.30,fictif/2023-09-30/F106.pdf
+F106,2024-09-30,Rendement de dividendes Canada — Société 1 (fictif),0.02,0.74,0.93,0.00,1.69,0.38,0.38,0.06,42.30,fictif/2024-09-30/F106.pdf
+F106,2025-09-30,Rendement de dividendes Canada — Société 1 (fictif),0.02,0.74,0.00,0.00,0.76,0.38,0.38,0.06,42.30,fictif/2025-09-30/F106.pdf
+F106,2026-09-30,Rendement de dividendes Canada — Société 1 (fictif),0.02,0.69,0.00,0.00,0.71,0.38,0.38,0.06,42.30,fictif/2026-09-30/F106.pdf
+F201,2022-09-30,Revenu fixe canadien — Société 2 (fictif),0.38,0.00,0.00,0.00,0.38,0.21,0.21,0.06,51.30,fictif/2022-09-30/F201.pdf
+F201,2023-09-30,Revenu fixe canadien — Société 2 (fictif),0.41,0.00,0.00,0.00,0.41,0.21,0.21,0.06,51.30,fictif/2023-09-30/F201.pdf
+F201,2024-09-30,Revenu fixe canadien — Société 2 (fictif),0.43,0.00,0.08,0.00,0.51,0.21,0.21,0.06,51.30,fictif/2024-09-30/F201.pdf
+F201,2025-09-30,Revenu fixe canadien — Société 2 (fictif),0.40,0.00,0.01,0.00,0.41,0.21,0.21,0.06,51.30,fictif/2025-09-30/F201.pdf
+F201,2026-09-30,Revenu fixe canadien — Société 2 (fictif),0.44,0.00,0.00,0.00,0.44,0.21,0.21,0.06,51.30,fictif/2026-09-30/F201.pdf
+F202,2022-09-30,Actifs réels et infrastructures — Société 2 (fictif),0.60,0.10,0.09,0.00,0.79,0.35,0.35,0.01,25.70,fictif/2022-09-30/F202.pdf
+F202,2023-09-30,Actifs réels et infrastructures — Société 2 (fictif),0.62,0.10,0.25,0.00,0.97,0.35,0.35,0.01,25.70,fictif/2023-09-30/F202.pdf
+F202,2024-09-30,Actifs réels et infrastructures — Société 2 (fictif),0.65,0.11,0.06,0.00,0.82,0.35,0.35,0.01,25.70,fictif/2024-09-30/F202.pdf
+F202,2025-09-30,Actifs réels et infrastructures — Société 2 (fictif),0.64,0.10,0.00,0.00,0.74,0.35,0.35,0.01,25.70,fictif/2025-09-30/F202.pdf
+F202,2026-09-30,Actifs réels et infrastructures — Société 2 (fictif),0.59,0.10,0.00,0.00,0.69,0.35,0.35,0.01,25.70,fictif/2026-09-30/F202.pdf
+F203,2022-09-30,Portefeuille prudence — Société 2 (fictif),0.14,0.06,0.00,0.00,0.20,0.27,0.27,0.04,32.30,fictif/2022-09-30/F203.pdf
+F203,2023-09-30,Portefeuille prudence — Société 2 (fictif),0.16,0.07,0.05,0.00,0.28,0.27,0.27,0.04,32.30,fictif/2023-09-30/F203.pdf
+F203,2024-09-30,Portefeuille prudence — Société 2 (fictif),0.15,0.07,0.08,0.00,0.30,0.27,0.27,0.04,32.30,fictif/2024-09-30/F203.pdf
+F203,2025-09-30,Portefeuille prudence — Société 2 (fictif),0.17,0.08,0.00,0.00,0.25,0.27,0.27,0.04,32.30,fictif/2025-09-30/F203.pdf
+F203,2026-09-30,Portefeuille prudence — Société 2 (fictif),0.17,0.08,0.05,0.00,0.30,0.27,0.27,0.04,32.30,fictif/2026-09-30/F203.pdf
+F204,2022-09-30,Portefeuille pondéré — Société 2 (fictif),0.18,0.24,0.12,0.00,0.54,0.27,0.27,0.06,15.60,fictif/2022-09-30/F204.pdf
+F204,2023-09-30,Portefeuille pondéré — Société 2 (fictif),0.24,0.31,0.00,0.00,0.55,0.27,0.27,0.06,15.60,fictif/2023-09-30/F204.pdf
+F204,2024-09-30,Portefeuille pondéré — Société 2 (fictif),0.26,0.34,0.54,0.00,1.14,0.27,0.27,0.06,15.60,fictif/2024-09-30/F204.pdf
+F204,2025-09-30,Portefeuille pondéré — Société 2 (fictif),0.23,0.30,0.08,0.00,0.61,0.27,0.27,0.06,15.60,fictif/2025-09-30/F204.pdf
+F204,2026-09-30,Portefeuille pondéré — Société 2 (fictif),0.26,0.33,0.10,0.00,0.69,0.27,0.27,0.06,15.60,fictif/2026-09-30/F204.pdf
+F301,2022-09-30,Marché monétaire — Société 3 (fictif),0.00,0.00,0.00,0.00,0.00,0.17,0.17,0.00,0.00,fictif/2022-09-30/F301.pdf
+F301,2023-09-30,Marché monétaire — Société 3 (fictif),0.18,0.00,0.00,0.00,0.18,0.17,0.17,0.00,0.00,fictif/2023-09-30/F301.pdf
+F301,2024-09-30,Marché monétaire — Société 3 (fictif),0.15,0.00,0.00,0.00,0.15,0.17,0.17,0.00,0.00,fictif/2024-09-30/F301.pdf
+F301,2025-09-30,Marché monétaire — Société 3 (fictif),0.14,0.00,0.00,0.00,0.14,0.17,0.17,0.00,0.00,fictif/2025-09-30/F301.pdf
+F301,2026-09-30,Marché monétaire — Société 3 (fictif),0.16,0.00,0.00,0.00,0.16,0.17,0.17,0.00,0.00,fictif/2026-09-30/F301.pdf
+F302,2022-09-30,Actions des États-Unis — Société 3 (fictif),0.01,0.35,0.01,0.00,0.37,0.45,0.45,0.03,56.60,fictif/2022-09-30/F302.pdf
+F302,2023-09-30,Actions des États-Unis — Société 3 (fictif),0.01,0.34,0.26,0.00,0.61,0.45,0.45,0.03,56.60,fictif/2023-09-30/F302.pdf
+F302,2024-09-30,Actions des États-Unis — Société 3 (fictif),0.01,0.54,1.78,0.00,2.33,0.45,0.45,0.03,56.60,fictif/2024-09-30/F302.pdf
+F302,2025-09-30,Actions des États-Unis — Société 3 (fictif),0.01,0.35,0.01,0.00,0.37,0.45,0.45,0.03,56.60,fictif/2025-09-30/F302.pdf
+F302,2026-09-30,Actions des États-Unis — Société 3 (fictif),0.01,0.53,1.00,0.00,1.54,0.45,0.45,0.03,56.60,fictif/2026-09-30/F302.pdf
+F303,2022-09-30,Actions du Canada — Société 3 (fictif),0.01,0.27,0.10,0.00,0.38,0.44,0.44,0.03,32.60,fictif/2022-09-30/F303.pdf
+F303,2023-09-30,Actions du Canada — Société 3 (fictif),0.01,0.29,0.24,0.00,0.54,0.44,0.44,0.03,32.60,fictif/2023-09-30/F303.pdf
+F303,2024-09-30,Actions du Canada — Société 3 (fictif),0.01,0.35,0.38,0.00,0.74,0.44,0.44,0.03,32.60,fictif/2024-09-30/F303.pdf
+F303,2025-09-30,Actions du Canada — Société 3 (fictif),0.01,0.42,0.00,0.00,0.43,0.44,0.44,0.03,32.60,fictif/2025-09-30/F303.pdf
+F303,2026-09-30,Actions du Canada — Société 3 (fictif),0.01,0.35,0.00,0.00,0.36,0.44,0.44,0.03,32.60,fictif/2026-09-30/F303.pdf
+F304,2022-09-30,Petites sociétés nord-américaines — Société 3 (fictif),0.01,0.24,0.06,0.00,0.31,0.54,0.54,0.07,44.50,fictif/2022-09-30/F304.pdf
+F304,2023-09-30,Petites sociétés nord-américaines — Société 3 (fictif),0.01,0.20,0.27,0.00,0.48,0.54,0.54,0.07,44.50,fictif/2023-09-30/F304.pdf
+F304,2024-09-30,Petites sociétés nord-américaines — Société 3 (fictif),0.01,0.27,1.08,0.00,1.36,0.54,0.54,0.07,44.50,fictif/2024-09-30/F304.pdf
+F304,2025-09-30,Petites sociétés nord-américaines — Société 3 (fictif),0.01,0.27,0.00,0.00,0.28,0.54,0.54,0.07,44.50,fictif/2025-09-30/F304.pdf
+F304,2026-09-30,Petites sociétés nord-américaines — Société 3 (fictif),0.01,0.24,0.00,0.00,0.25,0.54,0.54,0.07,44.50,fictif/2026-09-30/F304.pdf

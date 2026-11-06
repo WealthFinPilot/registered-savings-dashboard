@@ -1,0 +1,102 @@
+$ pytest -q tests/test_adapter.py tests/test_adapter_seeds.py -rA -k "distribution"
+........................                                                 [100%]
+=================================== PASSES ====================================
+______________________ test_distribution_rendement_total ______________________
+---------------------------- Captured stdout call -----------------------------
+10513 jours fonds détenus vérifiés, pire écart ÷ borne 0.992 ; 0 versements sous le cent pour tous les détenteurs ; 7377 jours sans détenteur
+________________________ test_distribution_calendrier _________________________
+---------------------------- Captured stdout call -----------------------------
+375 versements lus dans les cours (375 au journal), VL ex minimale 5.7546
+_____________________ test_distribution_valeur_conservee ______________________
+---------------------------- Captured stdout call -----------------------------
+17189 positions jour × compte × fonds, pire écart ÷ borne 0.956
+_____________________ test_distribution_graine[20261103] ______________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 1884 transactions = 1507 ordres + 377 réinvestissements ; 21 lignes de sommaire ; chaîne des parts intacte | 10513 jours fonds détenus vérifiés, pire écart ÷ borne 0.992 ; 0 versements sous le cent pour tous les détenteurs ; 7377 jours sans détenteur | 375 versements lus dans les cours (375 au journal), VL ex minimale 5.7546 | 17189 positions jour × compte × fonds, pire écart ÷ borne 0.956
+_________________________ test_distribution_graine[1] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 1 : 1799 transactions = 1499 ordres + 300 réinvestissements ; 17 lignes de sommaire ; chaîne des parts intacte | 13828 jours fonds détenus vérifiés, pire écart ÷ borne 0.987 ; 0 versements sous le cent pour tous les détenteurs ; 6642 jours sans détenteur | 337 versements lus dans les cours (337 au journal), VL ex minimale 9.2259 | 16399 positions jour × compte × fonds, pire écart ÷ borne 0.975
+_________________________ test_distribution_graine[2] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 2 : 1749 transactions = 1431 ordres + 318 réinvestissements ; 16 lignes de sommaire ; chaîne des parts intacte | 10145 jours fonds détenus vérifiés, pire écart ÷ borne 0.995 ; 0 versements sous le cent pour tous les détenteurs ; 7716 jours sans détenteur | 397 versements lus dans les cours (397 au journal), VL ex minimale 7.0353 | 15009 positions jour × compte × fonds, pire écart ÷ borne 0.964
+_________________________ test_distribution_graine[3] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 3 : 2144 transactions = 1758 ordres + 386 réinvestissements ; 19 lignes de sommaire ; chaîne des parts intacte | 13427 jours fonds détenus vérifiés, pire écart ÷ borne 0.990 ; 2 versements sous le cent pour tous les détenteurs ; 6990 jours sans détenteur | 458 versements lus dans les cours (458 au journal), VL ex minimale 5.4217 | 19564 positions jour × compte × fonds, pire écart ÷ borne 0.982
+_________________________ test_distribution_graine[4] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 4 : 1649 transactions = 1287 ordres + 362 réinvestissements ; 18 lignes de sommaire ; chaîne des parts intacte | 8805 jours fonds détenus vérifiés, pire écart ÷ borne 0.985 ; 0 versements sous le cent pour tous les détenteurs ; 10183 jours sans détenteur | 347 versements lus dans les cours (347 au journal), VL ex minimale 7.8182 | 14264 positions jour × compte × fonds, pire écart ÷ borne 0.975
+_________________________ test_distribution_graine[5] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 5 : 1601 transactions = 1297 ordres + 304 réinvestissements ; 16 lignes de sommaire ; chaîne des parts intacte | 11851 jours fonds détenus vérifiés, pire écart ÷ borne 0.994 ; 0 versements sous le cent pour tous les détenteurs ; 7709 jours sans détenteur | 460 versements lus dans les cours (460 au journal), VL ex minimale 9.4860 | 14194 positions jour × compte × fonds, pire écart ÷ borne 0.956
+_________________________ test_distribution_graine[6] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 6 : 2198 transactions = 1906 ordres + 292 réinvestissements ; 20 lignes de sommaire ; chaîne des parts intacte | 13204 jours fonds détenus vérifiés, pire écart ÷ borne 0.991 ; 0 versements sous le cent pour tous les détenteurs ; 5680 jours sans détenteur | 397 versements lus dans les cours (397 au journal), VL ex minimale 6.5447 | 20478 positions jour × compte × fonds, pire écart ÷ borne 0.988
+_________________________ test_distribution_graine[7] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 7 : 2578 transactions = 2068 ordres + 510 réinvestissements ; 25 lignes de sommaire ; chaîne des parts intacte | 13410 jours fonds détenus vérifiés, pire écart ÷ borne 0.995 ; 0 versements sous le cent pour tous les détenteurs ; 5930 jours sans détenteur | 450 versements lus dans les cours (450 au journal), VL ex minimale 9.4139 | 22799 positions jour × compte × fonds, pire écart ÷ borne 0.988
+_________________________ test_distribution_graine[8] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 8 : 2596 transactions = 2018 ordres + 578 réinvestissements ; 24 lignes de sommaire ; chaîne des parts intacte | 13222 jours fonds détenus vérifiés, pire écart ÷ borne 0.996 ; 0 versements sous le cent pour tous les détenteurs ; 4748 jours sans détenteur | 386 versements lus dans les cours (387 au journal), VL ex minimale 7.6571 | 21377 positions jour × compte × fonds, pire écart ÷ borne 0.972
+_________________________ test_distribution_graine[9] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 9 : 2581 transactions = 2195 ordres + 386 réinvestissements ; 22 lignes de sommaire ; chaîne des parts intacte | 14569 jours fonds détenus vérifiés, pire écart ÷ borne 0.995 ; 0 versements sous le cent pour tous les détenteurs ; 6160 jours sans détenteur | 409 versements lus dans les cours (409 au journal), VL ex minimale 9.1996 | 23471 positions jour × compte × fonds, pire écart ÷ borne 0.976
+________________________ test_distribution_graine[10] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 10 : 1914 transactions = 1552 ordres + 362 réinvestissements ; 20 lignes de sommaire ; chaîne des parts intacte | 13573 jours fonds détenus vérifiés, pire écart ÷ borne 0.993 ; 0 versements sous le cent pour tous les détenteurs ; 5249 jours sans détenteur | 402 versements lus dans les cours (402 au journal), VL ex minimale 5.4334 | 17100 positions jour × compte × fonds, pire écart ÷ borne 0.984
+________________________ test_distribution_graine[11] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 11 : 1666 transactions = 1356 ordres + 310 réinvestissements ; 17 lignes de sommaire ; chaîne des parts intacte | 10122 jours fonds détenus vérifiés, pire écart ÷ borne 0.985 ; 0 versements sous le cent pour tous les détenteurs ; 6531 jours sans détenteur | 382 versements lus dans les cours (382 au journal), VL ex minimale 8.0547 | 15426 positions jour × compte × fonds, pire écart ÷ borne 0.973
+________________________ test_distribution_graine[12] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 12 : 2800 transactions = 2272 ordres + 528 réinvestissements ; 24 lignes de sommaire ; chaîne des parts intacte | 13527 jours fonds détenus vérifiés, pire écart ÷ borne 0.991 ; 0 versements sous le cent pour tous les détenteurs ; 5080 jours sans détenteur | 346 versements lus dans les cours (346 au journal), VL ex minimale 7.5297 | 24266 positions jour × compte × fonds, pire écart ÷ borne 0.970
+________________________ test_distribution_graine[13] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 13 : 1372 transactions = 1069 ordres + 303 réinvestissements ; 13 lignes de sommaire ; chaîne des parts intacte | 8962 jours fonds détenus vérifiés, pire écart ÷ borne 0.998 ; 0 versements sous le cent pour tous les détenteurs ; 13071 jours sans détenteur | 461 versements lus dans les cours (461 au journal), VL ex minimale 7.8579 | 12011 positions jour × compte × fonds, pire écart ÷ borne 0.972
+________________________ test_distribution_graine[14] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 14 : 1577 transactions = 1200 ordres + 377 réinvestissements ; 12 lignes de sommaire ; chaîne des parts intacte | 8230 jours fonds détenus vérifiés, pire écart ÷ borne 0.994 ; 0 versements sous le cent pour tous les détenteurs ; 10026 jours sans détenteur | 440 versements lus dans les cours (440 au journal), VL ex minimale 8.0301 | 12907 positions jour × compte × fonds, pire écart ÷ borne 0.986
+________________________ test_distribution_graine[15] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 15 : 2945 transactions = 2308 ordres + 637 réinvestissements ; 23 lignes de sommaire ; chaîne des parts intacte | 14604 jours fonds détenus vérifiés, pire écart ÷ borne 0.991 ; 0 versements sous le cent pour tous les détenteurs ; 4752 jours sans détenteur | 404 versements lus dans les cours (404 au journal), VL ex minimale 9.0614 | 25016 positions jour × compte × fonds, pire écart ÷ borne 0.976
+________________________ test_distribution_graine[16] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 16 : 2130 transactions = 1744 ordres + 386 réinvestissements ; 18 lignes de sommaire ; chaîne des parts intacte | 13042 jours fonds détenus vérifiés, pire écart ÷ borne 0.988 ; 0 versements sous le cent pour tous les détenteurs ; 6131 jours sans détenteur | 388 versements lus dans les cours (388 au journal), VL ex minimale 4.8084 | 18189 positions jour × compte × fonds, pire écart ÷ borne 0.968
+________________________ test_distribution_graine[17] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 17 : 1672 transactions = 1369 ordres + 303 réinvestissements ; 13 lignes de sommaire ; chaîne des parts intacte | 11488 jours fonds détenus vérifiés, pire écart ÷ borne 0.990 ; 0 versements sous le cent pour tous les détenteurs ; 8365 jours sans détenteur | 440 versements lus dans les cours (440 au journal), VL ex minimale 7.7189 | 14325 positions jour × compte × fonds, pire écart ÷ borne 0.991
+________________________ test_distribution_graine[18] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 18 : 2032 transactions = 1743 ordres + 289 réinvestissements ; 19 lignes de sommaire ; chaîne des parts intacte | 10972 jours fonds détenus vérifiés, pire écart ÷ borne 0.992 ; 0 versements sous le cent pour tous les détenteurs ; 9433 jours sans détenteur | 462 versements lus dans les cours (462 au journal), VL ex minimale 7.4807 | 18529 positions jour × compte × fonds, pire écart ÷ borne 0.992
+________________________ test_distribution_graine[19] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 19 : 2061 transactions = 1850 ordres + 211 réinvestissements ; 22 lignes de sommaire ; chaîne des parts intacte | 11148 jours fonds détenus vérifiés, pire écart ÷ borne 0.999 ; 0 versements sous le cent pour tous les détenteurs ; 6786 jours sans détenteur | 301 versements lus dans les cours (301 au journal), VL ex minimale 7.9850 | 20709 positions jour × compte × fonds, pire écart ÷ borne 0.966
+________________________ test_distribution_graine[20] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20 : 1974 transactions = 1435 ordres + 539 réinvestissements ; 18 lignes de sommaire ; chaîne des parts intacte | 7587 jours fonds détenus vérifiés, pire écart ÷ borne 0.996 ; 0 versements sous le cent pour tous les détenteurs ; 8188 jours sans détenteur | 260 versements lus dans les cours (260 au journal), VL ex minimale 8.2858 | 16791 positions jour × compte × fonds, pire écart ÷ borne 0.976
+=========================== short test summary info ===========================
+PASSED tests/test_adapter.py::test_distribution_rendement_total
+PASSED tests/test_adapter.py::test_distribution_calendrier
+PASSED tests/test_adapter.py::test_distribution_valeur_conservee
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[20261103]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[1]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[2]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[3]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[4]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[5]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[6]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[7]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[8]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[9]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[10]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[11]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[12]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[13]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[14]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[15]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[16]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[17]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[18]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[19]
+PASSED tests/test_adapter_seeds.py::test_distribution_graine[20]
+24 passed, 2 deselected in 31.96s
+code de sortie : 0

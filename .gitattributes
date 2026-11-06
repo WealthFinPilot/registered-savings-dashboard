@@ -1,0 +1,4 @@
+# Thème : fins de ligne figées, sinon l empreinte de VALIDATION-V3.json ne correspond plus
+Theme/** -text
+# Exports du générateur : octets figés, sinon les SHA-256 de reproductibilité diffèrent au checkout
+Generateur-data-fictive/outputs/** -text

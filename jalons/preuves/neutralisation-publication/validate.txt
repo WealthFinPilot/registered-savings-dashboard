@@ -1,0 +1,10 @@
+$ python -m synthetic_finance validate --path outputs/typical_seed_20261103
+[PASS] adaptateur_parts — 1884 transactions = 1507 ordres + 377 réinvestissements ; parts restantes = précédentes ± négociées, jamais négatives
+[PASS] adaptateur_sommaire — 21 positions non nulles à l'arrêté 2026-10-30
+[PASS] adaptateur_prix_distributions — 55749 cours > 0 ; 375 versements, taux dans ]0, 1[, distributions ≥ 0
+Validation : réussie (outputs\typical_seed_20261103\validation.json)
+$ python -m synthetic_finance validate --path outputs/vitrine_seed_20261103
+[PASS] adaptateur_parts — 1935 transactions = 1548 ordres + 387 réinvestissements ; parts restantes = précédentes ± négociées, jamais négatives
+[PASS] adaptateur_sommaire — 21 positions non nulles à l'arrêté 2026-10-30
+[PASS] adaptateur_prix_distributions — 55749 cours > 0 ; 386 versements, taux dans ]0, 1[, distributions ≥ 0
+Validation : réussie (outputs\vitrine_seed_20261103\validation.json)

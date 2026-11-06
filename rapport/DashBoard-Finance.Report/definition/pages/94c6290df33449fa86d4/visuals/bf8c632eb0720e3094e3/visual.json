@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "bf8c632eb0720e3094e3",
+  "position": {
+    "x": 380,
+    "y": 96,
+    "z": 18000,
+    "height": 120,
+    "width": 272,
+    "tabOrder": 10000
+  },
+  "visualGroup": {
+    "displayName": "KPI-CELIAPP",
+    "groupMode": "ScaleMode"
+  }
+}

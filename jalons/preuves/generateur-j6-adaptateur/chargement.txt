@@ -1,0 +1,251 @@
+$ python -m synthetic_finance generate --config configs/typical.toml --seed 20261103 --out outputs/typical_seed_20261103 --stage adapter
+Généré : outputs\typical_seed_20261103 (graine 20261103, étapes universe, markets, behaviour, ledger, performance, adapter)
+  data/account_values_daily.csv
+  data/accounts.csv
+  data/allocation_targets_history.csv
+  data/benchmarks.csv
+  data/benchmarks_daily.csv
+  data/contribution_room.csv
+  data/counterfactual_daily.csv
+  data/events.csv
+  data/external_movements.csv
+  data/fund_exposures.csv
+  data/fund_exposures_by_axis.csv
+  data/fund_prices_daily.csv
+  data/fund_strategic_targets.csv
+  data/funds.csv
+  data/institutions.csv
+  data/internal_trades.csv
+  data/market_regimes_daily.csv
+  data/performance_daily.csv
+  data/performance_periods.csv
+  data/persona.csv
+  data/positions_daily.csv
+  data/tax_limits.csv
+  manifest.json
+  universe_report.md
+  market_report.md
+  behaviour_report.md
+  ledger_report.md
+  performance_report.md
+code de sortie : 0
+
+$ python -m synthetic_finance validate --path outputs/typical_seed_20261103
+[PASS] manifest_synthetique — synthetic = true
+[PASS] cles_uniques — aucun doublon de clé
+[PASS] references — aucune référence orpheline
+[PASS] trois_institutions — 3 institutions, un profil chacune
+[PASS] nombre_de_fonds — 14 fonds, Société 1 6, Société 2 4, Société 3 4
+[PASS] noms_fictifs — institutions « Société N », fonds marqués « (fictif) »
+[PASS] expositions_100 — 3 axes × 14 fonds à 100 % ± 0.01, mandats à 100 %
+[PASS] frais_coherents — RFG dans ]0, 3] %, palier haut ≤ palier bas, tout en CAD
+[PASS] regimes_et_alias — 4 régimes, 6 comptes, alias distincts du régime
+[PASS] celiapp_apres_ouverture_du_regime — aucun CELIAPP avant le 2023-04-01
+[PASS] dates_d_ouverture — comptes ouverts dans l'horizon, institutions ouvertes avec leur premier compte
+[PASS] allocations_cibles — 16 allocations à 100 %, aucun fonds avant son lancement
+[PASS] poids_institutions_asymetriques — Société 1 22.8% / Société 2 47.1% / Société 3 30.2%
+[PASS] profils_ordonnes — prudent 33.5% < balanced 65.7% < growth 97.5%
+[PASS] marche_calendrier — 1305 jours ouvrables (lundi à vendredi) du 2021-11-01 au 2026-10-30, 4 régimes visités
+[PASS] marche_grain_vl — 17904 VL : une par fonds et jour ouvrable, du lancement (ou du début de l'horizon) à la fin, aucune avant le lancement
+[PASS] marche_grain_reperes — 24795 indices : une ligne par repère et jour ouvrable de l'horizon, 19 repères
+[PASS] marche_valeurs_positives — VL et indices finis, strictement positifs, en CAD
+[PASS] marche_reperes — 14 composites (frais passifs < RFG du fonds), 3 politiques (frais < RFG pondéré), 2 repères de contexte, base 100
+[PASS] comportement_types_et_signes — 210 mouvements : 202 PAC, 7 ponctuels, 1 retraits ; apports > 0, retraits < 0, au cent (FRAIS : contrôles du grand livre)
+[PASS] comportement_comptes_et_dates — chaque mouvement : compte connu, jour ouvrable, entre l'ouverture du compte et la fin de l'horizon
+[PASS] comportement_evenements — 46 événements, clés uniques ; chaque mouvement et chacune des 7 nouvelles cibles de compte renvoient à un événement daté au plus tard le jour de l'effet
+[PASS] comportement_regimes — aucun retrait de REER ni de CELIAPP ; aucun CELIAPP alimenté avant 2023-04-01
+[PASS] comportement_droits — 16 lignes régime × année : cotisations et retraits = mouvements, droits jamais dépassés, reports d'une année sur l'autre cohérents avec tax_limits
+[PASS] comportement_retraits_bornes — 1 retraits, chacun ≤ 50% des apports nets du compte à sa date
+[PASS] grand_livre_ordres — 1507 ordres : BUY ou SELL, parts > 0, VL du jour, aucun frais de transaction, un lien chacun (mouvement ou rééquilibrage) ; résidu d'arrondi max 0.0216 $, total 7.56 $
+[PASS] grand_livre_ordres_dates — chaque ordre dans la vie de son compte, sur un fonds lancé ; chaque achat sur un fonds de la cible en vigueur
+[PASS] grand_livre_mouvements — 446 mouvements, chacun exécuté une fois (apport = achats, retrait ou frais = ventes) ; 7 rééquilibrages à ventes = achats ; 236 FRAIS < 0 en fin de mois
+[PASS] grand_livre_positions — 17189 positions : parts = cumul des ordres, jamais négatives, valeur = parts × VL au cent ; 5207 valeurs de compte = Σ positions, encaisse nulle
+[PASS] performance_grain — 9279 lignes, 10 entités (portefeuille, 3 institutions, 6 comptes) : un jour par jour d'ouverture, valeur = Σ des comptes, flux sans FRAIS, FRAIS à part
+[PASS] performance_twr — 9115 rendements quotidiens = (V⁺ − flux) ÷ V⁺ de la veille − 1 et TWR cumulés, à 1e-09 près ; vides le jour qui suit une valeur nulle
+[PASS] performance_periodes — 53 périodes (années civiles et depuis l'ouverture) : fin = début + apports − retraits + frais + résultat au cent, TWR = Π(1 + r) − 1 ; 0 MWR vides, chacun avec son motif
+[PASS] performance_contrefactuel — 6 contrefactuels, 6654 lignes : mêmes jours et mêmes flux externes que leur entité, sans FRAIS de compte ; repères de politique et de contexte connus
+[PASS] adaptateur_fichiers — 18 tables et distributions.csv relues, en-têtes conformes, 44953 lignes
+[PASS] adaptateur_cles — 18 clés primaires uniques
+[PASS] adaptateur_references — aucune référence orpheline
+[PASS] adaptateur_parts — 1884 transactions = 1507 ordres + 377 réinvestissements ; parts restantes = précédentes ± négociées, jamais négatives
+[PASS] adaptateur_sommaire — 21 positions non nulles à l'arrêté 2026-10-30
+[PASS] adaptateur_prix_distributions — 42699 cours > 0 ; 375 versements, taux dans ]0, 1[, distributions ≥ 0
+Validation : réussie (outputs\typical_seed_20261103\validation.json)
+code de sortie : 0
+
+$ python scripts/charger_synthetique.py --path Generateur-data-fictive/outputs/typical_seed_20261103
+psql:sql/schema.sql:6: NOTICE:  le schéma « ref » existe déjà, poursuite du traitement
+psql:sql/schema.sql:7: NOTICE:  le schéma « fait » existe déjà, poursuite du traitement
+psql:sql/schema.sql:16: NOTICE:  la relation « compte » existe déjà, poursuite du traitement
+psql:sql/schema.sql:19: NOTICE:  la colonne « ferme_le » de la relation « compte » existe déjà, poursuite du traitement
+psql:sql/schema.sql:28: NOTICE:  la relation « nature » existe déjà, poursuite du traitement
+psql:sql/schema.sql:39: NOTICE:  la relation « transfert_entrant » existe déjà, poursuite du traitement
+psql:sql/schema.sql:51: NOTICE:  la relation « transfert_sortant » existe déjà, poursuite du traitement
+psql:sql/schema.sql:58: NOTICE:  la relation « parametre » existe déjà, poursuite du traitement
+psql:sql/schema.sql:68: NOTICE:  la relation « versement_hors_export » existe déjà, poursuite du traitement
+psql:sql/schema.sql:69: NOTICE:  la colonne « compte_alias » de la relation « versement_hors_export » existe déjà, poursuite du traitement
+psql:sql/schema.sql:78: NOTICE:  la relation « retrait_hors_export » existe déjà, poursuite du traitement
+psql:sql/schema.sql:79: NOTICE:  la colonne « compte_alias » de la relation « retrait_hors_export » existe déjà, poursuite du traitement
+psql:sql/schema.sql:91: NOTICE:  la relation « reer_avis » existe déjà, poursuite du traitement
+psql:sql/schema.sql:99: NOTICE:  la relation « historique » existe déjà, poursuite du traitement
+psql:sql/schema.sql:120: NOTICE:  la relation « transaction » existe déjà, poursuite du traitement
+psql:sql/schema.sql:134: NOTICE:  la relation « sommaire » existe déjà, poursuite du traitement
+psql:sql/schema.sql:148: NOTICE:  la relation « releve » existe déjà, poursuite du traitement
+psql:sql/schema.sql:159: NOTICE:  la relation « releve_cotisation » existe déjà, poursuite du traitement
+psql:sql/schema.sql:168: NOTICE:  la relation « chargement » existe déjà, poursuite du traitement
+psql:sql/schema.sql:174: NOTICE:  le schéma « pub » existe déjà, poursuite du traitement
+psql:sql/schema.sql:188: NOTICE:  la relation « profil » existe déjà, poursuite du traitement
+psql:sql/schema.sql:195: NOTICE:  la relation « profil_code » existe déjà, poursuite du traitement
+psql:sql/schema.sql:208: NOTICE:  la relation « profil_ligne » existe déjà, poursuite du traitement
+psql:sql/schema.sql:218: NOTICE:  la relation « style » existe déjà, poursuite du traitement
+psql:sql/schema.sql:229: NOTICE:  la relation « geographie » existe déjà, poursuite du traitement
+psql:sql/schema.sql:244: NOTICE:  la relation « fonds » existe déjà, poursuite du traitement
+psql:sql/schema.sql:250: NOTICE:  la relation « risque » existe déjà, poursuite du traitement
+psql:sql/schema.sql:259: NOTICE:  la relation « symbole » existe déjà, poursuite du traitement
+psql:sql/schema.sql:271: NOTICE:  la relation « repere » existe déjà, poursuite du traitement
+psql:sql/schema.sql:282: NOTICE:  la relation « cours » existe déjà, poursuite du traitement
+psql:sql/schema.sql:302: NOTICE:  la relation « rapport_annuel » existe déjà, poursuite du traitement
+psql:sql/plafonds.sql:7: NOTICE:  le schéma « ref » existe déjà, poursuite du traitement
+psql:sql/plafonds.sql:17: NOTICE:  la relation « plafond » existe déjà, poursuite du traitement
+psql:sql/plafonds.sql:25: NOTICE:  la relation « periode_reer » existe déjà, poursuite du traitement
+psql:sql/vues.sql:9: NOTICE:  DROP cascade sur 45 autres objets
+D�TAIL : DROP cascade sur vue rapport.versement
+DROP cascade sur vue rapport.retrait
+DROP cascade sur vue rapport.mouvement
+DROP cascade sur vue rapport.total_annuel
+DROP cascade sur vue rapport.droits_celi
+DROP cascade sur vue rapport.droits_celiapp
+DROP cascade sur vue rapport.droits_reer
+DROP cascade sur vue rapport.droits
+DROP cascade sur vue rapport.excedent
+DROP cascade sur vue rapport.alerte
+DROP cascade sur vue rapport.compte
+DROP cascade sur vue rapport.arrete
+DROP cascade sur vue rapport.annee
+DROP cascade sur vue rapport.calendrier
+DROP cascade sur vue rapport.part_mensuelle
+DROP cascade sur vue rapport.point
+DROP cascade sur vue rapport.valorisation
+DROP cascade sur vue rapport.performance
+DROP cascade sur vue rapport.performance_globale
+DROP cascade sur vue rapport.rendement_annuel
+DROP cascade sur vue rapport.cascade
+DROP cascade sur vue rapport.categorie
+DROP cascade sur vue rapport.composition
+DROP cascade sur vue rapport.valorisation_profil
+DROP cascade sur vue rapport.exposition
+DROP cascade sur vue rapport.cout
+DROP cascade sur vue rapport.cout_perimetre
+DROP cascade sur vue rapport.seuil
+DROP cascade sur vue rapport.fonds
+DROP cascade sur vue rapport.niveau_risque
+DROP cascade sur vue rapport.detention
+DROP cascade sur vue rapport.cible
+DROP cascade sur vue rapport.ecart
+DROP cascade sur vue rapport.prix_quotidien
+DROP cascade sur vue rapport.parts
+DROP cascade sur vue rapport.distribution
+DROP cascade sur vue rapport.rendement_fonds
+DROP cascade sur vue rapport.repere_quotidien
+DROP cascade sur vue rapport.rendement_quotidien
+DROP cascade sur vue rapport.rendement_perimetre
+DROP cascade sur vue rapport.risque_mesure
+DROP cascade sur vue rapport.repere_mensuel
+DROP cascade sur vue rapport.rapport_fonds
+DROP cascade sur vue rapport.detention_rapport
+DROP cascade sur vue rapport.rapport_perimetre
+Rejoués dans finance_ve01 : sql/schema.sql, sql/plafonds.sql, sql/vues.sql
+Chargé : 18 tables depuis Generateur-data-fictive\outputs\typical_seed_20261103\finance_ve01
+
+Lignes par table (base / fichier)
+  [PASS] ref.compte : 6 / 6
+  [PASS] ref.nature : 7 / 7
+  [PASS] ref.parametre : 2 / 2
+  [PASS] ref.reer_avis : 6 / 6
+  [PASS] ref.risque : 5 / 5
+  [PASS] ref.geographie : 6 / 6
+  [PASS] ref.style : 15 / 15
+  [PASS] ref.fonds : 14 / 14
+  [PASS] ref.symbole : 14 / 14
+  [PASS] ref.repere : 14 / 14
+  [PASS] pub.profil : 14 / 14
+  [PASS] pub.profil_code : 14 / 14
+  [PASS] pub.profil_ligne : 156 / 156
+  [PASS] pub.rapport_annuel : 70 / 70
+  [PASS] pub.cours : 42699 / 42699
+  [PASS] fait.historique : 6 / 6
+  [PASS] fait.transaction : 1884 / 1884
+  [PASS] fait.sommaire : 21 / 21
+
+Tables qui restent vides
+  [PASS] fait.releve_cotisation : 0
+  [PASS] fait.releve : 0
+  [PASS] ref.transfert_entrant : 0
+  [PASS] ref.transfert_sortant : 0
+  [PASS] ref.versement_hors_export : 0
+  [PASS] ref.retrait_hors_export : 0
+
+Références sans clé étrangère (orphelins)
+  [PASS] fait.transaction.code_fonds hors pub.profil_code : 0
+  [PASS] fait.sommaire.code_fonds hors pub.profil_code : 0
+  [PASS] pub.profil_code.code_fa hors ref.fonds : 0
+  [PASS] pub.profil.code_fa hors ref.fonds : 0
+  [PASS] pub.rapport_annuel.code_fa hors ref.fonds : 0
+  [PASS] ref.symbole sans cours : 0
+  [PASS] ref.repere sans cours ajusté : 0
+  [PASS] ref.repere.code_fa hors ref.fonds : 0
+  [PASS] pub.profil.profil_risque hors ref.risque : 0
+  [PASS] pub.profil_ligne « pays » hors ref.geographie : 0
+  [PASS] sous-jacent de pub.profil_ligne hors ref.style : 0
+  [PASS] fait.transaction.libelle hors ref.nature : 0
+  [PASS] fait.transaction : parts_restantes ≠ précédentes ± négociées : 0
+
+Vues rapport.* (SELECT count(*))
+  [PASS] rapport.alerte : 15
+  [PASS] rapport.annee : 6
+  [PASS] rapport.arrete : 1
+  [PASS] rapport.calendrier : 2191
+  [PASS] rapport.cascade : 144
+  [PASS] rapport.categorie : 16
+  [PASS] rapport.cible : 31
+  [PASS] rapport.composition : 133
+  [PASS] rapport.compte : 6
+  [PASS] rapport.cout : 236
+  [PASS] rapport.cout_perimetre : 11
+  [PASS] rapport.detention : 798
+  [PASS] rapport.detention_rapport : 21
+  [PASS] rapport.distribution : 225
+  [PASS] rapport.droits : 15
+  [PASS] rapport.droits_celi : 5
+  [PASS] rapport.droits_celiapp : 4
+  [PASS] rapport.droits_reer : 6
+  [PASS] rapport.ecart : 2013
+  [PASS] rapport.excedent : 575
+  [PASS] rapport.exposition : 7013
+  [PASS] rapport.fonds : 14
+  [PASS] rapport.mouvement : 560
+  [PASS] rapport.niveau_risque : 6
+  [PASS] rapport.part_mensuelle : 209
+  [PASS] rapport.parts : 1535
+  [PASS] rapport.performance : 236
+  [PASS] rapport.performance_globale : 60
+  [PASS] rapport.point : 236
+  [PASS] rapport.prix_quotidien : 15294
+  [PASS] rapport.rapport_fonds : 14
+  [PASS] rapport.rapport_perimetre : 11
+  [PASS] rapport.rendement_annuel : 30
+  [PASS] rapport.rendement_fonds : 15294
+  [PASS] rapport.rendement_perimetre : 20816
+  [PASS] rapport.rendement_quotidien : 17168
+  [PASS] rapport.repere_mensuel : 796
+  [PASS] rapport.repere_quotidien : 15282
+  [PASS] rapport.retrait : 4
+  [PASS] rapport.risque_mesure : 46
+  [PASS] rapport.seuil : 3
+  [PASS] rapport.total_annuel : 15
+  [PASS] rapport.valorisation : 798
+  [PASS] rapport.valorisation_profil : 798
+  [PASS] rapport.versement : 684
+
+Résultat : tous les contrôles passent (45 vues)
+code de sortie : 0

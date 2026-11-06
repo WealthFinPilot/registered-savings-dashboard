@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.9.0/schema.json",
+  "position": {
+    "x": 8,
+    "y": 852.99981689453125,
+    "z": 14000,
+    "height": 240,
+    "width": 308,
+    "tabOrder": 11000
+  },
+  "objects": {
+    "labels": [],
+    "dataPoint": [],
+    "valueAxis": [],
+    "legend": [
+      {
+        "properties": {
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

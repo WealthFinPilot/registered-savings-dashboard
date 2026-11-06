@@ -1,0 +1,88 @@
+relationship 'Versement vers Compte'
+	fromColumn: Versement.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Droits vers Année'
+	fromColumn: Droits.annee
+	toColumn: Année.Année
+
+relationship 'Versement vers Calendrier'
+	fromColumn: Versement.'Date de négociation'
+	toColumn: Calendrier.Date
+
+relationship 'Calendrier vers Année'
+	fromColumn: Calendrier.Année
+	toColumn: Année.Année
+
+relationship 'Performance vers Compte'
+	fromColumn: Performance.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Performance vers Calendrier'
+	fromColumn: Performance.mois
+	toColumn: Calendrier.Date
+
+relationship 'Cascade vers Compte'
+	fromColumn: Cascade.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Cascade vers Année'
+	fromColumn: Cascade.annee
+	toColumn: Année.Année
+
+relationship 'Exposition vers Compte'
+	fromColumn: Exposition.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Coût vers Compte'
+	fromColumn: Coût.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Exposition vers Fonds'
+	fromColumn: Exposition.code_fa
+	toColumn: Fonds.code_fa
+
+relationship 'Détention vers Compte'
+	fromColumn: Détention.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Détention vers Fonds'
+	fromColumn: Détention.code_fa
+	toColumn: Fonds.code_fa
+
+relationship 'Détention vers Niveau de risque'
+	fromColumn: Détention.risque
+	toColumn: 'Niveau de risque'.'Niveau de risque'
+
+relationship 'Écart tactique vers Compte'
+	fromColumn: 'Écart tactique'.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Écart tactique vers Fonds'
+	fromColumn: 'Écart tactique'.code_fa
+	toColumn: Fonds.code_fa
+
+relationship 'Rendement quotidien vers Compte'
+	fromColumn: 'Rendement quotidien'.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Rendement quotidien vers Fonds'
+	fromColumn: 'Rendement quotidien'.code_fa
+	toColumn: Fonds.code_fa
+
+relationship 'Repère mensuel vers Compte'
+	fromColumn: 'Repère mensuel'.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Repère mensuel vers Calendrier'
+	fromColumn: 'Repère mensuel'.mois
+	toColumn: Calendrier.Date
+
+relationship 'Détention RDRF vers Compte'
+	fromColumn: 'Détention RDRF'.compte_alias
+	toColumn: Compte.Compte
+
+relationship 'Détention RDRF vers Fonds'
+	fromColumn: 'Détention RDRF'.code_fa
+	toColumn: Fonds.code_fa
+

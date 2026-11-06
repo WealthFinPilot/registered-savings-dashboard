@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "navGroupe5",
+  "position": {
+    "x": 2.4,
+    "y": 313.6,
+    "z": 6000,
+    "height": 60,
+    "width": 85.6,
+    "tabOrder": 5000
+  },
+  "visualGroup": {
+    "displayName": "Menu-P5",
+    "groupMode": "ScaleMode"
+  }
+}

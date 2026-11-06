@@ -1,0 +1,8 @@
+$ python scripts/recette_synthetique.py --controle distributions
+[PASS] rendement total du rapport = rendement de la VL totale : 10513 jours fonds vérifiés (dont 225 jours de distribution), pire écart 8.74e-05, pire écart ÷ borne 0.992 ; 0 versements sous le cent pour tous les détenteurs ; 4769 jours sans détenteur la veille, non lus par rapport.rendement_quotidien
+[DIAG] borne écrite à l'ouverture du contrat (0,00005 sur chaque prix et sur la distribution par part, sans l'arrondi au cent des réinvestissements) : pire écart ÷ borne 20.908, 26 jours fonds au-delà sur 10513 ; jours sans détenteur la veille, non contrôlés : 4769
+[PASS] calendrier : 375 versements lus dans pub.cours (sur 375 du journal, dont 374 au-dessus de 3 fois l'arrondi du prix), mensuels en fin de mois, annuels du 20 au 31 décembre, au plus un par décembre ; hors calendrier 0, doublons 0, absents du journal 0 ; taux lu ÷ taux du journal à 0.94 fois l'arrondi au plus
+[PASS] signe : 0 hausse de VL ex ÷ VL totale, 0 distribution négative ; VL ex minimale 5.7546 $
+[PASS] valeur conservée : 17189 positions jour × compte × fonds, pire écart ÷ borne 0.956 (borne : 0,0005 part × VL ex + parts × 0,00005 + 0,005 $)
+Résultat : tous les contrôles bloquants passent
+code de sortie : 0

@@ -1,0 +1,19 @@
+$ python scripts/recette_synthetique.py --controle grand-livre
+[PASS] valorisations : 236 points compte × date, pire écart ÷ borne 0.900 (Σ lignes : 0,0005 part × VL + parts × 0,00005 + 0,005 $), 0 au-delà ; 0 lignes à un prix d'une autre date
+[DIAG] borne écrite à l'ouverture du contrat (Σ lignes : parts × 0,00005 + 0,005 $, sans l'arrondi des parts) : pire écart ÷ borne 1.900, 13 au-delà
+    CELI-2 2024-04-30 : rapport 388.92, grand livre 388.89, écart 0.0300
+    CELIAPP-1 2023-12-29 : rapport 298.93, grand livre 298.91, écart 0.0200
+    CELIAPP-1 2024-01-31 : rapport 302.47, grand livre 302.44, écart 0.0300
+    CELIAPP-1 2024-03-29 : rapport 861.02, grand livre 861.05, écart 0.0300
+    CELIAPP-1 2024-04-30 : rapport 1117.16, grand livre 1117.18, écart 0.0200
+    CELIAPP-1 2024-10-31 : rapport 2678.02, grand livre 2678.06, écart 0.0400
+    REER-1 2022-02-28 : rapport 3227.34, grand livre 3227.36, écart 0.0200
+    REER-2 2025-05-30 : rapport 296.54, grand livre 296.57, écart 0.0300
+    REER-2 2025-11-28 : rapport 297.92, grand livre 297.94, écart 0.0200
+    REER-2 2026-05-29 : rapport 692.95, grand livre 692.97, écart 0.0200
+[PASS] arrêté : rapport.arrete 2026-10-30, fin du grand livre 2026-10-30 ; VM 60,959.92 $ contre 60,960.01 $ (écart 0.0900, borne 0.3477)
+[PASS] flux par compte × année (versements PAC et ponctuels, retraits, frais) : 24 couples, 0 écart(s) au cent
+[PASS] droits par régime × année (cotisations, droits restants) : 15 lignes du rapport, 0 écart(s) au cent ; années du générateur sans cotisation ni ligne au rapport (la vue commence à la première cotisation) : ('CELI', 2021) : absent du rapport, cotisations 0.00
+[PASS] plafonds : 32 plafonds du générateur, 0 absent(s) de ref.plafond ou différent(s) ; droits de rapport.droits_* tous calculés depuis ref.plafond et ref.reer_avis (aucune ligne vide ci-dessus) ; niveaux de rapport.alerte : {'aucune': 15}
+Résultat : tous les contrôles bloquants passent
+code de sortie : 0

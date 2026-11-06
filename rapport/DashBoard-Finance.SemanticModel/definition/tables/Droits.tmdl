@@ -1,0 +1,74 @@
+/// Une ligne par régime (CELI, CELIAPP, REER) et par année de droits : droits au début de l'année, cotisations comptées, droits restants et niveau d'alerte (vue rapport.alerte). Année de déduction pour le REER. Montant vide = saisie manquante, jamais zéro.
+table Droits
+	lineageTag: a812bdde-4cca-44dd-8b69-b9be0302af9c
+
+	/// CELI, CELIAPP ou REER : les droits sont personnels, tous comptes du régime confondus
+	column Régime
+		dataType: string
+		lineageTag: c03c8110-51d8-4b31-8fe1-7f05daf836b0
+		summarizeBy: none
+		sourceColumn: regime
+
+	column annee
+		dataType: int64
+		isHidden
+		lineageTag: a3cd5288-3758-48aa-9f09-86fb8860542d
+		summarizeBy: none
+		sourceColumn: annee
+
+	column droits_debut
+		dataType: decimal
+		isHidden
+		formatString: #,##0 $
+		lineageTag: dba539ee-ac21-4cd2-a7ec-f7c38ed26528
+		summarizeBy: none
+		sourceColumn: droits_debut
+
+	column cotisations
+		dataType: decimal
+		isHidden
+		formatString: #,##0 $
+		lineageTag: ca2fb226-bdba-4e90-b892-2de949354329
+		summarizeBy: none
+		sourceColumn: cotisations
+
+	column droits_restants
+		dataType: decimal
+		isHidden
+		formatString: #,##0 $
+		lineageTag: fe1a4055-998f-4194-8c46-2c2634531436
+		summarizeBy: none
+		sourceColumn: droits_restants
+
+	/// aucune, avertissement (REER sous la marge de 2 000 $), alerte, saisie manquante, calendrier REER à compléter
+	column Niveau
+		dataType: string
+		lineageTag: 1092cbf6-8275-490d-9bc9-df8bfea5f9fe
+		summarizeBy: none
+		sourceColumn: niveau
+
+	partition Droits = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.alerte : droits et niveau d'alerte par régime et par année
+				    #"Vue alerte lue" =
+				        // Figée : vue rapport.alerte de finance_ve01, données fictives, 15 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "jZO7agMxEEX/ZeuxGM1LmjIEF4EUxq1xEYI74yLE/289srJTJFahlVjuOdwVs4fD8rp9f1uAkAgEFTEgGOW61cVCtJ7rulzPZ1g+rp/Xy2k5wgPOBU8tm9DqFqXJmM3mDAJCHXXyUYBSmsMV2HuWmAeeROZwA5GelYS45jekrdHvban5DfIGfSm28+nr+2572e1+LiR3Dw9bqfe0zIoLRO1xSroSkVynDQrRRoNheDg/NdgwkCe9G0j/M+y3233DY3kYc3ApU3BvkLi/ey6g0jyb17D4mENSF58T1KFU0ybIiYJqnwo158A+YRDQ8u0tnMdfoYSzvIJ5Rq3hGMsdam6AZSMPOU4YDLJlbOGISUK2BmRNLMH1D8PxBg==",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"regime", "annee", "droits_debut", "cotisations", "retraits", "droits_restants", "excedent_max", "excedent_actuel", "premier_depassement", "niveau"}),
+				            Dates = Table.TransformColumns(Brute, {{"premier_depassement", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}}),
+				            Typée = Table.TransformColumnTypes(Dates, {{"regime", type text}, {"annee", Int64.Type}, {"droits_debut", type number}, {"cotisations", type number}, {"retraits", type number}, {"droits_restants", type number}, {"excedent_max", type number}, {"excedent_actuel", type number}, {"niveau", type text}})
+				        in
+				            Typée,
+				    // Colonnes affichées par la page ; retraits, excédent maximal et dates de dépassement restent en base
+				    #"Colonnes retenues" = Table.SelectColumns(#"Vue alerte lue", {"regime", "annee", "droits_debut", "cotisations", "droits_restants", "niveau"}),
+				    // Montants en décimal fixe ; un NULL SQL reste vide (saisie manquante)
+				    #"Types fixés" = Table.TransformColumnTypes(#"Colonnes retenues", {{"regime", type text}, {"annee", Int64.Type}, {"droits_debut", Currency.Type}, {"cotisations", Currency.Type}, {"droits_restants", Currency.Type}, {"niveau", type text}})
+				in
+				    #"Types fixés"
+
+	annotation PBI_ResultType = Table
+

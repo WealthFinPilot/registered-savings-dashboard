@@ -1,0 +1,4 @@
+ .../data/counterfactual_daily.csv                  | 6655 ++++++++++++++
+ .../data/performance_daily.csv                     | 9280 ++++++++++++++++++++
+ .../data/performance_periods.csv                   |   54 +
+ 3 files changed, 15989 insertions(+)

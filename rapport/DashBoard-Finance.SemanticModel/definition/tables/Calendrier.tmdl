@@ -1,0 +1,67 @@
+/// Table de dates du modèle (vue rapport.calendrier) : un jour par ligne, années complètes de la table Année. Axe des mois des visuels ; base du TWR mensuel de l'itération 4.
+table Calendrier
+	lineageTag: f486e59a-9ea7-4b65-b441-c741fa4049e8
+	dataCategory: Time
+
+	/// Jour ; clé de la table de dates
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: ea23e490-f1d7-419e-a9d5-4af569a17747
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Année civile du jour : relie le calendrier à la table Année (filtre commun avec les droits)
+	column Année
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d9466e78-c97b-41a8-8e81-76d7f392a993
+		summarizeBy: none
+		sourceColumn: annee
+
+	/// Premier jour du mois : axe des visuels mensuels
+	column Mois
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: 1ebdcc0c-a2fb-4c26-97f1-77d3c1cabce5
+		summarizeBy: none
+		sourceColumn: mois
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Mois antérieur ou égal au mois de la date d'arrêté (R15) : les KPI « cotisé cumulé » s'arrêtent au dernier mois écoulé
+	column 'Mois écoulé'
+		dataType: boolean
+		isHidden
+		lineageTag: c6484435-4b00-40c2-94c4-9645903a2604
+		summarizeBy: none
+		sourceColumn: mois_ecoule
+
+	partition Calendrier = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.calendrier : un jour par ligne, générée en SQL
+				    #"Vue calendrier lue" =
+				        // Figée : vue rapport.calendrier de finance_ve01, données fictives, 2191 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "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" &
+				                "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",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"date", "annee", "mois", "numero_mois", "trimestre", "mois_ecoule"}),
+				            Dates = Table.TransformColumns(Brute, {{"date", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}, {"mois", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}}),
+				            Typée = Table.TransformColumnTypes(Dates, {{"annee", Int64.Type}, {"numero_mois", Int64.Type}, {"trimestre", type text}, {"mois_ecoule", type logical}})
+				        in
+				            Typée,
+				    // Colonnes du rapport seulement : numero_mois et trimestre restent en base
+				    #"Colonnes retenues" = Table.SelectColumns(#"Vue calendrier lue", {"date", "annee", "mois", "mois_ecoule"}),
+				    // Types explicites : dates sans heure, entiers, booléen
+				    #"Types fixés" = Table.TransformColumnTypes(#"Colonnes retenues", {{"date", type date}, {"annee", Int64.Type}, {"mois", type date}, {"mois_ecoule", type logical}})
+				in
+				    #"Types fixés"
+

@@ -1,0 +1,211 @@
+....................................                                     [100%]
+=================================== PASSES ====================================
+_______________________ test_reequilibrages_imparfaits ________________________
+---------------------------- Captured stdout call -----------------------------
+7 rééquilibrages, causes {'cible': 7} ; incomplets : ['E0011 CELI-1 7.2 → 2.6', 'E0015 REER-1 20.0 → 2.8', 'E0026 REER-1 16.9 → 3.4', 'E0039 CELI-1 6.5 → 2.7', 'E0045 COMP-1 14.6 → 4.9'] ; plus longue dérive au-delà du seuil laissée sans suite : 30 jours ouvrables (REER-1, seuil 5.0 points, depuis le 2023-03-29)
+________________________ test_reequilibrages_par_annee ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 2022 2 cible + 0 dérive; 2023 2 cible + 0 dérive; 2024 1 cible + 0 dérive; 2025 1 cible + 0 dérive; 2026 1 cible + 0 dérive
+graine 1 : 2022 1 cible + 0 dérive; 2023 1 cible + 0 dérive; 2024 2 cible + 0 dérive; 2025 3 cible + 0 dérive; 2026 3 cible + 1 dérive
+graine 2 : 2023 1 cible + 0 dérive; 2024 2 cible + 1 dérive; 2025 2 cible + 1 dérive; 2026 2 cible + 0 dérive
+graine 3 : 2023 3 cible + 2 dérive; 2024 3 cible + 1 dérive; 2025 4 cible + 2 dérive; 2026 1 cible + 0 dérive
+graine 4 : 2024 1 cible + 0 dérive; 2025 1 cible + 0 dérive; 2026 1 cible + 1 dérive
+graine 5 : 2024 1 cible + 0 dérive; 2025 2 cible + 0 dérive; 2026 3 cible + 0 dérive
+graine 6 : 2024 0 cible + 1 dérive; 2025 2 cible + 1 dérive; 2026 4 cible + 0 dérive
+graine 7 : 2024 1 cible + 1 dérive; 2025 3 cible + 0 dérive; 2026 3 cible + 1 dérive
+graine 8 : 2022 1 cible + 0 dérive; 2023 3 cible + 0 dérive; 2024 1 cible + 0 dérive; 2025 1 cible + 1 dérive; 2026 1 cible + 2 dérive
+graine 9 : 2022 3 cible + 0 dérive; 2023 3 cible + 2 dérive; 2024 1 cible + 2 dérive; 2025 1 cible + 3 dérive
+graine 10 : 2023 3 cible + 1 dérive; 2024 2 cible + 2 dérive; 2025 2 cible + 0 dérive; 2026 0 cible + 2 dérive
+graine 11 : 2022 1 cible + 0 dérive; 2026 1 cible + 0 dérive
+graine 12 : 2023 1 cible + 1 dérive; 2024 4 cible + 2 dérive; 2026 2 cible + 0 dérive
+graine 13 : 2025 3 cible + 0 dérive; 2026 1 cible + 0 dérive
+graine 14 : 2022 1 cible + 0 dérive; 2025 1 cible + 1 dérive; 2026 2 cible + 1 dérive
+graine 15 : 2023 2 cible + 1 dérive; 2024 1 cible + 1 dérive; 2025 0 cible + 1 dérive; 2026 1 cible + 1 dérive
+graine 16 : 2023 1 cible + 0 dérive; 2024 1 cible + 0 dérive; 2025 3 cible + 0 dérive; 2026 3 cible + 1 dérive
+graine 17 : 2022 0 cible + 1 dérive; 2023 1 cible + 0 dérive; 2024 3 cible + 0 dérive; 2025 4 cible + 1 dérive; 2026 1 cible + 1 dérive
+graine 18 : 2022 1 cible + 0 dérive; 2023 4 cible + 1 dérive; 2024 2 cible + 1 dérive; 2025 5 cible + 3 dérive; 2026 2 cible + 0 dérive
+graine 19 : 2022 1 cible + 0 dérive; 2024 3 cible + 0 dérive; 2025 3 cible + 0 dérive; 2026 1 cible + 1 dérive
+graine 20 : 2023 1 cible + 0 dérive; 2024 3 cible + 1 dérive; 2025 2 cible + 0 dérive; 2026 1 cible + 0 dérive
+_______________ test_aucune_anticipation_grand_livre[20261103] ________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 20 coupures × 3 marchés ; 7 rééquilibrages dont 0 dus à la dérive, 0 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[1] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 1 : 28 coupures × 3 marchés ; 11 rééquilibrages dont 1 dus à la dérive, 1 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[2] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 2 : 24 coupures × 3 marchés ; 9 rééquilibrages dont 2 dus à la dérive, 2 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[3] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 3 : 36 coupures × 3 marchés ; 16 rééquilibrages dont 5 dus à la dérive, 5 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[4] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 4 : 14 coupures × 3 marchés ; 4 rééquilibrages dont 1 dus à la dérive, 1 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[5] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 5 : 18 coupures × 3 marchés ; 6 rééquilibrages dont 0 dus à la dérive, 0 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[6] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 6 : 19 coupures × 3 marchés ; 8 rééquilibrages dont 2 dus à la dérive, 2 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[7] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 7 : 24 coupures × 3 marchés ; 9 rééquilibrages dont 2 dus à la dérive, 2 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[8] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 8 : 26 coupures × 3 marchés ; 10 rééquilibrages dont 3 dus à la dérive, 3 supprimés par des VL ramenées sur la cible la veille
+___________________ test_aucune_anticipation_grand_livre[9] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 9 : 36 coupures × 3 marchés ; 15 rééquilibrages dont 7 dus à la dérive, 7 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[10] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 10 : 30 coupures × 3 marchés ; 12 rééquilibrages dont 5 dus à la dérive, 5 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[11] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 11 : 10 coupures × 3 marchés ; 2 rééquilibrages dont 0 dus à la dérive, 0 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[12] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 12 : 26 coupures × 3 marchés ; 10 rééquilibrages dont 3 dus à la dérive, 3 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[13] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 13 : 14 coupures × 3 marchés ; 4 rééquilibrages dont 0 dus à la dérive, 0 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[14] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 14 : 16 coupures × 3 marchés ; 6 rééquilibrages dont 2 dus à la dérive, 2 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[15] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 15 : 21 coupures × 3 marchés ; 8 rééquilibrages dont 4 dus à la dérive, 4 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[16] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 16 : 23 coupures × 3 marchés ; 9 rééquilibrages dont 1 dus à la dérive, 1 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[17] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 17 : 30 coupures × 3 marchés ; 12 rééquilibrages dont 3 dus à la dérive, 3 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[18] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 18 : 41 coupures × 3 marchés ; 19 rééquilibrages dont 5 dus à la dérive, 5 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[19] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 19 : 24 coupures × 3 marchés ; 9 rééquilibrages dont 1 dus à la dérive, 1 supprimés par des VL ramenées sur la cible la veille
+__________________ test_aucune_anticipation_grand_livre[20] ___________________
+---------------------------- Captured stdout call -----------------------------
+graine 20 : 22 coupures × 3 marchés ; 8 rééquilibrages dont 1 dus à la dérive, 1 supprimés par des VL ramenées sur la cible la veille
+_______________________ test_meme_graine_deux_processus _______________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   d1813f24037a3cabc545fe0191bbd8b31530fa6ac848ccfd7c2214c515c9ec17
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+___________________ test_marche_meme_graine_deux_processus ____________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   d1813f24037a3cabc545fe0191bbd8b31530fa6ac848ccfd7c2214c515c9ec17
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+_____________________ test_marche_autre_graine_autres_vl ______________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers de marché différents ['benchmarks.csv', 'benchmarks_daily.csv', 'fund_prices_daily.csv', 'market_regimes_daily.csv']
+______________________ test_vl_independantes_des_comptes ______________________
+---------------------------- Captured stdout call -----------------------------
+fichiers modifiés par la variante : ['accounts.csv', 'allocation_targets_history.csv']
+__________________ test_univers_inchange_par_l_etape_marches __________________
+---------------------------- Captured stdout call -----------------------------
+7 CSV de l'univers identiques entre --stage universe et --stage markets
+________________ test_comportement_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+events.csv                       b4511d7110bf7e7dbfa2bea98271378a4dd0ca26832881085e36670d31d7147d
+external_movements.csv           f40c169d705f7d3d1647cf0f5ace6c4dee7ea3313fd9d8976b771edde8969795
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+______________ test_comportement_autre_graine_autres_mouvements _______________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers de comportement différents ['contribution_room.csv', 'events.csv', 'external_movements.csv', 'persona.csv']
+_________ test_univers_et_marches_inchanges_par_l_etape_comportement __________
+---------------------------- Captured stdout call -----------------------------
+10 CSV identiques ; allocation_targets_history : 33 lignes du J1 en tête, 22 lignes de révision ajoutées
+_________________ test_grand_livre_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+account_values_daily.csv         c631c75c25f83fad35f61133d6f90b4babe7e3728c3039a0f2a5d83bbd1ae678
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+events.csv                       4e411391856bb9c8a98ad504db3e8062bf912a1c5e1712eb65fd198e0a882076
+external_movements.csv           0b839b2359a48d74aec3afa8abea2518e58ccea186d52f97357bccfc58005ac8
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+internal_trades.csv              5ea4695f603078773ea9f3fe5038b0796d89d56de01e87034f3e3688088e4a31
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+positions_daily.csv              3a4a912fd6c3ad1dd6d621b56fd9f06acb7c2631c30e333a187483845657639b
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+_________________ test_grand_livre_autre_graine_autres_ordres _________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers du grand livre différents ['account_values_daily.csv', 'internal_trades.csv', 'positions_daily.csv']
+_______________ test_j1_a_j3_inchanges_par_l_etape_grand_livre ________________
+---------------------------- Captured stdout call -----------------------------
+14 CSV identiques ; 39 événements et 210 mouvements du J3 identiques hors identifiants ; ajoutés : {'reequilibrage': 7}, 236 FRAIS
+=========================== short test summary info ===========================
+PASSED tests/test_ledger.py::test_reequilibrages_imparfaits
+PASSED tests/test_ledger.py::test_reequilibrages_par_annee
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[20261103]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[1]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[2]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[3]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[4]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[5]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[6]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[7]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[8]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[9]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[10]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[11]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[12]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[13]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[14]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[15]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[16]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[17]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[18]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[19]
+PASSED tests/test_ledger.py::test_aucune_anticipation_grand_livre[20]
+PASSED tests/test_reproducibility.py::test_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_meme_graine_en_memoire
+PASSED tests/test_reproducibility.py::test_autre_graine_autre_univers
+PASSED tests/test_reproducibility.py::test_marche_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_marche_autre_graine_autres_vl
+PASSED tests/test_reproducibility.py::test_vl_independantes_des_comptes
+PASSED tests/test_reproducibility.py::test_univers_inchange_par_l_etape_marches
+PASSED tests/test_reproducibility.py::test_comportement_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_comportement_autre_graine_autres_mouvements
+PASSED tests/test_reproducibility.py::test_univers_et_marches_inchanges_par_l_etape_comportement
+PASSED tests/test_reproducibility.py::test_grand_livre_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_grand_livre_autre_graine_autres_ordres
+PASSED tests/test_reproducibility.py::test_j1_a_j3_inchanges_par_l_etape_grand_livre
+36 passed, 5 deselected in 354.51s (0:05:54)

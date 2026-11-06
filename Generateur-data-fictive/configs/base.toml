@@ -1,0 +1,631 @@
+# Configuration de base du générateur synthétique. Toutes les valeurs sont des paramètres de
+# distributions ou des règles de mandat : aucune n'est une donnée réelle, aucune n'est un résultat
+# attendu. Les scénarios (typical.toml…) héritent de ce fichier par « extends » et en surchargent
+# une partie.
+#
+# Conventions : pourcentages de 0 à 100 ; parts (risk_appetite, poids) de 0 à 1 ; durées en mois
+# sauf mention ; [min, max] = bornes d'un tirage uniforme ; [moyenne, écart-type] = loi normale.
+
+[scenario]
+name = "base"
+start_date = 2021-11-01
+end_date = 2026-10-30
+base_currency = "CAD"
+seed = 20261103
+
+[universe]
+fund_count = [12, 18]                  # bornes de contrôle sur le total des fonds
+regimes = ["CELI", "CELIAPP", "REER", "COMP"]
+celiapp_available_from = 2023-04-01    # premier jour d'ouverture possible d'un CELIAPP
+fee_tier_threshold_cad = 100000        # palier des frais de compte, actif du ménage par institution
+new_fund_probability = 0.12            # part des fonds lancés pendant l'horizon
+new_fund_window_days = [90, 900]       # lancement : jours après start_date
+old_fund_age_days = [365, 7300]        # ancienneté d'un fonds déjà existant au départ
+# Poids d'épargne a priori des institutions : logistique-normale tronquée. Les biais décalent la
+# moyenne du logit de chaque profil ; la troncature rejette tout tirage sous min_institution_weight.
+institution_weight_sigma = 0.55
+min_institution_weight = 0.10
+equal_split_tolerance = 0.02           # rejet aussi si toutes les parts sont à moins de 2 points de 1/3
+first_institution_reason = "héritage de produits"
+# Appétits pour le risque (part en actions visée) : tirés ensemble, rejetés s'ils ne respectent pas
+# l'ordre des profils prudent < intermédiaire < dynamique avec cet écart minimal. C'est la définition
+# des profils, pas un résultat imposé : la part réalisée dépend ensuite de la gamme et de l'arrondi.
+min_appetite_gap = 0.10
+
+[accounts]
+min_per_institution = 2
+first_opening_window_days = 45         # ouverture du premier compte après start_date
+institution_delay_months = 14          # délai exponentiel d'ouverture des institutions suivantes
+institution_delay_max_months = 30
+account_delay_months = 9               # délai exponentiel d'un compte après l'ouverture de l'institution
+celiapp_delay_months = 4               # délai exponentiel après celiapp_available_from
+last_opening_before_end_months = 12    # aucun compte ouvert dans la dernière année
+
+[accounts.count]                       # nombre de comptes par régime, [min, max]
+CELI = [2, 3]
+CELIAPP = [1, 1]
+REER = [1, 2]
+COMP = [1, 2]
+
+[policy]
+# Gamme d'une institution : un archétype « cœur » de son profil, puis les autres au prorata de
+# archetype_affinity ; le fonds cœur existe toujours au départ. Allocation cible : préférences tirées
+# en Dirichlet(preference_concentration), puis inclinaison exponentielle minimale pour que la part
+# en actions égale l'appétit tiré (ou l'extrême atteignable par la gamme). Arrondie au pas de
+# rounding_step %, les poids sous un demi-pas abandonnés.
+preference_concentration = 1.0
+rounding_step = 5
+# Comptes : sous-ensemble des fonds de la politique, poids perturbés (log-normale), même pas.
+account_funds = [2, 4]
+account_weight_sigma = 0.35
+
+# --------------------------------------------------------------------------------------------
+# Institutions : intention de départ. Le risque réel se lit ensuite dans les expositions.
+# --------------------------------------------------------------------------------------------
+[[institutions]]
+name = "Société 1"
+strategy_profile = "balanced"
+risk_appetite = [0.60, 0.06]           # part en actions visée par l'investisseur dans cette institution
+fund_count = [4, 6]
+fee_level = [0.0, 0.08]                # multiplicateur log-normal des frais : [mu, sigma]
+savings_bias = 0.15                    # décalage du logit du poids d'épargne
+reasons = ["portefeuilles clés en main", "simplicité de gestion"]
+core_archetypes = ["equilibre"]        # au moins un, existant au départ : il permet d'atteindre le profil
+archetype_affinity = { equilibre = 1.0, croissance = 0.8, actions_mondiales = 0.9, actions_canadiennes = 0.6, obligations_canadiennes = 0.6, dividendes_canadiens = 0.4, actions_internationales = 0.5, conservateur = 0.3, monetaire = 0.3 }
+regime_affinity = { CELI = 1.0, REER = 0.8, COMP = 0.5, CELIAPP = 0.4 }
+
+[[institutions]]
+name = "Société 2"
+strategy_profile = "prudent"
+risk_appetite = [0.33, 0.06]
+fund_count = [4, 6]
+fee_level = [-0.12, 0.08]
+savings_bias = 0.0
+reasons = ["frais bas", "proximité d'un conseiller"]
+core_archetypes = ["conservateur"]
+archetype_affinity = { monetaire = 1.0, obligations_canadiennes = 1.0, obligations_mondiales = 0.6, conservateur = 1.0, equilibre = 0.7, dividendes_canadiens = 0.5, actions_mondiales = 0.3, actifs_reels = 0.4 }
+regime_affinity = { REER = 1.0, CELIAPP = 1.0, CELI = 0.8, COMP = 0.3 }
+
+[[institutions]]
+name = "Société 3"
+strategy_profile = "growth"
+risk_appetite = [0.88, 0.05]
+fund_count = [4, 6]
+fee_level = [0.10, 0.10]
+savings_bias = -0.10
+reasons = ["changement de stratégie", "choix de fonds spécialisés"]
+core_archetypes = ["actions_mondiales", "actions_americaines", "marches_emergents", "technologie_mondiale", "petites_cap_nord_americaines"]
+archetype_affinity = { actions_mondiales = 0.9, actions_americaines = 0.8, marches_emergents = 0.7, petites_cap_nord_americaines = 0.7, technologie_mondiale = 0.5, actions_canadiennes = 0.6, croissance = 0.5, actions_internationales = 0.5, monetaire = 0.2 }
+regime_affinity = { COMP = 1.0, CELI = 0.9, REER = 0.5, CELIAPP = 0.3 }
+
+# --------------------------------------------------------------------------------------------
+# Archétypes de fonds : familles paramétriques, pas des fonds réels. strategic = mandat déclaré
+# (valeurs rondes, comme un mandat publié) ; asset_class = moyenne de l'allocation effective,
+# tirée en Dirichlet autour d'elle (par défaut : strategic). Géographies et styles : moyennes de
+# Dirichlet, catégories absentes = 0 (jamais tirées). Plages : [min, max] uniformes.
+# --------------------------------------------------------------------------------------------
+[exposure_defaults]
+asset_class_concentration = 300
+geography_concentration = 120
+style_concentration = 50
+fixed_income_geography = { canada = 86, united_states = 8, europe = 4, other = 2 }
+cash_geography = { canada = 100 }
+other_geography = { canada = 30, united_states = 40, europe = 18, asia_pacific = 12 }
+equity_hedge_probability = 0.15        # part du risque de change couvert sur les actions étrangères
+trading_cost_pct = [0.01, 0.08]        # ratio des frais d'opérations
+turnover_pct = [10, 60]                # taux de rotation annuel
+top10_weight_pct = [14, 32]            # poids des dix premières positions
+
+[archetypes.monetaire]
+label = "Marché monétaire"
+strategic = { cash = 100 }
+asset_class = { cash = 97, fixed_income = 3 }
+mer_pct = [0.10, 0.25]
+account_fee_pct = [0.25, 0.45]
+duration_years = [0.1, 0.4]
+distribution = "monthly"
+turnover_pct = [0, 0]
+trading_cost_pct = [0.0, 0.0]
+
+[archetypes.obligations_canadiennes]
+label = "Revenu fixe canadien"
+strategic = { fixed_income = 100 }
+asset_class = { fixed_income = 95, cash = 5 }
+mer_pct = [0.12, 0.30]
+account_fee_pct = [0.50, 0.75]
+duration_years = [5.5, 8.0]
+distribution = "monthly"
+
+[archetypes.obligations_mondiales]
+label = "Revenu fixe global couvert"
+strategic = { fixed_income = 100 }
+asset_class = { fixed_income = 92, cash = 8 }
+fixed_income_geography = { canada = 25, united_states = 38, europe = 22, asia_pacific = 10, emerging = 5 }
+mer_pct = [0.25, 0.45]
+account_fee_pct = [0.55, 0.80]
+duration_years = [5.0, 7.5]
+distribution = "monthly"
+
+[archetypes.conservateur]
+label = "Portefeuille prudence"
+strategic = { fixed_income = 55, equity = 35, other = 5, cash = 5 }
+asset_class_concentration = 220
+equity_geography = { canada = 40, united_states = 38, europe = 12, asia_pacific = 6, emerging = 4 }
+equity_style = { dividend = 40, broad_market = 35, value = 15, quality = 10 }
+mer_pct = [0.22, 0.35]
+account_fee_pct = [0.75, 0.95]
+duration_years = [4.5, 7.0]
+distribution = "monthly"
+
+[archetypes.equilibre]
+label = "Portefeuille pondéré"
+strategic = { equity = 60, fixed_income = 35, other = 3, cash = 2 }
+asset_class_concentration = 220
+equity_geography = { canada = 32, united_states = 44, europe = 13, asia_pacific = 7, emerging = 4 }
+equity_style = { broad_market = 45, dividend = 20, growth = 20, value = 15 }
+mer_pct = [0.24, 0.38]
+account_fee_pct = [0.85, 1.05]
+duration_years = [5.0, 7.5]
+distribution = "annual"
+
+[archetypes.croissance]
+label = "Portefeuille dynamique"
+strategic = { equity = 85, fixed_income = 10, other = 3, cash = 2 }
+asset_class_concentration = 250
+equity_geography = { canada = 25, united_states = 50, europe = 14, asia_pacific = 6, emerging = 5 }
+equity_style = { broad_market = 45, growth = 35, value = 10, dividend = 10 }
+mer_pct = [0.25, 0.40]
+account_fee_pct = [0.90, 1.10]
+duration_years = [5.0, 7.0]
+distribution = "annual"
+
+[archetypes.actions_canadiennes]
+label = "Actions du Canada"
+strategic = { equity = 100 }
+asset_class = { equity = 97, cash = 3 }
+equity_geography = { canada = 93, united_states = 7 }
+equity_style = { broad_market = 50, value = 30, dividend = 20 }
+mer_pct = [0.20, 0.40]
+account_fee_pct = [0.95, 1.20]
+distribution = "annual"
+
+[archetypes.dividendes_canadiens]
+label = "Rendement de dividendes Canada"
+strategic = { equity = 100 }
+asset_class = { equity = 96, cash = 4 }
+equity_geography = { canada = 88, united_states = 12 }
+equity_style = { dividend = 75, value = 20, quality = 5 }
+mer_pct = [0.25, 0.45]
+account_fee_pct = [0.95, 1.20]
+distribution = "monthly"
+
+[archetypes.actions_americaines]
+label = "Actions des États-Unis"
+strategic = { equity = 100 }
+asset_class = { equity = 98, cash = 2 }
+equity_geography = { united_states = 97, canada = 3 }
+equity_style = { broad_market = 55, growth = 30, quality = 15 }
+mer_pct = [0.20, 0.40]
+account_fee_pct = [0.95, 1.20]
+distribution = "annual"
+
+[archetypes.actions_mondiales]
+label = "Actions planétaires"
+strategic = { equity = 100 }
+asset_class = { equity = 97, cash = 3 }
+equity_geography = { united_states = 60, europe = 18, asia_pacific = 12, canada = 4, emerging = 6 }
+equity_style = { broad_market = 55, growth = 25, value = 12, quality = 8 }
+mer_pct = [0.25, 0.45]
+account_fee_pct = [1.00, 1.25]
+distribution = "annual"
+
+[archetypes.actions_internationales]
+label = "Actions hors Amérique du Nord"
+strategic = { equity = 100 }
+asset_class = { equity = 97, cash = 3 }
+equity_geography = { europe = 62, asia_pacific = 34, other = 4 }
+equity_style = { broad_market = 50, value = 30, dividend = 20 }
+mer_pct = [0.30, 0.50]
+account_fee_pct = [1.00, 1.25]
+distribution = "annual"
+
+[archetypes.marches_emergents]
+label = "Économies émergentes"
+strategic = { equity = 100 }
+asset_class = { equity = 96, cash = 4 }
+equity_geography = { emerging = 88, asia_pacific = 12 }
+equity_style = { broad_market = 55, growth = 30, value = 15 }
+mer_pct = [0.35, 0.60]
+account_fee_pct = [1.05, 1.30]
+distribution = "annual"
+top10_weight_pct = [20, 36]
+
+[archetypes.petites_cap_nord_americaines]
+label = "Petites sociétés nord-américaines"
+strategic = { equity = 100 }
+asset_class = { equity = 96, cash = 4 }
+equity_geography = { united_states = 62, canada = 38 }
+equity_style = { growth = 45, value = 35, broad_market = 20 }
+mer_pct = [0.35, 0.55]
+account_fee_pct = [1.05, 1.30]
+distribution = "annual"
+top10_weight_pct = [8, 18]
+
+[archetypes.technologie_mondiale]
+label = "Innovation technologique"
+strategic = { equity = 100 }
+asset_class = { equity = 97, cash = 3 }
+equity_geography = { united_states = 78, asia_pacific = 10, europe = 7, emerging = 5 }
+equity_style = { growth = 85, quality = 15 }
+mer_pct = [0.40, 0.65]
+account_fee_pct = [1.10, 1.35]
+distribution = "annual"
+top10_weight_pct = [42, 62]
+turnover_pct = [25, 90]
+
+[archetypes.actifs_reels]
+label = "Actifs réels et infrastructures"
+strategic = { other = 80, equity = 15, cash = 5 }
+asset_class_concentration = 200
+equity_geography = { canada = 40, united_states = 45, europe = 15 }
+equity_style = { dividend = 70, value = 30 }
+mer_pct = [0.40, 0.65]
+account_fee_pct = [0.95, 1.20]
+distribution = "monthly"
+
+# --------------------------------------------------------------------------------------------
+# Marchés (moteur B). Modèle multifactoriel journalier ouvrable (lundi à vendredi, fériés non
+# modélisés), à régimes latents et volatilité regroupée. Tout est paramètre de loi : aucune date,
+# aucun rendement d'année civile. Les régimes se succèdent par une chaîne de Markov ; le régime
+# initial est tiré dans sa loi stationnaire. Le moteur ignore les comptes et les versements.
+# Unités : dérives et volatilités en % par an ; taux et écarts de crédit en points de base par an.
+# --------------------------------------------------------------------------------------------
+[markets]
+method = "latent_multifactor_regime_switching"
+trading_days_per_year = 252
+shock_df = 5                           # Student-t des chocs de facteurs (queues épaisses), ν > 4
+garch = { alpha = 0.07, beta = 0.91 }  # variance commune regroupée, moyenne 1 ; alpha + beta < 1
+
+# Régimes : durée moyenne (mois, sortie géométrique), probabilités du régime suivant, puis paramètres
+# du régime. equity_drift_pct = espérance de dérive du facteur actions mondiales pendant le régime ;
+# vol_multiplier multiplie toutes les volatilités de facteurs, specific_vol_multiplier les seules
+# composantes régionales (sous 1 : les marchés se corrèlent davantage). Sauts du facteur mondial :
+# loi de Poisson (par an), taille log-normale [moyenne, écart-type] en %, des deux signes.
+[markets.regimes.expansion]
+mean_duration_months = 30
+next = { ralentissement = 0.75, crise = 0.25 }
+equity_drift_pct = 10.0
+vol_multiplier = 0.85
+specific_vol_multiplier = 1.0
+rates_equity_rho = 0.25                # corrélation taux / actions : hausse des taux quand ça monte
+yield_drift_bp = 20
+credit_drift_bp = -15
+fx_drift_pct = -1.0                    # USD contre CAD : un CAD qui se raffermit
+style_drift_pct = { growth = 1.5, dividend = -0.5, quality = 0.0 }
+jump_rate_per_year = 0.4
+jump_size_pct = [0.3, 2.5]
+
+[markets.regimes.ralentissement]
+mean_duration_months = 10
+next = { expansion = 0.55, crise = 0.45 }
+equity_drift_pct = 0.0
+vol_multiplier = 1.1
+specific_vol_multiplier = 1.0
+rates_equity_rho = 0.05
+yield_drift_bp = -40
+credit_drift_bp = 30
+fx_drift_pct = 1.5
+style_drift_pct = { growth = -1.0, dividend = 1.0, quality = 1.0 }
+jump_rate_per_year = 0.8
+jump_size_pct = [-1.0, 3.0]
+
+[markets.regimes.crise]
+mean_duration_months = 4
+next = { reprise = 1.0 }
+equity_drift_pct = -30.0
+vol_multiplier = 2.0
+specific_vol_multiplier = 0.8
+rates_equity_rho = -0.40               # fuite vers la qualité : les taux baissent quand ça chute
+yield_drift_bp = -150
+credit_drift_bp = 180
+fx_drift_pct = 8.0
+style_drift_pct = { growth = -4.0, dividend = 2.0, quality = 3.0 }
+jump_rate_per_year = 3.0
+jump_size_pct = [-3.0, 4.0]
+
+[markets.regimes.reprise]
+mean_duration_months = 8
+next = { expansion = 0.85, ralentissement = 0.15 }
+equity_drift_pct = 22.0
+vol_multiplier = 1.3
+specific_vol_multiplier = 1.0
+rates_equity_rho = 0.20
+yield_drift_bp = 50
+credit_drift_bp = -120
+fx_drift_pct = -4.0
+style_drift_pct = { growth = 3.0, dividend = -1.0, quality = -1.0 }
+jump_rate_per_year = 1.2
+jump_size_pct = [1.0, 3.0]
+
+# Actions : facteur régional = beta × facteur mondial + composante propre. regional_drift_sigma_pct :
+# écart propre à chaque région, tiré par graine (aucune région n'est gagnante par construction).
+[markets.equity]
+global_vol_pct = 12.5
+regional_drift_sigma_pct = 2.0
+regions = { canada = [0.85, 7.0], united_states = [1.0, 5.0], europe = [0.95, 8.0], asia_pacific = [0.9, 9.0], emerging = [1.05, 11.0], other = [0.9, 10.0] }   # [beta, volatilité propre %]
+
+# Taux : un taux fantôme suit un processus d'Ornstein-Uhlenbeck (sans plancher) ; le taux observé en
+# est le softplus, de lissage lower_bound_smoothing_bp : positif, proche du fantôme dès qu'il dépasse
+# quelques fois ce lissage. Canada et reste du monde partagent common_share de leur variance. Pente : Δ(taux à D ans) = Δniveau
+# + (D − 5) / 5 × Δpente. Crédit : la part credit_duration_share de la duration y est exposée.
+[markets.rates]
+canada_initial_pct = [1.0, 4.5]
+global_initial_pct = [1.5, 4.5]
+long_run_pct = [2.0, 4.0]
+mean_reversion_per_year = 0.35
+lower_bound_smoothing_bp = 20
+canada_vol_bp = 75
+global_vol_bp = 70
+common_share = 0.7
+slope_vol_bp = 45
+short_spread_pct = [0.3, 1.0]          # taux court = niveau canadien − écart tiré
+credit_vol_bp = 55
+credit_equity_rho = -0.5
+credit_duration_share = 0.35
+
+[markets.fx]                           # un seul facteur de change (USD contre CAD) pour toute devise
+vol_pct = 7.0
+equity_rho = -0.35                     # le CAD faiblit quand les actions chutent
+
+[markets.styles]                       # facteurs longs-courts ; « value » = − croissance
+growth = { vol_pct = 5.0, equity_rho = 0.3 }
+dividend = { vol_pct = 3.0, equity_rho = -0.3 }
+quality = { vol_pct = 2.5, equity_rho = -0.2 }
+
+[markets.real_assets]
+vol_pct = 9.0
+equity_beta = 0.6                      # part actions de la région dans un actif réel
+
+# Fonds : écart de suivi par classe d'actifs ([min, max] % par an), pondéré par la part de la classe ;
+# alpha brut ~ N(0, alpha_te_ratio × écart de suivi), jamais choisi ; sauts propres rares. Le RFG
+# est déduit de la VL (une seule fois). VL de départ : log-uniforme, ou launch_nav au lancement.
+[markets.funds]
+tracking_error_pct = { equity = [2.5, 6.0], fixed_income = [0.7, 1.5], cash = [0.03, 0.10], other = [3.0, 6.0] }
+alpha_te_ratio = 0.25
+idiosyncratic_df = 6
+jump_rate_per_year = 0.15
+jump_sigma_pct = 3.0
+initial_nav = [8.0, 40.0]
+launch_nav = 10.0
+
+# Repères : mêmes facteurs, alpha nul, aucun bruit propre, frais passifs explicites par classe.
+# Composite de chaque fonds (ses expositions) ; politique de chaque institution (cibles initiales J1,
+# rééquilibrage quotidien) ; deux repères de contexte, composition fixée ici d'avance.
+[markets.benchmarks]
+passive_fee_pct = { equity = 0.08, fixed_income = 0.06, cash = 0.03, other = 0.12 }
+
+[markets.benchmarks.global_equity]
+asset_class = { equity = 100 }
+equity_geography = { united_states = 58, europe = 15, asia_pacific = 10, emerging = 10, canada = 4, other = 3 }
+
+[markets.benchmarks.balanced]
+asset_class = { equity = 55, fixed_income = 40, cash = 5 }
+equity_geography = { canada = 30, united_states = 42, europe = 13, asia_pacific = 7, emerging = 6, other = 2 }
+duration_years = 7.0
+
+# Repères de catégorie (J6b) : le repère de chaque fonds dans le rapport (ref.repere). Composition fixe
+# en style « marché large » : un profil mixte se compare à un équilibré de même part en actions
+# arrondie à la dizaine ; un fonds d'actions, à l'indice large de sa géographie (dividendes et petites
+# capitalisations compris : leur écart de style reste visible) ; revenu fixe, monétaire et actifs réels,
+# à leur classe. Chaque archétype appartient à une seule catégorie ; une catégorie sans fonds n'est pas produite.
+[markets.benchmarks.category.prudent]
+name = "Profil prudent"
+archetypes = ["conservateur"]
+asset_class = { equity = 40, fixed_income = 55, cash = 5 }
+equity_geography = { canada = 30, united_states = 42, europe = 13, asia_pacific = 7, emerging = 6, other = 2 }
+duration_years = 7.0
+
+[markets.benchmarks.category.equilibre]
+name = "Profil équilibré"
+archetypes = ["equilibre"]
+asset_class = { equity = 60, fixed_income = 37, cash = 3 }
+equity_geography = { canada = 30, united_states = 42, europe = 13, asia_pacific = 7, emerging = 6, other = 2 }
+duration_years = 7.0
+
+[markets.benchmarks.category.croissance]
+name = "Profil croissance"
+archetypes = ["croissance"]
+asset_class = { equity = 90, fixed_income = 8, cash = 2 }
+equity_geography = { canada = 30, united_states = 42, europe = 13, asia_pacific = 7, emerging = 6, other = 2 }
+duration_years = 7.0
+
+[markets.benchmarks.category.act_can]
+name = "Actions du Canada, marché large"
+archetypes = ["actions_canadiennes", "dividendes_canadiens"]
+asset_class = { equity = 100 }
+equity_geography = { canada = 100 }
+
+[markets.benchmarks.category.act_us]
+name = "Actions des États-Unis, marché large"
+archetypes = ["actions_americaines"]
+asset_class = { equity = 100 }
+equity_geography = { united_states = 100 }
+
+[markets.benchmarks.category.act_amn]
+name = "Actions nord-américaines, marché large"
+archetypes = ["petites_cap_nord_americaines"]
+asset_class = { equity = 100 }
+equity_geography = { united_states = 65, canada = 35 }
+
+[markets.benchmarks.category.act_monde]
+name = "Actions planétaires, marché large"
+archetypes = ["actions_mondiales", "technologie_mondiale"]
+asset_class = { equity = 100 }
+equity_geography = { united_states = 58, europe = 15, asia_pacific = 10, emerging = 10, canada = 4, other = 3 }
+
+[markets.benchmarks.category.act_intl]
+name = "Actions hors Amérique du Nord, marché large"
+archetypes = ["actions_internationales"]
+asset_class = { equity = 100 }
+equity_geography = { europe = 64, asia_pacific = 36 }
+
+[markets.benchmarks.category.emergents]
+name = "Économies émergentes, marché large"
+archetypes = ["marches_emergents"]
+asset_class = { equity = 100 }
+equity_geography = { emerging = 100 }
+
+[markets.benchmarks.category.obl_can]
+name = "Revenu fixe canadien, marché large"
+archetypes = ["obligations_canadiennes"]
+asset_class = { fixed_income = 100 }
+duration_years = 7.0
+
+[markets.benchmarks.category.obl_monde]
+name = "Revenu fixe global couvert, marché large"
+archetypes = ["obligations_mondiales"]
+asset_class = { fixed_income = 100 }
+fixed_income_geography = { canada = 25, united_states = 40, europe = 22, asia_pacific = 13 }
+duration_years = 6.5
+
+[markets.benchmarks.category.monetaire]
+name = "Marché monétaire"
+archetypes = ["monetaire"]
+asset_class = { cash = 100 }
+
+[markets.benchmarks.category.actifs_reels]
+name = "Actifs réels"
+archetypes = ["actifs_reels"]
+asset_class = { other = 100 }
+other_geography = { canada = 30, united_states = 40, europe = 18, asia_pacific = 12 }
+
+# --------------------------------------------------------------------------------------------
+# Personnage fictif (mode fiscal conservative_synthetic). Les plafonds ne s'écrivent pas ici : ils
+# sont relus dans sql/plafonds.sql du projet (droit public). Seule la situation personnelle est tirée.
+# --------------------------------------------------------------------------------------------
+[persona]
+celi_first_year = [2012, 2021]         # première année d'admissibilité au CELI, entier uniforme
+earned_income = [64000, 0.20]          # revenu gagné de l'année précédant l'horizon : [médiane, sigma log]
+income_growth_pct = [2.5, 2.0]         # croissance annuelle du revenu : [moyenne, écart-type]
+reer_opening_unused = [0, 12000]       # droits REER inutilisés à la fin de l'année précédant l'horizon
+marginal_tax_rate = [0.26, 0.38]       # taux marginal fictif, pour le remboursement d'impôt des cotisations REER
+
+# --------------------------------------------------------------------------------------------
+# Comportement de l'épargnant (moteur C). Une capacité d'épargne latente, qui ne bouge qu'à des
+# décisions datées (phases, révisions, ajustements) ; des PAC programmés par compte, constants entre
+# deux décisions ; des mois atypiques, des ponctuels et des retraits tirés de processus de Poisson.
+# Le marché n'est lu que dans le passé : repli du repère actions mondiales arrêté la veille.
+# Montants en CAD ; [médiane, sigma] = loi log-normale ; poids = loi catégorielle (normalisée).
+# --------------------------------------------------------------------------------------------
+[behaviour]
+monthly_capacity = [700, 0.15]         # capacité mensuelle de départ, tout le patrimoine
+revision_noise_sigma = 0.03            # bruit log de la capacité à chaque révision des PAC
+phase_count = [2, 5]                   # phases d'épargne sur l'horizon, entier uniforme
+phase_min_gap_months = 5
+phase_window_months = [3, 3]           # aucune phase dans les n premiers et n derniers mois
+# Multiplicateur de capacité par type de phase ([min, max] uniforme). Rappel budgétaire : le poids des
+# phases qui montent est multiplié par (capacité / départ)^−phase_reversion, celui des phases qui baissent
+# par (capacité / départ)^+phase_reversion ; au-dessus du départ, une pression devient plus probable.
+phase_multiplier = { hausse_revenus = [1.08, 1.30], pression_budgetaire = [0.65, 0.90], nouveau_projet = [0.85, 1.00], reprise_epargne = [1.05, 1.25] }
+phase_weights = { hausse_revenus = 0.30, pression_budgetaire = 0.25, nouveau_projet = 0.25, reprise_epargne = 0.20 }
+phase_reversion = 4.0
+project_celiapp_boost = 2.0            # nouveau projet : poids d'épargne des CELIAPP multiplié
+# Ventilation entre comptes : le poids d'épargne a priori de l'institution (J1) se partage entre ses comptes
+# alimentés au prorata de l'affinité du régime, × une log-normale propre au compte (marche aléatoire à
+# chaque révision). Certains comptes n'ont pas de PAC.
+account_weight_sigma = 0.5
+account_weight_drift_sigma = 0.15
+no_pac_probability = 0.15
+min_pac = 25
+pac_rounding = { "5" = 0.30, "10" = 0.40, "25" = 0.20, "50" = 0.10 }   # pas d'arrondi tiré à chaque révision
+pac_day = [1, 28]                      # jour du prélèvement, tiré par compte (reporté au jour ouvrable)
+adjustment_rate_per_year = 0.8         # petit ajustement du PAC d'un compte
+adjustment_sigma = 0.15
+# Mois atypiques (tous les comptes) et pauses (un compte)
+atypical_rate_per_year = 0.7
+atypical_types = { suspension = 0.40, reduction = 0.40, report = 0.20 }
+reduction_factor = [0.40, 0.70]
+report_days = [4, 15]
+pause_rate_per_year = 0.2
+pause_months = [1, 4]
+# Ponctuels : nombre mensuel de Poisson, saisonnalité en tendance ; montant en mois de capacité
+lump_rate_per_year = 1.1
+lump_month_weights = [1.6, 1.4, 0.9, 0.9, 0.9, 0.8, 0.8, 0.8, 0.9, 0.9, 1.0, 1.3]
+lump_types = { prime = 0.40, argent_disponible = 0.35, cadeau = 0.25 }
+lump_capacity_multiple = { prime = [2.5, 0.5], argent_disponible = [1.2, 0.5], cadeau = [0.8, 0.6] }
+lump_bounds_capacity_multiple = [0.15, 8.0]   # tirage rejeté hors de ces multiples de la capacité…
+lump_bounds_cad = [100, 9000]          # … ou hors de ces montants
+lump_rounding = { "1" = 0.25, "10" = 0.35, "50" = 0.25, "100" = 0.15 }
+reer_season_boost = 2.0                # janvier-février : un ponctuel va plus souvent au REER
+celi_january_boost = 1.5
+refund_probability = 0.8               # remboursement d'impôt des cotisations REER de l'année de déduction
+refund_months = [4, 6]
+# Retraits : besoin de liquidités ; CELI et COMP seulement, au plus withdrawal_max_share des apports nets
+withdrawal_rate_per_year = 0.3
+withdrawal_capacity_multiple = [2.0, 0.6]
+withdrawal_max_share = 0.5
+withdrawal_min_cad = 100
+# Révisions de cible des comptes : revue annuelle avec inertie, prudence passagère après une baisse
+review_month_weights = [2.0, 1.5, 1.0, 0.8, 0.8, 0.6, 0.5, 0.6, 1.0, 1.0, 1.0, 1.2]
+review_change_probability = 0.35
+review_sigma = 0.30
+review_pac_probability = 0.5           # la revue ajuste aussi le PAC du compte
+new_fund_adoption_probability = 0.5    # un fonds lancé depuis la dernière cible entre à la revue
+prudence_drawdown_pct = -15            # repli du repère actions mondiales qui inquiète l'épargnant
+prudence_monthly_probability = 0.35
+prudence_equity_shift = 0.15           # baisse visée de la part en actions du compte le plus exposé
+prudence_min_equity_drop = 0.05        # baisse effective minimale ; en deçà, la gamme ne permet pas de se protéger
+prudence_duration_months = 9           # durée moyenne avant le retour à la cible (géométrique)
+
+# --------------------------------------------------------------------------------------------
+# Grand livre (moteur D). Apports investis le jour même à la VL de clôture ; frais de compte mensuels au
+# taux du fonds, sous ou au-delà du palier universe.fee_tier_threshold_cad. Rééquilibrages imparfaits :
+# à chaque nouvelle cible du J3, et quand un regard sur la dérive (½ Σ |poids − cible|, en points, à la
+# clôture de la veille) la trouve au-delà du seuil du compte. Entre deux regards, la dérive court.
+# --------------------------------------------------------------------------------------------
+[ledger]
+drift_threshold_pts = [3.0, 6.0]       # seuil de dérive tiré par compte, uniforme (dérive médiane ~1,5 point)
+drift_check_months = 6                 # intervalle moyen entre deux regards (loi géométrique, en mois)
+rebalance_fraction = [0.4, 0.9]        # part de l'écart corrigée par un rééquilibrage incomplet, uniforme
+full_rebalance_probability = 0.3       # sinon, rééquilibrage incomplet
+rebalance_min_cad = 100                # échange plus petit : pas fait
+
+# --------------------------------------------------------------------------------------------
+# Mesures (moteur E), calculées après la simulation sur le seul grand livre : rien n'est tiré ici.
+# TWR quotidien chaîné (V⁻ₜ = V⁺ₜ − flux du jour) ; MWR (XIRR, années de 365 jours) par année civile et
+# depuis l'ouverture ; contrefactuel passif qui reçoit les mêmes flux externes aux mêmes dates.
+# --------------------------------------------------------------------------------------------
+[performance]
+mwr_bounds = [-0.99, 10.0]             # taux cherché dans cet intervalle (période ou année) ; au-delà : non convergé
+mwr_grid = 400                         # points de grille en log(1 + taux) : chaque changement de signe = une racine
+annualize_min_days = 365               # période plus courte : taux de la période, non annualisé
+context_benchmarks = ["R-ACT-MONDE", "R-EQUILIBRE"]   # contrefactuels de contexte, sur tous les flux du portefeuille
+
+# --------------------------------------------------------------------------------------------
+# Adaptateur vers finance_ve01 (J6). La VL du J2 est en rendement total ; le rapport lit une VL
+# ex-distribution et des réinvestissements. L'adaptateur tire seulement le partage entre prix et
+# distribution : VL ex = VL totale × Π (1 − taux de chaque distribution), rendement total inchangé.
+# Rendement distribué annuel (%), tiré uniformément par fonds dans la plage de son archétype ;
+# chaque versement (mensuel : taux ÷ 12 ; annuel : en décembre) porte un bruit log-normal.
+# --------------------------------------------------------------------------------------------
+[adapter]
+distribute_all = ["monetaire"]         # verse chaque mois tout le gain du mois : VL ex à peu près constante
+payment_noise_sigma = 0.15             # bruit log-normal d'un versement autour de son taux
+capital_gain_share = [0.0, 0.25]       # part du gain de l'année au-delà du rendement versé, distribuée en décembre (0,4 → 0,25 le 2026-11-04 : F303 à 9,5 % en 2023)
+december_window_days = 12              # versement annuel : jour ouvrable tiré dans les 12 derniers jours de décembre
+
+[adapter.yield_pct]
+obligations_canadiennes = [2.6, 3.4]
+obligations_mondiales = [2.4, 3.2]
+conservateur = [2.0, 2.8]
+equilibre = [1.6, 2.4]
+croissance = [1.0, 1.8]
+actions_canadiennes = [2.4, 3.2]
+dividendes_canadiens = [3.4, 4.4]
+actions_americaines = [0.8, 1.4]
+actions_mondiales = [1.0, 1.6]
+actions_internationales = [2.0, 2.8]
+marches_emergents = [1.6, 2.4]
+petites_cap_nord_americaines = [0.4, 1.0]
+technologie_mondiale = [0.0, 0.5]
+actifs_reels = [3.2, 4.4]

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.9.0/schema.json",
+  "position": {
+    "x": 10.454324951171877,
+    "y": 571.74858886718755,
+    "z": 15000,
+    "height": 239.68,
+    "width": 307.26,
+    "tabOrder": 16000
+  },
+  "objects": {
+    "image": [
+      {
+        "properties": {
+          "fit": {
+            "expr": {
+              "Literal": {
+                "Value": "'Stretch'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

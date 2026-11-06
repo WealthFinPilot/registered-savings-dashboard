@@ -1,0 +1,44 @@
+$ psql -U finance -d finance_ve01 -e -f j7.sql
+SELECT current_database(), current_date;
+ current_database | current_date 
+------------------+--------------
+ finance_ve01     | 2026-11-05
+(1 ligne)
+
+SELECT * FROM rapport.arrete;
+ date_arrete 
+-------------
+ 2026-10-30
+(1 ligne)
+
+SELECT * FROM rapport.seuil ORDER BY 1;
+  societe  | vm_menage |      tranche       | distance 
+-----------+-----------+--------------------+----------
+ Société 1 |  16871.53 | Moins de 100 000 $ | 83128.47
+ Société 2 |   9603.97 | Moins de 100 000 $ | 90396.03
+ Société 3 |  40414.38 | Moins de 100 000 $ | 59585.62
+(3 lignes)
+
+SELECT round(sum(vm_menage), 2) AS actif_menage_toutes_societes FROM rapport.seuil;
+ actif_menage_toutes_societes 
+------------------------------
+                     66889.88
+(1 ligne)
+
+SELECT regime, annee, droits_debut, cotisations, droits_restants, niveau FROM rapport.alerte WHERE regime = 'REER' AND annee = 2026;
+ regime | annee | droits_debut | cotisations | droits_restants | niveau 
+--------+-------+--------------+-------------+-----------------+--------
+ REER   |  2026 |     86809.81 |     1074.86 |        85734.95 | aucune
+(1 ligne)
+
+SELECT c.societe, round(sum(p.vm_fin), 2) AS vm FROM rapport.performance p JOIN ref.compte c ON c.alias = p.compte_alias
+ WHERE (p.compte_alias, p.date_fin) IN (SELECT compte_alias, max(date_fin) FROM rapport.performance GROUP BY 1) GROUP BY ROLLUP (1) ORDER BY 1;
+  societe  |    vm    
+-----------+----------
+ Société 1 | 16871.53
+ Société 2 |  9603.97
+ Société 3 | 40414.38
+           | 66889.88
+(4 lignes)
+
+code de sortie : 0

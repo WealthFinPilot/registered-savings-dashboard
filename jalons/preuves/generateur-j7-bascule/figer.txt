@@ -1,0 +1,69 @@
+# Gel sur le jeu vitrine (outputs/vitrine_seed_20261103, chargé dans finance_ve01) ; les tables du commit b653879 portaient le jeu typical.
+$ date : 2026-11-04 23:04
+$ git diff --stat HEAD -- tables/   # premier gel sur vitrine, fait avant ce fichier
+ .../definition/tables/Cascade.tmdl                 |   2 +-
+ .../definition/tables/Cotisation REER.tmdl         |   4 +-
+ .../definition/tables/Co\303\273t.tmdl"            |   4 +-
+ .../definition/tables/Droits.tmdl                  |   2 +-
+ .../definition/tables/D\303\251tention RDRF.tmdl"  |   2 +-
+ .../definition/tables/D\303\251tention.tmdl"       |  10 +-
+ .../definition/tables/Exposition.tmdl              |  42 +--
+ .../definition/tables/Performance.tmdl             |   8 +-
+ .../definition/tables/Rendement quotidien.tmdl     | 357 ++++++++++-----------
+ .../definition/tables/Rep\303\250re mensuel.tmdl"  |  12 +-
+ .../definition/tables/Versement.tmdl               |   6 +-
+ .../definition/tables/\303\211cart tactique.tmdl"  |  26 +-
+ 12 files changed, 237 insertions(+), 238 deletions(-)
+
+$ python scripts/figer.py   # passage 1
+Année.tmdl : rapport.annee, 1 Ko, inchangée
+Arrêté.tmdl : rapport.arrete, 1 Ko, inchangée
+Calendrier.tmdl : rapport.calendrier, 9 Ko, inchangée
+Cascade.tmdl : rapport.cascade, 3 Ko, inchangée
+Compte.tmdl : rapport.compte, 3 Ko, inchangée
+Cotisation REER.tmdl : rapport.mouvement, 6 Ko, inchangée
+Coût.tmdl : rapport.cout, 8 Ko, inchangée
+Droits.tmdl : rapport.alerte, 3 Ko, inchangée
+Détention RDRF.tmdl : rapport.detention_rapport, 5 Ko, inchangée
+Détention.tmdl : rapport.detention, 17 Ko, inchangée
+Exposition.tmdl : rapport.exposition, 79 Ko, inchangée
+Fonds.tmdl : rapport.fonds, 4 Ko, inchangée
+Niveau de risque.tmdl : rapport.niveau_risque, 1 Ko, inchangée
+Performance.tmdl : rapport.performance, 19 Ko, inchangée
+Rendement quotidien.tmdl : rapport.rendement_quotidien, 697 Ko, inchangée
+Repère mensuel.tmdl : rapport.repere_mensuel, 18 Ko, inchangée
+Versement.tmdl : rapport.versement, 9 Ko, inchangée
+Écart tactique.tmdl : rapport.ecart, 48 Ko, inchangée
+code de sortie : 0
+
+$ python scripts/figer.py   # passage 2
+Année.tmdl : rapport.annee, 1 Ko, inchangée
+Arrêté.tmdl : rapport.arrete, 1 Ko, inchangée
+Calendrier.tmdl : rapport.calendrier, 9 Ko, inchangée
+Cascade.tmdl : rapport.cascade, 3 Ko, inchangée
+Compte.tmdl : rapport.compte, 3 Ko, inchangée
+Cotisation REER.tmdl : rapport.mouvement, 6 Ko, inchangée
+Coût.tmdl : rapport.cout, 8 Ko, inchangée
+Droits.tmdl : rapport.alerte, 3 Ko, inchangée
+Détention RDRF.tmdl : rapport.detention_rapport, 5 Ko, inchangée
+Détention.tmdl : rapport.detention, 17 Ko, inchangée
+Exposition.tmdl : rapport.exposition, 79 Ko, inchangée
+Fonds.tmdl : rapport.fonds, 4 Ko, inchangée
+Niveau de risque.tmdl : rapport.niveau_risque, 1 Ko, inchangée
+Performance.tmdl : rapport.performance, 19 Ko, inchangée
+Rendement quotidien.tmdl : rapport.rendement_quotidien, 697 Ko, inchangée
+Repère mensuel.tmdl : rapport.repere_mensuel, 18 Ko, inchangée
+Versement.tmdl : rapport.versement, 9 Ko, inchangée
+Écart tactique.tmdl : rapport.ecart, 48 Ko, inchangée
+code de sortie : 0
+
+$ git diff -- tables/ | sha256sum   (après le passage 1, puis après le passage 2)
+c6f1fb720d184275417692e67c05fc8c86febdfd615c04450ba75ce5ee164543 *-
+c6f1fb720d184275417692e67c05fc8c86febdfd615c04450ba75ce5ee164543 *-
+passage 2 : aucun octet changé
+
+$ grep -c PostgreSQL.Database tables/*.tmdl (total)
+0
+
+$ grep -c "// Figée : vue rapport" tables/*.tmdl (total)
+18

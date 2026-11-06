@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DashBoard-Finance"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "84352131-acd4-45e4-86b9-0267cfec50cc"
+  }
+}

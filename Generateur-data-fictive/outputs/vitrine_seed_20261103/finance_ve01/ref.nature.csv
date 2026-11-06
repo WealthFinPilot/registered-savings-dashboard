@@ -1,0 +1,8 @@
+motif,nature,signe,cotisation
+Achat — versement programmé,PAC,1,true
+Achat — versement ponctuel,ponctuel,1,true
+Distribution réinvestie,revenu,1,false
+Arbitrage — achat depuis *,interne,1,false
+Arbitrage — vente vers *,interne,-1,false
+Frais de gestion,frais,-1,false
+Rachat — retrait,retrait,-1,false

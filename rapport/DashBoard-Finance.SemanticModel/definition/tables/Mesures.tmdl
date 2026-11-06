@@ -1,0 +1,567 @@
+/// Table de mesures dédiée (règle du projet) : toutes les mesures du rapport, aucune dans un visuel. Les règles de droits et de performance sont en SQL ; ici, des sommes, des parts et le chaînage mensuel du TWR.
+table Mesures
+	lineageTag: 985796cf-9456-4a0a-9542-75454c0bc333
+
+	/// Droits au début de l'année de droits : cumul CELI, droits de participation CELIAPP, maximum déductible REER moins cotisations inutilisées. Vide si une saisie manque.
+	measure 'Droits au début' = SUM(Droits[droits_debut])
+		formatString: #,##0 $
+		displayFolder: Droits
+		lineageTag: 793de8e8-df9c-4653-9659-12983587689f
+
+	/// Cotisations qui consomment les droits de l'année (REER : année de déduction, 60 premiers jours compris)
+	measure 'Cotisations comptées' = SUM(Droits[cotisations])
+		formatString: #,##0 $
+		displayFolder: Droits
+		lineageTag: a36e62fe-ca4c-425a-9424-b6a5412361d4
+
+	/// Droits au début moins cotisations comptées ; négatif = excédent
+	measure 'Droits restants' = SUM(Droits[droits_restants])
+		formatString: #,##0 $
+		displayFolder: Droits
+		lineageTag: bac486be-9105-4423-857f-d55097d8b40a
+
+	/// Niveau d'alerte du régime ; vide si plusieurs régimes ou années sont dans le contexte
+	measure Alerte = SELECTEDVALUE(Droits[Niveau])
+		displayFolder: Droits
+		lineageTag: f770946a-b96a-400b-80b5-7228d599ce9d
+
+	/// Somme des versements (montant brut), PAC et ponctuels
+	measure Versements = SUM(Versement[montant])
+		formatString: #,##0 $
+		displayFolder: Versements
+		lineageTag: c125fe05-58cb-489a-90d7-5d0805fe23aa
+
+	/// Part du compte dans les versements du mois de la même nature (PAC ou ponctuel)
+	measure 'Part de la nature' =
+			DIVIDE (
+			    [Versements],
+			    CALCULATE ( [Versements], REMOVEFILTERS ( Compte ) )
+			)
+		formatString: 0.0 %
+		displayFolder: Versements
+		lineageTag: 8a1b8576-b4ec-436e-843a-ce1d48218ef6
+
+	/// Versements systématiques (PAC)
+	measure 'Versements PAC' = CALCULATE([Versements], Versement[Nature] = "PAC")
+		formatString: #,##0 $
+		displayFolder: Versements
+		lineageTag: 101b7499-eb66-411b-b54c-bc54a57e8a57
+
+	/// Versements ponctuels
+	measure 'Versements ponctuels' = CALCULATE([Versements], Versement[Nature] = "ponctuel")
+		formatString: #,##0 $
+		displayFolder: Versements
+		lineageTag: 983e331d-cead-4f02-8037-44495c3141b5
+
+	/// Versements REER des 60 premiers jours de l'année du filtre (borne R6) : déductibles pour l'année précédente ; 0 si aucun
+	measure 'REER 60 premiers jours' = CALCULATE ( [Versements], KEEPFILTERS ( Compte[Régime] = "REER" ), KEEPFILTERS ( Versement[Période] = "60 premiers jours" ) ) + 0
+		formatString: #,##0 $
+		displayFolder: Versements\Cartes
+		lineageTag: 2f809ade-64bc-4d23-a3e7-c4febfbc25b2
+
+	/// Versements COMP de l'année civile du filtre, tous comptes du régime ; 0 si aucun
+	measure 'Total COMP' = CALCULATE ( [Versements], KEEPFILTERS ( Compte[Régime] = "COMP" ) ) + 0
+		formatString: #,##0 $
+		displayFolder: Versements\Cartes
+		lineageTag: 87c18af8-3133-400c-88c4-a43effafedd6
+
+	/// Somme des VM aux points de valorisation du contexte (P2) : à lire mois par mois (courbe)
+	measure 'Valeur marchande' = SUM ( Performance[vm_fin] )
+		formatString: #,##0 $
+		displayFolder: Performance
+		lineageTag: 6f01b590-0fe3-4ba0-a0e4-0f730d779090
+
+	/// Somme des capitaux nets aux points du contexte (P4) : à lire mois par mois (courbe)
+	measure 'Capital net' = SUM ( Performance[capital_net] )
+		formatString: #,##0 $
+		displayFolder: Performance
+		lineageTag: 8468df3c-ec97-428b-81f7-4894015bb538
+
+	/// VM de chaque compte à son dernier point du contexte (P2), additionnée sur les comptes
+	measure 'Valeur marchande à date' =
+			SUMX (
+			    VALUES ( Performance[compte_alias] ),
+			    VAR _fin = CALCULATE ( MAX ( Performance[date_fin] ) )
+			    RETURN CALCULATE ( SUM ( Performance[vm_fin] ), Performance[date_fin] = _fin )
+			)
+		formatString: #,##0 $
+		displayFolder: Performance
+		lineageTag: 45849e11-78de-4e2c-a080-e223426531af
+
+	/// Capital net de chaque compte à son dernier point du contexte (P4), additionné sur les comptes
+	measure 'Capital net à date' =
+			SUMX (
+			    VALUES ( Performance[compte_alias] ),
+			    VAR _fin = CALCULATE ( MAX ( Performance[date_fin] ) )
+			    RETURN CALCULATE ( SUM ( Performance[capital_net] ), Performance[date_fin] = _fin )
+			)
+		formatString: #,##0 $
+		displayFolder: Performance
+		lineageTag: 4c9b04fe-498b-46c9-b702-6da08b0be068
+
+	/// VM à date − capital net à date (P5)
+	measure 'Gain net à date' = [Valeur marchande à date] - [Capital net à date]
+		formatString: #,##0 $
+		displayFolder: Performance
+		lineageTag: 0685e3bf-da9f-4c3d-8284-7791914e4fc2
+
+	/// Rendement pondéré par le temps des mois du contexte : produit des (1 + r) mensuels − 1 (P7), r = Σ numérateurs ÷ Σ dénominateurs de Dietz des comptes du contexte (P8). Filtré sur une année : TWR de l'année. Vide sans point.
+	measure TWR =
+			VAR _mois = VALUES ( Performance[mois] )
+			RETURN
+			    IF (
+			        NOT ISEMPTY ( Performance ),
+			        PRODUCTX (
+			            _mois,
+			            -- CONVERT : le numérateur est en devise (4 décimales) ; sans lui, le quotient l'est aussi et r est arrondi au 1/10 000
+			            1 + DIVIDE ( CONVERT ( CALCULATE ( SUM ( Performance[numerateur] ) ), DOUBLE ), CALCULATE ( SUM ( Performance[denominateur] ) ) )
+			        ) - 1
+			    )
+		formatString: 0.00 %
+		displayFolder: Performance
+		lineageTag: e7f2de82-a81b-4546-93c7-a319d7c9c794
+
+	/// Frais du contexte (gestion TTC + déductions sur achats) ÷ moyenne des VM mensuelles × 12 ÷ nombre de mois (P9)
+	measure 'Taux de frais annualisé' =
+			VAR _mois = VALUES ( Performance[mois] )
+			VAR _vm_moyenne = AVERAGEX ( _mois, CALCULATE ( SUM ( Performance[vm_fin] ) ) )
+			RETURN DIVIDE ( SUM ( Performance[frais] ) * 12, _vm_moyenne * COUNTROWS ( _mois ) )
+		formatString: 0.00 %
+		displayFolder: Performance
+		lineageTag: fe81992e-bcd1-4953-be1d-438132ee3fe1
+
+	/// Somme des montants de la cascade (vue rapport.cascade) ; total du visuel = VM au dernier point de l'année
+	measure 'Montant de la cascade' = SUM ( Cascade[montant] )
+		formatString: #,##0 $
+		displayFolder: Performance
+		lineageTag: 4d273cff-4241-4fac-9931-f9eb5dfa3ac8
+
+	/// Date du dernier point de valorisation de chaque compte du contexte : une date, ou l'intervalle si elles diffèrent (Rapport et jour de frais)
+	measure 'Date des points' =
+			VAR _derniers = ADDCOLUMNS ( VALUES ( Performance[compte_alias] ), "@fin", CALCULATE ( MAX ( Performance[date_fin] ) ) )
+			VAR _premier = MINX ( _derniers, [@fin] )
+			VAR _dernier = MAXX ( _derniers, [@fin] )
+			RETURN
+			    IF (
+			        NOT ISEMPTY ( Performance ),
+			        IF (
+			            _premier = _dernier,
+			            "Valorisation au " & FORMAT ( _dernier, "yyyy-mm-dd" ),
+			            "Valorisation du " & FORMAT ( _premier, "yyyy-mm-dd" ) & " au " & FORMAT ( _dernier, "yyyy-mm-dd" )
+			        )
+			    )
+		displayFolder: Performance
+		lineageTag: 6ebb6977-9e59-4deb-8366-b5542126eea5
+
+	/// Exposition par transparence du contexte (S2) : Σ VM × poids, au dernier point de chaque compte
+	measure Exposition = SUM ( Exposition[montant] )
+		formatString: #,##0 $
+		displayFolder: Stratégie
+		lineageTag: c4b01a17-93ce-4d3c-a6a3-508573f1c756
+
+	/// Part de la catégorie dans son axe (S2) : exposition ÷ exposition de toutes les catégories du même axe, pour les mêmes comptes. ordre est retiré avec la catégorie : c'est sa colonne de tri, que le visuel groupe aussi.
+	measure 'Part de l''exposition' = DIVIDE ( [Exposition], CALCULATE ( [Exposition], REMOVEFILTERS ( Exposition[Catégorie], Exposition[ordre] ) ) )
+		formatString: 0.0 %
+		displayFolder: Stratégie
+		lineageTag: 7556548d-b2fd-4763-8555-7c76100cd698
+
+	/// RFG moyen des fonds du contexte, pondéré par leur VM (S6) ; fonds sans profil exclus
+	measure 'RFG pondéré' = DIVIDE ( SUM ( 'Coût'[vm_rfg] ), SUM ( 'Coût'[vm_profil] ) )
+		formatString: 0.00 %
+		displayFolder: Stratégie
+		lineageTag: f980a23e-8c2a-49d0-83c7-5cf447837d45
+
+	/// Taux de frais annualisé (P9) de l'année du dernier point, quel que soit le filtre d'année : frais de gestion prélevés hors fonds, taxes comprises
+	measure 'Frais de gestion de l''année' =
+			VAR _annee = YEAR ( CALCULATE ( MAX ( Performance[mois] ), REMOVEFILTERS () ) )
+			RETURN CALCULATE ( [Taux de frais annualisé], 'Année'[Année] = _annee )
+		formatString: 0.00 %
+		displayFolder: Stratégie
+		lineageTag: 78a340c9-cf77-4599-9b53-404bd984602f
+
+	/// Coût annuel estimé de la stratégie (S6) : RFG pondéré + frais de gestion de l'année
+	measure 'Coût total' = [RFG pondéré] + [Frais de gestion de l'année]
+		formatString: 0.00 %
+		displayFolder: Stratégie
+		lineageTag: 8453438e-9093-422b-95c7-64d9598dafde
+
+	/// Actif agrégé du ménage (S6) chez une société, au dernier point de chaque compte : tous les comptes de la société filtrée, quel que soit le filtre de compte. Écart à la v1 : seuil par société (chacune a ses propres frais de gestion). Vide si plusieurs sociétés sont dans le contexte.
+	measure 'Actif agrégé du ménage' =
+			VAR societe = VALUES ( Compte[Société] )
+			RETURN
+			    IF ( COUNTROWS ( societe ) = 1, CALCULATE ( SUM ( 'Coût'[vm] ), REMOVEFILTERS ( Compte ), societe ) )
+		formatString: #,##0 $
+		displayFolder: Stratégie
+		lineageTag: 5bf3f72e-eceb-452e-b786-a6ab9c268da6
+
+	/// Tranche de frais de gestion (S6) : moins ou plus de 100 000 $ d'actif agrégé du ménage chez la société filtrée ; « Selon la société » si plusieurs sont dans le contexte
+	measure 'Tranche de frais de gestion' =
+			IF (
+			    HASONEVALUE ( Compte[Société] ),
+			    IF ( [Actif agrégé du ménage] >= 100000, "Plus de 100 000 $", "Moins de 100 000 $" ),
+			    "Selon la société"
+			)
+		displayFolder: Stratégie
+		lineageTag: 4c9d255a-6a02-4193-9c74-aa096b66a4f8
+
+	/// Montant qui manque à la société filtrée pour atteindre le seuil de 100 000 $ (S6) ; 0 une fois le seuil atteint ; vide si plusieurs sociétés sont dans le contexte
+	measure 'Distance au seuil' = IF ( HASONEVALUE ( Compte[Société] ), MAX ( 0, 100000 - [Actif agrégé du ménage] ) )
+		formatString: #,##0 $
+		displayFolder: Stratégie
+		lineageTag: e88e5c7b-8d01-4360-85c4-263c45bee2a6
+
+	/// Date des données des profils de la Société 1 appliqués (S1) : la date seule, ou « ≥ » la plus ancienne si elles diffèrent (carte à 20 pt de la page Fonds et risque)
+	measure 'Date des profils' =
+			VAR _premier = MIN ( 'Coût'[premier_profil] )
+			VAR _dernier = MAX ( 'Coût'[dernier_profil] )
+			RETURN
+			    IF (
+			        NOT ISBLANK ( _dernier ),
+			        IF ( _premier = _dernier, "", "≥ " ) & FORMAT ( _premier, "yyyy-mm-dd" )
+			    )
+		displayFolder: Stratégie
+		lineageTag: 2672622e-0383-4f3f-81e5-e027aaddf312
+
+	/// VM au dernier point de chaque compte, par fonds (S7)
+	measure 'VM détenue' = SUM ( 'Détention'[valeur_marchande] )
+		formatString: #,##0 $
+		displayFolder: Fonds et risque
+		lineageTag: e885d76a-9b70-49b7-9f08-3e3e71201624
+
+	/// VM du fonds ÷ VM de tous les fonds des mêmes comptes : dans une matrice Compte × Fonds, chaque colonne de compte somme à 100 %
+	measure 'Part du fonds dans le compte' = DIVIDE ( [VM détenue], CALCULATE ( [VM détenue], REMOVEFILTERS ( Fonds ) ) )
+		formatString: 0.0 %
+		displayFolder: Fonds et risque
+		lineageTag: 8421d7e7-fa9a-4eba-95e3-882b6ebc1618
+
+	/// Moyenne des rangs de risque publiés (1 Faible à 5 Élevé), pondérée par la VM des fonds cotés (S8). Repère sur une échelle ordinale, pas une mesure de volatilité
+	measure 'Indice de risque' = DIVIDE ( SUM ( 'Détention'[vm_rang] ), SUM ( 'Détention'[vm_cotee] ) )
+		formatString: 0.00" / 5"
+		displayFolder: Fonds et risque
+		lineageTag: a4326a07-c06f-4af0-b3b9-c03927535cc9
+
+	/// Part de la VM dans des fonds sans profil, exclue de l'indice de risque (S8)
+	measure 'Part non cotée' = DIVIDE ( [VM détenue] - SUM ( 'Détention'[vm_cotee] ), [VM détenue] )
+		formatString: 0.0 %
+		displayFolder: Fonds et risque
+		lineageTag: 12c67f0c-54be-4129-b74a-7693778f193e
+
+	/// Part de la classe d'actif dans la VM, par transparence sur la répartition actuelle (S3). ordre est retiré avec la classe : c'est sa colonne de tri
+	measure 'Part actuelle' = DIVIDE ( SUM ( 'Écart tactique'[actuel] ), CALCULATE ( SUM ( 'Écart tactique'[actuel] ), REMOVEFILTERS ( 'Écart tactique'[Classe d'actif], 'Écart tactique'[ordre] ) ) )
+		formatString: 0.0 %
+		displayFolder: Fonds et risque
+		lineageTag: ee30c059-20cb-42d3-a66c-2329a7e173ee
+
+	/// Part de la classe d'actif dans la VM selon la répartition cible des fonds (S9)
+	measure 'Part stratégique' = DIVIDE ( SUM ( 'Écart tactique'[strategique] ), CALCULATE ( SUM ( 'Écart tactique'[actuel] ), REMOVEFILTERS ( 'Écart tactique'[Classe d'actif], 'Écart tactique'[ordre] ) ) )
+		formatString: 0.0 %
+		displayFolder: Fonds et risque
+		lineageTag: 125f962d-0f27-47f5-a2b5-f44287813acb
+
+	/// Part actuelle − part stratégique de la classe, en points de VM (S10) ; la somme sur les classes est nulle
+	measure 'Écart tactique' = [Part actuelle] - [Part stratégique]
+		formatString: +0.0 %;-0.0 %;0.0 %
+		displayFolder: Fonds et risque
+		lineageTag: b34d5e48-b061-4f05-bc50-335d9ae39875
+
+	/// Rendement quotidien du périmètre du contexte : Σ VM de la veille × rendement total ÷ Σ VM de la veille (P12). Corrélations entre fonds comprises, flux externes exclus.
+	measure 'Rendement du jour' =
+			DIVIDE (
+			    SUMX ( 'Rendement quotidien', 'Rendement quotidien'[vm_veille] * 'Rendement quotidien'[rendement] ),
+			    SUM ( 'Rendement quotidien'[vm_veille] )
+			)
+		formatString: 0.0000 %
+		displayFolder: Risque mesuré
+		lineageTag: f14ffced-04f9-4f4c-9cca-e662180e580b
+
+	/// Rendement quotidien du repère du périmètre, pondéré comme Rendement du jour : Σ VM de la veille × repère du fonds ÷ Σ VM de la veille (P12, P15).
+	measure 'Repère du jour' =
+			DIVIDE (
+			    SUMX ( 'Rendement quotidien', 'Rendement quotidien'[vm_veille] * 'Rendement quotidien'[repere] ),
+			    SUM ( 'Rendement quotidien'[vm_veille] )
+			)
+		formatString: 0.0000 %
+		displayFolder: Risque mesuré
+		lineageTag: ef319090-89b4-469b-ab13-9a3b9144f5fb
+
+	/// Dates de rendement du périmètre dans la fenêtre choisie (Fenêtre ; « depuis le début » sans choix). 12 mois : dates postérieures à la dernière date de rendement de la base moins un an (P13).
+	measure 'Nombre de rendements' =
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			RETURN
+			    COUNTROWS ( FILTER ( VALUES ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut ) )
+		formatString: 0
+		displayFolder: Risque mesuré
+		lineageTag: 89ef34e7-5bc1-4479-99af-4f49d906fad3
+
+	/// Écart-type d'échantillon des rendements quotidiens du périmètre × √252, sur la fenêtre choisie (P13). Vide sous 60 rendements : historique insuffisant.
+	measure Volatilité =
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			VAR _t = ADDCOLUMNS ( FILTER ( VALUES ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut ), "@r", [Rendement du jour] )
+			RETURN
+			    IF ( COUNTROWS ( _t ) >= 60, STDEVX.S ( _t, [@r] ) * SQRT ( 252 ) )
+		formatString: 0.00 %
+		displayFolder: Risque mesuré
+		lineageTag: fffb7f69-92ab-447d-a5d0-cd9d92479285
+
+	/// Rendement du périmètre sur la fenêtre choisie : (Π(1 + r))^(252 ÷ n) − 1 à partir de 252 rendements, sinon Π(1 + r) − 1, cumulé (P15).
+	measure 'Rendement de la fenêtre' =
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			VAR _t = ADDCOLUMNS ( FILTER ( VALUES ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut ), "@r", [Rendement du jour] )
+			VAR _n = COUNTROWS ( _t )
+			VAR _c = PRODUCTX ( _t, 1 + [@r] )
+			RETURN
+			    IF ( _n > 0, IF ( _n >= 252, _c ^ ( 252 / _n ), _c ) - 1 )
+		formatString: 0.00 %
+		displayFolder: Risque mesuré
+		lineageTag: 2e68ef20-fd18-4ad0-8c81-4555237ee860
+
+	/// Rendement du repère du périmètre sur les mêmes dates que Rendement de la fenêtre, annualisé ou cumulé de la même façon (P15).
+	measure 'Rendement du repère' =
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			VAR _t = ADDCOLUMNS ( FILTER ( VALUES ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut ), "@q", [Repère du jour] )
+			VAR _n = COUNTROWS ( _t )
+			VAR _c = PRODUCTX ( _t, 1 + [@q] )
+			RETURN
+			    IF ( _n > 0, IF ( _n >= 252, _c ^ ( 252 / _n ), _c ) - 1 )
+		formatString: 0.00 %
+		displayFolder: Risque mesuré
+		lineageTag: fa5b967a-dcea-47d5-a30b-0d2aeb14406e
+
+	/// Rendement de la fenêtre − rendement du repère, sur les mêmes dates (P15). Positif : le périmètre a fait mieux que ses FNB de substitution.
+	measure 'Écart au repère' = [Rendement de la fenêtre] - [Rendement du repère]
+		formatString: +0.00 %;-0.00 %;0.00 %
+		displayFolder: Risque mesuré
+		lineageTag: 4192c438-be2b-456d-ab38-745fce16d0b6
+
+	/// Plus forte chute entre un sommet et le creux qui suit, sur l'indice cumulé Π(1 + r) de la fenêtre choisie ; la valeur de départ 1 compte comme sommet (P14). 0 sans baisse.
+	measure 'Pire baisse' =
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			VAR _t = ADDCOLUMNS ( FILTER ( VALUES ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut ), "@r", [Rendement du jour] )
+			VAR _i = ADDCOLUMNS ( _t, "@i", VAR _d = 'Rendement quotidien'[jour] RETURN PRODUCTX ( FILTER ( _t, 'Rendement quotidien'[jour] <= _d ), 1 + [@r] ) )
+			VAR _b = ADDCOLUMNS ( _i, "@b", VAR _d = 'Rendement quotidien'[jour] RETURN [@i] / MAX ( 1, MAXX ( FILTER ( _i, 'Rendement quotidien'[jour] <= _d ), [@i] ) ) - 1 )
+			RETURN
+			    IF ( NOT ISEMPTY ( _t ), MIN ( 0, MINX ( _b, [@b] ) ) )
+		formatString: 0.00 %
+		displayFolder: Risque mesuré
+		lineageTag: a79ae857-78bf-457a-8ec2-58a204fae5bd
+
+	/// Date du creux de la pire baisse de la fenêtre choisie, le premier en cas d'égalité (P14). Vide sans baisse.
+	measure 'Date du creux' =
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			VAR _t = ADDCOLUMNS ( FILTER ( VALUES ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut ), "@r", [Rendement du jour] )
+			VAR _i = ADDCOLUMNS ( _t, "@i", VAR _d = 'Rendement quotidien'[jour] RETURN PRODUCTX ( FILTER ( _t, 'Rendement quotidien'[jour] <= _d ), 1 + [@r] ) )
+			VAR _b = ADDCOLUMNS ( _i, "@b", VAR _d = 'Rendement quotidien'[jour] RETURN [@i] / MAX ( 1, MAXX ( FILTER ( _i, 'Rendement quotidien'[jour] <= _d ), [@i] ) ) - 1 )
+			VAR _p = MINX ( _b, [@b] )
+			RETURN
+			    IF ( _p < 0, MINX ( FILTER ( _b, [@b] = _p ), 'Rendement quotidien'[jour] ) )
+		formatString: yyyy-mm-dd
+		displayFolder: Risque mesuré
+		lineageTag: becb4796-a220-4f63-97bb-c951e4468851
+
+	/// Date du sommet qui précède le creux de la pire baisse : dernière date antérieure au creux où l'indice égale ce sommet ; si le sommet est la valeur de départ, veille du premier rendement de la fenêtre (P14). Vide sans baisse.
+	measure 'Date du sommet' =
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			VAR _j = FILTER ( VALUES ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut )
+			VAR _t = ADDCOLUMNS ( _j, "@r", [Rendement du jour] )
+			VAR _i = ADDCOLUMNS ( _t, "@i", VAR _d = 'Rendement quotidien'[jour] RETURN PRODUCTX ( FILTER ( _t, 'Rendement quotidien'[jour] <= _d ), 1 + [@r] ) )
+			VAR _s = ADDCOLUMNS ( _i, "@s", VAR _d = 'Rendement quotidien'[jour] RETURN MAX ( 1, MAXX ( FILTER ( _i, 'Rendement quotidien'[jour] <= _d ), [@i] ) ) )
+			VAR _b = ADDCOLUMNS ( _s, "@b", [@i] / [@s] - 1 )
+			VAR _p = MINX ( _b, [@b] )
+			VAR _creux = MINX ( FILTER ( _b, [@b] = _p ), 'Rendement quotidien'[jour] )
+			VAR _sommet = MINX ( FILTER ( _b, 'Rendement quotidien'[jour] = _creux ), [@s] )
+			VAR _date = MAXX ( FILTER ( _b, 'Rendement quotidien'[jour] <= _creux && [@i] = _sommet ), 'Rendement quotidien'[jour] )
+			VAR _depart = MINX ( _j, CALCULATE ( MIN ( 'Rendement quotidien'[veille] ) ) )
+			RETURN
+			    IF ( _p < 0, IF ( ISBLANK ( _date ), _depart, _date ) )
+		formatString: yyyy-mm-dd
+		displayFolder: Risque mesuré
+		lineageTag: e5ef160e-6672-4b0c-bbb0-81ce786f4d2e
+
+	/// Statut de la fenêtre choisie : historique insuffisant sous 60 rendements (volatilité vide, P13), rendements cumulés sous 252, annualisés au-delà (P15).
+	measure Historique =
+			VAR _n = [Nombre de rendements]
+			RETURN
+			    SWITCH ( TRUE (), ISBLANK ( _n ), BLANK (), _n < 60, "Historique insuffisant", _n < 252, "Moins d'un an : rendements cumulés", "Rendements annualisés" )
+		displayFolder: Risque mesuré
+		lineageTag: a31138f3-bbc9-4639-b08c-f0f1ed4d38bb
+
+	/// Indice cumulé Π(1 + Rendement du jour) des dates de la fenêtre choisie jusqu'à la date du contexte, base 1 (P12, P14). Courbe de la page 6.
+	measure 'Indice du périmètre' =
+			VAR _d = MAX ( 'Rendement quotidien'[jour] )
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			RETURN
+			    IF (
+			        _d > _debut,
+			        PRODUCTX ( FILTER ( ALLSELECTED ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut && 'Rendement quotidien'[jour] <= _d ), 1 + [Rendement du jour] )
+			    )
+		formatString: 0.0000
+		displayFolder: Risque mesuré
+		lineageTag: e38f764a-db64-4315-8735-db7e8abfd1d8
+
+	/// Indice cumulé Π(1 + Repère du jour), mêmes dates que Indice du périmètre, base 1 (P12, P15).
+	measure 'Indice du repère' =
+			VAR _d = MAX ( 'Rendement quotidien'[jour] )
+			VAR _fin = CALCULATE ( MAX ( 'Rendement quotidien'[jour] ), REMOVEFILTERS () )
+			VAR _debut = IF ( SELECTEDVALUE ( 'Fenêtre'[Fenêtre], "depuis le début" ) = "12 mois", EDATE ( _fin, -12 ), DATE ( 1900, 1, 1 ) )
+			RETURN
+			    IF (
+			        _d > _debut,
+			        PRODUCTX ( FILTER ( ALLSELECTED ( 'Rendement quotidien'[jour] ), 'Rendement quotidien'[jour] > _debut && 'Rendement quotidien'[jour] <= _d ), 1 + [Repère du jour] )
+			    )
+		formatString: 0.0000
+		displayFolder: Risque mesuré
+		lineageTag: c2fc2483-d1e7-48a2-8403-7f4d19d6d1fa
+
+	/// Rendement du repère sur les sous-périodes du TWR, chaîné comme lui : produit des (1 + r) mensuels − 1, r = Σ poids × rendement du repère du fonds ÷ Σ poids des comptes du contexte (P16). Ignore le segment Fonds, comme le TWR. Vide sans point.
+	measure 'Repère TWR' =
+			VAR _mois = VALUES ( 'Repère mensuel'[mois] )
+			RETURN
+			    IF (
+			        NOT ISEMPTY ( 'Repère mensuel' ),
+			        PRODUCTX (
+			            _mois,
+			            1 + DIVIDE ( CALCULATE ( SUMX ( 'Repère mensuel', 'Repère mensuel'[poids] * 'Repère mensuel'[rendement] ) ), CALCULATE ( SUM ( 'Repère mensuel'[poids] ) ) )
+			        ) - 1
+			    )
+		formatString: 0.00 %
+		displayFolder: Risque mesuré
+		lineageTag: 6c12d0a6-cfff-4da4-a12f-404837e910c7
+
+	/// TWR − Repère TWR, sur les mêmes sous-périodes et les mêmes comptes (P16). Positif : le portefeuille a fait mieux qu'un portefeuille de FNB de même composition.
+	measure 'Écart au repère TWR' = [TWR] - [Repère TWR]
+		formatString: +0.00 %;-0.00 %;0.00 %
+		displayFolder: Risque mesuré
+		lineageTag: b8eea58c-6606-4f37-8220-302ac532d55c
+
+	/// Ratio des frais d'opérations du dernier exercice publié, pondéré par la VM au dernier point des fonds qui en ont un (S11, S13)
+	measure 'RFO pondéré' = DIVIDE ( SUMX ( 'Détention RDRF', 'Détention RDRF'[vm] * 'Détention RDRF'[rfo] ), SUM ( 'Détention RDRF'[vm_rfo] ) )
+		formatString: 0.00 %
+		displayFolder: Frais et distributions
+		lineageTag: 485b6cc0-02e1-41f1-8ccf-896502105413
+
+	/// Taux de rotation du dernier exercice, pondéré par la VM ; fonds « s.o. » exclus (S13). Un repère, pas un coût
+	measure 'Rotation pondérée' = DIVIDE ( SUMX ( 'Détention RDRF', 'Détention RDRF'[vm] * 'Détention RDRF'[rotation] ), SUM ( 'Détention RDRF'[vm_rotation] ) )
+		formatString: 0.0 %
+		displayFolder: Frais et distributions
+		lineageTag: 05a20263-5eef-486a-9581-a1e8798a8b83
+
+	/// Part des revenus hors dividendes dans les distributions par part du dernier exercice, pondérée par la VM des fonds qui ont distribué (S12, S13)
+	measure 'Part revenus' = DIVIDE ( SUMX ( 'Détention RDRF', 'Détention RDRF'[vm] * 'Détention RDRF'[part_revenus] ), SUM ( 'Détention RDRF'[vm_nature] ) )
+		formatString: 0.0 %
+		displayFolder: Frais et distributions
+		lineageTag: 57a66e5b-9040-400c-a18b-06cb0a055cfd
+
+	/// Part des dividendes dans les distributions par part du dernier exercice (S12, S13)
+	measure 'Part dividendes' = DIVIDE ( SUMX ( 'Détention RDRF', 'Détention RDRF'[vm] * 'Détention RDRF'[part_dividendes] ), SUM ( 'Détention RDRF'[vm_nature] ) )
+		formatString: 0.0 %
+		displayFolder: Frais et distributions
+		lineageTag: 8b3094e7-ac02-4b6c-ab4f-349d0bdcb970
+
+	/// Part des gains en capital dans les distributions par part du dernier exercice (S12, S13)
+	measure 'Part gains en capital' = DIVIDE ( SUMX ( 'Détention RDRF', 'Détention RDRF'[vm] * 'Détention RDRF'[part_gains_capital] ), SUM ( 'Détention RDRF'[vm_nature] ) )
+		formatString: 0.0 %
+		displayFolder: Frais et distributions
+		lineageTag: 9c4905c5-e11f-477d-9b1a-0d7254c24758
+
+	/// Part du remboursement de capital dans les distributions par part du dernier exercice (S12, S13)
+	measure 'Part remboursement de capital' = DIVIDE ( SUMX ( 'Détention RDRF', 'Détention RDRF'[vm] * 'Détention RDRF'[part_remb_capital] ), SUM ( 'Détention RDRF'[vm_nature] ) )
+		formatString: 0.0 %
+		displayFolder: Frais et distributions
+		lineageTag: 53126ecc-4ba1-47ea-96ea-c4c8feb0be1a
+
+	/// Droits CELI au début de l'année du filtre ; vide là où l'indicateur du KPI l'est, pour que le KPI s'arrête au dernier mois écoulé (cible du KPI)
+	measure 'CELI droits au début' = IF ( ISBLANK ( [CELI cotisé cumulé] ), BLANK (), CALCULATE ( [Droits au début], KEEPFILTERS ( Droits[Régime] = "CELI" ) ) )
+		formatString: #,##0 $
+		displayFolder: Droits\Cartes
+		lineageTag: 5ec3233d-7813-4a8a-86ad-4bb19535ae19
+
+	/// Droits CELIAPP au début de l'année du filtre ; vide là où l'indicateur du KPI l'est, pour que le KPI s'arrête au dernier mois écoulé (cible du KPI)
+	measure 'CELIAPP droits au début' = IF ( ISBLANK ( [CELIAPP cotisé cumulé] ), BLANK (), CALCULATE ( [Droits au début], KEEPFILTERS ( Droits[Régime] = "CELIAPP" ) ) )
+		formatString: #,##0 $
+		displayFolder: Droits\Cartes
+		lineageTag: 545da8c2-54b4-4495-9264-2568d151e2f3
+
+	/// Droits REER au début de l'année de déduction du filtre ; vide là où l'indicateur du KPI l'est, pour que le KPI s'arrête au dernier mois écoulé (cible du KPI)
+	measure 'REER droits au début' = IF ( ISBLANK ( [REER cotisé cumulé] ), BLANK (), CALCULATE ( [Droits au début], KEEPFILTERS ( Droits[Régime] = "REER" ) ) )
+		formatString: #,##0 $
+		displayFolder: Droits\Cartes
+		lineageTag: d19c6334-d7d5-4312-a36a-329a7cde8613
+
+	/// Versements CELI cumulés depuis le 1er janvier jusqu'à la fin du mois du contexte ; vide pour un mois non écoulé (R15 : après le mois de la date d'arrêté) ou hors de l'année du filtre (indicateur du KPI, cible = CELI droits au début)
+	measure 'CELI cotisé cumulé' = VAR ecoule = CALCULATE ( COUNTROWS ( Calendrier ), Calendrier[Mois écoulé] = TRUE () ) > 0 RETURN IF ( NOT ecoule, BLANK (), CALCULATE ( [Versements], KEEPFILTERS ( Compte[Régime] = "CELI" ), DATESYTD ( Calendrier[Date] ) ) + 0 )
+		formatString: #,##0 $
+		displayFolder: Droits\Cartes
+		lineageTag: 0497db44-f532-48d9-8639-3e50693400dc
+
+	/// Versements CELIAPP cumulés depuis le 1er janvier jusqu'à la fin du mois du contexte ; vide pour un mois non écoulé (R15 : après le mois de la date d'arrêté) ou hors de l'année du filtre (indicateur du KPI, cible = CELIAPP droits au début)
+	measure 'CELIAPP cotisé cumulé' = VAR ecoule = CALCULATE ( COUNTROWS ( Calendrier ), Calendrier[Mois écoulé] = TRUE () ) > 0 RETURN IF ( NOT ecoule, BLANK (), CALCULATE ( [Versements], KEEPFILTERS ( Compte[Régime] = "CELIAPP" ), DATESYTD ( Calendrier[Date] ) ) + 0 )
+		formatString: #,##0 $
+		displayFolder: Droits\Cartes
+		lineageTag: a2362286-d940-4de4-ae69-fc2a9267ec85
+
+	/// Cotisations REER de l'année de déduction du filtre, cumulées jusqu'à la fin du mois du contexte ; décembre ajoute les 60 premiers jours de l'année suivante ; hors export comprises ; vide pour un mois non écoulé (R15 : après le mois de la date d'arrêté) ou hors de l'année du filtre (indicateur du KPI, cible = REER droits au début)
+	measure 'REER cotisé cumulé' = VAR ecoule = CALCULATE ( COUNTROWS ( Calendrier ), Calendrier[Mois écoulé] = TRUE () ) > 0 RETURN IF ( NOT ecoule, BLANK (), VAR annee = MAX ( Calendrier[Année] ) VAR finMois = MAX ( Calendrier[Date] ) VAR borne = IF ( MONTH ( finMois ) = 12, DATE ( annee + 1, 12, 31 ), finMois ) RETURN CALCULATE ( SUM ( 'Cotisation REER'[montant] ), 'Cotisation REER'[annee_droits] = annee, 'Cotisation REER'[Date] <= borne ) + 0 )
+		formatString: #,##0 $
+		displayFolder: Droits\Cartes
+		lineageTag: bf028358-56da-4c05-a707-802d3a5adf9f
+
+	/// Date d'arrêté du rapport (R15) : la plus ancienne des dates de fin des derniers Historiques ; ignore tout filtre (table sans relation)
+	measure 'Date d''arrêté' = MAX ( 'Arrêté'[Date] )
+		formatString: yyyy-mm-dd
+		displayFolder: Arrêté
+		lineageTag: 54c147ac-458a-467b-a54b-bbb74aa2ec3f
+
+	/// « Arrêté au 25 oct. 2026 » : en-tête de la page 1, qui porte l'année que le segment « En cours » ne montre plus ; locale fixée pour que Desktop et le Service écrivent la même date
+	measure 'Libellé d''arrêté' = "Arrêté au " & FORMAT ( [Date d'arrêté], "d mmm yyyy", "fr-CA" )
+		displayFolder: Arrêté
+		lineageTag: d936025b-e23e-46ed-b8f0-8f5295839c6a
+
+	/// Part de la catégorie dans son axe pour une barre de 'Axe régime' : tous régimes confondus pour « Ensemble », le seul régime de la barre sinon ; vide hors d'une barre
+	measure 'Part de l''exposition par régime' =
+			VAR _regime = SELECTEDVALUE ( 'Axe régime'[Régime] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( _regime ), BLANK (),
+			        _regime = "Ensemble", [Part de l'exposition],
+			        CALCULATE ( [Part de l'exposition], TREATAS ( { _regime }, Compte[Régime] ) )
+			    )
+		formatString: 0.0 %
+		displayFolder: Stratégie
+		lineageTag: d85ab1a5-cb42-4156-aabf-7bd001c0fcab
+
+	/// Libellé de l'indice de risque sur l'échelle des profils publiés : jusqu'à 1 Faible, 2 Faible-Moyen, 3 Moyen, 4 Moyen-Élevé, au-delà Élevé ; « Compte fermé » quand le périmètre ne contient aucun compte actif ; vide sinon sans fonds coté
+	measure 'Niveau de l''indice de risque' =
+			VAR _indice = [Indice de risque]
+			VAR _aucunActif = ISEMPTY ( FILTER ( VALUES ( Compte[Statut] ), Compte[Statut] = "Actif" ) )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( _indice ) && _aucunActif, "Compte fermé",
+			        ISBLANK ( _indice ), BLANK (),
+			        _indice <= 1, "Faible",
+			        _indice <= 2, "Faible-Moyen",
+			        _indice <= 3, "Moyen",
+			        _indice <= 4, "Moyen-Élevé",
+			        "Élevé"
+			    )
+		displayFolder: Fonds et risque
+		lineageTag: bad3c70c-bffc-406f-b997-6cfe15d42dd1
+
+	column Colonne
+		isHidden
+		lineageTag: 0de3d74a-8ec7-48b0-9c48-1b92e55f53ae
+		sourceColumn: [Colonne]
+
+	partition Mesures = calculated
+		mode: import
+		source = ROW ( "Colonne", BLANK () )
+

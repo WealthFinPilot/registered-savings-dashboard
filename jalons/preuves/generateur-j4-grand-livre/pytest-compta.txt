@@ -1,0 +1,96 @@
+.......................                                                  [100%]
+=================================== PASSES ====================================
+_________________________ test_compta_graine_typique __________________________
+---------------------------- Captured stdout call -----------------------------
+1507 ordres, 446 mouvements ; résidu d'arrondi Σ 7.56 $, pire ordre à 81% de sa borne ; valeur à l'arrêté 60960.01 $ = flux 58126.84 $ + résultat 2832.92 $ (écart 0.2526 $)
+_______________________ test_compta_retrait_infaisable ________________________
+---------------------------- Captured stdout call -----------------------------
+refus explicite : retrait M00042 du 2023-09-12 : 1000000.00 $ demandés, le CELI-1 vaut 12553.68 $
+________________________ test_compta_graine[20261103] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 1507 ordres, 446 mouvements ; résidu d'arrondi Σ 7.56 $, pire ordre à 81% de sa borne ; valeur à l'arrêté 60960.01 $ = flux 58126.84 $ + résultat 2832.92 $ (écart 0.2526 $) ; 1 retraits, tous exécutés
+____________________________ test_compta_graine[1] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 1 : 1499 ordres, 545 mouvements ; résidu d'arrondi Σ 9.40 $, pire ordre à 79% de sa borne ; valeur à l'arrêté 38875.53 $ = flux 35902.48 $ + résultat 2973.44 $ (écart 0.3869 $) ; 1 retraits, tous exécutés
+____________________________ test_compta_graine[2] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 2 : 1431 ordres, 437 mouvements ; résidu d'arrondi Σ 8.44 $, pire ordre à 80% de sa borne ; valeur à l'arrêté 30331.81 $ = flux 30181.44 $ + résultat 150.22 $ (écart 0.1536 $) ; 2 retraits, tous exécutés
+____________________________ test_compta_graine[3] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 3 : 1758 ordres, 563 mouvements ; résidu d'arrondi Σ 5.08 $, pire ordre à 66% de sa borne ; valeur à l'arrêté 47228.69 $ = flux 51128.58 $ + résultat -3900.03 $ (écart 0.1420 $) ; 5 retraits, tous exécutés
+____________________________ test_compta_graine[4] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 4 : 1287 ordres, 549 mouvements ; résidu d'arrondi Σ 7.71 $, pire ordre à 82% de sa borne ; valeur à l'arrêté 60764.10 $ = flux 53179.47 $ + résultat 7584.79 $ (écart 0.1580 $) ; 0 retraits, tous exécutés
+____________________________ test_compta_graine[5] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 5 : 1297 ordres, 501 mouvements ; résidu d'arrondi Σ 8.31 $, pire ordre à 85% de sa borne ; valeur à l'arrêté 62854.58 $ = flux 55950.44 $ + résultat 6904.19 $ (écart 0.0464 $) ; 3 retraits, tous exécutés
+____________________________ test_compta_graine[6] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 6 : 1906 ordres, 652 mouvements ; résidu d'arrondi Σ 11.65 $, pire ordre à 85% de sa borne ; valeur à l'arrêté 50001.54 $ = flux 36554.26 $ + résultat 13446.89 $ (écart 0.3854 $) ; 1 retraits, tous exécutés
+____________________________ test_compta_graine[7] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 7 : 2068 ordres, 599 mouvements ; résidu d'arrondi Σ 12.87 $, pire ordre à 83% de sa borne ; valeur à l'arrêté 53228.55 $ = flux 46954.70 $ + résultat 6274.02 $ (écart 0.1742 $) ; 1 retraits, tous exécutés
+____________________________ test_compta_graine[8] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 8 : 2018 ordres, 624 mouvements ; résidu d'arrondi Σ 9.89 $, pire ordre à 83% de sa borne ; valeur à l'arrêté 41323.37 $ = flux 32012.47 $ + résultat 9310.89 $ (écart 0.0092 $) ; 3 retraits, tous exécutés
+____________________________ test_compta_graine[9] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 9 : 2195 ordres, 792 mouvements ; résidu d'arrondi Σ 17.11 $, pire ordre à 90% de sa borne ; valeur à l'arrêté 96921.12 $ = flux 69678.48 $ + résultat 27242.59 $ (écart 0.0511 $) ; 1 retraits, tous exécutés
+___________________________ test_compta_graine[10] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 10 : 1552 ordres, 542 mouvements ; résidu d'arrondi Σ 8.17 $, pire ordre à 84% de sa borne ; valeur à l'arrêté 52265.23 $ = flux 48136.26 $ + résultat 4128.95 $ (écart 0.0217 $) ; 2 retraits, tous exécutés
+___________________________ test_compta_graine[11] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 11 : 1356 ordres, 561 mouvements ; résidu d'arrondi Σ 11.80 $, pire ordre à 87% de sa borne ; valeur à l'arrêté 50099.40 $ = flux 39436.41 $ + résultat 10662.81 $ (écart 0.1847 $) ; 1 retraits, tous exécutés
+___________________________ test_compta_graine[12] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 12 : 2272 ordres, 691 mouvements ; résidu d'arrondi Σ 18.14 $, pire ordre à 84% de sa borne ; valeur à l'arrêté 50310.25 $ = flux 47666.58 $ + résultat 2643.83 $ (écart 0.1568 $) ; 0 retraits, tous exécutés
+___________________________ test_compta_graine[13] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 13 : 1069 ordres, 494 mouvements ; résidu d'arrondi Σ 6.03 $, pire ordre à 78% de sa borne ; valeur à l'arrêté 63311.90 $ = flux 50007.54 $ + résultat 13304.26 $ (écart 0.1007 $) ; 0 retraits, tous exécutés
+___________________________ test_compta_graine[14] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 14 : 1200 ordres, 668 mouvements ; résidu d'arrondi Σ 7.61 $, pire ordre à 81% de sa borne ; valeur à l'arrêté 48030.90 $ = flux 48658.08 $ + résultat -627.23 $ (écart 0.0503 $) ; 0 retraits, tous exécutés
+___________________________ test_compta_graine[15] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 15 : 2308 ordres, 622 mouvements ; résidu d'arrondi Σ 13.13 $, pire ordre à 83% de sa borne ; valeur à l'arrêté 57400.99 $ = flux 46762.87 $ + résultat 10638.50 $ (écart 0.3755 $) ; 1 retraits, tous exécutés
+___________________________ test_compta_graine[16] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 16 : 1744 ordres, 606 mouvements ; résidu d'arrondi Σ 7.40 $, pire ordre à 77% de sa borne ; valeur à l'arrêté 46272.24 $ = flux 42563.52 $ + résultat 3708.30 $ (écart 0.4246 $) ; 1 retraits, tous exécutés
+___________________________ test_compta_graine[17] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 17 : 1369 ordres, 455 mouvements ; résidu d'arrondi Σ 9.39 $, pire ordre à 82% de sa borne ; valeur à l'arrêté 52366.36 $ = flux 44112.62 $ + résultat 8253.57 $ (écart 0.1663 $) ; 1 retraits, tous exécutés
+___________________________ test_compta_graine[18] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 18 : 1743 ordres, 553 mouvements ; résidu d'arrondi Σ 12.81 $, pire ordre à 86% de sa borne ; valeur à l'arrêté 57173.23 $ = flux 50407.55 $ + résultat 6765.92 $ (écart 0.2391 $) ; 2 retraits, tous exécutés
+___________________________ test_compta_graine[19] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 19 : 1850 ordres, 608 mouvements ; résidu d'arrondi Σ 13.07 $, pire ordre à 86% de sa borne ; valeur à l'arrêté 74253.50 $ = flux 59318.14 $ + résultat 14934.69 $ (écart 0.6668 $) ; 0 retraits, tous exécutés
+___________________________ test_compta_graine[20] ____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20 : 1435 ordres, 693 mouvements ; résidu d'arrondi Σ 7.98 $, pire ordre à 82% de sa borne ; valeur à l'arrêté 46353.90 $ = flux 38765.58 $ + résultat 7588.22 $ (écart 0.1042 $) ; 1 retraits, tous exécutés
+=========================== short test summary info ===========================
+PASSED tests/test_ledger.py::test_compta_graine_typique
+PASSED tests/test_ledger.py::test_compta_retrait_infaisable
+PASSED tests/test_ledger_seeds.py::test_compta_graine[20261103]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[1]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[2]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[3]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[4]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[5]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[6]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[7]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[8]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[9]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[10]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[11]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[12]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[13]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[14]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[15]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[16]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[17]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[18]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[19]
+PASSED tests/test_ledger_seeds.py::test_compta_graine[20]
+23 passed, 26 deselected in 39.96s

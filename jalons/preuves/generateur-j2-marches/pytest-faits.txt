@@ -1,0 +1,117 @@
+................                                                         [100%]
+=================================== PASSES ====================================
+____________________ test_covariance_semi_definie_positive ____________________
+---------------------------- Captured stdout call -----------------------------
+expansion       plus petite valeur propre 4.219e-08, plus grande 2.639e-04
+ralentissement  plus petite valeur propre 7.518e-08, plus grande 4.419e-04
+crise           plus petite valeur propre 2.093e-07, plus grande 1.418e-03
+reprise         plus petite valeur propre 1.011e-07, plus grande 6.172e-04
+___________________ test_prix_par_rendements_logarithmiques ___________________
+---------------------------- Captured stdout call -----------------------------
+écart max log(VL_t / VL_t-1) − rendement simulé : en mémoire 7.0e-16, CSV 1.6e-07
+______________ test_regimes_markov_sans_date_ni_rendement_annuel ______________
+---------------------------- Captured stdout call -----------------------------
+section [markets] : 0 date(s), 0 clé ou valeur évoquant une année
+loi stationnaire : expansion 65.2%, ralentissement 18.4%, crise 5.5%, reprise 11.0% ; transitions observées [('crise', 'reprise'), ('expansion', 'ralentissement'), ('ralentissement', 'crise'), ('ralentissement', 'expansion'), ('reprise', 'expansion')]
+_______________________ test_aucune_borne_dans_le_code ________________________
+---------------------------- Captured stdout call -----------------------------
+appels de bornage trouvés : aucun
+_______________________ test_aucun_ecretage_des_pertes ________________________
+---------------------------- Captured stdout call -----------------------------
+pire rendement journalier d'un fonds : -93.4%
+____________________ test_charges_derivees_des_expositions ____________________
+---------------------------- Captured stdout call -----------------------------
+pente du rendement sur F · b : F101 1.008, F102 0.999, F103 1.000, F104 0.999, F105 0.998, F106 1.004, F201 1.000, F202 1.007, F203 1.001, F204 0.996, F302 1.006, F303 0.994, F304 1.008
+___________________ test_reperes_memes_facteurs_sans_alpha ____________________
+---------------------------- Captured stdout call -----------------------------
+14 composites, 3 politiques, contexte ['R-ACT-MONDE', 'R-EQUILIBRE'] ; frais passifs 0.031 à 0.111 %
+________________ test_queues_epaisses_et_volatilite_regroupee _________________
+---------------------------- Captured stdout call -----------------------------
+F102 actions 55.5 % : kurtosis excédentaire 16.44, autocorrélation moyenne de r² (décalages 1 à 10) 0.136
+F103 actions 84.8 % : kurtosis excédentaire 15.82, autocorrélation moyenne de r² (décalages 1 à 10) 0.139
+F104 actions 97.3 % : kurtosis excédentaire 13.80, autocorrélation moyenne de r² (décalages 1 à 10) 0.122
+F105 actions 96.6 % : kurtosis excédentaire 15.72, autocorrélation moyenne de r² (décalages 1 à 10) 0.149
+F106 actions 97.7 % : kurtosis excédentaire 11.30, autocorrélation moyenne de r² (décalages 1 à 10) 0.129
+F204 actions 56.5 % : kurtosis excédentaire 18.64, autocorrélation moyenne de r² (décalages 1 à 10) 0.118
+F302 actions 97.3 % : kurtosis excédentaire 13.74, autocorrélation moyenne de r² (décalages 1 à 10) 0.183
+F303 actions 98.0 % : kurtosis excédentaire 13.60, autocorrélation moyenne de r² (décalages 1 à 10) 0.119
+F304 actions 97.0 % : kurtosis excédentaire 14.02, autocorrélation moyenne de r² (décalages 1 à 10) 0.148
+____________________ test_volatilites_ordonnees_par_mandat ____________________
+---------------------------- Captured stdout call -----------------------------
+monétaire 0.09% (1 fonds) < obligations 5.42% (1 fonds) < mixtes 10.56% (5 fonds) < actions 17.58% (6 fonds)
+________________________ test_correlations_plausibles _________________________
+---------------------------- Captured stdout call -----------------------------
+91 paires ; corrélation maximale 0.937 (F105-F302) ; Spearman similarité des expositions / corrélation réalisée 0.764
+______________________ test_validation_sur_vingt_graines ______________________
+---------------------------- Captured stdout call -----------------------------
+manifest_synthetique                 échecs 0/20 
+cles_uniques                         échecs 0/20 
+references                           échecs 0/20 
+trois_institutions                   échecs 0/20 
+nombre_de_fonds                      échecs 0/20 
+noms_fictifs                         échecs 0/20 
+expositions_100                      échecs 0/20 
+frais_coherents                      échecs 0/20 
+regimes_et_alias                     échecs 0/20 
+celiapp_apres_ouverture_du_regime    échecs 0/20 
+dates_d_ouverture                    échecs 0/20 
+allocations_cibles                   échecs 0/20 
+poids_institutions_asymetriques      échecs 0/20 
+profils_ordonnes                     échecs 0/20 
+marche_calendrier                    échecs 0/20 
+marche_grain_vl                      échecs 0/20 
+marche_grain_reperes                 échecs 0/20 
+marche_valeurs_positives             échecs 0/20 
+marche_reperes                       échecs 0/20 
+_________________ test_invariants_du_modele_sur_vingt_graines _________________
+---------------------------- Captured stdout call -----------------------------
+plus petite valeur propre des covariances 4.219e-08 ; échecs aucun
+________________ test_part_des_graines_avec_une_annee_negative ________________
+---------------------------- Captured stdout call -----------------------------
+graine  1 : 2022 +16.4% 2023 +22.0% 2024 -2.7% 2025 -4.6% | annualisé +7.8% | repli max -21.5%
+graine  2 : 2022 -5.9% 2023 +16.2% 2024 +15.9% 2025 -4.4% | annualisé +2.8% | repli max -23.0%
+graine  3 : 2022 -46.6% 2023 +1.7% 2024 +10.5% 2025 -4.2% | annualisé -12.9% | repli max -55.6%
+graine  4 : 2022 +25.9% 2023 +35.7% 2024 +17.4% 2025 +4.2% | annualisé +10.6% | repli max -20.8%
+graine  5 : 2022 +6.4% 2023 +6.2% 2024 +11.8% 2025 +5.4% | annualisé +9.5% | repli max -15.6%
+graine  6 : 2022 +10.4% 2023 +9.5% 2024 +16.4% 2025 -1.9% | annualisé +12.0% | repli max -29.2%
+graine  7 : 2022 +5.6% 2023 +11.1% 2024 +6.4% 2025 -3.0% | annualisé +4.6% | repli max -23.1%
+graine  8 : 2022 -10.9% 2023 +6.8% 2024 +36.4% 2025 +9.0% | annualisé +13.1% | repli max -20.9%
+graine  9 : 2022 +22.6% 2023 +17.8% 2024 +24.0% 2025 +6.8% | annualisé +19.0% | repli max -23.0%
+graine 10 : 2022 +30.6% 2023 -12.3% 2024 -5.8% 2025 +19.2% | annualisé +4.8% | repli max -26.9%
+graine 11 : 2022 +1.2% 2023 +55.1% 2024 +11.1% 2025 +8.9% | annualisé +10.4% | repli max -28.6%
+graine 12 : 2022 +20.8% 2023 -0.4% 2024 -11.6% 2025 +0.7% | annualisé +4.4% | repli max -30.0%
+graine 13 : 2022 +26.6% 2023 -3.2% 2024 -0.1% 2025 +33.6% | annualisé +12.9% | repli max -15.6%
+graine 14 : 2022 +14.6% 2023 +6.6% 2024 -6.6% 2025 +19.0% | annualisé +4.9% | repli max -19.8%
+graine 15 : 2022 +21.4% 2023 +12.1% 2024 -4.5% 2025 +13.3% | annualisé +12.9% | repli max -16.2%
+graine 16 : 2022 -8.8% 2023 +11.9% 2024 -4.2% 2025 -14.4% | annualisé +0.7% | repli max -39.7%
+graine 17 : 2022 +18.1% 2023 +4.7% 2024 +4.3% 2025 -3.9% | annualisé +10.4% | repli max -26.0%
+graine 18 : 2022 +7.7% 2023 +1.3% 2024 +11.3% 2025 +23.7% | annualisé +7.7% | repli max -32.3%
+graine 19 : 2022 +13.6% 2023 +22.8% 2024 +3.7% 2025 +7.4% | annualisé +12.3% | repli max -13.5%
+graine 20 : 2022 +20.9% 2023 -2.3% 2024 +4.3% 2025 +9.5% | annualisé +5.7% | repli max -11.6%
+graines avec au moins une année civile complète négative : 14/20 (70%)
+_______________________ test_au_moins_un_repli_profond ________________________
+---------------------------- Captured stdout call -----------------------------
+graines avec un repli maximal du repère actions mondiales au-delà de 25 % : [3, 6, 10, 11, 12, 16, 17, 18]
+____________________ test_taux_d_echec_des_faits_stylises _____________________
+---------------------------- Captured stdout call -----------------------------
+kurtosis excédentaire > 1        graines en échec 2/20 (10%) ['1:F306', '15:F104', '15:F206', '15:F304']
+autocorrélation de r² > 0,05     graines en échec 6/20 (30%) ['1:F103', '1:F104', '1:F105', '1:F106', '1:F204', '1:F302', '1:F304', '1:F305']
+aucune paire > 0,98              graines en échec 0/20 (0%) 
+=========================== short test summary info ===========================
+PASSED tests/test_market.py::test_covariance_semi_definie_positive
+PASSED tests/test_market.py::test_prix_par_rendements_logarithmiques
+PASSED tests/test_market.py::test_regimes_markov_sans_date_ni_rendement_annuel
+PASSED tests/test_market.py::test_aucune_borne_dans_le_code
+PASSED tests/test_market.py::test_aucun_ecretage_des_pertes
+PASSED tests/test_market.py::test_charges_derivees_des_expositions
+PASSED tests/test_market.py::test_reperes_memes_facteurs_sans_alpha
+PASSED tests/test_market.py::test_validation_export_marche
+PASSED tests/test_market.py::test_queues_epaisses_et_volatilite_regroupee
+PASSED tests/test_market.py::test_volatilites_ordonnees_par_mandat
+PASSED tests/test_market.py::test_correlations_plausibles
+PASSED tests/test_market_seeds.py::test_validation_sur_vingt_graines
+PASSED tests/test_market_seeds.py::test_invariants_du_modele_sur_vingt_graines
+PASSED tests/test_market_seeds.py::test_part_des_graines_avec_une_annee_negative
+PASSED tests/test_market_seeds.py::test_au_moins_un_repli_profond
+PASSED tests/test_market_seeds.py::test_taux_d_echec_des_faits_stylises
+16 passed in 35.66s

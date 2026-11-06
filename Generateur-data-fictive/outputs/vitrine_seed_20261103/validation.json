@@ -1,0 +1,202 @@
+{
+  "path": "outputs\\vitrine_seed_20261103",
+  "passed": true,
+  "checks": [
+    {
+      "name": "manifest_synthetique",
+      "status": "pass",
+      "detail": "synthetic = true"
+    },
+    {
+      "name": "cles_uniques",
+      "status": "pass",
+      "detail": "aucun doublon de clé"
+    },
+    {
+      "name": "references",
+      "status": "pass",
+      "detail": "aucune référence orpheline"
+    },
+    {
+      "name": "trois_institutions",
+      "status": "pass",
+      "detail": "3 institutions, un profil chacune"
+    },
+    {
+      "name": "nombre_de_fonds",
+      "status": "pass",
+      "detail": "14 fonds, Société 1 6, Société 2 4, Société 3 4"
+    },
+    {
+      "name": "noms_fictifs",
+      "status": "pass",
+      "detail": "institutions « Société N », fonds marqués « (fictif) »"
+    },
+    {
+      "name": "expositions_100",
+      "status": "pass",
+      "detail": "3 axes × 14 fonds à 100 % ± 0.01, mandats à 100 %"
+    },
+    {
+      "name": "frais_coherents",
+      "status": "pass",
+      "detail": "RFG dans ]0, 3] %, palier haut ≤ palier bas, tout en CAD"
+    },
+    {
+      "name": "regimes_et_alias",
+      "status": "pass",
+      "detail": "4 régimes, 6 comptes, alias distincts du régime"
+    },
+    {
+      "name": "celiapp_apres_ouverture_du_regime",
+      "status": "pass",
+      "detail": "aucun CELIAPP avant le 2023-04-01"
+    },
+    {
+      "name": "dates_d_ouverture",
+      "status": "pass",
+      "detail": "comptes ouverts dans l'horizon, institutions ouvertes avec leur premier compte"
+    },
+    {
+      "name": "allocations_cibles",
+      "status": "pass",
+      "detail": "16 allocations à 100 %, aucun fonds avant son lancement"
+    },
+    {
+      "name": "poids_institutions_asymetriques",
+      "status": "pass",
+      "detail": "Société 1 22.8% / Société 2 47.1% / Société 3 30.2%"
+    },
+    {
+      "name": "profils_ordonnes",
+      "status": "pass",
+      "detail": "prudent 33.5% < balanced 65.7% < growth 97.5%"
+    },
+    {
+      "name": "marche_calendrier",
+      "status": "pass",
+      "detail": "1305 jours ouvrables (lundi à vendredi) du 2021-11-01 au 2026-10-30, 4 régimes visités"
+    },
+    {
+      "name": "marche_grain_vl",
+      "status": "pass",
+      "detail": "17904 VL : une par fonds et jour ouvrable, du lancement (ou du début de l'horizon) à la fin, aucune avant le lancement"
+    },
+    {
+      "name": "marche_grain_reperes",
+      "status": "pass",
+      "detail": "37845 indices : une ligne par repère et jour ouvrable de l'horizon, 29 repères"
+    },
+    {
+      "name": "marche_valeurs_positives",
+      "status": "pass",
+      "detail": "VL et indices finis, strictement positifs, en CAD"
+    },
+    {
+      "name": "marche_reperes",
+      "status": "pass",
+      "detail": "14 composites (frais passifs < RFG du fonds), 3 politiques (frais < RFG pondéré), 2 repères de contexte, 10 repères de catégorie (frais passifs < RFG de chaque fonds comparé), base 100"
+    },
+    {
+      "name": "comportement_types_et_signes",
+      "status": "pass",
+      "detail": "213 mouvements : 202 PAC, 10 ponctuels, 1 retraits ; apports > 0, retraits < 0, au cent (FRAIS : contrôles du grand livre)"
+    },
+    {
+      "name": "comportement_comptes_et_dates",
+      "status": "pass",
+      "detail": "chaque mouvement : compte connu, jour ouvrable, entre l'ouverture du compte et la fin de l'horizon"
+    },
+    {
+      "name": "comportement_evenements",
+      "status": "pass",
+      "detail": "49 événements, clés uniques ; chaque mouvement et chacune des 7 nouvelles cibles de compte renvoient à un événement daté au plus tard le jour de l'effet"
+    },
+    {
+      "name": "comportement_regimes",
+      "status": "pass",
+      "detail": "aucun retrait de REER ni de CELIAPP ; aucun CELIAPP alimenté avant 2023-04-01"
+    },
+    {
+      "name": "comportement_droits",
+      "status": "pass",
+      "detail": "16 lignes régime × année : cotisations et retraits = mouvements, droits jamais dépassés hors excédents scénarisés [('CELI', 2026)], reports d'une année sur l'autre cohérents avec tax_limits"
+    },
+    {
+      "name": "comportement_retraits_bornes",
+      "status": "pass",
+      "detail": "1 retraits, chacun ≤ 50% des apports nets du compte à sa date"
+    },
+    {
+      "name": "grand_livre_ordres",
+      "status": "pass",
+      "detail": "1548 ordres : BUY ou SELL, parts > 0, VL du jour, aucun frais de transaction, un lien chacun (mouvement ou rééquilibrage) ; résidu d'arrondi max 0.0264 $, total 9.01 $"
+    },
+    {
+      "name": "grand_livre_ordres_dates",
+      "status": "pass",
+      "detail": "chaque ordre dans la vie de son compte, sur un fonds lancé ; chaque achat sur un fonds de la cible en vigueur"
+    },
+    {
+      "name": "grand_livre_mouvements",
+      "status": "pass",
+      "detail": "449 mouvements, chacun exécuté une fois (apport = achats, retrait ou frais = ventes) ; 10 rééquilibrages à ventes = achats ; 236 FRAIS < 0 en fin de mois"
+    },
+    {
+      "name": "grand_livre_positions",
+      "status": "pass",
+      "detail": "17103 positions : parts = cumul des ordres, jamais négatives, valeur = parts × VL au cent ; 5207 valeurs de compte = Σ positions, encaisse nulle"
+    },
+    {
+      "name": "performance_grain",
+      "status": "pass",
+      "detail": "9279 lignes, 10 entités (portefeuille, 3 institutions, 6 comptes) : un jour par jour d'ouverture, valeur = Σ des comptes, flux sans FRAIS, FRAIS à part"
+    },
+    {
+      "name": "performance_twr",
+      "status": "pass",
+      "detail": "9115 rendements quotidiens = (V⁺ − flux) ÷ V⁺ de la veille − 1 et TWR cumulés, à 1e-09 près ; vides le jour qui suit une valeur nulle"
+    },
+    {
+      "name": "performance_periodes",
+      "status": "pass",
+      "detail": "53 périodes (années civiles et depuis l'ouverture) : fin = début + apports − retraits + frais + résultat au cent, TWR = Π(1 + r) − 1 ; 0 MWR vides, chacun avec son motif"
+    },
+    {
+      "name": "performance_contrefactuel",
+      "status": "pass",
+      "detail": "6 contrefactuels, 6654 lignes : mêmes jours et mêmes flux externes que leur entité, sans FRAIS de compte ; repères de politique et de contexte connus"
+    },
+    {
+      "name": "adaptateur_fichiers",
+      "status": "pass",
+      "detail": "18 tables et distributions.csv relues, en-têtes conformes, 58054 lignes"
+    },
+    {
+      "name": "adaptateur_cles",
+      "status": "pass",
+      "detail": "18 clés primaires uniques"
+    },
+    {
+      "name": "adaptateur_references",
+      "status": "pass",
+      "detail": "aucune référence orpheline"
+    },
+    {
+      "name": "adaptateur_parts",
+      "status": "pass",
+      "detail": "1935 transactions = 1548 ordres + 387 réinvestissements ; parts restantes = précédentes ± négociées, jamais négatives"
+    },
+    {
+      "name": "adaptateur_sommaire",
+      "status": "pass",
+      "detail": "21 positions non nulles à l'arrêté 2026-10-30"
+    },
+    {
+      "name": "adaptateur_prix_distributions",
+      "status": "pass",
+      "detail": "55749 cours > 0 ; 386 versements, taux dans ]0, 1[, distributions ≥ 0"
+    }
+  ],
+  "warnings": []
+}

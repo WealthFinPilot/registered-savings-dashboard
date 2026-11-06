@@ -1,0 +1,50 @@
+event_id,date,event_type,institution_id,account_id,description,scenario_impact
+E0001,2021-11-19,ouverture_compte,I3,C01,ouverture du REER-1 chez Société 3,PAC total 0 → 830 $
+E0002,2021-12-03,ajustement_pac,I3,C01,ajustement du PAC du REER-1,PAC 830 → 750 $
+E0003,2022-02-07,phase_epargne,,,reprise de l'épargne,capacité ×1.10 ; PAC total 750 → 970 $
+E0004,2022-02-25,revue_annuelle,I3,C01,revue du REER-1,"cible F302 35 %, F303 65 % → F302 40 %, F303 60 %"
+E0005,2022-02-25,reequilibrage,I3,C01,rééquilibrage du REER-1 vers sa nouvelle cible (revue annuelle),"échange de 174.91 $ (100% de l'écart) ; dérive 5.1 → 0.0 points, à la clôture de la veille"
+E0006,2022-03-01,mois_atypique,,,PAC suspendus ce mois-ci (dépense imprévue),PAC total du mois 970 $ → 0 $
+E0007,2022-03-14,ouverture_compte,I3,C02,ouverture du CELI-1 chez Société 3,PAC total 970 → 1000 $
+E0008,2022-10-24,phase_epargne,,,hausse de revenus,capacité ×1.22 ; PAC total 1000 → 1220 $
+E0009,2022-11-25,cadeau,I3,C01,cadeau versé au REER-1,+700.00 $
+E0010,2022-12-12,revue_annuelle,I3,C02,revue du CELI-1,"cible F302 40 %, F303 25 %, F304 35 % → F302 35 %, F303 30 %, F304 35 %"
+E0011,2022-12-12,reequilibrage,I3,C02,rééquilibrage du CELI-1 vers sa nouvelle cible (revue annuelle),"échange de 164.48 $ (56% de l'écart) ; dérive 4.5 → 2.0 points, à la clôture de la veille"
+E0012,2023-05-10,remboursement_impot,I3,C01,remboursement d'impôt versé au REER-1,+1652.55 $
+E0013,2023-05-15,phase_epargne,,,pression budgétaire,capacité ×0.71 ; PAC total 1220 → 810 $
+E0014,2023-06-26,ajout_fonds,I3,C02,"revue du CELI-1, ajout de F301","cible F302 35 %, F303 30 %, F304 35 % → F301 15 %, F302 30 %, F303 20 %, F304 35 % ; PAC 520 → 430 $"
+E0015,2023-06-26,reequilibrage,I3,C02,rééquilibrage du CELI-1 vers sa nouvelle cible (ajout d'un fonds),"échange de 1591.52 $ (86% de l'écart) ; dérive 16.5 → 2.3 points, à la clôture de la veille"
+E0016,2023-09-12,depense_imprevue,I3,C02,"dépense imprévue, retrait du CELI-1",−1400.00 $
+E0017,2023-09-29,ajout_fonds,I3,C01,"revue du REER-1, ajout de F301","cible F302 40 %, F303 60 % → F301 15 %, F302 30 %, F303 55 %"
+E0018,2023-09-29,reequilibrage,I3,C01,rééquilibrage du REER-1 vers sa nouvelle cible (ajout d'un fonds),"échange de 1896.11 $ (100% de l'écart) ; dérive 15.0 → 0.0 points, à la clôture de la veille"
+E0019,2023-10-16,phase_epargne,,,nouveau projet (achat d'une première habitation),capacité ×0.98 ; PAC total 720 → 825 $
+E0020,2023-11-28,ouverture_compte,I1,C03,ouverture du CELI-2 chez Société 1,PAC total 825 → 880 $
+E0021,2023-12-07,ouverture_compte,I1,C04,ouverture du CELIAPP-1 chez Société 1,PAC total 880 → 840 $
+E0022,2024-01-01,mois_atypique,,,PAC suspendus ce mois-ci (dépense imprévue),PAC total du mois 840 $ → 0 $
+E0023,2024-01-19,ouverture_compte,I2,C05,ouverture du COMP-1 chez Société 2,PAC total 840 → 845 $
+E0024,2024-06-24,remboursement_impot,I2,C05,remboursement d'impôt versé au COMP-1,+1636.62 $
+E0025,2024-07-04,prime,I1,C03,prime versée au CELI-2,+5500.00 $
+E0026,2024-07-22,revue_annuelle,I2,C05,revue du COMP-1,PAC 250 → 300 $
+E0027,2024-11-29,argent_disponible,I3,C02,argent disponible versé au CELI-1,+1390.00 $
+E0028,2024-12-02,mois_atypique,,,PAC suspendus ce mois-ci (dépense imprévue),PAC total du mois 895 $ → 0 $
+E0029,2024-12-09,ajustement_pac,I1,C03,ajustement du PAC du CELI-2,PAC 90 → 100 $
+E0030,2025-01-01,pause_pac,I1,C04,pause du PAC du CELIAPP-1 pendant 1 mois,−275 $ par mois jusqu'à la reprise
+E0031,2025-01-28,ouverture_compte,I2,C06,ouverture du REER-2 chez Société 2,PAC total 905 → 800 $ ; compte sans PAC (ponctuels seulement)
+E0032,2025-02-18,revue_annuelle,I1,C04,revue du CELIAPP-1,"cible F101 50 %, F103 20 %, F106 30 % → F101 30 %, F103 20 %, F106 50 %"
+E0033,2025-02-18,reequilibrage,I1,C04,rééquilibrage du CELIAPP-1 vers sa nouvelle cible (revue annuelle),"échange de 498.67 $ (80% de l'écart) ; dérive 20.6 → 4.2 points, à la clôture de la veille"
+E0034,2025-03-25,revue_annuelle,I1,C03,revue du CELI-2,"cible F101 45 %, F103 25 %, F105 15 %, F106 15 % → F101 35 %, F103 25 %, F105 15 %, F106 25 % ; PAC 70 → 60 $"
+E0035,2025-03-25,reequilibrage,I1,C03,rééquilibrage du CELI-2 vers sa nouvelle cible (revue annuelle),"échange de 441.96 $ (59% de l'écart) ; dérive 11.4 → 4.7 points, à la clôture de la veille"
+E0036,2025-05-07,remboursement_impot,I2,C06,remboursement d'impôt versé au REER-2,+295.58 $
+E0037,2025-07-15,revue_annuelle,I3,C02,revue du CELI-1,PAC 150 → 140 $
+E0038,2025-07-18,reequilibrage,I1,C03,"rééquilibrage du CELI-2 : dérive de 5.3 points, au-delà du seuil de 3.5 points","échange de 240.10 $ (67% de l'écart) ; dérive 5.3 → 1.7 points, à la clôture de la veille"
+E0039,2025-09-11,revue_annuelle,I2,C05,revue du COMP-1,PAC 200 → 225 $
+E0040,2025-09-30,reequilibrage,I3,C02,"rééquilibrage du CELI-1 : dérive de 3.9 points, au-delà du seuil de 3.4 points","échange de 454.51 $ (65% de l'écart) ; dérive 3.9 → 1.4 points, à la clôture de la veille"
+E0041,2025-10-01,mois_atypique,,,PAC suspendus ce mois-ci (dépense imprévue),PAC total du mois 805 $ → 0 $
+E0042,2025-12-04,reequilibrage,I3,C01,"rééquilibrage du REER-1 : dérive de 5.6 points, au-delà du seuil de 5.0 points","échange de 706.94 $ (74% de l'écart) ; dérive 5.6 → 1.5 points, à la clôture de la veille"
+E0043,2026-01-12,ponctuel_impose,I3,C02,ponctuel imposé au CELI-1 : versement de début d'année,+15000.00 $ ; droits CELI disponibles avant : 44300.00 $
+E0044,2026-02-17,ponctuel_impose,I1,C03,ponctuel imposé au CELI-2 : transfert d'épargne vers un second CELI,+20000.00 $ ; droits CELI disponibles avant : 29040.00 $
+E0045,2026-03-09,ponctuel_impose,I3,C02,ponctuel imposé au CELI-1 : complément de versement,+10000.00 $ ; droits CELI disponibles avant : 8900.00 $
+E0046,2026-04-09,remboursement_impot,I2,C06,remboursement d'impôt versé au REER-2,+394.86 $
+E0047,2026-09-09,revue_annuelle,I3,C01,revue du REER-1,PAC 80 → 100 $
+E0048,2026-10-21,revue_annuelle,I1,C04,revue du CELIAPP-1,"cible F101 30 %, F103 20 %, F106 50 % → F101 30 %, F103 30 %, F106 40 % ; PAC 300 → 275 $"
+E0049,2026-10-21,reequilibrage,I1,C04,rééquilibrage du CELIAPP-1 vers sa nouvelle cible (revue annuelle),"échange de 462.46 $ (52% de l'écart) ; dérive 10.1 → 4.9 points, à la clôture de la veille"

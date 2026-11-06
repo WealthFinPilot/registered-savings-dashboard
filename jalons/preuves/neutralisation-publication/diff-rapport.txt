@@ -1,0 +1,9 @@
+$ git diff --stat -- rapport/DashBoard-Finance.SemanticModel
+ .../definition/tables/Cotisation REER.tmdl                              | 2 +-
+ .../definition/tables/D\303\251tention.tmdl"                            | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+$ git diff -U0 -- rapport/DashBoard-Finance.SemanticModel | grep "^+///" (lignes ajoutées seulement : les lignes retirées portaient les motifs à effacer)
++/// Une cotisation REER par ligne, avec son année de déduction (vue rapport.mouvement) : exports et saisies hors export, y compris celles sans compte (autre institution). Table sans relation : seul
++/// VM au dernier point de chaque compte, par fonds (vue rapport.detention, règles S7 et S8) : options de frais regroupées sous le code pivot, niveau de risque du profil applicable, VM × rang et V
+$ grep -c "inchangée" jalons/preuves/neutralisation-publication/figer.txt
+18

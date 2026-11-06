@@ -1,0 +1,35 @@
+$ python scripts/balayage_fuite.py --perimetre projet
+Fichiers balayés : 300 (rapport, sql, scripts, README.md de la racine), hors StaticResources/RegisteredResources et .pbi ; partitions figées décompressées : 18
+  [OK   ] v1 comptes.csv [societe] (nom) : 0 occurrence(s)
+  [OK   ] v1 comptes.csv [numero] (code) : 0 occurrence(s)
+  [OK   ] v1 fonds.csv [nom_court] (nom) : 0 occurrence(s)
+  [OK   ] v1 fonds.csv [code_fa] (code) : 0 occurrence(s)
+  [OK   ] v1 symboles.csv [nom_yahoo] (nom) : 0 occurrence(s)
+  [OK   ] v1 symboles.csv [symbole, code_fa] (code) : 0 occurrence(s)
+  [OK   ] v1 reperes.csv [indice] (nom) : 0 occurrence(s)
+  [OK   ] v1 reperes.csv [symbole] (code) : 0 occurrence(s)
+  [OK   ] vE01 cours de FNB réels (noms de fichiers) (code) : 0 occurrence(s)
+  [OK   ] familles d'indices réels (jeton) : 0 occurrence(s)
+  [OK   ] noms d'institution exportés hors du motif « Société N » : 0
+  [OK   ] imports réseau ou sous-processus dans src/ : 0
+  [OK   ] chaînes pointant hors du dossier dans src/ : 0
+Résultat : AUCUNE FUITE
+code de sortie : 0
+
+$ python scripts/balayage_fuite.py
+Fichiers balayés : 143 (src, configs, tests, docs, outputs, scripts, README.md, pyproject.toml), hors .venv et ce script
+  [OK   ] v1 comptes.csv [societe] (nom) : 0 occurrence(s)
+  [OK   ] v1 comptes.csv [numero] (code) : 0 occurrence(s)
+  [OK   ] v1 fonds.csv [nom_court] (nom) : 0 occurrence(s)
+  [OK   ] v1 fonds.csv [code_fa] (code) : 0 occurrence(s)
+  [OK   ] v1 symboles.csv [nom_yahoo] (nom) : 0 occurrence(s)
+  [OK   ] v1 symboles.csv [symbole, code_fa] (code) : 0 occurrence(s)
+  [OK   ] v1 reperes.csv [indice] (nom) : 0 occurrence(s)
+  [OK   ] v1 reperes.csv [symbole] (code) : 0 occurrence(s)
+  [OK   ] vE01 cours de FNB réels (noms de fichiers) (code) : 0 occurrence(s)
+  [OK   ] familles d'indices réels (jeton) : 0 occurrence(s)
+  [OK   ] noms d'institution exportés hors du motif « Société N » : 0
+  [OK   ] imports réseau ou sous-processus dans src/ : 0
+  [OK   ] chaînes pointant hors du dossier dans src/ : 0
+Résultat : AUCUNE FUITE
+code de sortie : 0

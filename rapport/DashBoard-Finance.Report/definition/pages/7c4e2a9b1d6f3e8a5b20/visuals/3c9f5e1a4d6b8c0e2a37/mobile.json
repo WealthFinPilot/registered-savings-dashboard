@@ -1,0 +1,82 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.9.0/schema.json",
+  "position": {
+    "x": 8,
+    "y": 208,
+    "z": 14000,
+    "height": 92,
+    "width": 308,
+    "tabOrder": 4000
+  },
+  "objects": {
+    "layout": [
+      {
+        "properties": {
+          "autoGrid": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "rowCount": {
+            "expr": {
+              "Literal": {
+                "Value": "1L"
+              }
+            }
+          },
+          "columnCount": {
+            "expr": {
+              "Literal": {
+                "Value": "1L"
+              }
+            }
+          },
+          "orientation": {
+            "expr": {
+              "Literal": {
+                "Value": "1D"
+              }
+            }
+          },
+          "showFixedSize": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "style": {
+            "expr": {
+              "Literal": {
+                "Value": "'Table'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "value": [],
+    "label": [],
+    "fillCustom": [],
+    "outline": []
+  },
+  "visualContainerObjects": {
+    "title": [],
+    "background": [],
+    "stylePreset": [
+      {
+        "properties": {
+          "name": {
+            "expr": {
+              "Literal": {
+                "Value": "'Carte sur tuile lumineuse'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+/// VM au dernier point de chaque compte, par fonds, avec le RFO, la rotation et les parts par nature du dernier exercice publié (vue rapport.detention_rapport, règles S11 à S13). Les colonnes vm_* portent la VM seulement si le fonds a la valeur.
+table 'Détention RDRF'
+	lineageTag: 448b6e08-a268-464d-8670-694104259be9
+
+	column compte_alias
+		dataType: string
+		isHidden
+		lineageTag: cf3b47e1-836e-492b-b81c-33acb3410925
+		summarizeBy: none
+		sourceColumn: compte_alias
+
+	column code_fa
+		dataType: string
+		isHidden
+		lineageTag: 164b26e7-a6f5-4386-afa9-0aa58898088b
+		summarizeBy: none
+		sourceColumn: code_fa
+
+	column vm
+		dataType: double
+		isHidden
+		formatString: #,##0 $
+		lineageTag: 969c7d4d-2b01-48d3-ada2-a1a1368b619b
+		summarizeBy: none
+		sourceColumn: vm
+
+	column rfo
+		dataType: double
+		isHidden
+		lineageTag: 4527fe43-4151-4414-8ab3-0594b2ce4830
+		summarizeBy: none
+		sourceColumn: rfo
+
+	column rotation
+		dataType: double
+		isHidden
+		lineageTag: e76d7593-e38e-41fb-9985-171b1ce1e2e7
+		summarizeBy: none
+		sourceColumn: rotation
+
+	column part_revenus
+		dataType: double
+		isHidden
+		lineageTag: f06f92cd-7530-4d82-bad0-adcb857f186a
+		summarizeBy: none
+		sourceColumn: part_revenus
+
+	column part_dividendes
+		dataType: double
+		isHidden
+		lineageTag: 04bc01d0-cb2a-4d54-acaf-20c54191a93b
+		summarizeBy: none
+		sourceColumn: part_dividendes
+
+	column part_gains_capital
+		dataType: double
+		isHidden
+		lineageTag: 03679977-aab8-4eec-b3ed-3254140656b7
+		summarizeBy: none
+		sourceColumn: part_gains_capital
+
+	column part_remb_capital
+		dataType: double
+		isHidden
+		lineageTag: 533c684e-f1f4-4cf8-8861-b88ba4246199
+		summarizeBy: none
+		sourceColumn: part_remb_capital
+
+	column vm_rfo
+		dataType: double
+		isHidden
+		lineageTag: 2a1ca792-1264-4c6a-a862-80cb1b5a0a8d
+		summarizeBy: none
+		sourceColumn: vm_rfo
+
+	column vm_rotation
+		dataType: double
+		isHidden
+		lineageTag: 14cd3812-276f-47a8-ab1d-24c6ff2f1d80
+		summarizeBy: none
+		sourceColumn: vm_rotation
+
+	column vm_nature
+		dataType: double
+		isHidden
+		lineageTag: 427e7e4b-2b71-4f00-8808-b9715056e816
+		summarizeBy: none
+		sourceColumn: vm_nature
+
+	partition 'Détention RDRF' = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.detention_rapport : compte × fonds au dernier point, avec le RDRF du fonds (S11, S12)
+				    #"Vue lue" =
+				        // Figée : vue rapport.detention_rapport de finance_ve01, données fictives, 21 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "tVbbjuMgDP2XPKcRNrYxj6tRV1ppVjua11H//zfWJoEWFPow6qA0hyDwOfgC/fpa3q7vfy6wrKVj8DsG+5KU0hZ1hXXBgHIJ+RLDsoYtlB8cWH91+oC39dQ+LitwUNiYTwhCiAYsUj6EcuT7m2wwEgGztrdPHKbFXWUjGTsTYXFZc7YJOpUVscjC1DcfzAm71pxzmOxgIoDcMxR1g3gqIRkQsX+4J7LcI9KWjZ1GhQ9U4EHOiWWTUyI1APAdC3dN9gD07b7V3WIHE37zdULSLdGpAPCdou8UCJXTw9vG+oEETUA1OeBEAy8rKRjFeR76XrkGvHvcMRS4e/asTd1TNFWKASeaxPwian6LU02EJb9RQXIACkocUigCcgKNIStnC/9RBsUvh8kBq4ZfHx8tE63fMgRT9jx4ZYpUkwM+VWK5gph14/zKXKkmB3yqxKITs1hZySujU00OWJT8+3vIsI5rQI8L2Ln3LEPY6384o9uaHicklpQYBZ6VJ3Iq7rXtIUm0lIJyFgNRxsRRMIIqhfshVS0OOJHgUY8aN6M5k1CuAjzuisfmqlCG5rpOxkKjGHCiiVwT8qwmCs1eAMUdnMnmqEW8ZEZSlKCSWRgh0dRXlWJA1/R5vX4WTd5p1zXa+nNNp9d1nT7gxL6lgkU3m5t/9LauHANORFly2Pkt/Ow/xHcu67vRsdOE4IOQvRoDzY6maTEeSx5hQuCVaOFnfGUh7gY7mNBbxkfWTX804Q+GDm63/w==",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"compte_alias", "regime", "code_fa", "vm", "avec_rdrf", "exercice", "rfo", "rotation", "part_revenus", "part_dividendes", "part_gains_capital", "part_remb_capital", "vm_rfo", "vm_rotation", "vm_nature"}),
+				            Dates = Table.TransformColumns(Brute, {{"exercice", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}}),
+				            Typée = Table.TransformColumnTypes(Dates, {{"compte_alias", type text}, {"regime", type text}, {"code_fa", type text}, {"vm", type number}, {"avec_rdrf", type logical}, {"rfo", type number}, {"rotation", type number}, {"part_revenus", type number}, {"part_dividendes", type number}, {"part_gains_capital", type number}, {"part_remb_capital", type number}, {"vm_rfo", type number}, {"vm_rotation", type number}, {"vm_nature", type number}})
+				        in
+				            Typée,
+				    // Colonnes du rapport seulement : clés vers Compte et Fonds, VM, valeurs du RDRF et VM qui les porte (S13)
+				    #"Colonnes retenues" = Table.SelectColumns(#"Vue lue", {"compte_alias", "code_fa", "vm", "rfo", "rotation", "part_revenus", "part_dividendes", "part_gains_capital", "part_remb_capital", "vm_rfo", "vm_rotation", "vm_nature"}),
+				    // Types explicites ; ratios et montants en nombre décimal
+				    #"Types fixés" = Table.TransformColumnTypes(#"Colonnes retenues", {{"compte_alias", type text}, {"code_fa", type text}, {"vm", type number}, {"rfo", type number}, {"rotation", type number}, {"part_revenus", type number}, {"part_dividendes", type number}, {"part_gains_capital", type number}, {"part_remb_capital", type number}, {"vm_rfo", type number}, {"vm_rotation", type number}, {"vm_nature", type number}})
+				in
+				    #"Types fixés"
+

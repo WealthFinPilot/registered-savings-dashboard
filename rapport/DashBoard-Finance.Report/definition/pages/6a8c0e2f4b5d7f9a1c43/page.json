@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "6a8c0e2f4b5d7f9a1c43",
+  "displayName": "Risque et performance comparée",
+  "displayOption": "FitToPage",
+  "height": 820,
+  "width": 1360
+}

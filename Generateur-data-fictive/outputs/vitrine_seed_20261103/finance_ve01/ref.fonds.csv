@@ -1,0 +1,15 @@
+code_fa,nom_court,profil,ordre_profil,mandat,note
+F101,F101 – Portefeuille prudence,Conservateur,3,Canada,fictif
+F102,F102 – Portefeuille pondéré,Modéré,4,Mondial,fictif
+F103,F103 – Portefeuille dynamique,Croissance,5,Mondial,fictif
+F104,F104 – Actions du Canada,Actions,6,Canada,fictif
+F105,F105 – Actions planétaires,Actions,6,Mondial,fictif
+F106,F106 – Rendement de dividendes Canada,Actions,6,Canada,fictif
+F201,F201 – Revenu fixe canadien,Revenu,2,Canada,fictif
+F202,F202 – Actifs réels et infrastructures,Croissance,5,Mondial,fictif
+F203,F203 – Portefeuille prudence,Conservateur,3,Mondial,fictif
+F204,F204 – Portefeuille pondéré,Modéré,4,Mondial,fictif
+F301,F301 – Marché monétaire,Épargne,1,Canada,fictif
+F302,F302 – Actions des États-Unis,Actions,6,Amérique du Nord,fictif
+F303,F303 – Actions du Canada,Actions,6,Canada,fictif
+F304,F304 – Petites sociétés nord-américaines,Actions,6,Amérique du Nord,fictif

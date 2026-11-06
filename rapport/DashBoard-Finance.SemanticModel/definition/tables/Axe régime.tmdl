@@ -1,0 +1,25 @@
+/// Axe des graphiques de stratégie (page 3) : « Ensemble » puis chaque régime de Compte, dans l'ordre de Compte[ordre_regime]. Table sans relation : seule la mesure Part de l'exposition par régime la lit.
+table 'Axe régime'
+	lineageTag: a87a8e1f-593d-4c0d-9e18-a944e7dc060e
+
+	column Régime
+		dataType: string
+		lineageTag: b81842f4-c9e0-4c70-90c7-e7a53e225b9b
+		summarizeBy: none
+		sourceColumn: [Régime]
+		sortByColumn: ordre
+
+	column ordre
+		dataType: int64
+		lineageTag: a862947f-52cd-43d6-b071-691dfe9dbc8a
+		summarizeBy: none
+		sourceColumn: [ordre]
+
+	partition 'Axe régime' = calculated
+		mode: import
+		source =
+				UNION (
+				    ROW ( "Régime", "Ensemble", "ordre", 0 ),
+				    SUMMARIZE ( Compte, Compte[Régime], Compte[ordre_regime] )
+				)
+

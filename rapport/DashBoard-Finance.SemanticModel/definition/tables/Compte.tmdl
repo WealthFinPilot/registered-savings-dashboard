@@ -1,0 +1,80 @@
+/// Un compte par alias (CELI-1, REER-1…). Vue rapport.compte : le numéro de compte n'existe pas dans le modèle.
+table Compte
+	lineageTag: b73386d4-d094-41db-b305-c8e4f8caca15
+
+	/// Alias du compte, seul identifiant visible dans les livrables
+	column Compte
+		dataType: string
+		isKey
+		lineageTag: c6980d24-04a9-4bf2-8ddc-1f9d6637f18a
+		summarizeBy: none
+		sourceColumn: compte_alias
+
+	/// Genre du compte tel que lu dans l'export : CELI, CELIAPP, REER, COMP (non enregistré)
+	column Régime
+		dataType: string
+		lineageTag: 5fd1de69-b98a-4a4c-ac72-f0372824c735
+		summarizeBy: none
+		sourceColumn: regime
+		sortByColumn: ordre_regime
+
+	/// Société de gestion qui tient le compte (Société 1, 2 ou 3, fictives), saisie dans donnees/reference/comptes.csv : ce sont les sociétés qui sont comparées
+	column Société
+		dataType: string
+		lineageTag: bb096764-5336-4d6e-b900-e4d0407b0a5e
+		summarizeBy: none
+		sourceColumn: societe
+
+	/// Ordre d'affichage du régime : CELI, CELIAPP, REER, puis COMP
+	column ordre_regime
+		dataType: int64
+		isHidden
+		lineageTag: 613e6501-b9d1-464b-9612-e8da2d2e0034
+		summarizeBy: none
+		sourceColumn: ordre_regime
+
+	/// Actif, ou Fermé en AAAA pour un compte qui n'existe plus (saisi dans donnees/reference/comptes.csv) : ses versements passés restent dans l'historique
+	column Statut
+		dataType: string
+		lineageTag: 9d2f6c1e-3b7a-4e58-a1c4-6f0e8b5d7a32
+		summarizeBy: none
+		sourceColumn: statut
+
+	/// Axe de drill des visuels : de la société vers ses régimes, puis vers chaque compte
+	hierarchy 'Société, régime et compte'
+		lineageTag: fa47a706-5c83-4898-8841-30f8eac4e065
+
+		level Société
+			lineageTag: 7c7dec15-5e5c-47ba-b514-bf3cf37ca812
+			column: Société
+
+		level Régime
+			lineageTag: f95ba0bc-b6f0-48a7-9c08-17245d5d01e8
+			column: Régime
+
+		level Compte
+			lineageTag: 00cb9eb5-9839-4bcf-b949-2cc52fa33a87
+			column: Compte
+
+	partition Compte = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.compte : alias, régime, société et statut (actif ou fermé), sans numéro de compte
+				    #"Vue compte lue" =
+				        // Figée : vue rapport.compte de finance_ve01, données fictives, 6 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "i45Wcnb18dQ1VNIBM4BUcH5y5uGVJYdXKhgDeY7JJZlpSjqGsTpQlUbYVBpiUekYEAA3FsjGpd4IrN7fF6oYyEBRaYRQaQJSGeTqGgRWCWLgcq0xXKURNpVGyCpjAQ==",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"compte_alias", "regime", "societe", "statut", "ordre_regime"}),
+				            Typée = Table.TransformColumnTypes(Brute, {{"compte_alias", type text}, {"regime", type text}, {"societe", type text}, {"statut", type text}, {"ordre_regime", Int64.Type}})
+				        in
+				            Typée,
+				    // Types texte explicites : aucune détection automatique
+				    #"Types fixés" = Table.TransformColumnTypes(#"Vue compte lue", {{"compte_alias", type text}, {"regime", type text}, {"societe", type text}, {"statut", type text}, {"ordre_regime", Int64.Type}})
+				in
+				    #"Types fixés"
+
+	annotation PBI_ResultType = Table
+

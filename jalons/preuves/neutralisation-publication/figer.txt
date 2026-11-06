@@ -1,0 +1,20 @@
+$ python scripts/figer.py
+Année.tmdl : rapport.annee, 1 Ko, inchangée
+Arrêté.tmdl : rapport.arrete, 1 Ko, inchangée
+Calendrier.tmdl : rapport.calendrier, 9 Ko, inchangée
+Cascade.tmdl : rapport.cascade, 3 Ko, inchangée
+Compte.tmdl : rapport.compte, 3 Ko, inchangée
+Cotisation REER.tmdl : rapport.mouvement, 6 Ko, inchangée
+Coût.tmdl : rapport.cout, 8 Ko, inchangée
+Droits.tmdl : rapport.alerte, 3 Ko, inchangée
+Détention RDRF.tmdl : rapport.detention_rapport, 5 Ko, inchangée
+Détention.tmdl : rapport.detention, 17 Ko, inchangée
+Exposition.tmdl : rapport.exposition, 79 Ko, inchangée
+Fonds.tmdl : rapport.fonds, 4 Ko, inchangée
+Niveau de risque.tmdl : rapport.niveau_risque, 1 Ko, inchangée
+Performance.tmdl : rapport.performance, 19 Ko, inchangée
+Rendement quotidien.tmdl : rapport.rendement_quotidien, 698 Ko, inchangée
+Repère mensuel.tmdl : rapport.repere_mensuel, 18 Ko, inchangée
+Versement.tmdl : rapport.versement, 9 Ko, inchangée
+Écart tactique.tmdl : rapport.ecart, 49 Ko, inchangée
+code de sortie : 0

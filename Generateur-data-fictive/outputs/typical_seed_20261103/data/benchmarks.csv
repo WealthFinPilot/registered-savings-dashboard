@@ -1,0 +1,30 @@
+benchmark_id,benchmark_type,benchmark_name,fund_id,institution_id,passive_fee_pct,composition
+R-F101,composite,Repère composite passif de F101 (fictif),F101,,0.0676,expositions de F101
+R-F102,composite,Repère composite passif de F102 (fictif),F102,,0.0721,expositions de F102
+R-F103,composite,Repère composite passif de F103 (fictif),F103,,0.0774,expositions de F103
+R-F104,composite,Repère composite passif de F104 (fictif),F104,,0.0787,expositions de F104
+R-F105,composite,Repère composite passif de F105 (fictif),F105,,0.0783,expositions de F105
+R-F106,composite,Repère composite passif de F106 (fictif),F106,,0.0789,expositions de F106
+R-F201,composite,Repère composite passif de F201 (fictif),F201,,0.0579,expositions de F201
+R-F202,composite,Repère composite passif de F202 (fictif),F202,,0.1109,expositions de F202
+R-F203,composite,Repère composite passif de F203 (fictif),F203,,0.0685,expositions de F203
+R-F204,composite,Repère composite passif de F204 (fictif),F204,,0.0717,expositions de F204
+R-F301,composite,Repère composite passif de F301 (fictif),F301,,0.0308,expositions de F301
+R-F302,composite,Repère composite passif de F302 (fictif),F302,,0.0787,expositions de F302
+R-F303,composite,Repère composite passif de F303 (fictif),F303,,0.0790,expositions de F303
+R-F304,composite,Repère composite passif de F304 (fictif),F304,,0.0785,expositions de F304
+R-POL-I1,policy,Repère de politique — I1 (fictif),,I1,0.0735,cibles du 2023-11-28 : F101 25 % | F102 35 % | F103 10 % | F104 15 % | F105 5 % | F106 10 %
+R-POL-I2,policy,Repère de politique — I2 (fictif),,I2,0.0789,cibles du 2024-01-19 : F201 15 % | F202 25 % | F203 15 % | F204 45 %
+R-POL-I3,policy,Repère de politique — I3 (fictif),,I3,0.0788,cibles du 2021-11-19 : F302 30 % | F303 40 % | F304 30 %
+R-ACT-MONDE,sensitivity,Repère actions mondiales (fictif),,,0.0800,equity 100 %
+R-EQUILIBRE,sensitivity,Repère équilibré (fictif),,,0.0695,equity 55 % | fixed_income 40 % | cash 5 %
+R-CAT-PRUDENT,category,Repère de catégorie — Profil prudent (fictif),,,0.0665,equity 40 % | fixed_income 55 % | cash 5 % ; archétypes conservateur
+R-CAT-EQUILIBRE,category,Repère de catégorie — Profil équilibré (fictif),,,0.0711,equity 60 % | fixed_income 37 % | cash 3 % ; archétypes equilibre
+R-CAT-CROISSANCE,category,Repère de catégorie — Profil croissance (fictif),,,0.0774,equity 90 % | fixed_income 8 % | cash 2 % ; archétypes croissance
+R-CAT-ACT-CAN,category,"Repère de catégorie — Actions du Canada, marché large (fictif)",,,0.0800,"equity 100 % ; archétypes actions_canadiennes, dividendes_canadiens"
+R-CAT-ACT-US,category,"Repère de catégorie — Actions des États-Unis, marché large (fictif)",,,0.0800,equity 100 % ; archétypes actions_americaines
+R-CAT-ACT-AMN,category,"Repère de catégorie — Actions nord-américaines, marché large (fictif)",,,0.0800,equity 100 % ; archétypes petites_cap_nord_americaines
+R-CAT-ACT-MONDE,category,"Repère de catégorie — Actions planétaires, marché large (fictif)",,,0.0800,"equity 100 % ; archétypes actions_mondiales, technologie_mondiale"
+R-CAT-OBL-CAN,category,"Repère de catégorie — Revenu fixe canadien, marché large (fictif)",,,0.0600,fixed_income 100 % ; archétypes obligations_canadiennes
+R-CAT-MONETAIRE,category,Repère de catégorie — Marché monétaire (fictif),,,0.0300,cash 100 % ; archétypes monetaire
+R-CAT-ACTIFS-REELS,category,Repère de catégorie — Actifs réels (fictif),,,0.1200,other 100 % ; archétypes actifs_reels

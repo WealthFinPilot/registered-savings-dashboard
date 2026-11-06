@@ -1,0 +1,270 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Fluent2-CY26SU10",
+      "reportVersionAtImport": {
+        "visual": "2.11.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Finance_Premium_V3___Graphite_9387544307611055.json",
+      "reportVersionAtImport": {
+        "visual": "2.14.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU10",
+          "path": "BaseThemes/Fluent2-CY26SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "calque-1240x200-teal-right-28aec3.png",
+          "path": "calque-1240x200-teal-right-28aec3.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-392x324-teal-right-ad9839.png",
+          "path": "calque-392x324-teal-right-ad9839.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-392x380-teal-right-f14a23.png",
+          "path": "calque-392x380-teal-right-f14a23.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-408x376-amber-left-f5d924.png",
+          "path": "calque-408x376-amber-left-f5d924.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-408x376-teal-center-d56750.png",
+          "path": "calque-408x376-teal-center-d56750.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-408x376-teal-right-a3d06e.png",
+          "path": "calque-408x376-teal-right-a3d06e.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-616x300-amber-left-52c4b1.png",
+          "path": "calque-616x300-amber-left-52c4b1.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-616x300-amber-left-631ce5.png",
+          "path": "calque-616x300-amber-left-631ce5.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-616x300-teal-right-19cc93.png",
+          "path": "calque-616x300-teal-right-19cc93.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-616x300-teal-right-2b14c3.png",
+          "path": "calque-616x300-teal-right-2b14c3.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-840x324-amber-left-2881af.png",
+          "path": "calque-840x324-amber-left-2881af.png",
+          "type": "Image"
+        },
+        {
+          "name": "calque-840x380-amber-left-f632c6.png",
+          "path": "calque-840x380-amber-left-f632c6.png",
+          "type": "Image"
+        },
+        {
+          "name": "Finance_Premium_V3___Graphite_9387544307611055.json",
+          "path": "Finance_Premium_V3___Graphite_9387544307611055.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "nav-actif.png",
+          "path": "nav-actif.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-droits-actif.png",
+          "path": "nav-droits-actif.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-droits.png",
+          "path": "nav-droits.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-fonds-actif.png",
+          "path": "nav-fonds-actif.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-fonds.png",
+          "path": "nav-fonds.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-patrimoine-actif.png",
+          "path": "nav-patrimoine-actif.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-patrimoine.png",
+          "path": "nav-patrimoine.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-performance-actif.png",
+          "path": "nav-performance-actif.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-performance.png",
+          "path": "nav-performance.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-rail.png",
+          "path": "nav-rail.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-separateur.png",
+          "path": "nav-separateur.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-societes.png",
+          "path": "nav-societes.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-strategie-actif.png",
+          "path": "nav-strategie-actif.png",
+          "type": "Image"
+        },
+        {
+          "name": "nav-strategie.png",
+          "path": "nav-strategie.png",
+          "type": "Image"
+        },
+        {
+          "name": "p1-carte-regime5170342986154027.png",
+          "path": "p1-carte-regime5170342986154027.png",
+          "type": "Image"
+        },
+        {
+          "name": "p1-carte-versements8391620475518236.png",
+          "path": "p1-carte-versements8391620475518236.png",
+          "type": "Image"
+        },
+        {
+          "name": "p1-tuile-droite7305918264470213.png",
+          "path": "p1-tuile-droite7305918264470213.png",
+          "type": "Image"
+        },
+        {
+          "name": "p1-tuile-gauche4821930657213480.png",
+          "path": "p1-tuile-gauche4821930657213480.png",
+          "type": "Image"
+        },
+        {
+          "name": "p2-cascade3796248790926753.png",
+          "path": "p2-cascade3796248790926753.png",
+          "type": "Image"
+        },
+        {
+          "name": "p2-kpi-bande8929403615902805.png",
+          "path": "p2-kpi-bande8929403615902805.png",
+          "type": "Image"
+        },
+        {
+          "name": "p2-tableau3671409565794108.png",
+          "path": "p2-tableau3671409565794108.png",
+          "type": "Image"
+        },
+        {
+          "name": "p2-valeur6955735096761582.png",
+          "path": "p2-valeur6955735096761582.png",
+          "type": "Image"
+        },
+        {
+          "name": "p3-kpi-bande18811083548631724.png",
+          "path": "p3-kpi-bande18811083548631724.png",
+          "type": "Image"
+        },
+        {
+          "name": "vue-ensemble-actif.png",
+          "path": "vue-ensemble-actif.png",
+          "type": "Image"
+        },
+        {
+          "name": "vue-ensemble.png",
+          "path": "vue-ensemble.png",
+          "type": "Image"
+        },
+        {
+          "name": "vue-piste.png",
+          "path": "vue-piste.png",
+          "type": "Image"
+        },
+        {
+          "name": "vue-regimes-actif.png",
+          "path": "vue-regimes-actif.png",
+          "type": "Image"
+        },
+        {
+          "name": "vue-regimes.png",
+          "path": "vue-regimes.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

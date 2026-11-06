@@ -1,0 +1,9 @@
+$ git grep -n "generer.py\|cours_fnb" -- ":!jalons"
+code de sortie : 1 (1 = aucune occurrence)
+
+$ git ls-files generateur/ scripts/cours_fnb.py
+(fin ; vide = absents de l'index)
+
+$ ls generateur/ scripts/cours_fnb.py
+ls: cannot access 'generateur/': No such file or directory
+ls: cannot access 'scripts/cours_fnb.py': No such file or directory

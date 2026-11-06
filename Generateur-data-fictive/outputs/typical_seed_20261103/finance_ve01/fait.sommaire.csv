@@ -1,0 +1,22 @@
+compte_alias,date_valorisation,code_fonds,nom_fonds,nb_actions,prix_action,prix_moyen,valeur_comptable,valeur_marchande
+REER-1,2026-10-30,F301,Marché monétaire — Société 3 (fictif),45.678,9.9843,9.9929,456.45,456.06
+REER-1,2026-10-30,F302,Actions des États-Unis — Société 3 (fictif),636.334,9.7130,9.9693,6343.79,6180.71
+REER-1,2026-10-30,F303,Actions du Canada — Société 3 (fictif),290.822,30.9437,33.3652,9703.34,8999.11
+CELI-1,2026-10-30,F301,Marché monétaire — Société 3 (fictif),275.304,9.9843,9.9910,2750.57,2748.72
+CELI-1,2026-10-30,F302,Actions des États-Unis — Société 3 (fictif),603.294,9.7130,9.9591,6008.27,5859.79
+CELI-1,2026-10-30,F303,Actions du Canada — Société 3 (fictif),119.290,30.9437,32.4161,3866.91,3691.27
+CELI-1,2026-10-30,F304,Petites sociétés nord-américaines — Société 3 (fictif),828.381,6.8677,6.9927,5792.60,5689.07
+CELI-2,2026-10-30,F101,Portefeuille prudence — Société 1 (fictif),425.377,8.0316,8.3668,3559.03,3416.46
+CELI-2,2026-10-30,F103,Portefeuille dynamique — Société 1 (fictif),96.545,21.2802,20.0228,1933.10,2054.50
+CELI-2,2026-10-30,F105,Actions planétaires — Société 1 (fictif),134.630,8.8215,8.5749,1154.44,1187.64
+CELI-2,2026-10-30,F106,Rendement de dividendes Canada — Société 1 (fictif),35.044,32.0646,34.9923,1226.27,1123.67
+CELIAPP-1,2026-10-30,F101,Portefeuille prudence — Société 1 (fictif),592.574,8.0316,8.2397,4882.63,4759.32
+CELIAPP-1,2026-10-30,F103,Portefeuille dynamique — Société 1 (fictif),92.477,21.2802,20.7870,1922.32,1967.93
+CELIAPP-1,2026-10-30,F106,Rendement de dividendes Canada — Société 1 (fictif),88.272,32.0646,33.9416,2996.09,2830.41
+COMP-1,2026-10-30,F201,Revenu fixe canadien — Société 2 (fictif),80.968,33.6403,33.6994,2728.58,2723.79
+COMP-1,2026-10-30,F202,Actifs réels et infrastructures — Société 2 (fictif),243.706,10.9100,10.2272,2492.43,2658.83
+COMP-1,2026-10-30,F203,Portefeuille prudence — Société 2 (fictif),162.597,12.0629,12.2448,1990.97,1961.39
+COMP-1,2026-10-30,F204,Portefeuille pondéré — Société 2 (fictif),64.263,30.1978,30.5792,1965.11,1940.60
+REER-2,2026-10-30,F201,Revenu fixe canadien — Société 2 (fictif),3.237,33.6403,32.6749,105.77,108.89
+REER-2,2026-10-30,F202,Actifs réels et infrastructures — Société 2 (fictif),23.724,10.9100,10.5306,249.83,258.83
+REER-2,2026-10-30,F204,Portefeuille pondéré — Société 2 (fictif),11.356,30.1978,30.3675,344.85,342.93

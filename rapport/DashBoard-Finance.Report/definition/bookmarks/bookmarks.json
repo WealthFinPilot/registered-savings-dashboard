@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "42d334d5c038a8da350e",
+      "displayName": "Vue stratégie",
+      "children": [
+        "416eb3e38a4b53779260",
+        "471013d6ac81895d83a0"
+      ]
+    }
+  ]
+}

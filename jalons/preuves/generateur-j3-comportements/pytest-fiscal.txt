@@ -1,0 +1,28 @@
+......                                                                   [100%]
+=================================== PASSES ====================================
+_________________________ test_droits_jamais_depasses _________________________
+---------------------------- Captured stdout call -----------------------------
+dépassements de droits : 0/21 exécutions 
+__________________ test_contribution_room_egale_au_recalcul ___________________
+---------------------------- Captured stdout call -----------------------------
+droits exportés ≠ recalcul indépendant : 0/21 
+_____________ test_aucun_retrait_reer_ni_celiapp_et_celiapp_date ______________
+---------------------------- Captured stdout call -----------------------------
+retraits REER/CELIAPP ou CELIAPP précoce : 0/21 
+____________ test_aucun_montant_fiscal_dans_le_code[behaviour.py] _____________
+---------------------------- Captured stdout call -----------------------------
+behaviour.py : constantes égales à un plafond de sql/plafonds.sql : aucune
+______________ test_aucun_montant_fiscal_dans_le_code[fiscal.py] ______________
+---------------------------- Captured stdout call -----------------------------
+fiscal.py : constantes égales à un plafond de sql/plafonds.sql : aucune
+_______________ test_aucun_montant_fiscal_dans_la_configuration _______________
+---------------------------- Captured stdout call -----------------------------
+base.toml [behaviour] et [persona] : valeurs égales à un plafond : aucune
+=========================== short test summary info ===========================
+PASSED tests/test_tax_safety.py::test_droits_jamais_depasses
+PASSED tests/test_tax_safety.py::test_contribution_room_egale_au_recalcul
+PASSED tests/test_tax_safety.py::test_aucun_retrait_reer_ni_celiapp_et_celiapp_date
+PASSED tests/test_tax_safety.py::test_aucun_montant_fiscal_dans_le_code[behaviour.py]
+PASSED tests/test_tax_safety.py::test_aucun_montant_fiscal_dans_le_code[fiscal.py]
+PASSED tests/test_tax_safety.py::test_aucun_montant_fiscal_dans_la_configuration
+6 passed in 19.85s

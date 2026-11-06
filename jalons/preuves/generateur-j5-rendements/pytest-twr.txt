@@ -1,0 +1,108 @@
+..........................                                               [100%]
+=================================== PASSES ====================================
+___________________________ test_twr_graine_typique ___________________________
+---------------------------- Captured stdout call -----------------------------
+9115 rendements recalculés sur 10 entités, pire écart 5.0e-11 ; TWR consolidé -10.0793% ; moyenne des institutions simple -2.6549% (écart -7.4244%), pondérée par la valeur finale -5.5410% (écart -4.5383%) ; moyenne des comptes simple -1.2498%, pondérée -2.7932%
+________________________ test_twr_rendement_du_marche _________________________
+---------------------------- Captured stdout call -----------------------------
+9115 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 82% de sa borne
+_______________________ test_twr_marche_plat_sans_frais _______________________
+---------------------------- Captured stdout call -----------------------------
+9115 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 76% de sa borne ; FRAIS 0.00 $ ; |TWR cumulé| le plus grand à l'arrêté : portfolio 6.4e-05, institution 2.6e-04, account 1.9e-04
+_______________________ test_twr_marche_plat_avec_frais _______________________
+---------------------------- Captured stdout call -----------------------------
+9115 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 79% de sa borne ; TWR à l'arrêté : PORTFOLIO -5.8434%, I1 -2.9301%, I2 -2.1808%, I3 -6.1020%, C01 -6.1374%, C02 -5.5689%, C03 -2.9993%, C04 -2.8976%, C05 -2.1775%, C06 -1.2423% ; écart au produit des frais : pire à 2% de sa borne
+________________________ test_twr_versement_sans_saut _________________________
+---------------------------- Captured stdout call -----------------------------
+jour t = 2024-08-14, COMP-1 ; C05 : r +0.00109431 → +0.00109137 (écart -2.9e-06, borne 2.6e-05), valeur 3412.28 → 1003412.27 $ ; I2 : r +0.00109431 → +0.00109137 (écart -2.9e-06, borne 2.6e-05), valeur 3412.28 → 1003412.27 $ ; PORTFOLIO : r +0.00205533 → +0.00205506 (écart -2.7e-07, borne 9.9e-06), valeur 37345.50 → 1037345.49 $ ; variante : 9115 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 82% de sa borne
+__________________________ test_twr_graine[20261103] __________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 9115 rendements recalculés sur 10 entités, pire écart 5.0e-11 ; TWR consolidé -10.0793% ; moyenne des institutions simple -2.6549% (écart -7.4244%), pondérée par la valeur finale -5.5410% (écart -4.5383%) ; moyenne des comptes simple -1.2498%, pondérée -2.7932% ; 9115 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 82% de sa borne
+_____________________________ test_twr_graine[1] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 1 : 10875 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +21.4356% ; moyenne des institutions simple +21.0501% (écart +0.3855%), pondérée par la valeur finale +18.3189% (écart +3.1167%) ; moyenne des comptes simple +9.4698%, pondérée +15.0495% ; 10875 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 91% de sa borne
+_____________________________ test_twr_graine[2] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 2 : 8773 rendements recalculés sur 10 entités, pire écart 5.0e-11 ; TWR consolidé +4.7666% ; moyenne des institutions simple +3.5330% (écart +1.2337%), pondérée par la valeur finale +3.5341% (écart +1.2325%) ; moyenne des comptes simple +1.9815%, pondérée +2.4631% ; 8773 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 87% de sa borne
+_____________________________ test_twr_graine[3] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 3 : 11324 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé -36.8539% ; moyenne des institutions simple -27.2763% (écart -9.5776%), pondérée par la valeur finale -34.3399% (écart -2.5140%) ; moyenne des comptes simple -18.6435%, pondérée -26.5582% ; 11324 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 90% de sa borne
+_____________________________ test_twr_graine[4] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 4 : 10810 rendements recalculés sur 12 entités, pire écart 5.0e-11 ; TWR consolidé +62.7129% ; moyenne des institutions simple +48.5531% (écart +14.1599%), pondérée par la valeur finale +46.7474% (écart +15.9655%) ; moyenne des comptes simple +27.5111%, pondérée +42.2803% ; 10810 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 97% de sa borne
+_____________________________ test_twr_graine[5] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 5 : 10081 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +27.3149% ; moyenne des institutions simple +17.8290% (écart +9.4859%), pondérée par la valeur finale +19.1817% (écart +8.1332%) ; moyenne des comptes simple +13.2143%, pondérée +17.8675% ; 10081 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 93% de sa borne
+_____________________________ test_twr_graine[6] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 6 : 11596 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +59.6779% ; moyenne des institutions simple +46.5524% (écart +13.1255%), pondérée par la valeur finale +58.8117% (écart +0.8662%) ; moyenne des comptes simple +46.1418%, pondérée +58.5265% ; 11596 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 100% de sa borne
+_____________________________ test_twr_graine[7] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 7 : 11083 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +28.2026% ; moyenne des institutions simple +23.4399% (écart +4.7627%), pondérée par la valeur finale +26.3931% (écart +1.8095%) ; moyenne des comptes simple +20.2466%, pondérée +24.0284% ; 11083 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 84% de sa borne
+_____________________________ test_twr_graine[8] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 8 : 11443 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +36.7713% ; moyenne des institutions simple +36.7268% (écart +0.0445%), pondérée par la valeur finale +36.0771% (écart +0.6942%) ; moyenne des comptes simple +32.3345%, pondérée +37.7382% ; 11443 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 91% de sa borne
+_____________________________ test_twr_graine[9] ______________________________
+---------------------------- Captured stdout call -----------------------------
+graine 9 : 13586 rendements recalculés sur 12 entités, pire écart 5.0e-11 ; TWR consolidé +77.2173% ; moyenne des institutions simple +69.5842% (écart +7.6331%), pondérée par la valeur finale +69.9791% (écart +7.2382%) ; moyenne des comptes simple +69.2998%, pondérée +77.1184% ; 13586 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 91% de sa borne
+_____________________________ test_twr_graine[10] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 10 : 10930 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +13.1042% ; moyenne des institutions simple +10.0451% (écart +3.0591%), pondérée par la valeur finale +11.2312% (écart +1.8730%) ; moyenne des comptes simple +5.2792%, pondérée +9.5277% ; 10930 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 98% de sa borne
+_____________________________ test_twr_graine[11] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 11 : 11118 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +54.2114% ; moyenne des institutions simple +47.4045% (écart +6.8069%), pondérée par la valeur finale +54.1047% (écart +0.1067%) ; moyenne des comptes simple +32.8526%, pondérée +50.7086% ; 11118 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 93% de sa borne
+_____________________________ test_twr_graine[12] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 12 : 12150 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +17.6888% ; moyenne des institutions simple +8.9208% (écart +8.7680%), pondérée par la valeur finale +9.2096% (écart +8.4792%) ; moyenne des comptes simple +5.5462%, pondérée +7.3563% ; 12150 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 87% de sa borne
+_____________________________ test_twr_graine[13] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 13 : 10225 rendements recalculés sur 10 entités, pire écart 5.0e-11 ; TWR consolidé +67.0893% ; moyenne des institutions simple +43.2980% (écart +23.7913%), pondérée par la valeur finale +45.1271% (écart +21.9623%) ; moyenne des comptes simple +32.3355%, pondérée +43.5812% ; 10225 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 99% de sa borne
+_____________________________ test_twr_graine[14] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 14 : 11987 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé -0.2156% ; moyenne des institutions simple -1.8433% (écart +1.6277%), pondérée par la valeur finale -1.5613% (écart +1.3457%) ; moyenne des comptes simple -2.7764%, pondérée -1.7657% ; 11987 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 99% de sa borne
+_____________________________ test_twr_graine[15] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 15 : 11506 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +39.7154% ; moyenne des institutions simple +44.8827% (écart -5.1673%), pondérée par la valeur finale +40.1362% (écart -0.4207%) ; moyenne des comptes simple +28.7607%, pondérée +39.5789% ; 11506 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 83% de sa borne
+_____________________________ test_twr_graine[16] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 16 : 11164 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +3.3980% ; moyenne des institutions simple +0.5266% (écart +2.8715%), pondérée par la valeur finale +3.7002% (écart -0.3022%) ; moyenne des comptes simple +0.4155%, pondérée +3.1598% ; 11164 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 95% de sa borne
+_____________________________ test_twr_graine[17] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 17 : 8547 rendements recalculés sur 11 entités, pire écart 5.0e-11 ; TWR consolidé +31.7390% ; moyenne des institutions simple +21.1778% (écart +10.5612%), pondérée par la valeur finale +30.4488% (écart +1.2901%) ; moyenne des comptes simple +18.1317%, pondérée +29.5425% ; 8547 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 83% de sa borne
+_____________________________ test_twr_graine[18] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 18 : 10335 rendements recalculés sur 10 entités, pire écart 5.0e-11 ; TWR consolidé +34.7469% ; moyenne des institutions simple +25.0952% (écart +9.6517%), pondérée par la valeur finale +21.2590% (écart +13.4879%) ; moyenne des comptes simple +24.7866%, pondérée +20.8123% ; 10335 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 88% de sa borne
+_____________________________ test_twr_graine[19] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 19 : 11140 rendements recalculés sur 12 entités, pire écart 5.0e-11 ; TWR consolidé +49.3082% ; moyenne des institutions simple +34.6552% (écart +14.6529%), pondérée par la valeur finale +40.1991% (écart +9.1091%) ; moyenne des comptes simple +34.0366%, pondérée +38.3810% ; 11140 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 89% de sa borne
+_____________________________ test_twr_graine[20] _____________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20 : 13045 rendements recalculés sur 12 entités, pire écart 5.0e-11 ; TWR consolidé +32.8352% ; moyenne des institutions simple +27.9200% (écart +4.9152%), pondérée par la valeur finale +31.2905% (écart +1.5447%) ; moyenne des comptes simple +21.6295%, pondérée +29.3496% ; 13045 jours × entités : r × V⁺ de la veille = marché des parts détenues + frais, pire écart à 99% de sa borne
+=========================== short test summary info ===========================
+PASSED tests/test_performance.py::test_twr_graine_typique
+PASSED tests/test_performance.py::test_twr_rendement_du_marche
+PASSED tests/test_performance.py::test_twr_marche_plat_sans_frais
+PASSED tests/test_performance.py::test_twr_marche_plat_avec_frais
+PASSED tests/test_performance.py::test_twr_versement_sans_saut
+PASSED tests/test_performance_seeds.py::test_twr_graine[20261103]
+PASSED tests/test_performance_seeds.py::test_twr_graine[1]
+PASSED tests/test_performance_seeds.py::test_twr_graine[2]
+PASSED tests/test_performance_seeds.py::test_twr_graine[3]
+PASSED tests/test_performance_seeds.py::test_twr_graine[4]
+PASSED tests/test_performance_seeds.py::test_twr_graine[5]
+PASSED tests/test_performance_seeds.py::test_twr_graine[6]
+PASSED tests/test_performance_seeds.py::test_twr_graine[7]
+PASSED tests/test_performance_seeds.py::test_twr_graine[8]
+PASSED tests/test_performance_seeds.py::test_twr_graine[9]
+PASSED tests/test_performance_seeds.py::test_twr_graine[10]
+PASSED tests/test_performance_seeds.py::test_twr_graine[11]
+PASSED tests/test_performance_seeds.py::test_twr_graine[12]
+PASSED tests/test_performance_seeds.py::test_twr_graine[13]
+PASSED tests/test_performance_seeds.py::test_twr_graine[14]
+PASSED tests/test_performance_seeds.py::test_twr_graine[15]
+PASSED tests/test_performance_seeds.py::test_twr_graine[16]
+PASSED tests/test_performance_seeds.py::test_twr_graine[17]
+PASSED tests/test_performance_seeds.py::test_twr_graine[18]
+PASSED tests/test_performance_seeds.py::test_twr_graine[19]
+PASSED tests/test_performance_seeds.py::test_twr_graine[20]
+26 passed, 72 deselected in 59.65s

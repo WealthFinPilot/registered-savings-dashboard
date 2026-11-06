@@ -1,0 +1,63 @@
+Généré : outputs\typical_seed_20261103 (graine 20261103, étapes universe, markets, behaviour, ledger, performance)
+  data/account_values_daily.csv
+  data/accounts.csv
+  data/allocation_targets_history.csv
+  data/benchmarks.csv
+  data/benchmarks_daily.csv
+  data/contribution_room.csv
+  data/counterfactual_daily.csv
+  data/events.csv
+  data/external_movements.csv
+  data/fund_exposures.csv
+  data/fund_exposures_by_axis.csv
+  data/fund_prices_daily.csv
+  data/fund_strategic_targets.csv
+  data/funds.csv
+  data/institutions.csv
+  data/internal_trades.csv
+  data/market_regimes_daily.csv
+  data/performance_daily.csv
+  data/performance_periods.csv
+  data/persona.csv
+  data/positions_daily.csv
+  data/tax_limits.csv
+  manifest.json
+  universe_report.md
+  market_report.md
+  behaviour_report.md
+  ledger_report.md
+  performance_report.md
+[PASS] manifest_synthetique — synthetic = true
+[PASS] cles_uniques — aucun doublon de clé
+[PASS] references — aucune référence orpheline
+[PASS] trois_institutions — 3 institutions, un profil chacune
+[PASS] nombre_de_fonds — 14 fonds, Société 1 6, Société 2 4, Société 3 4
+[PASS] noms_fictifs — institutions « Société N », fonds marqués « (fictif) »
+[PASS] expositions_100 — 3 axes × 14 fonds à 100 % ± 0.01, mandats à 100 %
+[PASS] frais_coherents — RFG dans ]0, 3] %, palier haut ≤ palier bas, tout en CAD
+[PASS] regimes_et_alias — 4 régimes, 6 comptes, alias distincts du régime
+[PASS] celiapp_apres_ouverture_du_regime — aucun CELIAPP avant le 2023-04-01
+[PASS] dates_d_ouverture — comptes ouverts dans l'horizon, institutions ouvertes avec leur premier compte
+[PASS] allocations_cibles — 16 allocations à 100 %, aucun fonds avant son lancement
+[PASS] poids_institutions_asymetriques — Société 1 22.8% / Société 2 47.1% / Société 3 30.2%
+[PASS] profils_ordonnes — prudent 33.5% < balanced 65.7% < growth 97.5%
+[PASS] marche_calendrier — 1305 jours ouvrables (lundi à vendredi) du 2021-11-01 au 2026-10-30, 4 régimes visités
+[PASS] marche_grain_vl — 17904 VL : une par fonds et jour ouvrable, du lancement (ou du début de l'horizon) à la fin, aucune avant le lancement
+[PASS] marche_grain_reperes — 24795 indices : une ligne par repère et jour ouvrable de l'horizon, 19 repères
+[PASS] marche_valeurs_positives — VL et indices finis, strictement positifs, en CAD
+[PASS] marche_reperes — 14 composites (frais passifs < RFG du fonds), 3 politiques (frais < RFG pondéré), 2 repères de contexte, base 100
+[PASS] comportement_types_et_signes — 210 mouvements : 202 PAC, 7 ponctuels, 1 retraits ; apports > 0, retraits < 0, au cent (FRAIS : contrôles du grand livre)
+[PASS] comportement_comptes_et_dates — chaque mouvement : compte connu, jour ouvrable, entre l'ouverture du compte et la fin de l'horizon
+[PASS] comportement_evenements — 46 événements, clés uniques ; chaque mouvement et chacune des 7 nouvelles cibles de compte renvoient à un événement daté au plus tard le jour de l'effet
+[PASS] comportement_regimes — aucun retrait de REER ni de CELIAPP ; aucun CELIAPP alimenté avant 2023-04-01
+[PASS] comportement_droits — 16 lignes régime × année : cotisations et retraits = mouvements, droits jamais dépassés, reports d'une année sur l'autre cohérents avec tax_limits
+[PASS] comportement_retraits_bornes — 1 retraits, chacun ≤ 50% des apports nets du compte à sa date
+[PASS] grand_livre_ordres — 1507 ordres : BUY ou SELL, parts > 0, VL du jour, aucun frais de transaction, un lien chacun (mouvement ou rééquilibrage) ; résidu d'arrondi max 0.0216 $, total 7.56 $
+[PASS] grand_livre_ordres_dates — chaque ordre dans la vie de son compte, sur un fonds lancé ; chaque achat sur un fonds de la cible en vigueur
+[PASS] grand_livre_mouvements — 446 mouvements, chacun exécuté une fois (apport = achats, retrait ou frais = ventes) ; 7 rééquilibrages à ventes = achats ; 236 FRAIS < 0 en fin de mois
+[PASS] grand_livre_positions — 17189 positions : parts = cumul des ordres, jamais négatives, valeur = parts × VL au cent ; 5207 valeurs de compte = Σ positions, encaisse nulle
+[PASS] performance_grain — 9279 lignes, 10 entités (portefeuille, 3 institutions, 6 comptes) : un jour par jour d'ouverture, valeur = Σ des comptes, flux sans FRAIS, FRAIS à part
+[PASS] performance_twr — 9115 rendements quotidiens = (V⁺ − flux) ÷ V⁺ de la veille − 1 et TWR cumulés, à 1e-09 près ; vides le jour qui suit une valeur nulle
+[PASS] performance_periodes — 53 périodes (années civiles et depuis l'ouverture) : fin = début + apports − retraits + frais + résultat au cent, TWR = Π(1 + r) − 1 ; 0 MWR vides, chacun avec son motif
+[PASS] performance_contrefactuel — 6 contrefactuels, 6654 lignes : mêmes jours et mêmes flux externes que leur entité, sans FRAIS de compte ; repères de politique et de contexte connus
+Validation : réussie (outputs\typical_seed_20261103\validation.json)

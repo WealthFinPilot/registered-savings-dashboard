@@ -1,0 +1,77 @@
+/// Un versement par ligne : achats PAC et ponctuels de tous les comptes, transferts entrants exclus (vue rapport.versement). Montant brut, avant déductions (hypothèse H1).
+table Versement
+	lineageTag: 75bd679a-899e-481e-8a3d-85eb383f3959
+
+	column compte_alias
+		dataType: string
+		isHidden
+		lineageTag: 2793379f-a425-4f25-a595-51df8930545c
+		summarizeBy: none
+		sourceColumn: compte_alias
+
+	/// Date de négociation du versement
+	column 'Date de négociation'
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: d41808c0-69a4-4cb4-82aa-3d6d359cd870
+		summarizeBy: none
+		sourceColumn: date_negociation
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// PAC (versement systématique) ou ponctuel
+	column Nature
+		dataType: string
+		lineageTag: a2c53741-5fca-48f2-8ee9-f215dc993def
+		summarizeBy: none
+		sourceColumn: nature
+
+	column montant
+		dataType: decimal
+		isHidden
+		formatString: #,##0 $
+		lineageTag: 1758d29e-80fb-410d-bcfa-14483cfb059e
+		summarizeBy: none
+		sourceColumn: montant
+
+	column annee
+		dataType: int64
+		isHidden
+		lineageTag: 40d061cf-e5bd-40f9-8630-d8b26619f832
+		summarizeBy: none
+		sourceColumn: annee
+
+	/// 60 premiers jours de l'année (borne R6 de ref.periode_reer) ou reste de l'année : seuls les versements REER des 60 premiers jours sont déductibles pour l'année précédente
+	column Période
+		dataType: string
+		lineageTag: ad651b37-2a14-4a83-8512-5a0a486c2292
+		summarizeBy: none
+		sourceColumn: periode
+
+	partition Versement = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.versement : achats PAC et ponctuels, transferts entrants exclus
+				    #"Vue versement lue" =
+				        // Figée : vue rapport.versement de finance_ve01, données fictives, 717 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "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" &
+				                "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",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"compte_alias", "regime", "societe", "date_negociation", "mois", "rang", "nature", "montant", "annee", "periode"}),
+				            Dates = Table.TransformColumns(Brute, {{"date_negociation", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}, {"mois", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}}),
+				            Typée = Table.TransformColumnTypes(Dates, {{"compte_alias", type text}, {"regime", type text}, {"societe", type text}, {"rang", Int64.Type}, {"nature", type text}, {"montant", type number}, {"annee", Int64.Type}, {"periode", type text}})
+				        in
+				            Typée,
+				    // Colonnes du rapport seulement : le régime et la société viennent de la table Compte, le mois de la table Calendrier
+				    #"Colonnes retenues" = Table.SelectColumns(#"Vue versement lue", {"compte_alias", "date_negociation", "nature", "montant", "annee", "periode"}),
+				    // Montant en décimal fixe (Currency.Type, jamais un flottant), dates et année typées
+				    #"Types fixés" = Table.TransformColumnTypes(#"Colonnes retenues", {{"compte_alias", type text}, {"date_negociation", type date}, {"nature", type text}, {"montant", Currency.Type}, {"annee", Int64.Type}, {"periode", type text}})
+				in
+				    #"Types fixés"
+
+	annotation PBI_ResultType = Table
+

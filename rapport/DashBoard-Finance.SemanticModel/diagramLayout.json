@@ -1,0 +1,295 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 475.45565214152975,
+            "y": 75.68016698022825
+          },
+          "nodeIndex": "Mesures",
+          "nodeLineageTag": "985796cf-9456-4a0a-9542-75454c0bc333",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1288.9785003805343,
+            "y": 1345.9132212004847
+          },
+          "nodeIndex": "Année",
+          "nodeLineageTag": "3689a18c-1315-4f19-a641-90e6a959c16e",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 109.71803230242148,
+            "y": 1502.6199354795724
+          },
+          "nodeIndex": "Calendrier",
+          "nodeLineageTag": "f486e59a-9ea7-4b65-b441-c741fa4049e8",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 107.2275222163685,
+            "y": 1078.3419452140313
+          },
+          "nodeIndex": "Compte",
+          "nodeLineageTag": "b73386d4-d094-41db-b305-c8e4f8caca15",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 1600.814021564631,
+            "y": 1257.9638006436458
+          },
+          "nodeIndex": "Droits",
+          "nodeLineageTag": "a812bdde-4cca-44dd-8b69-b9be0302af9c",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1884.2827575261363,
+            "y": 1286.0926798958103
+          },
+          "nodeIndex": "Versement",
+          "nodeLineageTag": "75bd679a-899e-481e-8a3d-85eb383f3959",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 1265.1062611354751,
+            "y": 68.64439319895223
+          },
+          "nodeIndex": "Arrêté",
+          "nodeLineageTag": "ea8e016a-f789-4df2-9720-8c52fe483313",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 215.67274639687395,
+            "y": 84.259880190579977
+          },
+          "nodeIndex": "Axe régime",
+          "nodeLineageTag": "a87a8e1f-593d-4c0d-9e18-a944e7dc060e",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 973.08109482477994,
+            "y": 1312.9364896326224
+          },
+          "nodeIndex": "Cascade",
+          "nodeLineageTag": "0c2c007d-fc7d-4995-b42f-99760bfd5cbe",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 740.27698112431563,
+            "y": 72.259880190580134
+          },
+          "nodeIndex": "Cotisation REER",
+          "nodeLineageTag": "e4afddd1-7c47-457d-ae0b-fad66cc81c3c",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 2168.3471564917554,
+            "y": 1278.9567948138326
+          },
+          "nodeIndex": "Coût",
+          "nodeLineageTag": "6832e5a4-1b12-41ce-81c2-3c908884adac",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 481.29848756837089,
+            "y": 742.30695703914887
+          },
+          "nodeIndex": "Détention",
+          "nodeLineageTag": "67527284-9a14-496a-8f3b-1ae61b7ba291",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 1599.1962792489617,
+            "y": 721.86495841709166
+          },
+          "nodeIndex": "Détention RDRF",
+          "nodeLineageTag": "448b6e08-a268-464d-8670-694104259be9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1079.3746390131589,
+            "y": 732.63228302301923
+          },
+          "nodeIndex": "Écart tactique",
+          "nodeLineageTag": "173b5efe-ea3e-430a-b4b9-a14ba1c48544",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 812.68433146790471,
+            "y": 742.34806920850554
+          },
+          "nodeIndex": "Exposition",
+          "nodeLineageTag": "b5bf4ef8-782c-46bc-b0bc-20e11ede5f00",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 1004.5066242164103,
+            "y": 64.53453233941741
+          },
+          "nodeIndex": "Fenêtre",
+          "nodeLineageTag": "d0f748cf-2e14-4c9d-a2df-11af1737b1a2",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 137.36138535519794,
+            "y": 449.40060300605126
+          },
+          "nodeIndex": "Fonds",
+          "nodeLineageTag": "441ef3c5-f82e-4e73-b7d7-acb7af4e47d8",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 181.47320023069716,
+            "y": 792.958983616742
+          },
+          "nodeIndex": "Niveau de risque",
+          "nodeLineageTag": "cc73da2f-4550-423f-805a-bd4e238a67b5",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 2487.8077735671045,
+            "y": 1266.79200352453
+          },
+          "nodeIndex": "Performance",
+          "nodeLineageTag": "431094fd-7357-4d22-a2f4-3147e9e5e774",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 1333.648960887256,
+            "y": 739.8008204298286
+          },
+          "nodeIndex": "Rendement quotidien",
+          "nodeLineageTag": "9cd336b6-0c99-4a26-a63c-cca16241a4bd",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 712.48145790571562,
+            "y": 1314.6272122352275
+          },
+          "nodeIndex": "Repère mensuel",
+          "nodeLineageTag": "5f643101-110a-47fd-8219-5b244cd5d914",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 17
+        }
+      ],
+      "name": "Toutes les tables",
+      "zoomValue": 35.723911128792118,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Toutes les tables",
+  "defaultDiagram": "Toutes les tables"
+}

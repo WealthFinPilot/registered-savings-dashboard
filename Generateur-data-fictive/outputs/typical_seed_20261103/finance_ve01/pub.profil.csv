@@ -1,0 +1,15 @@
+code_fa,date_donnees,nom,type_fonds,profil_risque,rfg,frais_moins,frais_plus,fichier
+F101,2021-11-01,Portefeuille prudence — Société 1 (fictif),Équilibré,Faible-Moyen,0.31,0.95,0.80,fictif/F101-2021-11.pdf
+F102,2021-11-01,Portefeuille pondéré — Société 1 (fictif),Équilibré,Faible-Moyen,0.30,0.99,0.85,fictif/F102-2021-11.pdf
+F103,2021-11-01,Portefeuille dynamique — Société 1 (fictif),Équilibré,Moyen,0.35,1.07,0.91,fictif/F103-2021-11.pdf
+F104,2021-11-01,Actions du Canada — Société 1 (fictif),Actions,Moyen,0.31,1.04,0.90,fictif/F104-2021-11.pdf
+F105,2021-11-01,Actions planétaires — Société 1 (fictif),Actions,Moyen,0.35,1.22,1.04,fictif/F105-2021-11.pdf
+F106,2021-11-01,Rendement de dividendes Canada — Société 1 (fictif),Actions,Moyen,0.38,1.10,0.99,fictif/F106-2021-11.pdf
+F201,2021-11-01,Revenu fixe canadien — Société 2 (fictif),Revenu fixe,Faible,0.21,0.63,0.47,fictif/F201-2021-11.pdf
+F202,2021-11-01,Actifs réels et infrastructures — Société 2 (fictif),Actifs réels,Moyen,0.35,0.98,0.80,fictif/F202-2021-11.pdf
+F203,2021-11-01,Portefeuille prudence — Société 2 (fictif),Équilibré,Faible-Moyen,0.27,0.70,0.56,fictif/F203-2021-11.pdf
+F204,2021-11-01,Portefeuille pondéré — Société 2 (fictif),Équilibré,Faible-Moyen,0.27,0.83,0.72,fictif/F204-2021-11.pdf
+F301,2021-11-01,Marché monétaire — Société 3 (fictif),Marché monétaire canadien,Faible,0.17,0.43,0.30,fictif/F301-2021-11.pdf
+F302,2021-11-01,Actions des États-Unis — Société 3 (fictif),Actions,Moyen,0.45,1.35,1.24,fictif/F302-2021-11.pdf
+F303,2021-11-01,Actions du Canada — Société 3 (fictif),Actions,Moyen,0.44,1.29,1.10,fictif/F303-2021-11.pdf
+F304,2021-11-01,Petites sociétés nord-américaines — Société 3 (fictif),Actions,Moyen,0.54,1.39,1.22,fictif/F304-2021-11.pdf

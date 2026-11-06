@@ -1,0 +1,86 @@
+/// Un fonds par code de l'option FA (vue rapport.fonds, règle S7 de docs/regles-strategie.md) : nom court, profil et mandat saisis dans donnees/reference/fonds.csv ; type et niveau de risque du profil de la Société 1 le plus récent, pour l'affichage.
+table Fonds
+	lineageTag: 441ef3c5-f82e-4e73-b7d7-acb7af4e47d8
+
+	/// Code de l'option FA du fonds (code public de la Société 1), ou code détenu sans profil
+	column code_fa
+		dataType: string
+		isHidden
+		isKey
+		lineageTag: c475f048-c5a1-45d3-a80c-4ac50d3152b5
+		summarizeBy: none
+		sourceColumn: code_fa
+
+	/// Nom court du fonds, saisi dans fonds.csv
+	column Fonds
+		dataType: string
+		lineageTag: 14374c62-ed98-4543-bcc7-58c99c9f8e59
+		summarizeBy: none
+		sourceColumn: nom_court
+
+	/// Profil stable du fonds (S7), de l'épargne aux actions : Épargne, Revenu, Conservateur, Modéré, Croissance, Actions
+	column Profil
+		dataType: string
+		lineageTag: 6dd424f6-e442-4c47-bbde-ed82ba6cdad0
+		summarizeBy: none
+		sourceColumn: profil
+		sortByColumn: ordre_profil
+
+	/// Rang du profil, de 1 (Épargne) à 6 (Actions)
+	column ordre_profil
+		dataType: int64
+		isHidden
+		lineageTag: 0651787d-cf90-41b0-a1a3-c05c7d0273d6
+		summarizeBy: none
+		sourceColumn: ordre_profil
+
+	/// Mandat géographique déclaré (où le gérant peut investir), pas l'exposition mesurée : Mondial, Canada, Amérique du Nord, Marchés émergents
+	column Mandat
+		dataType: string
+		lineageTag: 4fd707a6-b7c2-44b9-bd72-0c6905474b3f
+		summarizeBy: none
+		sourceColumn: mandat
+
+	/// Type publié dans le profil de la Société 1 le plus récent (Actions, Équilibré, Marché monétaire canadien)
+	column 'Type de fonds'
+		dataType: string
+		lineageTag: ab91790b-3d56-418e-88cc-fe49aa936726
+		summarizeBy: none
+		sourceColumn: type_fonds
+
+	/// Niveau de risque du profil de la Société 1 le plus récent ; les mesures prennent le niveau du profil applicable (table Détention)
+	column 'Risque publié'
+		dataType: string
+		lineageTag: 3224e289-0bb5-42dc-a707-a10b5582ae5f
+		summarizeBy: none
+		sourceColumn: risque
+		sortByColumn: ordre_risque
+
+	/// Rang du niveau de risque (risque.csv), 9 pour « Non coté »
+	column ordre_risque
+		dataType: int64
+		isHidden
+		lineageTag: abbd8215-30d1-464b-bcc0-9715a9ee5928
+		summarizeBy: none
+		sourceColumn: ordre_risque
+
+	partition Fonds = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.fonds : une ligne par fonds de fonds.csv, avec type et risque du dernier profil
+				    #"Vue fonds lue" =
+				        // Figée : vue rapport.fonds de finance_ve01, données fictives, 14 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "rVPLbsIwEPwVK+cgFRu4o0q9UVVIPSEOJt60KyU2+IHKrVfO/Yp8R/6kX1LHDjRAIxXaU5LNemZ3ZrxYJA/Du2GShgf5fP8gT0pbyMFhUQBZaydAZuAb7pU0oLfcgtNJynyBSy64/1PvN74bV7quGiCOqwIGM7UDmaR0mQYKGinoDxRKirqKZ2fq8DpqPqRAXvySgEUCdkkgdpKXuHFhCa3QGB42GvdTtNisxR5F7FHAnmYWvRREOHJUoK0l6aQjy7F4DjeOcOMTuHXBZV1ZjhrMGeL3lL2Qkwg5CZBzkAJKkJYIvz1uUTQFc9u4NKaDtumYwxakIzm+Acmao9i0JrHs3egAdlqPriXpsEWlEZUeRcgN8eJDYQhYgjLX3FjtMuuiIL3OnZy9nJ5FHnZdtq/JHo35oG0+/j/cLFrAWgtmXGevdUVKdQhMQFlz/SIbgTsWXLZ2TTu1hEVLWMeSEHMfnHpvuTWDZ4nn0ZyWfqXmbjXX4VFp0R8kFq1grRV/vUYsqs4OqoNF60c1KkO/al0ZIv04Ax4GzDhKuHH25Rc=",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"code_fa", "nom_court", "profil", "ordre_profil", "mandat", "type_fonds", "risque", "ordre_risque"}),
+				            Typée = Table.TransformColumnTypes(Brute, {{"code_fa", type text}, {"nom_court", type text}, {"profil", type text}, {"ordre_profil", Int64.Type}, {"mandat", type text}, {"type_fonds", type text}, {"risque", type text}, {"ordre_risque", Int64.Type}})
+				        in
+				            Typée,
+				    // Types explicites : aucune détection automatique
+				    #"Types fixés" = Table.TransformColumnTypes(#"Vue fonds lue", {{"code_fa", type text}, {"nom_court", type text}, {"profil", type text}, {"ordre_profil", Int64.Type}, {"mandat", type text}, {"type_fonds", type text}, {"risque", type text}, {"ordre_risque", Int64.Type}})
+				in
+				    #"Types fixés"
+

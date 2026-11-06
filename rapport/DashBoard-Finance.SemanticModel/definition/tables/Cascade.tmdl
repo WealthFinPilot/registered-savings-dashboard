@@ -1,0 +1,62 @@
+/// Décomposition de la variation de VM de l'année par compte (vue rapport.cascade) : VM au début, versements, retraits, frais, distributions, variation de prix. Leur somme est la VM au dernier point de l'année.
+table Cascade
+	lineageTag: 0c2c007d-fc7d-4995-b42f-99760bfd5cbe
+
+	column compte_alias
+		dataType: string
+		isHidden
+		lineageTag: a08d9614-0c75-4e87-9a92-b895055e3585
+		summarizeBy: none
+		sourceColumn: compte_alias
+
+	column annee
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 181113b8-13c9-4ed0-9408-3804d3d77f74
+		summarizeBy: none
+		sourceColumn: annee
+
+	column ordre
+		dataType: int64
+		isHidden
+		lineageTag: 6a958c8b-6bd6-4919-9ad8-1f3066725563
+		summarizeBy: none
+		sourceColumn: ordre
+
+	/// Terme de la cascade, trié par ordre
+	column Étape
+		dataType: string
+		lineageTag: 09d74e06-58dd-4014-868a-6c65141f3b7f
+		summarizeBy: none
+		sourceColumn: etape
+		sortByColumn: ordre
+
+	column montant
+		dataType: decimal
+		isHidden
+		formatString: #,##0 $
+		lineageTag: 164a1b1f-b337-4792-9f52-718838a4e436
+		summarizeBy: none
+		sourceColumn: montant
+
+	partition Cascade = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.cascade : six étapes par compte et par année
+				    #"Vue cascade lue" =
+				        // Figée : vue rapport.cascade de finance_ve01, données fictives, 144 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "jZhBbt04DECvEnjtEBJFUtKyaDPAAC1aZNFNkUWK/MVftB38pMBcqefoxcqPOokkUnHWfrD1TNIk/eXL8vbq/b+XcVkxIK5xXT5/uLj9eXH3+9fXnw/LGiDcrAOECh1O94dvh+8P98sqWDwqrcv14eF0ezwzHkDr8o9e1quXiUHEALwu7473D6ejnuT447uCsRCkYkDRA92ejrdn6uLucPHf6fj/suYMiQY2WUPhIBDEgKNlJSuResvLSMGDGtOYsvcwq5oDQUYD+qpRCkIab0tWNhJWtS2GHGyxVCtCezGlzrRWqNUQ1hRFoGYD+qaXlRHKSLNjKkljEashB9Mo0Yrwnim3phgZkA1hTSnpKykGnMS0QhnjL45niayZQoYcIypebsqeqLSiRBWSAaxnyUBiOF8zhcJQn2mc1Wl7NvRrNKIHTQ3RlqdmTDTXrWCCyAbz/YJFvbrE1OYq+lU5hBD3qhJtVSaCGg3ghLBCsOee1CRprsp4eqcmJXIGIQMOmtkJI+9ZdhUpmqdsAK+fCORswIlm0kyVkXZKUiTo86sBx4oM4oRT9kS7ikTtnGyP5H16sP1G4Ys1ieHcJJ7oN58+zdtnc8CWG1xTmHAz2Zbp6hPFQ5wEbtpsS85SGKKlnUJNIUH2yDG4mV0beoVx30YLsIdYY22Mz22gRSfKkQSi846cwsVKEXLxWBto14lf4d2VsB4OPcQpYiIIyWMn4qwdn51wO6XMjBVcdIx3zew5ySu8u4rWYSi7D3TEszRf05b1xYl0dPr7oj5+eCHHHw/ZQoMupaTPRoO5si3QZ3YpBnAmYX6MVsvNkromqKOjk9F0Hk8TGnAMa2JrwXuafSI/TWct4PUivVE04CSU9fFr/sx6nSinBIUMOFqiYyl7ll3asj4nGsCxPIPVgLNoStmG/eurq+uNjtOM7aBxNuTiUZ5jB7TNFiSZ6853OGzTb8fNZgra3lsDO2t4ZM3rgAYcJPlpdOqoHcluFRfdsLMBnBE45G0/6cBJuuawfS0a2BkmSkBdj6sBjWZEYDbYjme/iGsiEhnCGSREJ6dowMnSxsJbFTe0N/BLiHoANOSgWoL1oD1R6rfTCNUAzoRI7J1nkrfn8cbQ7hp+/uHAlhw9nerkPc9+Cw8M2QBOeWoupmjAiacE3DaEhvbWcKmpbL9gOnL0JKshe57St80EmAzhVKjzaZHpzwY9PZYnerrCtYebrG9YtWHbW00dnf0tbi2zu+5MBm0Kvry85W18bVDxpntde8lw44xb9c2KoXYE+z8pgOay9avtJx93WqX+Lrq5+QM=",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"compte_alias", "annee", "ordre", "etape", "montant"}),
+				            Typée = Table.TransformColumnTypes(Brute, {{"compte_alias", type text}, {"annee", Int64.Type}, {"ordre", Int64.Type}, {"etape", type text}, {"montant", type number}})
+				        in
+				            Typée,
+				    // Année et ordre en entiers (relation avec Année, tri des étapes), montant en décimal fixe
+				    #"Types fixés" = Table.TransformColumnTypes(#"Vue cascade lue", {{"compte_alias", type text}, {"annee", Int64.Type}, {"ordre", Int64.Type}, {"etape", type text}, {"montant", Currency.Type}})
+				in
+				    #"Types fixés"
+

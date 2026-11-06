@@ -1,0 +1,153 @@
+...............................                                          [100%]
+=================================== PASSES ====================================
+_____________________ test_aucune_anticipation[20261103] ______________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 8 coupures × 3 marchés ; décisions liées au marché : 2023-06-01
+_________________________ test_aucune_anticipation[1] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 1 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+_________________________ test_aucune_anticipation[2] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 2 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+_________________________ test_aucune_anticipation[3] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 3 : 12 coupures × 3 marchés ; décisions liées au marché : 2022-05-02, 2023-09-01, 2025-02-03
+_________________________ test_aucune_anticipation[4] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 4 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+_________________________ test_aucune_anticipation[5] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 5 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+_________________________ test_aucune_anticipation[6] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 6 : 12 coupures × 3 marchés ; décisions liées au marché : 2025-12-01, 2026-02-02, 2026-05-01
+_________________________ test_aucune_anticipation[7] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 7 : 8 coupures × 3 marchés ; décisions liées au marché : 2025-10-01
+_________________________ test_aucune_anticipation[8] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 8 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+_________________________ test_aucune_anticipation[9] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 9 : 10 coupures × 3 marchés ; décisions liées au marché : 2022-07-01, 2023-04-03
+________________________ test_aucune_anticipation[10] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 10 : 8 coupures × 3 marchés ; décisions liées au marché : 2024-03-01
+________________________ test_aucune_anticipation[11] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 11 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+________________________ test_aucune_anticipation[12] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 12 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+________________________ test_aucune_anticipation[13] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 13 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+________________________ test_aucune_anticipation[14] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 14 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+________________________ test_aucune_anticipation[15] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 15 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+________________________ test_aucune_anticipation[16] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 16 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+________________________ test_aucune_anticipation[17] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 17 : 14 coupures × 3 marchés ; décisions liées au marché : 2024-03-01, 2024-04-01, 2025-03-03, 2025-07-01
+________________________ test_aucune_anticipation[18] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 18 : 14 coupures × 3 marchés ; décisions liées au marché : 2022-11-01, 2023-11-01, 2024-02-01, 2025-06-02
+________________________ test_aucune_anticipation[19] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 19 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+________________________ test_aucune_anticipation[20] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20 : 6 coupures × 3 marchés ; décisions liées au marché : aucune
+_______________________ test_meme_graine_deux_processus _______________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   d1813f24037a3cabc545fe0191bbd8b31530fa6ac848ccfd7c2214c515c9ec17
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+___________________ test_marche_meme_graine_deux_processus ____________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   d1813f24037a3cabc545fe0191bbd8b31530fa6ac848ccfd7c2214c515c9ec17
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+_____________________ test_marche_autre_graine_autres_vl ______________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers de marché différents ['benchmarks.csv', 'benchmarks_daily.csv', 'fund_prices_daily.csv', 'market_regimes_daily.csv']
+______________________ test_vl_independantes_des_comptes ______________________
+---------------------------- Captured stdout call -----------------------------
+fichiers modifiés par la variante : ['accounts.csv', 'allocation_targets_history.csv']
+__________________ test_univers_inchange_par_l_etape_marches __________________
+---------------------------- Captured stdout call -----------------------------
+7 CSV de l'univers identiques entre --stage universe et --stage markets
+________________ test_comportement_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+events.csv                       b4511d7110bf7e7dbfa2bea98271378a4dd0ca26832881085e36670d31d7147d
+external_movements.csv           f40c169d705f7d3d1647cf0f5ace6c4dee7ea3313fd9d8976b771edde8969795
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+______________ test_comportement_autre_graine_autres_mouvements _______________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers de comportement différents ['contribution_room.csv', 'events.csv', 'external_movements.csv', 'persona.csv']
+_________ test_univers_et_marches_inchanges_par_l_etape_comportement __________
+---------------------------- Captured stdout call -----------------------------
+10 CSV identiques ; allocation_targets_history : 33 lignes du J1 en tête, 22 lignes de révision ajoutées
+=========================== short test summary info ===========================
+PASSED tests/test_behaviour.py::test_aucune_anticipation[20261103]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[1]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[2]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[3]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[4]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[5]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[6]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[7]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[8]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[9]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[10]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[11]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[12]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[13]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[14]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[15]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[16]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[17]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[18]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[19]
+PASSED tests/test_behaviour.py::test_aucune_anticipation[20]
+PASSED tests/test_reproducibility.py::test_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_meme_graine_en_memoire
+PASSED tests/test_reproducibility.py::test_autre_graine_autre_univers
+PASSED tests/test_reproducibility.py::test_marche_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_marche_autre_graine_autres_vl
+PASSED tests/test_reproducibility.py::test_vl_independantes_des_comptes
+PASSED tests/test_reproducibility.py::test_univers_inchange_par_l_etape_marches
+PASSED tests/test_reproducibility.py::test_comportement_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_comportement_autre_graine_autres_mouvements
+PASSED tests/test_reproducibility.py::test_univers_et_marches_inchanges_par_l_etape_comportement
+31 passed in 54.38s

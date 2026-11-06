@@ -1,0 +1,19 @@
+$ python scripts/recette_synthetique.py --controle reperes --path Generateur-data-fictive/outputs/vitrine_seed_20261103
+[PASS] ref.repere : 14 fonds, une ligne chacun, repère de catégorie, poids 1 (export et base, 14 fonds en base)
+[DIAG] corrélation quotidienne et écart de suivi annualisé du rendement, contre le repère de catégorie (ref.repere) puis contre le composite du fonds
+    périmètre  repère de catégorie        n  corr cat. suivi cat.  corr comp. suivi comp.
+    F101       R-CAT-PRUDENT            750     0.8142     2.54%      0.8475      2.16%
+    F103       R-CAT-CROISSANCE         750     0.8916     4.19%      0.8954      4.11%
+    F105       R-CAT-ACT-MONDE          750     0.9533     3.05%      0.9572      2.90%
+    F106       R-CAT-ACT-CAN            750     0.7836     7.03%      0.8043      6.60%
+    F201       R-CAT-OBL-CAN            713     0.9601     1.28%      0.9652      0.95%
+    F202       R-CAT-ACTIFS-REELS       713     0.8629     4.76%      0.8657      4.55%
+    F203       R-CAT-PRUDENT            713     0.8653     2.11%      0.9060      1.59%
+    F204       R-CAT-EQUILIBRE          713     0.8462     3.18%      0.9150      2.35%
+    F301       R-CAT-MONETAIRE          874     0.1378     0.12%      0.1670      0.12%
+    F302       R-CAT-ACT-US            1288     0.9158     4.98%      0.9227      4.78%
+    F303       R-CAT-ACT-CAN           1288     0.9222     4.43%      0.9305      4.12%
+    F304       R-CAT-ACT-AMN           1194     0.8738     5.87%      0.8744      5.86%
+    global     pondéré par la VM       1288     0.9658     2.35%      0.9661      2.34%
+Résultat : tous les contrôles bloquants passent
+code de sortie : 0

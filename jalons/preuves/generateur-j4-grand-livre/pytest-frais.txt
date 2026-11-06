@@ -1,0 +1,16 @@
+...                                                                      [100%]
+=================================== PASSES ====================================
+____________________________ test_frais_recalcules ____________________________
+---------------------------- Captured stdout call -----------------------------
+236 FRAIS, 1857.77 $ ; recalculés : 236, 1857.77 $ ; écarts : aucun
+_________________________ test_marche_plat_sans_frais _________________________
+---------------------------- Captured stdout call -----------------------------
+valeur 59985.01 $, flux nets 59984.61 $, écart +0.4000 $ (borne 2.8124 $), FRAIS 0.00 $
+_________________________ test_marche_plat_avec_frais _________________________
+---------------------------- Captured stdout call -----------------------------
+valeur 58204.78 $ = flux nets 59984.61 $ − FRAIS 1780.26 $, écart +0.4300 $ (borne 6.5448 $) ; apports et retraits {'PAC': 49815.0, 'PONCTUEL': 11569.61, 'RETRAIT': -1400.0}
+=========================== short test summary info ===========================
+PASSED tests/test_ledger.py::test_frais_recalcules
+PASSED tests/test_ledger.py::test_marche_plat_sans_frais
+PASSED tests/test_ledger.py::test_marche_plat_avec_frais
+3 passed, 25 deselected in 30.38s

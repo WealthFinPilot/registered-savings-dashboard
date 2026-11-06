@@ -1,0 +1,302 @@
+.........................................                                [100%]
+=================================== PASSES ====================================
+______________________ test_contrefactuel_graine_typique ______________________
+---------------------------- Captured stdout call -----------------------------
+6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+_______________________ test_contrefactuel_marche_plat ________________________
+---------------------------- Captured stdout call -----------------------------
+I1 × R-POL-I1 : valeur 17200.00 $, flux nets 17200.00 $, TWR +0.0e+00
+I2 × R-POL-I2 : valeur 9602.06 $, flux nets 9602.06 $, TWR +0.0e+00
+I3 × R-POL-I3 : valeur 33182.55 $, flux nets 33182.55 $, TWR +0.0e+00
+PORTFOLIO × R-ACT-MONDE : valeur 59984.61 $, flux nets 59984.61 $, TWR +0.0e+00
+PORTFOLIO × R-EQUILIBRE : valeur 59984.61 $, flux nets 59984.61 $, TWR +0.0e+00
+PORTFOLIO × R-POL : valeur 59984.61 $, flux nets 59984.61 $, TWR +0.0e+00
+____________________ test_contrefactuel_retrait_infaisable ____________________
+---------------------------- Captured stdout call -----------------------------
+refus explicite : contrefactuel R-POL-I3, 2021-11-23 : retrait de 999170.00 $, le contrefactuel vaut 0.00 $
+_____________________ test_biais_politique_fixee_d_avance _____________________
+---------------------------- Captured stdout call -----------------------------
+R-POL-I1 : cibles du 2023-11-28 : F101 25 % | F102 35 % | F103 10 % | F104 15 % | F105 5 % | F106 10 % ; premier apport le 2023-12-15
+R-POL-I2 : cibles du 2024-01-19 : F201 15 % | F202 25 % | F203 15 % | F204 45 % ; premier apport le 2024-02-06
+R-POL-I3 : cibles du 2021-11-19 : F302 30 % | F303 40 % | F304 30 % ; premier apport le 2021-11-23
+_____________________ test_contrefactuel_graine[20261103] _____________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[1] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 1 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[2] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 2 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[3] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 3 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[4] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 4 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[5] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 5 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[6] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 6 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[7] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 7 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[8] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 8 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[9] _________________________
+---------------------------- Captured stdout call -----------------------------
+graine 9 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[10] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 10 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[11] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 11 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[12] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 12 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[13] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 13 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[14] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 14 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[15] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 15 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[16] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 16 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[17] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 17 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[18] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 18 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[19] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 19 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+________________________ test_contrefactuel_graine[20] ________________________
+---------------------------- Captured stdout call -----------------------------
+graine 20 : 6 contrefactuels : flux = PAC + PONCTUEL + RETRAIT aux mêmes dates ; valeur = flux replacés dans l'indice, pire écart 0.0050 $ ; TWR = rendement de l'indice, pire écart 5.0e-11
+_____________________ test_biais_ecart_politique_graines ______________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261103 I1 depuis 2023-12-15 (2.9 ans) : TWR +0.17 %, politique +0.90 %, écart -0.73 = −frais 1.32 (RFG 0.34 + compte 1.06 − passifs 0.07) + reste +0.59
+graine 20261103 I2 depuis 2024-02-06 (2.7 ans) : TWR +0.95 %, politique +1.79 %, écart -0.83 = −frais 1.02 (RFG 0.28 + compte 0.82 − passifs 0.08) + reste +0.19
+graine 20261103 I3 depuis 2021-11-23 (4.9 ans) : TWR -2.35 %, politique -0.58 %, écart -1.77 = −frais 1.62 (RFG 0.44 + compte 1.26 − passifs 0.08) + reste -0.15
+graine 1 I1 depuis 2022-08-19 (4.2 ans) : TWR +2.37 %, politique +5.17 %, écart -2.80 = −frais 1.26 (RFG 0.30 + compte 1.03 − passifs 0.07) + reste -1.54
+graine 1 I2 depuis 2021-12-16 (4.9 ans) : TWR +4.41 %, politique +5.71 %, écart -1.30 = −frais 0.90 (RFG 0.27 + compte 0.70 − passifs 0.07) + reste -0.40
+graine 1 I3 depuis 2022-05-23 (4.4 ans) : TWR +5.98 %, politique +8.77 %, écart -2.79 = −frais 2.10 (RFG 0.66 + compte 1.51 − passifs 0.08) + reste -0.69
+graine 2 I1 depuis 2021-12-20 (4.9 ans) : TWR +0.63 %, politique +1.11 %, écart -0.49 = −frais 0.98 (RFG 0.32 + compte 0.74 − passifs 0.07) + reste +0.50
+graine 2 I2 depuis 2023-10-23 (3.0 ans) : TWR +2.01 %, politique +2.54 %, écart -0.53 = −frais 0.87 (RFG 0.23 + compte 0.70 − passifs 0.06) + reste +0.34
+graine 2 I3 depuis 2023-10-25 (3.0 ans) : TWR +0.44 %, politique +0.60 %, écart -0.16 = −frais 1.63 (RFG 0.46 + compte 1.24 − passifs 0.08) + reste +1.47
+graine 3 I1 depuis 2022-01-03 (4.8 ans) : TWR -8.77 %, politique -8.56 %, écart -0.22 = −frais 0.96 (RFG 0.28 + compte 0.75 − passifs 0.07) + reste +0.74
+graine 3 I2 depuis 2023-01-26 (3.8 ans) : TWR -0.18 %, politique +0.65 %, écart -0.84 = −frais 0.88 (RFG 0.23 + compte 0.71 − passifs 0.07) + reste +0.04
+graine 3 I3 depuis 2021-12-27 (4.8 ans) : TWR -11.73 %, politique -11.55 %, écart -0.17 = −frais 1.38 (RFG 0.42 + compte 1.04 − passifs 0.07) + reste +1.21
+graine 4 I1 depuis 2023-01-26 (3.8 ans) : TWR +2.66 %, politique +3.68 %, écart -1.02 = −frais 1.13 (RFG 0.26 + compte 0.94 − passifs 0.07) + reste +0.11
+graine 4 I2 depuis 2022-03-21 (4.6 ans) : TWR +5.20 %, politique +6.26 %, écart -1.06 = −frais 0.91 (RFG 0.23 + compte 0.74 − passifs 0.07) + reste -0.16
+graine 4 I3 depuis 2021-12-20 (4.9 ans) : TWR +16.36 %, politique +11.46 %, écart +4.91 = −frais 0.98 (RFG 0.27 + compte 0.79 − passifs 0.08) + reste +5.89
+graine 5 I1 depuis 2021-11-11 (5.0 ans) : TWR +6.16 %, politique +7.43 %, écart -1.27 = −frais 1.11 (RFG 0.32 + compte 0.87 − passifs 0.07) + reste -0.16
+graine 5 I2 depuis 2024-02-02 (2.7 ans) : TWR +2.64 %, politique +3.07 %, écart -0.43 = −frais 0.87 (RFG 0.25 + compte 0.68 − passifs 0.06) + reste +0.44
+graine 5 I3 depuis 2022-03-01 (4.7 ans) : TWR +2.36 %, politique +8.09 %, écart -5.73 = −frais 2.15 (RFG 0.58 + compte 1.65 − passifs 0.08) + reste -3.58
+graine 6 I1 depuis 2022-06-21 (4.4 ans) : TWR +12.13 %, politique +12.36 %, écart -0.23 = −frais 1.10 (RFG 0.28 + compte 0.90 − passifs 0.07) + reste +0.87
+graine 6 I2 depuis 2023-11-07 (3.0 ans) : TWR +5.04 %, politique +7.87 %, écart -2.84 = −frais 1.10 (RFG 0.23 + compte 0.94 − passifs 0.07) + reste -1.74
+graine 6 I3 depuis 2021-11-15 (5.0 ans) : TWR +9.82 %, politique +11.23 %, écart -1.41 = −frais 1.79 (RFG 0.50 + compte 1.36 − passifs 0.07) + reste +0.38
+graine 7 I1 depuis 2023-12-21 (2.9 ans) : TWR +3.74 %, politique +5.38 %, écart -1.64 = −frais 1.06 (RFG 0.27 + compte 0.86 − passifs 0.07) + reste -0.58
+graine 7 I2 depuis 2022-01-03 (4.8 ans) : TWR +5.28 %, politique +4.78 %, écart +0.50 = −frais 0.68 (RFG 0.19 + compte 0.55 − passifs 0.06) + reste +1.18
+graine 7 I3 depuis 2022-03-18 (4.6 ans) : TWR +6.03 %, politique +6.42 %, écart -0.39 = −frais 1.63 (RFG 0.39 + compte 1.32 − passifs 0.07) + reste +1.25
+graine 8 I1 depuis 2023-04-10 (3.6 ans) : TWR +4.04 %, politique +6.34 %, écart -2.30 = −frais 1.16 (RFG 0.34 + compte 0.89 − passifs 0.07) + reste -1.15
+graine 8 I2 depuis 2021-12-09 (4.9 ans) : TWR +3.95 %, politique +5.56 %, écart -1.61 = −frais 0.81 (RFG 0.25 + compte 0.62 − passifs 0.06) + reste -0.80
+graine 8 I3 depuis 2022-01-10 (4.8 ans) : TWR +12.24 %, politique +12.86 %, écart -0.62 = −frais 1.40 (RFG 0.40 + compte 1.07 − passifs 0.07) + reste +0.77
+graine 9 I1 depuis 2022-03-17 (4.6 ans) : TWR +9.18 %, politique +13.79 %, écart -4.61 = −frais 1.01 (RFG 0.30 + compte 0.78 − passifs 0.06) + reste -3.60
+graine 9 I2 depuis 2022-02-16 (4.7 ans) : TWR +6.90 %, politique +9.07 %, écart -2.17 = −frais 0.91 (RFG 0.29 + compte 0.68 − passifs 0.06) + reste -1.27
+graine 9 I3 depuis 2021-11-23 (4.9 ans) : TWR +17.51 %, politique +18.87 %, écart -1.36 = −frais 1.55 (RFG 0.41 + compte 1.22 − passifs 0.08) + reste +0.19
+graine 10 I1 depuis 2022-07-14 (4.3 ans) : TWR +1.69 %, politique +3.80 %, écart -2.11 = −frais 1.25 (RFG 0.32 + compte 1.00 − passifs 0.07) + reste -0.86
+graine 10 I2 depuis 2022-01-26 (4.8 ans) : TWR +3.53 %, politique +4.82 %, écart -1.30 = −frais 0.90 (RFG 0.27 + compte 0.69 − passifs 0.06) + reste -0.39
+graine 10 I3 depuis 2021-12-03 (4.9 ans) : TWR +0.94 %, politique +2.75 %, écart -1.81 = −frais 1.82 (RFG 0.50 + compte 1.41 − passifs 0.08) + reste +0.02
+graine 11 I1 depuis 2021-12-06 (4.9 ans) : TWR +9.30 %, politique +8.53 %, écart +0.77 = −frais 1.05 (RFG 0.24 + compte 0.89 − passifs 0.07) + reste +1.82
+graine 11 I2 depuis 2022-06-27 (4.3 ans) : TWR +2.60 %, politique +7.16 %, écart -4.56 = −frais 0.80 (RFG 0.25 + compte 0.62 − passifs 0.06) + reste -3.76
+graine 11 I3 depuis 2023-01-05 (3.8 ans) : TWR +15.92 %, politique +15.20 %, écart +0.72 = −frais 1.78 (RFG 0.57 + compte 1.29 − passifs 0.08) + reste +2.50
+graine 12 I1 depuis 2022-06-13 (4.4 ans) : TWR +2.12 %, politique +4.14 %, écart -2.01 = −frais 1.31 (RFG 0.33 + compte 1.06 − passifs 0.07) + reste -0.70
+graine 12 I2 depuis 2022-07-27 (4.3 ans) : TWR +2.43 %, politique +4.26 %, écart -1.83 = −frais 0.93 (RFG 0.32 + compte 0.68 − passifs 0.06) + reste -0.90
+graine 12 I3 depuis 2022-02-22 (4.7 ans) : TWR +1.32 %, politique +2.99 %, écart -1.67 = −frais 1.62 (RFG 0.41 + compte 1.29 − passifs 0.08) + reste -0.05
+graine 13 I1 depuis 2022-06-14 (4.4 ans) : TWR +5.79 %, politique +10.85 %, écart -5.05 = −frais 1.33 (RFG 0.36 + compte 1.04 − passifs 0.07) + reste -3.72
+graine 13 I2 depuis 2023-03-21 (3.6 ans) : TWR +5.07 %, politique +5.01 %, écart +0.06 = −frais 1.08 (RFG 0.32 + compte 0.82 − passifs 0.06) + reste +1.14
+graine 13 I3 depuis 2021-12-21 (4.9 ans) : TWR +13.16 %, politique +15.50 %, écart -2.35 = −frais 1.42 (RFG 0.35 + compte 1.15 − passifs 0.08) + reste -0.92
+graine 14 I1 depuis 2021-11-22 (4.9 ans) : TWR +0.32 %, politique +2.29 %, écart -1.96 = −frais 1.06 (RFG 0.28 + compte 0.85 − passifs 0.07) + reste -0.90
+graine 14 I2 depuis 2022-08-03 (4.2 ans) : TWR -0.41 %, politique +1.09 %, écart -1.49 = −frais 0.99 (RFG 0.29 + compte 0.77 − passifs 0.07) + reste -0.51
+graine 14 I3 depuis 2022-09-09 (4.1 ans) : TWR -1.34 %, politique -1.58 %, écart +0.25 = −frais 1.20 (RFG 0.31 + compte 0.96 − passifs 0.08) + reste +1.44
+graine 15 I1 depuis 2023-01-09 (3.8 ans) : TWR +7.10 %, politique +7.21 %, écart -0.11 = −frais 1.24 (RFG 0.31 + compte 1.00 − passifs 0.07) + reste +1.12
+graine 15 I2 depuis 2021-12-20 (4.9 ans) : TWR +5.03 %, politique +4.96 %, écart +0.07 = −frais 0.87 (RFG 0.26 + compte 0.67 − passifs 0.07) + reste +0.94
+graine 15 I3 depuis 2022-03-07 (4.7 ans) : TWR +13.18 %, politique +17.08 %, écart -3.90 = −frais 1.54 (RFG 0.47 + compte 1.15 − passifs 0.08) + reste -2.36
+graine 16 I1 depuis 2023-04-25 (3.5 ans) : TWR +0.79 %, politique +0.90 %, écart -0.12 = −frais 1.06 (RFG 0.27 + compte 0.87 − passifs 0.07) + reste +0.95
+graine 16 I2 depuis 2021-11-16 (5.0 ans) : TWR +1.37 %, politique +2.78 %, écart -1.41 = −frais 1.01 (RFG 0.26 + compte 0.83 − passifs 0.08) + reste -0.40
+graine 16 I3 depuis 2022-01-24 (4.8 ans) : TWR -1.77 %, politique +1.20 %, écart -2.98 = −frais 1.83 (RFG 0.47 + compte 1.44 − passifs 0.08) + reste -1.14
+graine 17 I2 : aucun rendement (comptes jamais alimentés), sans écart
+graine 17 I1 depuis 2021-12-27 (4.8 ans) : TWR +4.81 %, politique +5.93 %, écart -1.12 = −frais 0.86 (RFG 0.25 + compte 0.69 − passifs 0.07) + reste -0.26
+graine 17 I3 depuis 2022-04-05 (4.6 ans) : TWR +7.30 %, politique +8.96 %, écart -1.66 = −frais 1.55 (RFG 0.44 + compte 1.18 − passifs 0.07) + reste -0.11
+graine 18 I1 depuis 2023-08-07 (3.2 ans) : TWR +3.92 %, politique +4.67 %, écart -0.74 = −frais 1.20 (RFG 0.35 + compte 0.92 − passifs 0.07) + reste +0.46
+graine 18 I2 depuis 2022-10-24 (4.0 ans) : TWR +1.96 %, politique +3.35 %, écart -1.39 = −frais 1.07 (RFG 0.34 + compte 0.79 − passifs 0.06) + reste -0.31
+graine 18 I3 depuis 2021-12-17 (4.9 ans) : TWR +9.26 %, politique +12.41 %, écart -3.15 = −frais 1.55 (RFG 0.47 + compte 1.16 − passifs 0.08) + reste -1.60
+graine 19 I1 depuis 2021-12-13 (4.9 ans) : TWR +7.51 %, politique +8.90 %, écart -1.39 = −frais 1.21 (RFG 0.31 + compte 0.97 − passifs 0.08) + reste -0.18
+graine 19 I2 depuis 2023-11-23 (2.9 ans) : TWR +5.63 %, politique +1.07 %, écart +4.56 = −frais 0.93 (RFG 0.24 + compte 0.78 − passifs 0.08) + reste +5.49
+graine 19 I3 depuis 2023-04-10 (3.6 ans) : TWR +10.82 %, politique +12.54 %, écart -1.72 = −frais 1.55 (RFG 0.43 + compte 1.20 − passifs 0.08) + reste -0.17
+graine 20 I1 depuis 2021-11-22 (4.9 ans) : TWR +6.42 %, politique +4.96 %, écart +1.47 = −frais 1.35 (RFG 0.37 + compte 1.05 − passifs 0.07) + reste +2.82
+graine 20 I2 depuis 2021-12-13 (4.9 ans) : TWR +3.97 %, politique +4.27 %, écart -0.30 = −frais 0.95 (RFG 0.26 + compte 0.75 − passifs 0.07) + reste +0.65
+graine 20 I3 depuis 2022-08-08 (4.2 ans) : TWR +5.77 %, politique +4.64 %, écart +1.13 = −frais 1.50 (RFG 0.41 + compte 1.17 − passifs 0.08) + reste +2.64
+62 institutions × graines : écart moyen -1.18 ± 0.23 pt/an, frais nets moyens +1.23 ± 0.04, reste moyen +0.05 ± 0.22 (moyenne ± erreur type) ; politique battue en TWR net : 10 fois
+_______________________ test_meme_graine_deux_processus _______________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   d1813f24037a3cabc545fe0191bbd8b31530fa6ac848ccfd7c2214c515c9ec17
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+___________________ test_marche_meme_graine_deux_processus ____________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   d1813f24037a3cabc545fe0191bbd8b31530fa6ac848ccfd7c2214c515c9ec17
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+_____________________ test_marche_autre_graine_autres_vl ______________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers de marché différents ['benchmarks.csv', 'benchmarks_daily.csv', 'fund_prices_daily.csv', 'market_regimes_daily.csv']
+______________________ test_vl_independantes_des_comptes ______________________
+---------------------------- Captured stdout call -----------------------------
+fichiers modifiés par la variante : ['accounts.csv', 'allocation_targets_history.csv']
+__________________ test_univers_inchange_par_l_etape_marches __________________
+---------------------------- Captured stdout call -----------------------------
+7 CSV de l'univers identiques entre --stage universe et --stage markets
+________________ test_comportement_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+events.csv                       b4511d7110bf7e7dbfa2bea98271378a4dd0ca26832881085e36670d31d7147d
+external_movements.csv           f40c169d705f7d3d1647cf0f5ace6c4dee7ea3313fd9d8976b771edde8969795
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+______________ test_comportement_autre_graine_autres_mouvements _______________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers de comportement différents ['contribution_room.csv', 'events.csv', 'external_movements.csv', 'persona.csv']
+_________ test_univers_et_marches_inchanges_par_l_etape_comportement __________
+---------------------------- Captured stdout call -----------------------------
+10 CSV identiques ; allocation_targets_history : 33 lignes du J1 en tête, 22 lignes de révision ajoutées
+_________________ test_grand_livre_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+account_values_daily.csv         c631c75c25f83fad35f61133d6f90b4babe7e3728c3039a0f2a5d83bbd1ae678
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+events.csv                       4e411391856bb9c8a98ad504db3e8062bf912a1c5e1712eb65fd198e0a882076
+external_movements.csv           0b839b2359a48d74aec3afa8abea2518e58ccea186d52f97357bccfc58005ac8
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+internal_trades.csv              5ea4695f603078773ea9f3fe5038b0796d89d56de01e87034f3e3688088e4a31
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+positions_daily.csv              3a4a912fd6c3ad1dd6d621b56fd9f06acb7c2631c30e333a187483845657639b
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+_________________ test_grand_livre_autre_graine_autres_ordres _________________
+---------------------------- Captured stdout call -----------------------------
+graine 20261104 : fichiers du grand livre différents ['account_values_daily.csv', 'internal_trades.csv', 'positions_daily.csv']
+_______________ test_j1_a_j3_inchanges_par_l_etape_grand_livre ________________
+---------------------------- Captured stdout call -----------------------------
+14 CSV identiques ; 39 événements et 210 mouvements du J3 identiques hors identifiants ; ajoutés : {'reequilibrage': 7}, 236 FRAIS
+_________________ test_performance_meme_graine_deux_processus _________________
+---------------------------- Captured stdout call -----------------------------
+account_values_daily.csv         c631c75c25f83fad35f61133d6f90b4babe7e3728c3039a0f2a5d83bbd1ae678
+accounts.csv                     d58bf949632410de2726fd8e75dd91956b5ce460d06683229c145b049a63c4c0
+allocation_targets_history.csv   15616aeaf457141fb037428b9dbd49d847e8c034ea27943db15e17f3e4e1857f
+benchmarks.csv                   44083cdb992d5ac7944711bb21dda4009c3de1933159618decf251ef690b8137
+benchmarks_daily.csv             90d2d168d8a7755cd75900a47c4ea73bc7e997f1c0125361456a350329791a3c
+contribution_room.csv            3bb4ecb09fecd1780fc93d262a7d2316e78a15cf1fc24d405b5425d928ff754d
+counterfactual_daily.csv         3ac30984441148b420ea35408913c03b0377208c0353049c8d8ae35c4d1810fd
+events.csv                       4e411391856bb9c8a98ad504db3e8062bf912a1c5e1712eb65fd198e0a882076
+external_movements.csv           0b839b2359a48d74aec3afa8abea2518e58ccea186d52f97357bccfc58005ac8
+fund_exposures.csv               2615f82a56633237e16c0443e74a813a5642222d8ccbfdc5dad9792bc24ae677
+fund_exposures_by_axis.csv       6f4703efeae52a2eab6352180762b683a16fe4e1b4b1aeffb6a52ce787d4263c
+fund_prices_daily.csv            a12965e799877ef2b50fcc5a861e4978625702497285dd79fc8b83f6f7e371f3
+fund_strategic_targets.csv       d4df4a6a5ae46614ea5688fe205ca638442a7560322ee13a55c9b01a4cd275bd
+funds.csv                        9f19b800dc4768cfab4a9240f123b92e311228eb0821949d32ca2b58f1bccfe6
+institutions.csv                 8e4deaceb99cd6284fad58b080f9fe771f66251a41b363233f808aaf98c3528e
+internal_trades.csv              5ea4695f603078773ea9f3fe5038b0796d89d56de01e87034f3e3688088e4a31
+market_regimes_daily.csv         9af2967f946665ffac14d5aaa5066b6dd4d5d6f9e5784a8e8456893044cfc153
+performance_daily.csv            b1910297517781a4f7d315ccc5fa0e4283189bb39c2f52328062bfc0c3d58c92
+performance_periods.csv          846f784a00b00557c711c58b6a5fa19c328ae5ee02d4a684491308737df8c9f2
+persona.csv                      5a2d5acc17ffa7457ecd8aa41cc19489a4ea4aa6a1dba89354b37ce00334121a
+positions_daily.csv              3a4a912fd6c3ad1dd6d621b56fd9f06acb7c2631c30e333a187483845657639b
+tax_limits.csv                   5fb4bf92fe598dd1bc6c554757704492d40806ba7ff63c39b294a81c4c802df0
+_______________ test_j1_a_j4_inchanges_par_l_etape_performance ________________
+---------------------------- Captured stdout call -----------------------------
+19 CSV identiques entre --stage ledger et --stage performance ; contre c6288c3 : tous identiques ; ajoutés : counterfactual_daily.csv, performance_daily.csv, performance_periods.csv
+=========================== short test summary info ===========================
+PASSED tests/test_performance.py::test_contrefactuel_graine_typique
+PASSED tests/test_performance.py::test_contrefactuel_marche_plat
+PASSED tests/test_performance.py::test_contrefactuel_retrait_infaisable
+PASSED tests/test_performance.py::test_biais_politique_fixee_d_avance
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[20261103]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[1]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[2]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[3]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[4]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[5]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[6]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[7]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[8]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[9]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[10]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[11]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[12]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[13]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[14]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[15]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[16]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[17]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[18]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[19]
+PASSED tests/test_performance_seeds.py::test_contrefactuel_graine[20]
+PASSED tests/test_performance_seeds.py::test_biais_ecart_politique_graines
+PASSED tests/test_reproducibility.py::test_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_meme_graine_en_memoire
+PASSED tests/test_reproducibility.py::test_autre_graine_autre_univers
+PASSED tests/test_reproducibility.py::test_marche_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_marche_autre_graine_autres_vl
+PASSED tests/test_reproducibility.py::test_vl_independantes_des_comptes
+PASSED tests/test_reproducibility.py::test_univers_inchange_par_l_etape_marches
+PASSED tests/test_reproducibility.py::test_comportement_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_comportement_autre_graine_autres_mouvements
+PASSED tests/test_reproducibility.py::test_univers_et_marches_inchanges_par_l_etape_comportement
+PASSED tests/test_reproducibility.py::test_grand_livre_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_grand_livre_autre_graine_autres_ordres
+PASSED tests/test_reproducibility.py::test_j1_a_j3_inchanges_par_l_etape_grand_livre
+PASSED tests/test_reproducibility.py::test_performance_meme_graine_deux_processus
+PASSED tests/test_reproducibility.py::test_j1_a_j4_inchanges_par_l_etape_performance
+41 passed, 72 deselected in 108.56s (0:01:48)

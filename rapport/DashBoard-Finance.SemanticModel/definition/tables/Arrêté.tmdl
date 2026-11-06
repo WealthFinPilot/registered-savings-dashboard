@@ -1,0 +1,37 @@
+/// Date d'arrêté du rapport (vue rapport.arrete, R15) : une ligne. Table sans relation : seules les mesures Date d'arrêté et Libellé d'arrêté la lisent.
+table Arrêté
+	isHidden
+	lineageTag: ea8e016a-f789-4df2-9720-8c52fe483313
+
+	/// Date d'arrêté (R15)
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 74f493db-b955-4d56-97bf-b7a02bec0b45
+		summarizeBy: none
+		sourceColumn: date_arrete
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Arrêté = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.arrete : la plus ancienne des dates de fin des derniers Historiques (R15)
+				    #"Vue arrete lue" =
+				        // Figée : vue rapport.arrete de finance_ve01, données fictives, 1 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "i45WMjIwMtM1NNA1NlCKjQUA",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"date_arrete"}),
+				            Dates = Table.TransformColumns(Brute, {{"date_arrete", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}}),
+				            Typée = Table.TransformColumnTypes(Dates, {})
+				        in
+				            Typée,
+				    // Date sans heure
+				    #"Types fixés" = Table.TransformColumnTypes(#"Vue arrete lue", {{"date_arrete", type date}})
+				in
+				    #"Types fixés"
+

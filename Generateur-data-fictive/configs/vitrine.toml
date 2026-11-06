@@ -1,0 +1,32 @@
+# Scénario « vitrine » : celui du rapport Power BI. Même univers que typical (graine principale de
+# base.toml) ; le flux markets reçoit sa propre graine, retenue par scripts/choisir_graine_marche.py
+# sur un critère écrit d'avance (jalons/2026-11-04-generateur-j6b-vitrine.md, C1) : marché favorable
+# choisi, non tiré au hasard. Surcharge le nom, market_seed et les ponctuels imposés ci-dessous.
+extends = "base.toml"
+
+[scenario]
+name = "vitrine"
+market_seed = 19
+
+# Cas d'usage du rapport (décision du responsable, 2026-11-05) : trois ponctuels imposés en 2026, répartis
+# sur les deux CELI, qui font dépasser les droits CELI de l'année. Les droits se comptent tous CELI
+# ensemble (R2) : aucun compte ne paraît excessif à lui seul. Montants et mois imposés, jours ouvrables
+# choisis ; aucun tirage consommé. Après le premier, l'épargnant ne voit pas son excédent : ses PAC CELI
+# de l'année continuent au lieu d'être réorientés vers le COMP.
+[[behaviour.scripted_lumps]]
+date = 2026-01-12
+account = "CELI-1"
+amount_cad = 15000
+reason = "versement de début d'année"
+
+[[behaviour.scripted_lumps]]
+date = 2026-02-17
+account = "CELI-2"
+amount_cad = 20000
+reason = "transfert d'épargne vers un second CELI"
+
+[[behaviour.scripted_lumps]]
+date = 2026-03-09
+account = "CELI-1"
+amount_cad = 10000
+reason = "complément de versement"

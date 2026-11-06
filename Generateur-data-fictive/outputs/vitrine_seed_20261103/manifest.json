@@ -1,0 +1,1535 @@
+{
+  "scenario_id": "vitrine_seed_20261103",
+  "scenario": "vitrine",
+  "seed": 20261103,
+  "config_hash": "99395e595452c6f81b52d046de05620edac05a9e2d7d491e4f4d1ca2c79083c1",
+  "generated_at": "2026-11-06T02:05:37+00:00",
+  "version": "0.1.0",
+  "synthetic": true,
+  "synthetic_flag": true,
+  "notice": "SYNTHÉTIQUE / NON RÉEL / NON CONSTITUTIF D'UN CONSEIL FINANCIER",
+  "stages": [
+    "universe",
+    "markets",
+    "behaviour",
+    "ledger",
+    "performance",
+    "adapter"
+  ],
+  "period": {
+    "start": "2021-11-01",
+    "end": "2026-10-30"
+  },
+  "currency": "CAD",
+  "rng": {
+    "bit_generator": "PCG64",
+    "seed_sequence": "numpy.random.SeedSequence(seed).spawn",
+    "streams": [
+      "universe",
+      "markets",
+      "behaviour",
+      "events",
+      "ledger",
+      "adapter"
+    ]
+  },
+  "environment": {
+    "python": "3.14.6",
+    "numpy": "2.5.4"
+  },
+  "tables": {
+    "institutions": "data/institutions.csv",
+    "accounts": "data/accounts.csv",
+    "funds": "data/funds.csv",
+    "fund_exposures": "data/fund_exposures.csv",
+    "fund_exposures_by_axis": "data/fund_exposures_by_axis.csv",
+    "fund_strategic_targets": "data/fund_strategic_targets.csv",
+    "allocation_targets_history": "data/allocation_targets_history.csv",
+    "fund_prices_daily": "data/fund_prices_daily.csv",
+    "benchmarks": "data/benchmarks.csv",
+    "benchmarks_daily": "data/benchmarks_daily.csv",
+    "market_regimes_daily": "data/market_regimes_daily.csv",
+    "events": "data/events.csv",
+    "external_movements": "data/external_movements.csv",
+    "contribution_room": "data/contribution_room.csv",
+    "persona": "data/persona.csv",
+    "tax_limits": "data/tax_limits.csv",
+    "internal_trades": "data/internal_trades.csv",
+    "positions_daily": "data/positions_daily.csv",
+    "account_values_daily": "data/account_values_daily.csv",
+    "performance_daily": "data/performance_daily.csv",
+    "performance_periods": "data/performance_periods.csv",
+    "counterfactual_daily": "data/counterfactual_daily.csv"
+  },
+  "inputs": {
+    "tax_limits": {
+      "source": "sql/plafonds.sql",
+      "sha256": "f684edbf9cb32e039691262bdb8d14302ff44981c90807cb4ef13c10ebf09f33"
+    }
+  },
+  "config": {
+    "scenario": {
+      "name": "vitrine",
+      "start_date": "2021-11-01",
+      "end_date": "2026-10-30",
+      "base_currency": "CAD",
+      "seed": 20261103,
+      "market_seed": 19
+    },
+    "universe": {
+      "fund_count": [
+        12,
+        18
+      ],
+      "regimes": [
+        "CELI",
+        "CELIAPP",
+        "REER",
+        "COMP"
+      ],
+      "celiapp_available_from": "2023-04-01",
+      "fee_tier_threshold_cad": 100000,
+      "new_fund_probability": 0.12,
+      "new_fund_window_days": [
+        90,
+        900
+      ],
+      "old_fund_age_days": [
+        365,
+        7300
+      ],
+      "institution_weight_sigma": 0.55,
+      "min_institution_weight": 0.1,
+      "equal_split_tolerance": 0.02,
+      "first_institution_reason": "héritage de produits",
+      "min_appetite_gap": 0.1
+    },
+    "accounts": {
+      "min_per_institution": 2,
+      "first_opening_window_days": 45,
+      "institution_delay_months": 14,
+      "institution_delay_max_months": 30,
+      "account_delay_months": 9,
+      "celiapp_delay_months": 4,
+      "last_opening_before_end_months": 12,
+      "count": {
+        "CELI": [
+          2,
+          3
+        ],
+        "CELIAPP": [
+          1,
+          1
+        ],
+        "REER": [
+          1,
+          2
+        ],
+        "COMP": [
+          1,
+          2
+        ]
+      }
+    },
+    "policy": {
+      "preference_concentration": 1.0,
+      "rounding_step": 5,
+      "account_funds": [
+        2,
+        4
+      ],
+      "account_weight_sigma": 0.35
+    },
+    "institutions": [
+      {
+        "name": "Société 1",
+        "strategy_profile": "balanced",
+        "risk_appetite": [
+          0.6,
+          0.06
+        ],
+        "fund_count": [
+          4,
+          6
+        ],
+        "fee_level": [
+          0.0,
+          0.08
+        ],
+        "savings_bias": 0.15,
+        "reasons": [
+          "portefeuilles clés en main",
+          "simplicité de gestion"
+        ],
+        "core_archetypes": [
+          "equilibre"
+        ],
+        "archetype_affinity": {
+          "equilibre": 1.0,
+          "croissance": 0.8,
+          "actions_mondiales": 0.9,
+          "actions_canadiennes": 0.6,
+          "obligations_canadiennes": 0.6,
+          "dividendes_canadiens": 0.4,
+          "actions_internationales": 0.5,
+          "conservateur": 0.3,
+          "monetaire": 0.3
+        },
+        "regime_affinity": {
+          "CELI": 1.0,
+          "REER": 0.8,
+          "COMP": 0.5,
+          "CELIAPP": 0.4
+        }
+      },
+      {
+        "name": "Société 2",
+        "strategy_profile": "prudent",
+        "risk_appetite": [
+          0.33,
+          0.06
+        ],
+        "fund_count": [
+          4,
+          6
+        ],
+        "fee_level": [
+          -0.12,
+          0.08
+        ],
+        "savings_bias": 0.0,
+        "reasons": [
+          "frais bas",
+          "proximité d'un conseiller"
+        ],
+        "core_archetypes": [
+          "conservateur"
+        ],
+        "archetype_affinity": {
+          "monetaire": 1.0,
+          "obligations_canadiennes": 1.0,
+          "obligations_mondiales": 0.6,
+          "conservateur": 1.0,
+          "equilibre": 0.7,
+          "dividendes_canadiens": 0.5,
+          "actions_mondiales": 0.3,
+          "actifs_reels": 0.4
+        },
+        "regime_affinity": {
+          "REER": 1.0,
+          "CELIAPP": 1.0,
+          "CELI": 0.8,
+          "COMP": 0.3
+        }
+      },
+      {
+        "name": "Société 3",
+        "strategy_profile": "growth",
+        "risk_appetite": [
+          0.88,
+          0.05
+        ],
+        "fund_count": [
+          4,
+          6
+        ],
+        "fee_level": [
+          0.1,
+          0.1
+        ],
+        "savings_bias": -0.1,
+        "reasons": [
+          "changement de stratégie",
+          "choix de fonds spécialisés"
+        ],
+        "core_archetypes": [
+          "actions_mondiales",
+          "actions_americaines",
+          "marches_emergents",
+          "technologie_mondiale",
+          "petites_cap_nord_americaines"
+        ],
+        "archetype_affinity": {
+          "actions_mondiales": 0.9,
+          "actions_americaines": 0.8,
+          "marches_emergents": 0.7,
+          "petites_cap_nord_americaines": 0.7,
+          "technologie_mondiale": 0.5,
+          "actions_canadiennes": 0.6,
+          "croissance": 0.5,
+          "actions_internationales": 0.5,
+          "monetaire": 0.2
+        },
+        "regime_affinity": {
+          "COMP": 1.0,
+          "CELI": 0.9,
+          "REER": 0.5,
+          "CELIAPP": 0.3
+        }
+      }
+    ],
+    "exposure_defaults": {
+      "asset_class_concentration": 300,
+      "geography_concentration": 120,
+      "style_concentration": 50,
+      "fixed_income_geography": {
+        "canada": 86,
+        "united_states": 8,
+        "europe": 4,
+        "other": 2
+      },
+      "cash_geography": {
+        "canada": 100
+      },
+      "other_geography": {
+        "canada": 30,
+        "united_states": 40,
+        "europe": 18,
+        "asia_pacific": 12
+      },
+      "equity_hedge_probability": 0.15,
+      "trading_cost_pct": [
+        0.01,
+        0.08
+      ],
+      "turnover_pct": [
+        10,
+        60
+      ],
+      "top10_weight_pct": [
+        14,
+        32
+      ]
+    },
+    "archetypes": {
+      "monetaire": {
+        "label": "Marché monétaire",
+        "strategic": {
+          "cash": 100
+        },
+        "asset_class": {
+          "cash": 97,
+          "fixed_income": 3
+        },
+        "mer_pct": [
+          0.1,
+          0.25
+        ],
+        "account_fee_pct": [
+          0.25,
+          0.45
+        ],
+        "duration_years": [
+          0.1,
+          0.4
+        ],
+        "distribution": "monthly",
+        "turnover_pct": [
+          0,
+          0
+        ],
+        "trading_cost_pct": [
+          0.0,
+          0.0
+        ]
+      },
+      "obligations_canadiennes": {
+        "label": "Revenu fixe canadien",
+        "strategic": {
+          "fixed_income": 100
+        },
+        "asset_class": {
+          "fixed_income": 95,
+          "cash": 5
+        },
+        "mer_pct": [
+          0.12,
+          0.3
+        ],
+        "account_fee_pct": [
+          0.5,
+          0.75
+        ],
+        "duration_years": [
+          5.5,
+          8.0
+        ],
+        "distribution": "monthly"
+      },
+      "obligations_mondiales": {
+        "label": "Revenu fixe global couvert",
+        "strategic": {
+          "fixed_income": 100
+        },
+        "asset_class": {
+          "fixed_income": 92,
+          "cash": 8
+        },
+        "fixed_income_geography": {
+          "canada": 25,
+          "united_states": 38,
+          "europe": 22,
+          "asia_pacific": 10,
+          "emerging": 5
+        },
+        "mer_pct": [
+          0.25,
+          0.45
+        ],
+        "account_fee_pct": [
+          0.55,
+          0.8
+        ],
+        "duration_years": [
+          5.0,
+          7.5
+        ],
+        "distribution": "monthly"
+      },
+      "conservateur": {
+        "label": "Portefeuille prudence",
+        "strategic": {
+          "fixed_income": 55,
+          "equity": 35,
+          "other": 5,
+          "cash": 5
+        },
+        "asset_class_concentration": 220,
+        "equity_geography": {
+          "canada": 40,
+          "united_states": 38,
+          "europe": 12,
+          "asia_pacific": 6,
+          "emerging": 4
+        },
+        "equity_style": {
+          "dividend": 40,
+          "broad_market": 35,
+          "value": 15,
+          "quality": 10
+        },
+        "mer_pct": [
+          0.22,
+          0.35
+        ],
+        "account_fee_pct": [
+          0.75,
+          0.95
+        ],
+        "duration_years": [
+          4.5,
+          7.0
+        ],
+        "distribution": "monthly"
+      },
+      "equilibre": {
+        "label": "Portefeuille pondéré",
+        "strategic": {
+          "equity": 60,
+          "fixed_income": 35,
+          "other": 3,
+          "cash": 2
+        },
+        "asset_class_concentration": 220,
+        "equity_geography": {
+          "canada": 32,
+          "united_states": 44,
+          "europe": 13,
+          "asia_pacific": 7,
+          "emerging": 4
+        },
+        "equity_style": {
+          "broad_market": 45,
+          "dividend": 20,
+          "growth": 20,
+          "value": 15
+        },
+        "mer_pct": [
+          0.24,
+          0.38
+        ],
+        "account_fee_pct": [
+          0.85,
+          1.05
+        ],
+        "duration_years": [
+          5.0,
+          7.5
+        ],
+        "distribution": "annual"
+      },
+      "croissance": {
+        "label": "Portefeuille dynamique",
+        "strategic": {
+          "equity": 85,
+          "fixed_income": 10,
+          "other": 3,
+          "cash": 2
+        },
+        "asset_class_concentration": 250,
+        "equity_geography": {
+          "canada": 25,
+          "united_states": 50,
+          "europe": 14,
+          "asia_pacific": 6,
+          "emerging": 5
+        },
+        "equity_style": {
+          "broad_market": 45,
+          "growth": 35,
+          "value": 10,
+          "dividend": 10
+        },
+        "mer_pct": [
+          0.25,
+          0.4
+        ],
+        "account_fee_pct": [
+          0.9,
+          1.1
+        ],
+        "duration_years": [
+          5.0,
+          7.0
+        ],
+        "distribution": "annual"
+      },
+      "actions_canadiennes": {
+        "label": "Actions du Canada",
+        "strategic": {
+          "equity": 100
+        },
+        "asset_class": {
+          "equity": 97,
+          "cash": 3
+        },
+        "equity_geography": {
+          "canada": 93,
+          "united_states": 7
+        },
+        "equity_style": {
+          "broad_market": 50,
+          "value": 30,
+          "dividend": 20
+        },
+        "mer_pct": [
+          0.2,
+          0.4
+        ],
+        "account_fee_pct": [
+          0.95,
+          1.2
+        ],
+        "distribution": "annual"
+      },
+      "dividendes_canadiens": {
+        "label": "Rendement de dividendes Canada",
+        "strategic": {
+          "equity": 100
+        },
+        "asset_class": {
+          "equity": 96,
+          "cash": 4
+        },
+        "equity_geography": {
+          "canada": 88,
+          "united_states": 12
+        },
+        "equity_style": {
+          "dividend": 75,
+          "value": 20,
+          "quality": 5
+        },
+        "mer_pct": [
+          0.25,
+          0.45
+        ],
+        "account_fee_pct": [
+          0.95,
+          1.2
+        ],
+        "distribution": "monthly"
+      },
+      "actions_americaines": {
+        "label": "Actions des États-Unis",
+        "strategic": {
+          "equity": 100
+        },
+        "asset_class": {
+          "equity": 98,
+          "cash": 2
+        },
+        "equity_geography": {
+          "united_states": 97,
+          "canada": 3
+        },
+        "equity_style": {
+          "broad_market": 55,
+          "growth": 30,
+          "quality": 15
+        },
+        "mer_pct": [
+          0.2,
+          0.4
+        ],
+        "account_fee_pct": [
+          0.95,
+          1.2
+        ],
+        "distribution": "annual"
+      },
+      "actions_mondiales": {
+        "label": "Actions planétaires",
+        "strategic": {
+          "equity": 100
+        },
+        "asset_class": {
+          "equity": 97,
+          "cash": 3
+        },
+        "equity_geography": {
+          "united_states": 60,
+          "europe": 18,
+          "asia_pacific": 12,
+          "canada": 4,
+          "emerging": 6
+        },
+        "equity_style": {
+          "broad_market": 55,
+          "growth": 25,
+          "value": 12,
+          "quality": 8
+        },
+        "mer_pct": [
+          0.25,
+          0.45
+        ],
+        "account_fee_pct": [
+          1.0,
+          1.25
+        ],
+        "distribution": "annual"
+      },
+      "actions_internationales": {
+        "label": "Actions hors Amérique du Nord",
+        "strategic": {
+          "equity": 100
+        },
+        "asset_class": {
+          "equity": 97,
+          "cash": 3
+        },
+        "equity_geography": {
+          "europe": 62,
+          "asia_pacific": 34,
+          "other": 4
+        },
+        "equity_style": {
+          "broad_market": 50,
+          "value": 30,
+          "dividend": 20
+        },
+        "mer_pct": [
+          0.3,
+          0.5
+        ],
+        "account_fee_pct": [
+          1.0,
+          1.25
+        ],
+        "distribution": "annual"
+      },
+      "marches_emergents": {
+        "label": "Économies émergentes",
+        "strategic": {
+          "equity": 100
+        },
+        "asset_class": {
+          "equity": 96,
+          "cash": 4
+        },
+        "equity_geography": {
+          "emerging": 88,
+          "asia_pacific": 12
+        },
+        "equity_style": {
+          "broad_market": 55,
+          "growth": 30,
+          "value": 15
+        },
+        "mer_pct": [
+          0.35,
+          0.6
+        ],
+        "account_fee_pct": [
+          1.05,
+          1.3
+        ],
+        "distribution": "annual",
+        "top10_weight_pct": [
+          20,
+          36
+        ]
+      },
+      "petites_cap_nord_americaines": {
+        "label": "Petites sociétés nord-américaines",
+        "strategic": {
+          "equity": 100
+        },
+        "asset_class": {
+          "equity": 96,
+          "cash": 4
+        },
+        "equity_geography": {
+          "united_states": 62,
+          "canada": 38
+        },
+        "equity_style": {
+          "growth": 45,
+          "value": 35,
+          "broad_market": 20
+        },
+        "mer_pct": [
+          0.35,
+          0.55
+        ],
+        "account_fee_pct": [
+          1.05,
+          1.3
+        ],
+        "distribution": "annual",
+        "top10_weight_pct": [
+          8,
+          18
+        ]
+      },
+      "technologie_mondiale": {
+        "label": "Innovation technologique",
+        "strategic": {
+          "equity": 100
+        },
+        "asset_class": {
+          "equity": 97,
+          "cash": 3
+        },
+        "equity_geography": {
+          "united_states": 78,
+          "asia_pacific": 10,
+          "europe": 7,
+          "emerging": 5
+        },
+        "equity_style": {
+          "growth": 85,
+          "quality": 15
+        },
+        "mer_pct": [
+          0.4,
+          0.65
+        ],
+        "account_fee_pct": [
+          1.1,
+          1.35
+        ],
+        "distribution": "annual",
+        "top10_weight_pct": [
+          42,
+          62
+        ],
+        "turnover_pct": [
+          25,
+          90
+        ]
+      },
+      "actifs_reels": {
+        "label": "Actifs réels et infrastructures",
+        "strategic": {
+          "other": 80,
+          "equity": 15,
+          "cash": 5
+        },
+        "asset_class_concentration": 200,
+        "equity_geography": {
+          "canada": 40,
+          "united_states": 45,
+          "europe": 15
+        },
+        "equity_style": {
+          "dividend": 70,
+          "value": 30
+        },
+        "mer_pct": [
+          0.4,
+          0.65
+        ],
+        "account_fee_pct": [
+          0.95,
+          1.2
+        ],
+        "distribution": "monthly"
+      }
+    },
+    "markets": {
+      "method": "latent_multifactor_regime_switching",
+      "trading_days_per_year": 252,
+      "shock_df": 5,
+      "garch": {
+        "alpha": 0.07,
+        "beta": 0.91
+      },
+      "regimes": {
+        "expansion": {
+          "mean_duration_months": 30,
+          "next": {
+            "ralentissement": 0.75,
+            "crise": 0.25
+          },
+          "equity_drift_pct": 10.0,
+          "vol_multiplier": 0.85,
+          "specific_vol_multiplier": 1.0,
+          "rates_equity_rho": 0.25,
+          "yield_drift_bp": 20,
+          "credit_drift_bp": -15,
+          "fx_drift_pct": -1.0,
+          "style_drift_pct": {
+            "growth": 1.5,
+            "dividend": -0.5,
+            "quality": 0.0
+          },
+          "jump_rate_per_year": 0.4,
+          "jump_size_pct": [
+            0.3,
+            2.5
+          ]
+        },
+        "ralentissement": {
+          "mean_duration_months": 10,
+          "next": {
+            "expansion": 0.55,
+            "crise": 0.45
+          },
+          "equity_drift_pct": 0.0,
+          "vol_multiplier": 1.1,
+          "specific_vol_multiplier": 1.0,
+          "rates_equity_rho": 0.05,
+          "yield_drift_bp": -40,
+          "credit_drift_bp": 30,
+          "fx_drift_pct": 1.5,
+          "style_drift_pct": {
+            "growth": -1.0,
+            "dividend": 1.0,
+            "quality": 1.0
+          },
+          "jump_rate_per_year": 0.8,
+          "jump_size_pct": [
+            -1.0,
+            3.0
+          ]
+        },
+        "crise": {
+          "mean_duration_months": 4,
+          "next": {
+            "reprise": 1.0
+          },
+          "equity_drift_pct": -30.0,
+          "vol_multiplier": 2.0,
+          "specific_vol_multiplier": 0.8,
+          "rates_equity_rho": -0.4,
+          "yield_drift_bp": -150,
+          "credit_drift_bp": 180,
+          "fx_drift_pct": 8.0,
+          "style_drift_pct": {
+            "growth": -4.0,
+            "dividend": 2.0,
+            "quality": 3.0
+          },
+          "jump_rate_per_year": 3.0,
+          "jump_size_pct": [
+            -3.0,
+            4.0
+          ]
+        },
+        "reprise": {
+          "mean_duration_months": 8,
+          "next": {
+            "expansion": 0.85,
+            "ralentissement": 0.15
+          },
+          "equity_drift_pct": 22.0,
+          "vol_multiplier": 1.3,
+          "specific_vol_multiplier": 1.0,
+          "rates_equity_rho": 0.2,
+          "yield_drift_bp": 50,
+          "credit_drift_bp": -120,
+          "fx_drift_pct": -4.0,
+          "style_drift_pct": {
+            "growth": 3.0,
+            "dividend": -1.0,
+            "quality": -1.0
+          },
+          "jump_rate_per_year": 1.2,
+          "jump_size_pct": [
+            1.0,
+            3.0
+          ]
+        }
+      },
+      "equity": {
+        "global_vol_pct": 12.5,
+        "regional_drift_sigma_pct": 2.0,
+        "regions": {
+          "canada": [
+            0.85,
+            7.0
+          ],
+          "united_states": [
+            1.0,
+            5.0
+          ],
+          "europe": [
+            0.95,
+            8.0
+          ],
+          "asia_pacific": [
+            0.9,
+            9.0
+          ],
+          "emerging": [
+            1.05,
+            11.0
+          ],
+          "other": [
+            0.9,
+            10.0
+          ]
+        }
+      },
+      "rates": {
+        "canada_initial_pct": [
+          1.0,
+          4.5
+        ],
+        "global_initial_pct": [
+          1.5,
+          4.5
+        ],
+        "long_run_pct": [
+          2.0,
+          4.0
+        ],
+        "mean_reversion_per_year": 0.35,
+        "lower_bound_smoothing_bp": 20,
+        "canada_vol_bp": 75,
+        "global_vol_bp": 70,
+        "common_share": 0.7,
+        "slope_vol_bp": 45,
+        "short_spread_pct": [
+          0.3,
+          1.0
+        ],
+        "credit_vol_bp": 55,
+        "credit_equity_rho": -0.5,
+        "credit_duration_share": 0.35
+      },
+      "fx": {
+        "vol_pct": 7.0,
+        "equity_rho": -0.35
+      },
+      "styles": {
+        "growth": {
+          "vol_pct": 5.0,
+          "equity_rho": 0.3
+        },
+        "dividend": {
+          "vol_pct": 3.0,
+          "equity_rho": -0.3
+        },
+        "quality": {
+          "vol_pct": 2.5,
+          "equity_rho": -0.2
+        }
+      },
+      "real_assets": {
+        "vol_pct": 9.0,
+        "equity_beta": 0.6
+      },
+      "funds": {
+        "tracking_error_pct": {
+          "equity": [
+            2.5,
+            6.0
+          ],
+          "fixed_income": [
+            0.7,
+            1.5
+          ],
+          "cash": [
+            0.03,
+            0.1
+          ],
+          "other": [
+            3.0,
+            6.0
+          ]
+        },
+        "alpha_te_ratio": 0.25,
+        "idiosyncratic_df": 6,
+        "jump_rate_per_year": 0.15,
+        "jump_sigma_pct": 3.0,
+        "initial_nav": [
+          8.0,
+          40.0
+        ],
+        "launch_nav": 10.0
+      },
+      "benchmarks": {
+        "passive_fee_pct": {
+          "equity": 0.08,
+          "fixed_income": 0.06,
+          "cash": 0.03,
+          "other": 0.12
+        },
+        "global_equity": {
+          "asset_class": {
+            "equity": 100
+          },
+          "equity_geography": {
+            "united_states": 58,
+            "europe": 15,
+            "asia_pacific": 10,
+            "emerging": 10,
+            "canada": 4,
+            "other": 3
+          }
+        },
+        "balanced": {
+          "asset_class": {
+            "equity": 55,
+            "fixed_income": 40,
+            "cash": 5
+          },
+          "equity_geography": {
+            "canada": 30,
+            "united_states": 42,
+            "europe": 13,
+            "asia_pacific": 7,
+            "emerging": 6,
+            "other": 2
+          },
+          "duration_years": 7.0
+        },
+        "category": {
+          "prudent": {
+            "name": "Profil prudent",
+            "archetypes": [
+              "conservateur"
+            ],
+            "asset_class": {
+              "equity": 40,
+              "fixed_income": 55,
+              "cash": 5
+            },
+            "equity_geography": {
+              "canada": 30,
+              "united_states": 42,
+              "europe": 13,
+              "asia_pacific": 7,
+              "emerging": 6,
+              "other": 2
+            },
+            "duration_years": 7.0
+          },
+          "equilibre": {
+            "name": "Profil équilibré",
+            "archetypes": [
+              "equilibre"
+            ],
+            "asset_class": {
+              "equity": 60,
+              "fixed_income": 37,
+              "cash": 3
+            },
+            "equity_geography": {
+              "canada": 30,
+              "united_states": 42,
+              "europe": 13,
+              "asia_pacific": 7,
+              "emerging": 6,
+              "other": 2
+            },
+            "duration_years": 7.0
+          },
+          "croissance": {
+            "name": "Profil croissance",
+            "archetypes": [
+              "croissance"
+            ],
+            "asset_class": {
+              "equity": 90,
+              "fixed_income": 8,
+              "cash": 2
+            },
+            "equity_geography": {
+              "canada": 30,
+              "united_states": 42,
+              "europe": 13,
+              "asia_pacific": 7,
+              "emerging": 6,
+              "other": 2
+            },
+            "duration_years": 7.0
+          },
+          "act_can": {
+            "name": "Actions du Canada, marché large",
+            "archetypes": [
+              "actions_canadiennes",
+              "dividendes_canadiens"
+            ],
+            "asset_class": {
+              "equity": 100
+            },
+            "equity_geography": {
+              "canada": 100
+            }
+          },
+          "act_us": {
+            "name": "Actions des États-Unis, marché large",
+            "archetypes": [
+              "actions_americaines"
+            ],
+            "asset_class": {
+              "equity": 100
+            },
+            "equity_geography": {
+              "united_states": 100
+            }
+          },
+          "act_amn": {
+            "name": "Actions nord-américaines, marché large",
+            "archetypes": [
+              "petites_cap_nord_americaines"
+            ],
+            "asset_class": {
+              "equity": 100
+            },
+            "equity_geography": {
+              "united_states": 65,
+              "canada": 35
+            }
+          },
+          "act_monde": {
+            "name": "Actions planétaires, marché large",
+            "archetypes": [
+              "actions_mondiales",
+              "technologie_mondiale"
+            ],
+            "asset_class": {
+              "equity": 100
+            },
+            "equity_geography": {
+              "united_states": 58,
+              "europe": 15,
+              "asia_pacific": 10,
+              "emerging": 10,
+              "canada": 4,
+              "other": 3
+            }
+          },
+          "act_intl": {
+            "name": "Actions hors Amérique du Nord, marché large",
+            "archetypes": [
+              "actions_internationales"
+            ],
+            "asset_class": {
+              "equity": 100
+            },
+            "equity_geography": {
+              "europe": 64,
+              "asia_pacific": 36
+            }
+          },
+          "emergents": {
+            "name": "Économies émergentes, marché large",
+            "archetypes": [
+              "marches_emergents"
+            ],
+            "asset_class": {
+              "equity": 100
+            },
+            "equity_geography": {
+              "emerging": 100
+            }
+          },
+          "obl_can": {
+            "name": "Revenu fixe canadien, marché large",
+            "archetypes": [
+              "obligations_canadiennes"
+            ],
+            "asset_class": {
+              "fixed_income": 100
+            },
+            "duration_years": 7.0
+          },
+          "obl_monde": {
+            "name": "Revenu fixe global couvert, marché large",
+            "archetypes": [
+              "obligations_mondiales"
+            ],
+            "asset_class": {
+              "fixed_income": 100
+            },
+            "fixed_income_geography": {
+              "canada": 25,
+              "united_states": 40,
+              "europe": 22,
+              "asia_pacific": 13
+            },
+            "duration_years": 6.5
+          },
+          "monetaire": {
+            "name": "Marché monétaire",
+            "archetypes": [
+              "monetaire"
+            ],
+            "asset_class": {
+              "cash": 100
+            }
+          },
+          "actifs_reels": {
+            "name": "Actifs réels",
+            "archetypes": [
+              "actifs_reels"
+            ],
+            "asset_class": {
+              "other": 100
+            },
+            "other_geography": {
+              "canada": 30,
+              "united_states": 40,
+              "europe": 18,
+              "asia_pacific": 12
+            }
+          }
+        }
+      }
+    },
+    "persona": {
+      "celi_first_year": [
+        2012,
+        2021
+      ],
+      "earned_income": [
+        64000,
+        0.2
+      ],
+      "income_growth_pct": [
+        2.5,
+        2.0
+      ],
+      "reer_opening_unused": [
+        0,
+        12000
+      ],
+      "marginal_tax_rate": [
+        0.26,
+        0.38
+      ]
+    },
+    "behaviour": {
+      "monthly_capacity": [
+        700,
+        0.15
+      ],
+      "revision_noise_sigma": 0.03,
+      "phase_count": [
+        2,
+        5
+      ],
+      "phase_min_gap_months": 5,
+      "phase_window_months": [
+        3,
+        3
+      ],
+      "phase_multiplier": {
+        "hausse_revenus": [
+          1.08,
+          1.3
+        ],
+        "pression_budgetaire": [
+          0.65,
+          0.9
+        ],
+        "nouveau_projet": [
+          0.85,
+          1.0
+        ],
+        "reprise_epargne": [
+          1.05,
+          1.25
+        ]
+      },
+      "phase_weights": {
+        "hausse_revenus": 0.3,
+        "pression_budgetaire": 0.25,
+        "nouveau_projet": 0.25,
+        "reprise_epargne": 0.2
+      },
+      "phase_reversion": 4.0,
+      "project_celiapp_boost": 2.0,
+      "account_weight_sigma": 0.5,
+      "account_weight_drift_sigma": 0.15,
+      "no_pac_probability": 0.15,
+      "min_pac": 25,
+      "pac_rounding": {
+        "5": 0.3,
+        "10": 0.4,
+        "25": 0.2,
+        "50": 0.1
+      },
+      "pac_day": [
+        1,
+        28
+      ],
+      "adjustment_rate_per_year": 0.8,
+      "adjustment_sigma": 0.15,
+      "atypical_rate_per_year": 0.7,
+      "atypical_types": {
+        "suspension": 0.4,
+        "reduction": 0.4,
+        "report": 0.2
+      },
+      "reduction_factor": [
+        0.4,
+        0.7
+      ],
+      "report_days": [
+        4,
+        15
+      ],
+      "pause_rate_per_year": 0.2,
+      "pause_months": [
+        1,
+        4
+      ],
+      "lump_rate_per_year": 1.1,
+      "lump_month_weights": [
+        1.6,
+        1.4,
+        0.9,
+        0.9,
+        0.9,
+        0.8,
+        0.8,
+        0.8,
+        0.9,
+        0.9,
+        1.0,
+        1.3
+      ],
+      "lump_types": {
+        "prime": 0.4,
+        "argent_disponible": 0.35,
+        "cadeau": 0.25
+      },
+      "lump_capacity_multiple": {
+        "prime": [
+          2.5,
+          0.5
+        ],
+        "argent_disponible": [
+          1.2,
+          0.5
+        ],
+        "cadeau": [
+          0.8,
+          0.6
+        ]
+      },
+      "lump_bounds_capacity_multiple": [
+        0.15,
+        8.0
+      ],
+      "lump_bounds_cad": [
+        100,
+        9000
+      ],
+      "lump_rounding": {
+        "1": 0.25,
+        "10": 0.35,
+        "50": 0.25,
+        "100": 0.15
+      },
+      "reer_season_boost": 2.0,
+      "celi_january_boost": 1.5,
+      "refund_probability": 0.8,
+      "refund_months": [
+        4,
+        6
+      ],
+      "withdrawal_rate_per_year": 0.3,
+      "withdrawal_capacity_multiple": [
+        2.0,
+        0.6
+      ],
+      "withdrawal_max_share": 0.5,
+      "withdrawal_min_cad": 100,
+      "review_month_weights": [
+        2.0,
+        1.5,
+        1.0,
+        0.8,
+        0.8,
+        0.6,
+        0.5,
+        0.6,
+        1.0,
+        1.0,
+        1.0,
+        1.2
+      ],
+      "review_change_probability": 0.35,
+      "review_sigma": 0.3,
+      "review_pac_probability": 0.5,
+      "new_fund_adoption_probability": 0.5,
+      "prudence_drawdown_pct": -15,
+      "prudence_monthly_probability": 0.35,
+      "prudence_equity_shift": 0.15,
+      "prudence_min_equity_drop": 0.05,
+      "prudence_duration_months": 9,
+      "scripted_lumps": [
+        {
+          "date": "2026-01-12",
+          "account": "CELI-1",
+          "amount_cad": 15000,
+          "reason": "versement de début d'année"
+        },
+        {
+          "date": "2026-02-17",
+          "account": "CELI-2",
+          "amount_cad": 20000,
+          "reason": "transfert d'épargne vers un second CELI"
+        },
+        {
+          "date": "2026-03-09",
+          "account": "CELI-1",
+          "amount_cad": 10000,
+          "reason": "complément de versement"
+        }
+      ]
+    },
+    "ledger": {
+      "drift_threshold_pts": [
+        3.0,
+        6.0
+      ],
+      "drift_check_months": 6,
+      "rebalance_fraction": [
+        0.4,
+        0.9
+      ],
+      "full_rebalance_probability": 0.3,
+      "rebalance_min_cad": 100
+    },
+    "performance": {
+      "mwr_bounds": [
+        -0.99,
+        10.0
+      ],
+      "mwr_grid": 400,
+      "annualize_min_days": 365,
+      "context_benchmarks": [
+        "R-ACT-MONDE",
+        "R-EQUILIBRE"
+      ]
+    },
+    "adapter": {
+      "distribute_all": [
+        "monetaire"
+      ],
+      "payment_noise_sigma": 0.15,
+      "capital_gain_share": [
+        0.0,
+        0.25
+      ],
+      "december_window_days": 12,
+      "yield_pct": {
+        "obligations_canadiennes": [
+          2.6,
+          3.4
+        ],
+        "obligations_mondiales": [
+          2.4,
+          3.2
+        ],
+        "conservateur": [
+          2.0,
+          2.8
+        ],
+        "equilibre": [
+          1.6,
+          2.4
+        ],
+        "croissance": [
+          1.0,
+          1.8
+        ],
+        "actions_canadiennes": [
+          2.4,
+          3.2
+        ],
+        "dividendes_canadiens": [
+          3.4,
+          4.4
+        ],
+        "actions_americaines": [
+          0.8,
+          1.4
+        ],
+        "actions_mondiales": [
+          1.0,
+          1.6
+        ],
+        "actions_internationales": [
+          2.0,
+          2.8
+        ],
+        "marches_emergents": [
+          1.6,
+          2.4
+        ],
+        "petites_cap_nord_americaines": [
+          0.4,
+          1.0
+        ],
+        "technologie_mondiale": [
+          0.0,
+          0.5
+        ],
+        "actifs_reels": [
+          3.2,
+          4.4
+        ]
+      }
+    }
+  },
+  "finance_ve01": {
+    "ref.compte": "finance_ve01/ref.compte.csv",
+    "ref.nature": "finance_ve01/ref.nature.csv",
+    "ref.parametre": "finance_ve01/ref.parametre.csv",
+    "ref.reer_avis": "finance_ve01/ref.reer_avis.csv",
+    "fait.historique": "finance_ve01/fait.historique.csv",
+    "pub.profil": "finance_ve01/pub.profil.csv",
+    "pub.profil_ligne": "finance_ve01/pub.profil_ligne.csv",
+    "pub.profil_code": "finance_ve01/pub.profil_code.csv",
+    "ref.fonds": "finance_ve01/ref.fonds.csv",
+    "ref.style": "finance_ve01/ref.style.csv",
+    "ref.geographie": "finance_ve01/ref.geographie.csv",
+    "ref.risque": "finance_ve01/ref.risque.csv",
+    "ref.symbole": "finance_ve01/ref.symbole.csv",
+    "ref.repere": "finance_ve01/ref.repere.csv",
+    "pub.rapport_annuel": "finance_ve01/pub.rapport_annuel.csv",
+    "pub.cours": "finance_ve01/pub.cours.csv",
+    "fait.transaction": "finance_ve01/fait.transaction.csv",
+    "fait.sommaire": "finance_ve01/fait.sommaire.csv",
+    "distributions": "finance_ve01/distributions.csv"
+  }
+}

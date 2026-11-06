@@ -1,0 +1,87 @@
+/// Coût de la stratégie au dernier point de chaque compte (vue rapport.cout, règle S6 de docs/regles-strategie.md) : VM, VM couverte par un profil, Σ VM × RFG, dates des profils appliqués.
+table Coût
+	lineageTag: 6832e5a4-1b12-41ce-81c2-3c908884adac
+
+	column compte_alias
+		dataType: string
+		isHidden
+		lineageTag: 07734541-4714-4ad8-8a29-c1b314565df5
+		summarizeBy: none
+		sourceColumn: compte_alias
+
+	/// VM du compte au point (P2)
+	column vm
+		dataType: decimal
+		isHidden
+		formatString: #,##0 $
+		lineageTag: c2527245-46ac-49e4-aa18-0fcc34da76f6
+		summarizeBy: none
+		sourceColumn: vm
+
+	/// VM des fonds couverts par un profil (S1) : dénominateur du RFG pondéré
+	column vm_profil
+		dataType: decimal
+		isHidden
+		formatString: #,##0 $
+		lineageTag: 340c80c8-e210-48be-bfbe-9ea078230937
+		summarizeBy: none
+		sourceColumn: vm_profil
+
+	/// Σ VM × RFG des fonds couverts par un profil, en dollars, non arrondi
+	column vm_rfg
+		dataType: double
+		isHidden
+		lineageTag: afaba841-d5b4-4612-880e-2feffe9514e2
+		summarizeBy: none
+		sourceColumn: vm_rfg
+
+	/// Plus ancienne date de données des profils appliqués au compte
+	column premier_profil
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 989d1719-751d-4842-a142-cf8e68daac03
+		summarizeBy: none
+		sourceColumn: premier_profil
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Plus récente date de données des profils appliqués au compte
+	column dernier_profil
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 30d26167-dd9f-4ebb-a0bc-12dfe6f66995
+		summarizeBy: none
+		sourceColumn: dernier_profil
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Coût = m
+		mode: import
+		source =
+				let
+				    // Vue rapport.cout : une ligne par compte et par point
+				    #"Vue coût lue" =
+				        // Figée : vue rapport.cout de finance_ve01, données fictives, 236 lignes (scripts/figer.py)
+				        let
+				            Lignes = Json.Document(Binary.Decompress(Binary.FromText(
+				                "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" &
+				                "Iz5VaPL3rdueMU0hnB1NS2CoF22X6CO3Z0xpGSO6H7eAE8zZftuB9IXcnjHNGmDoBM4USElSLUvZt3J7yJQUQjht6hSYp9Tmuu474faYadLUh85TToGCDRP2MoqH/GHMNIfy+uTAFHT0VoJLKQ9DpvQWnk2dS2haC9L5YRe53a/duIpnI8IUNPdOkOC5Qo9N2/g2TTs7l3DOgfY+hovcHjKlve5so12CZp/oHerFRW4PmTIB1s4QbAoUDXTaPomL3G6mEKEtnJdmCaLhHv3L3UVu51NJ6WnV+hZIumh+JPh0bndTMLXymmCdArMVWWc2movcHjLlEwxynvMp6JApZX7Pc/84ZNqL9n31W6AGj85D8W2oPWRKbuFsx1wC5DrWklw6fxgypXdPywO3oFk0xuOzj/xpyBRHcLRbEG0bGOK6/U9Tpjq2fhatL4GbRK9TGo7D8pspU1VDvQXNa/Tmep1/M2Waz0rYErigFNxkiIv8YcpUh1jGQtHvV/DVm+qitmdMG8WCczhuCiil6wyeTykPM6Z8DuN8PqfAAC5NYMPj6D/PmPLFivP5nAJqoSZeg4/cnjIVQdOx34KOaVPOT91Fbk+ZipbazuzlJYg6iy337CK350yJe15P/xTQOZ+A4AMTHvKnSdOg3Y1yC00HNunn9ZHbo6ZtRG3FvgW9n4HecpdaHkZN0YYG3begfbG1Zk+M9ZSEjTrcrG0ZF6pXgZMo4qI2k7Aoup4ToBfq7STIit1FbSZh8VP0e1HlFvTDFfSVeKKsp0Qs9waHuS/UN4LHzZMCekrEctvJzVOdXQLWnCTkEN+6zVQsr2Q/v2i0BJ1dpy1j+M6JmYylta6TcIy3IPo9HybooovcTMdGLuHL0ZoCo5oJn7/4zoqZkI1Dq4eayptC1w+G8HUwl1rspCzaaP3sg5sCauGTQfItz/nNqFHWroY4gcw9nbzf2ss3c0ZKGMoE5WUmtrt4zZcnM7erNfcXaKUhf8trezNgRJVMP6pzgdJiUJKL13xusvbolwmqBvrHXWqwXxpCYv1W3gXw9vy27+oLr/nI6EK17+AF53ppHXPxmu/L2WxQJqh+qROV7/M+fsWAcgLH9QK+/UOvZRAXr/39gvhq7XgBvIQ1pbt4zUcl68t9/amr/WY+480UkXAbeLIvwNnj4wXDx2u34Gl0dP2pLiTT8z5W8w1hIFy7qS/Q3mfacYaL13w+RAf4+gRta6Go4tsz8+Xg8wyn+/yCpLHF90oTb+aEqEmfengBvCQUYvbw2u8F2SBNr1yg2T75/b79/T8=",
+				                BinaryEncoding.Base64), Compression.Deflate)),
+				            Brute = Table.FromRows(Lignes, {"compte_alias", "mois", "date_point", "dernier", "vm", "vm_profil", "vm_rfg", "premier_profil", "dernier_profil"}),
+				            Dates = Table.TransformColumns(Brute, {{"mois", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}, {"date_point", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}, {"premier_profil", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}, {"dernier_profil", each Date.FromText(_, [Format = "yyyy-MM-dd", Culture = "en-US"]), type nullable date}}),
+				            Typée = Table.TransformColumnTypes(Dates, {{"compte_alias", type text}, {"dernier", type logical}, {"vm", type number}, {"vm_profil", type number}, {"vm_rfg", type number}})
+				        in
+				            Typée,
+				    // Dernier point de chaque compte seulement, comme la table Exposition
+				    #"Dernier point" = Table.SelectRows(#"Vue coût lue", each [dernier] = true),
+				    // Colonnes du rapport seulement
+				    #"Colonnes retenues" = Table.SelectColumns(#"Dernier point", {"compte_alias", "vm", "vm_profil", "vm_rfg", "premier_profil", "dernier_profil"}),
+				    // VM en décimal fixe (au cent) ; Σ VM × RFG en nombre décimal ; dates sans heure
+				    #"Types fixés" = Table.TransformColumnTypes(#"Colonnes retenues", {{"compte_alias", type text}, {"vm", Currency.Type}, {"vm_profil", Currency.Type}, {"vm_rfg", type number}, {"premier_profil", type date}, {"dernier_profil", type date}})
+				in
+				    #"Types fixés"
+
+	annotation PBI_ResultType = Table
+

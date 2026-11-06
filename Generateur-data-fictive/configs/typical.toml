@@ -1,0 +1,7 @@
+# Scénario « typical » : plausible, désordonné, ni spécialement gagnant ni perdant.
+# Hérite de base.toml ; ne surcharge que le nom. La graine est choisie d'avance (20261103),
+# jamais d'après la qualité du résultat.
+extends = "base.toml"
+
+[scenario]
+name = "typical"

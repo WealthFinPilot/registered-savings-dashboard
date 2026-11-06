@@ -1,0 +1,6 @@
+"""Générateur de patrimoine financier synthétique.
+
+Toutes les sorties sont SYNTHÉTIQUES / NON RÉELLES / NON CONSTITUTIVES D'UN CONSEIL FINANCIER.
+"""
+VERSION = "0.1.0"
+AVERTISSEMENT = "SYNTHÉTIQUE / NON RÉEL / NON CONSTITUTIF D'UN CONSEIL FINANCIER"
