@@ -3,7 +3,7 @@
 - **Projet :** DashBoard-Finance vE01
 - **Ouvert le :** 2026-11-05
 - **Contrat validé par le responsable :** oui, le 2026-11-05 (dépôt GitHub supprimé par le responsable le même jour)
-- **Statut :** ouvert
+- **Statut :** accepté
 
 ## Objectif
 
@@ -63,3 +63,26 @@ Preuves sous `jalons/preuves/neutralisation-publication/`. Interpréteur : `Gene
   retiré avant la publication ; le générateur produit ses propres `ref.geographie` et `ref.risque`.
 
 ## Verdicts
+
+### 2026-11-05 — evaluateur-jalon, passage 1
+
+```
+JALON    : Neutralisation du format fictif et publication propre (DashBoard-Finance vE01)
+VERDICT  : ACCEPTÉ
+CRITÈRES :
+- [C1] PASS (attesté) — Constaté par moi : `ref.nature.csv` des deux sorties = exactement les 7 motifs du contrat (lignes 2-8). `pub.profil_code.csv` : 14 lignes sur 14 en `FA` dans chaque sortie. `sql/schema.sql:194` : `CHECK (option_achat IN ('FA', 'FR', 'FM'))`. Les deux balayages sont lus dans `fuite.txt:17` et `:35` (« AUCUNE FUITE », ligne « motifs privés supplémentaires : 0 », aucun motif imprimé), mais je ne les ai pas relancés.
+- [C2] PASS (attesté) — `sorties.txt:51` et `:103` : « AUCUNE DIFFÉRENCE HORS COLONNES PERMISES ». Seules `fait.transaction.libelle` (1088 et 1141 lignes) et `ref.nature.motif` (6 lignes) diffèrent. J'ai relu `comparer_sorties.py:47-62` : la comparaison est ligne à ligne et colonne par colonne, sans exclusion implicite. `validate.txt` : réussi sur les deux sorties. `pytest.txt:6` : 240 passed, 21 deselected.
+- [C3] PASS (attesté) — `chargement.txt:83-175` : 18 tables chargées, tous les contrôles PASS (45 vues). `recette.txt` : distributions, grand-livre, oracle et rapport à code de sortie 0. `figer.txt` : 18 « inchangée », confirmé par `grep -c` dans `diff-rapport.txt:8-9`. `diff-rapport.txt:2-3` : seuls `Cotisation REER.tmdl` et `Détention.tmdl` changent, une ligne chacun, des descriptions `///`, conformément à la modification de contrat du 2026-11-05.
+- [C4] PASS (attesté) — `historique.txt:1-2` : un seul commit sur `origin/main`. `historique.txt:8-9` : 445 blobs texte, « AUCUNE FUITE ». `visibilite.txt:2` : `"visibility":"PRIVATE"`. `.git/config:9` : `origin` pointe vers `registered-savings-dashboard`. Les trois branches `archive/*` ont `pushRemote = ne-jamais-pousser`. `.gitignore:17` exclut `motifs-prives.txt`.
+HORS CONTRAT :
+- `Generateur-data-fictive/scripts/audit_historique.py:49-50` : `except Exception: pass` autour de la décompression des partitions figées. Si elle échoue sur un `.tmdl`, ses partitions ne sont pas auditées, et l'audit affiche quand même « AUCUNE FUITE ». De même `:43-44` : un `git cat-file` en échec fait sauter le blob sans message.
+- `jalons/preuves/neutralisation-publication/diff-rapport.txt:1` : le diff est limité à `rapport/DashBoard-Finance.SemanticModel`. Le contrat C3 vise `rapport/`, donc `DashBoard-Finance.Report` (PBIR) n'est pas couvert par cette preuve.
+- `pub.profil_code.csv` est « identique » avant et après le jalon (`sorties.txt:32` et `:84`). Les codes `FA`, `FR`, `FM` étaient donc déjà ceux du générateur, et seule la contrainte de `schema.sql` portait l'ancien format. Cohérent avec le contrat, mais le critère ne prouve rien sur le « avant » du côté du générateur.
+À VÉRIFIER PAR SÉBASTIEN : tout est attesté (sorties de commandes produites par l'exécutant, sans exécution de ma part). Pour contrôler, relance `balayage_fuite.py` (sans option, puis avec `--perimetre projet`) et `audit_historique.py . origin/main`. Fais aussi `git ls-remote origin` et `gh repo view --json visibility`. Le nom d'utilisateur du chemin absolu retiré à la main dans `chargement.txt` (déclaré au contrat) n'est pas contrôlable ici, mais `jalons/` est dans le périmètre du balayage projet.
+```
+
+Suite donnée après le verdict : remarque 1 corrigée (`audit_historique.py` compte un fichier non lu ou une
+partition non décompressée comme un échec ; relancé sur `origin/main` : aucune fuite, aucun fichier illisible).
+Remarque 2 : les fichiers PBIR modifiés dans l'arbre de travail sont des retouches Desktop du responsable, non
+commitées, hors de ce jalon. Remarque 3 : le générateur n'émettait que `FA`, avant comme après ; seule la
+contrainte SQL portait l'ancien format, comme prévu.

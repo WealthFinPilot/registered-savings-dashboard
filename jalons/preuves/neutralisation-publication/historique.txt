@@ -1,0 +1,10 @@
+$ git log origin/main --oneline
+dd7d5d7 DashBoard-Finance vE01 : tableau de bord d'épargne enregistrée sur données entièrement fictives
+$ git rev-list --count origin/main
+1
+$ git ls-remote --heads --tags origin
+refs/heads/main
+$ python Generateur-data-fictive/scripts/audit_historique.py . origin/main
+Commits : 1 ; blobs texte distincts : 445
+Résultat : AUCUNE FUITE
+code de sortie : 0

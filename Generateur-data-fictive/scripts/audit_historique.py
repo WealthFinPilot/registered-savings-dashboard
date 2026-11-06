@@ -36,25 +36,32 @@ def main() -> None:
                 continue
             vus[sha] = (c[:7], chemin)
     print(f"Commits : {len(git('rev-list', REV).split())} ; blobs texte distincts : {len(vus)}")
-    total = 0
+    total = illisibles = 0
     for sha, (c, chemin) in vus.items():
+        # Un fichier non lu ou une partition non décompressée n'est pas audité : c'est un échec, jamais un silence
         try:
             t = git("cat-file", "-p", sha)
         except subprocess.CalledProcessError:
+            illisibles += 1
+            print(f"  ILLISIBLE {chemin} (1er commit vu {c}) : blob non lu")
             continue
         textes = {Path(chemin): t}
         if chemin.endswith(".tmdl"):
             try:
                 textes |= b.partitions_figees(textes)
-            except Exception:  # noqa: BLE001
-                pass
+            except Exception as e:  # noqa: BLE001
+                illisibles += 1
+                print(f"  ILLISIBLE {chemin} (1er commit vu {c}) : partition figée non décompressée ({type(e).__name__})")
         for libelle, genre, valeurs in familles:
             n = b.compter(textes, genre, valeurs)
             if n:
                 total += n
                 print(f"  FUITE {libelle} : {n} dans {chemin} (1er commit vu {c})")
-    print(f"Résultat : {'AUCUNE FUITE' if total == 0 else f'{total} occurrence(s)'}")
-    raise SystemExit(1 if total else 0)
+    verdict = "AUCUNE FUITE" if total == 0 else f"{total} occurrence(s)"
+    if illisibles:
+        verdict += f" — ÉCHEC : {illisibles} fichier(s) non audité(s)"
+    print(f"Résultat : {verdict}")
+    raise SystemExit(1 if total or illisibles else 0)
 
 
 main()
