@@ -36,7 +36,7 @@ Auteur : Sébastien Oger.
 | Calcul | **45 vues SQL** (`sql/vues.sql`) : les règles vivent en SQL, le DAX se réduit à des sommes et au chaînage |
 | Jeu fictif | **3 sociétés**, **6 comptes**, **14 fonds**, **1 935 transactions**, **55 749 cours quotidiens**, de novembre 2021 à octobre 2026 |
 | Règles de droits | **15 règles documentées** (R1 à R15), chaque règle fiscale citée avec sa page canada.ca |
-| Générateur | **7 jalons contractualisés**, rejouable à l'identique octet pour octet, **93 tests** pytest |
+| Générateur | **7 jalons contractualisés**, rejouable à l'identique octet pour octet, **261 tests** pytest, tous verts |
 | Contrôle avant publication | balayage de fuite sur le code, les documents et les partitions figées du modèle |
 
 ---
