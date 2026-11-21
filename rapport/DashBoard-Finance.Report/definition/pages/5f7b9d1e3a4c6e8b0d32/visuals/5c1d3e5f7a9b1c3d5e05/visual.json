@@ -212,7 +212,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'CELIAPP'"
+                    "Value": "'CELI'"
                   }
                 }
               ],
@@ -222,7 +222,7 @@
                   "identityValues": [
                     {
                       "Literal": {
-                        "Value": "'CELIAPP-1'"
+                        "Value": "'CELI-1'"
                       }
                     }
                   ],
@@ -232,7 +232,7 @@
                       "identityValues": [
                         {
                           "Literal": {
-                            "Value": "'Faible'"
+                            "Value": "'Moyen'"
                           }
                         }
                       ],
