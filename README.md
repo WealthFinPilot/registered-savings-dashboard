@@ -12,6 +12,13 @@
 ![PBIP](https://img.shields.io/badge/format-PBIP%20%2F%20TMDL-0A66C2)
 ![Données fictives](https://img.shields.io/badge/donn%C3%A9es-100%20%25%20fictives-2E7D32)
 
+### → [sebastienoger.ca/projets/investment-insights](https://sebastienoger.ca/projets/investment-insights)
+
+Le rapport publié, en ligne : cinq pages interactives sur le jeu fictif. Rien à installer, aucun
+identifiant — ouvrir et cliquer.
+
+---
+
 Un épargnant détient des comptes CELI, CELIAPP, REER et non enregistrés chez **trois sociétés de
 fonds**, chacune avec son conseiller. Aucun conseiller ne voit ce que font les autres : deux d'entre
 eux peuvent remplir le même plafond sans le savoir, ou bâtir la même stratégie dans deux régimes.
@@ -53,7 +60,9 @@ Auteur : Sébastien Oger.
 
 ## Le rapport
 
-Captures prises dans Power BI Desktop sur le jeu fictif, arrêté au 30 octobre 2026.
+**[→ sebastienoger.ca/projets/investment-insights](https://sebastienoger.ca/projets/investment-insights)** —
+les captures ci-dessous en sont des images fixes ; segments, info-bulles et navigation ne
+fonctionnent que dans la version en ligne. Captures prises sur le jeu fictif, arrêté au 30 octobre 2026.
 
 ### Droits — combien reste-t-il à cotiser, et qui verse quoi
 
@@ -190,7 +199,8 @@ Pour aller plus loin :
 
 ## Ouvrir le rapport
 
-Ouvrir `rapport/DashBoard-Finance.pbip` dans Power BI Desktop, puis **Actualiser**. Aucune base, aucun
+Le plus simple : la [version en ligne](https://sebastienoger.ca/projets/investment-insights).
+En local, ouvrir `rapport/DashBoard-Finance.pbip` dans Power BI Desktop, puis **Actualiser**. Aucune base, aucun
 identifiant : les tables sont embarquées dans le modèle.
 
 ### Reconstruire de zéro (facultatif)
